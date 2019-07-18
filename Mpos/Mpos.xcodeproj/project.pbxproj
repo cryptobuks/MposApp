@@ -32,6 +32,9 @@
 		D39E335A22E0EA1D0079B0AA /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D39E335022E0EA1D0079B0AA /* Ubuntu-B.ttf */; };
 		D39E335B22E0EA1D0079B0AA /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D39E335122E0EA1D0079B0AA /* Ubuntu-C.ttf */; };
 		D39E335C22E0EA1D0079B0AA /* Ubuntu-RI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D39E335222E0EA1D0079B0AA /* Ubuntu-RI.ttf */; };
+		D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */; };
+		D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */; };
+		D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		D39E335022E0EA1D0079B0AA /* Ubuntu-B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-B.ttf"; sourceTree = "<group>"; };
 		D39E335122E0EA1D0079B0AA /* Ubuntu-C.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-C.ttf"; sourceTree = "<group>"; };
 		D39E335222E0EA1D0079B0AA /* Ubuntu-RI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-RI.ttf"; sourceTree = "<group>"; };
+		D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContentTableViewCell.swift; sourceTree = "<group>"; };
 		DCC07FDA68A9F6A08E3CCC8D /* Pods-Mpos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mpos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mpos/Pods-Mpos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				D39E334622E0E7C20079B0AA /* SideMenuVC.swift */,
+				D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */,
+				D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */,
+				D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -252,6 +261,7 @@
 				D39E335B22E0EA1D0079B0AA /* Ubuntu-C.ttf in Resources */,
 				D39E335322E0EA1D0079B0AA /* Ubuntu-M.ttf in Resources */,
 				D39E335622E0EA1D0079B0AA /* Ubuntu-Th.ttf in Resources */,
+				D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */,
 				D378CB3C22DF9B19004B51AC /* Assets.xcassets in Resources */,
 				D39E335922E0EA1D0079B0AA /* Ubuntu-LI.ttf in Resources */,
 				D39E335822E0EA1D0079B0AA /* Ubuntu-R.ttf in Resources */,
@@ -318,8 +328,10 @@
 			files = (
 				D378CB4C22DF9B6B004B51AC /* UserDefaultManager.swift in Sources */,
 				D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */,
+				D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */,
 				D378CB3A22DF9B13004B51AC /* Mpos.xcdatamodeld in Sources */,
 				D378CB4B22DF9B6B004B51AC /* Constant.swift in Sources */,
+				D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */,
 				D39E334722E0E7C20079B0AA /* SideMenuVC.swift in Sources */,
 				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,
 				D38EB80A22DFA159009FFDFF /* MainReqeustClass.swift in Sources */,

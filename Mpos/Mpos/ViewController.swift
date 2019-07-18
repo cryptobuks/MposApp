@@ -50,5 +50,12 @@ class ViewController: UIViewController {
         skipBtn.isHidden = true
         onboardingContainer.removeFromSuperview()
     }
+    
+    @IBAction func openSidebar(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
