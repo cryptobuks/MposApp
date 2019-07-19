@@ -37,6 +37,38 @@ let kNoUpdatesAvailable = "No Updates Avilable"
 let kQuestionPaperFormate = "yyyy-MM-dd'T'HH:mm:ss"
 let passWord_MAX = 20
 let JAVA_SCRIPT_SEPARATOR_CONSTANT = "||"//"~"
+let kAlertEnterEmailId = "Please enter your email address"
+let kAlertEnterPassword = "Please enter your password"
+let kAlertEnterEmailPasswd = "Please enter your email address and password"
+let kAlertInvalidEmailId = "Please enter a valid email address."
+let kREG_EX_FOR_EMAIL = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+let kIsRememberPassword = "IsRememberPassword"
+
+// Listing constant
+let kCellOfClientListing = "ClientDetailCell"
+
+let isIpad = Device.IS_IPAD
+
+struct Device {
+    // iDevice detection code
+    static let IS_IPAD             = UIDevice.current.userInterfaceIdiom == .pad
+    static let IS_IPHONE           = UIDevice.current.userInterfaceIdiom == .phone
+    static let IS_RETINA           = UIScreen.main.scale >= 2.0
+    
+    static let SCREEN_WIDTH        = Int(UIScreen.main.bounds.size.width)
+    static let SCREEN_HEIGHT       = Int(UIScreen.main.bounds.size.height)
+    static let SCREEN_MAX_LENGTH   = Int( max(SCREEN_WIDTH, SCREEN_HEIGHT) )
+    static let SCREEN_MIN_LENGTH   = Int( min(SCREEN_WIDTH, SCREEN_HEIGHT) )
+    
+    static let IS_IPHONE_4_OR_LESS = IS_IPHONE && SCREEN_MAX_LENGTH  < 568
+    static let IS_IPHONE_5         = IS_IPHONE && SCREEN_MAX_LENGTH == 568
+    static let IS_IPHONE_6         = IS_IPHONE && SCREEN_MAX_LENGTH == 667
+    static let IS_IPHONE_6P        = IS_IPHONE && SCREEN_MAX_LENGTH == 736
+    static let IS_IPHONE_X         = IS_IPHONE && SCREEN_MAX_LENGTH == 812
+    static let IS_IPHONE_XR         = IS_IPHONE && SCREEN_MAX_LENGTH == 812
+    static let IS_IPHONE_XS         = IS_IPHONE && SCREEN_MAX_LENGTH == 812
+    static let IS_IPHONE_XMAX         = IS_IPHONE && SCREEN_MAX_LENGTH == 812
+}
 
 struct DateFormats {
     static let serverDate = "yyyy-MM-dd"
@@ -201,4 +233,12 @@ func showAlertWithAction(title:String,message1:String,arrAction:[UIAlertAction])
         alert.addAction(action)
     }
     appDelegate.window?.rootViewController?.present(alert, animated: true, completion: nil)
+}
+
+func validEmailAddress(_ emailString: String) -> Bool
+{
+    let regExPattern: String = kREG_EX_FOR_EMAIL
+    let emailPredicate = NSPredicate(format:"SELF MATCHES %@", regExPattern)
+    return emailPredicate.evaluate(with: emailString)
+    // email valid
 }

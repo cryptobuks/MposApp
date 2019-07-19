@@ -35,6 +35,14 @@
 		D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */; };
 		D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */; };
 		D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */; };
+		D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */; };
+		D3D4BF3D22E174DF00FB39BD /* InvoiceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */; };
+		D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */; };
+		D3D4BF3F22E174DF00FB39BD /* ClientDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF3B22E174DF00FB39BD /* ClientDetailCell.swift */; };
+		D3D4BF4522E1754600FB39BD /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF4222E1754600FB39BD /* SkyFloatingLabelTextField.swift */; };
+		D3D4BF4622E1754600FB39BD /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF4322E1754600FB39BD /* UITextField+fixCaretPosition.swift */; };
+		D3D4BF4722E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF4422E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		D3D4BF4922E1775C00FB39BD /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF4822E1775B00FB39BD /* AppColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +77,14 @@
 		D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContentTableViewCell.swift; sourceTree = "<group>"; };
+		D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InvoiceList.storyboard; sourceTree = "<group>"; };
+		D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceListingVC.swift; sourceTree = "<group>"; };
+		D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientDetailCell.xib; sourceTree = "<group>"; };
+		D3D4BF3B22E174DF00FB39BD /* ClientDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetailCell.swift; sourceTree = "<group>"; };
+		D3D4BF4222E1754600FB39BD /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		D3D4BF4322E1754600FB39BD /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		D3D4BF4422E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		D3D4BF4822E1775B00FB39BD /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		DCC07FDA68A9F6A08E3CCC8D /* Pods-Mpos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mpos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mpos/Pods-Mpos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +148,8 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+				D3D4BF4022E1753400FB39BD /* Shared */,
+				D3D4BF3622E174DF00FB39BD /* ClientListing */,
 				D39E334822E0EA1D0079B0AA /* Fonts */,
 				D39E334522E0E7A30079B0AA /* SideMenu */,
 				D35197D922E021320051FE0F /* Onboarding */,
@@ -151,6 +169,7 @@
 		D378CB4622DF9B4E004B51AC /* CommonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D3D4BF4822E1775B00FB39BD /* AppColors.swift */,
 				D378CB4722DF9B6B004B51AC /* AppUtils.swift */,
 				D378CB4822DF9B6B004B51AC /* Constant.swift */,
 				D378CB4922DF9B6B004B51AC /* UserDefaultManager.swift */,
@@ -193,6 +212,43 @@
 				D39E335222E0EA1D0079B0AA /* Ubuntu-RI.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D3D4BF3622E174DF00FB39BD /* ClientListing */ = {
+			isa = PBXGroup;
+			children = (
+				D3D4BF3722E174DF00FB39BD /* Invoice Listing */,
+				D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */,
+				D3D4BF3B22E174DF00FB39BD /* ClientDetailCell.swift */,
+			);
+			path = ClientListing;
+			sourceTree = "<group>";
+		};
+		D3D4BF3722E174DF00FB39BD /* Invoice Listing */ = {
+			isa = PBXGroup;
+			children = (
+				D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */,
+				D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */,
+			);
+			path = "Invoice Listing";
+			sourceTree = "<group>";
+		};
+		D3D4BF4022E1753400FB39BD /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D3D4BF4122E1754600FB39BD /* SkyfloatingTextfield */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D3D4BF4122E1754600FB39BD /* SkyfloatingTextfield */ = {
+			isa = PBXGroup;
+			children = (
+				D3D4BF4222E1754600FB39BD /* SkyFloatingLabelTextField.swift */,
+				D3D4BF4322E1754600FB39BD /* UITextField+fixCaretPosition.swift */,
+				D3D4BF4422E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift */,
+			);
+			path = SkyfloatingTextfield;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,11 +318,13 @@
 				D39E335322E0EA1D0079B0AA /* Ubuntu-M.ttf in Resources */,
 				D39E335622E0EA1D0079B0AA /* Ubuntu-Th.ttf in Resources */,
 				D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */,
+				D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */,
 				D378CB3C22DF9B19004B51AC /* Assets.xcassets in Resources */,
 				D39E335922E0EA1D0079B0AA /* Ubuntu-LI.ttf in Resources */,
 				D39E335822E0EA1D0079B0AA /* Ubuntu-R.ttf in Resources */,
 				D39E335C22E0EA1D0079B0AA /* Ubuntu-RI.ttf in Resources */,
 				D378CB3722DF9B13004B51AC /* Main.storyboard in Resources */,
+				D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */,
 				D39E335722E0EA1D0079B0AA /* Ubuntu-MI.ttf in Resources */,
 				D39E335A22E0EA1D0079B0AA /* Ubuntu-B.ttf in Resources */,
 			);
@@ -328,14 +386,20 @@
 			files = (
 				D378CB4C22DF9B6B004B51AC /* UserDefaultManager.swift in Sources */,
 				D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */,
+				D3D4BF4622E1754600FB39BD /* UITextField+fixCaretPosition.swift in Sources */,
 				D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */,
 				D378CB3A22DF9B13004B51AC /* Mpos.xcdatamodeld in Sources */,
+				D3D4BF3D22E174DF00FB39BD /* InvoiceListingVC.swift in Sources */,
 				D378CB4B22DF9B6B004B51AC /* Constant.swift in Sources */,
 				D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */,
 				D39E334722E0E7C20079B0AA /* SideMenuVC.swift in Sources */,
+				D3D4BF4922E1775C00FB39BD /* AppColors.swift in Sources */,
+				D3D4BF4722E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,
+				D3D4BF4522E1754600FB39BD /* SkyFloatingLabelTextField.swift in Sources */,
 				D38EB80A22DFA159009FFDFF /* MainReqeustClass.swift in Sources */,
 				D38EB80922DFA159009FFDFF /* WSConstant.swift in Sources */,
+				D3D4BF3F22E174DF00FB39BD /* ClientDetailCell.swift in Sources */,
 				D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */,
 				D378CB4A22DF9B6B004B51AC /* AppUtils.swift in Sources */,
 			);

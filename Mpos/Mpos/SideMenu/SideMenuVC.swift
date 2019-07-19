@@ -91,6 +91,33 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
         {
             cell.imgIcon.image = UIImage(named: dicData["imgIcon"] as! String)
             cell.lblTitle.text = dicData["Title"] as? String
+            
+            if indexPath.row > 2
+            {
+                cell.lblTitle.font = UIFont(name: "Ubuntu", size: 14.0)
+                cell.lblTitle.textColor = UIColor(red: 177.0/255.0, green: 177.0/255.0, blue: 177.0/255.0, alpha: 1.0)
+            }
+            else
+            {
+                switch(indexPath.row)
+                {
+                case 0:
+                    cell.lblTitle.textColor = AppColors.kOrangeColor
+                    break
+                    
+                case 1:
+                    cell.lblTitle.textColor = AppColors.kPurpulColor
+                    break
+                    
+                case 2:
+                    cell.lblTitle.textColor = AppColors.kGreenColor
+                    break
+                    
+                default:
+                    break
+                }
+                cell.lblTitle.font = UIFont(name: "Ubuntu-Bold", size: 14.0)
+            }
         }
         return cell
     }

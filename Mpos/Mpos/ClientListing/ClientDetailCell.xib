@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Ubuntu-B.ttf">
+            <string>Ubuntu-Bold</string>
+        </array>
+        <array key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="213" id="KGk-i7-Jjw" customClass="ClientDetailCell" customModule="Mpos" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="161.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ld-Tv-xl0">
+                        <rect key="frame" x="10" y="5" width="300" height="151.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLIENTE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX6-a9-wcB">
+                                <rect key="frame" x="8" y="17" width="282" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bxP-ku-J8M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.56470588235294117" green="0.73725490196078436" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vera Lúcia Andrade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qch-le-7yS">
+                                <rect key="frame" x="8" y="46" width="282" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="245 319 873" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPv-4N-g1p">
+                                <rect key="frame" x="10" y="110.5" width="134.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="WyC-VT-G6L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECIBOS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSM-RT-F9M">
+                                <rect key="frame" x="155.5" y="86.5" width="134.5" height="21"/>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.56470588235294117" green="0.73725490196078436" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 - 400€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlE-DG-YTm">
+                                <rect key="frame" x="155.5" y="110.5" width="134.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="LFM-sE-wRI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gih-tR-871">
+                                <rect key="frame" x="149.5" y="121" width="1" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="5E2-R6-Eww"/>
+                                    <constraint firstAttribute="height" constant="21" id="hWn-21-TL9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfc-Mw-Gjb">
+                                <rect key="frame" x="10" y="86.5" width="134.5" height="21"/>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.56470588235294117" green="0.73725490196078436" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qch-le-7yS" firstAttribute="top" secondItem="bX6-a9-wcB" secondAttribute="bottom" constant="8" id="0fw-J2-vHv"/>
+                            <constraint firstItem="OL3-w2-0Cm" firstAttribute="bottom" secondItem="BlE-DG-YTm" secondAttribute="bottom" constant="20" id="4mi-BM-jSn"/>
+                            <constraint firstItem="wfc-Mw-Gjb" firstAttribute="height" secondItem="iPv-4N-g1p" secondAttribute="height" id="85u-rZ-2iH"/>
+                            <constraint firstItem="OL3-w2-0Cm" firstAttribute="trailing" secondItem="qch-le-7yS" secondAttribute="trailing" constant="10" id="8Er-k7-wgw"/>
+                            <constraint firstItem="NSM-RT-F9M" firstAttribute="height" secondItem="BlE-DG-YTm" secondAttribute="height" id="9Py-cA-zDc"/>
+                            <constraint firstItem="iPv-4N-g1p" firstAttribute="leading" secondItem="OL3-w2-0Cm" secondAttribute="leading" constant="10" id="9gp-OV-Zqa"/>
+                            <constraint firstItem="wfc-Mw-Gjb" firstAttribute="width" secondItem="iPv-4N-g1p" secondAttribute="width" id="CcG-a8-uOS"/>
+                            <constraint firstItem="OL3-w2-0Cm" firstAttribute="trailing" secondItem="BlE-DG-YTm" secondAttribute="trailing" constant="10" id="EeR-7j-pzC"/>
+                            <constraint firstItem="OL3-w2-0Cm" firstAttribute="bottom" secondItem="Gih-tR-871" secondAttribute="bottom" constant="9.5" id="Haw-1a-FGG"/>
+                            <constraint firstItem="wfc-Mw-Gjb" firstAttribute="trailing" secondItem="iPv-4N-g1p" secondAttribute="trailing" id="IXK-Y6-ep2"/>
+                            <constraint firstItem="Gih-tR-871" firstAttribute="centerX" secondItem="4Ld-Tv-xl0" secondAttribute="centerX" id="Min-I8-S6Z"/>
+                            <constraint firstItem="iPv-4N-g1p" firstAttribute="top" secondItem="wfc-Mw-Gjb" secondAttribute="bottom" constant="3" id="Ndm-zn-V5j"/>
+                            <constraint firstItem="NSM-RT-F9M" firstAttribute="trailing" secondItem="BlE-DG-YTm" secondAttribute="trailing" id="Q8Q-24-csI"/>
+                            <constraint firstItem="NSM-RT-F9M" firstAttribute="leading" secondItem="BlE-DG-YTm" secondAttribute="leading" id="RR5-qG-SS1"/>
+                            <constraint firstItem="OL3-w2-0Cm" firstAttribute="trailing" secondItem="bX6-a9-wcB" secondAttribute="trailing" constant="10" id="TU6-dn-JI5"/>
+                            <constraint firstItem="BlE-DG-YTm" firstAttribute="top" secondItem="NSM-RT-F9M" secondAttribute="bottom" constant="3" id="ZUp-zh-miv"/>
+                            <constraint firstItem="bX6-a9-wcB" firstAttribute="top" secondItem="OL3-w2-0Cm" secondAttribute="top" constant="17" id="c7P-y1-Ksc"/>
+                            <constraint firstItem="wfc-Mw-Gjb" firstAttribute="top" secondItem="qch-le-7yS" secondAttribute="bottom" constant="20" id="dhX-T7-CaH"/>
+                            <constraint firstItem="OL3-w2-0Cm" firstAttribute="bottom" secondItem="iPv-4N-g1p" secondAttribute="bottom" constant="20" id="dqL-ld-zTT"/>
+                            <constraint firstItem="qch-le-7yS" firstAttribute="leading" secondItem="OL3-w2-0Cm" secondAttribute="leading" constant="8" id="eeZ-3z-uHb"/>
+                            <constraint firstItem="BlE-DG-YTm" firstAttribute="leading" secondItem="Gih-tR-871" secondAttribute="trailing" constant="5" id="hsQ-yU-hlI"/>
+                            <constraint firstItem="bX6-a9-wcB" firstAttribute="leading" secondItem="OL3-w2-0Cm" secondAttribute="leading" constant="8" id="qWU-p4-lWf"/>
+                            <constraint firstItem="wfc-Mw-Gjb" firstAttribute="leading" secondItem="iPv-4N-g1p" secondAttribute="leading" id="rcP-Gq-HI0"/>
+                            <constraint firstItem="Gih-tR-871" firstAttribute="leading" secondItem="iPv-4N-g1p" secondAttribute="trailing" constant="5" id="uA5-fe-3X7"/>
+                            <constraint firstItem="NSM-RT-F9M" firstAttribute="width" secondItem="BlE-DG-YTm" secondAttribute="width" id="vUC-eW-vlw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OL3-w2-0Cm"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="4Ld-Tv-xl0" secondAttribute="trailing" constant="10" id="4wc-in-R3b"/>
+                    <constraint firstItem="4Ld-Tv-xl0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="LGQ-ZW-2Bz"/>
+                    <constraint firstItem="4Ld-Tv-xl0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dK2-jV-L7R"/>
+                    <constraint firstAttribute="bottom" secondItem="4Ld-Tv-xl0" secondAttribute="bottom" constant="5" id="uKO-nC-Q3X"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblCaptionClientName" destination="bX6-a9-wcB" id="PIo-NK-sRv"/>
+                <outlet property="lblCaptionNIF" destination="wfc-Mw-Gjb" id="KpG-oy-BeQ"/>
+                <outlet property="lblCaptionRECIBOS" destination="NSM-RT-F9M" id="3r7-9w-3qV"/>
+                <outlet property="lblClientName" destination="qch-le-7yS" id="UBI-yb-JTb"/>
+                <outlet property="lblNIFValue" destination="iPv-4N-g1p" id="g7s-Sa-eDa"/>
+                <outlet property="lblRECIBOSValue" destination="BlE-DG-YTm" id="4d3-fd-2oz"/>
+                <outlet property="vwBackground" destination="4Ld-Tv-xl0" id="dth-tg-ibl"/>
+            </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="200.59970014992504"/>
+        </tableViewCell>
+    </objects>
+</document>
