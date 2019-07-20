@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */; };
+		D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317FAA822E2CE7300331680 /* DashboardVC.swift */; };
+		D346ACBB22E3636A001975E6 /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */; };
 		D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35197DA22E021A30051FE0F /* OnboardingViewController.swift */; };
 		D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB3122DF9B13004B51AC /* AppDelegate.swift */; };
 		D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB3322DF9B13004B51AC /* ViewController.swift */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		5025BF4792451C800187164E /* Pods-Mpos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mpos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mpos/Pods-Mpos.release.xcconfig"; sourceTree = "<group>"; };
 		AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mpos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D317FAA822E2CE7300331680 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
 		D35197DA22E021A30051FE0F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D378CB2E22DF9B13004B51AC /* Mpos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mpos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D378CB3122DF9B13004B51AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +123,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D317FAA722E2CD1F00331680 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D317FAA822E2CE7300331680 /* DashboardVC.swift */,
+				D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		D35197D922E021320051FE0F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +161,7 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+				D317FAA722E2CD1F00331680 /* Dashboard */,
 				D3D4BF4022E1753400FB39BD /* Shared */,
 				D3D4BF3622E174DF00FB39BD /* ClientListing */,
 				D39E334822E0EA1D0079B0AA /* Fonts */,
@@ -391,8 +405,10 @@
 				D378CB3A22DF9B13004B51AC /* Mpos.xcdatamodeld in Sources */,
 				D3D4BF3D22E174DF00FB39BD /* InvoiceListingVC.swift in Sources */,
 				D378CB4B22DF9B6B004B51AC /* Constant.swift in Sources */,
+				D346ACBB22E3636A001975E6 /* CategoryListTableViewCell.swift in Sources */,
 				D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */,
 				D39E334722E0E7C20079B0AA /* SideMenuVC.swift in Sources */,
+				D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */,
 				D3D4BF4922E1775C00FB39BD /* AppColors.swift in Sources */,
 				D3D4BF4722E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,

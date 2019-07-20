@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController
+{
     @IBOutlet weak var onboardingContainer: UIView!
     @IBOutlet weak var skipBtn: UIButton!
 
@@ -66,12 +66,7 @@ class ViewController: UIViewController {
         onboardingContainer.removeFromSuperview()
     }
     
-    @IBAction func openSidebar(_ sender: UIButton)
-    {
-        let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
+   
 }
 
 extension ViewController {
@@ -82,6 +77,9 @@ extension ViewController {
         if self.doValidation() {
             
             // api call
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
     
@@ -96,9 +94,6 @@ extension ViewController {
         
         // forgot password logic
     }
-    
-    
-    
     
     //set visibility for password in SignUp
     @IBAction func btnSEtVisibilityPasswordLogin(_ sender: UIButton) {
