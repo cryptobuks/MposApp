@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51C930922E2BBBA00AC280D /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C930822E2BBBA00AC280D /* SearchVC.swift */; };
+		A51C930B22E2BBCC00AC280D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A51C930A22E2BBCC00AC280D /* Search.storyboard */; };
 		B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */; };
 		D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35197DA22E021A30051FE0F /* OnboardingViewController.swift */; };
 		D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB3122DF9B13004B51AC /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		5025BF4792451C800187164E /* Pods-Mpos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mpos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mpos/Pods-Mpos.release.xcconfig"; sourceTree = "<group>"; };
+		A51C930822E2BBBA00AC280D /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		A51C930A22E2BBCC00AC280D /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mpos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35197DA22E021A30051FE0F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D378CB2E22DF9B13004B51AC /* Mpos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mpos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +114,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A51C930722E2BB9800AC280D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A51C930822E2BBBA00AC280D /* SearchVC.swift */,
+				A51C930A22E2BBCC00AC280D /* Search.storyboard */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		BBAE67FB76051E6E469355CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,12 +161,11 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+				A51C930722E2BB9800AC280D /* Search */,
 				D3D4BF4022E1753400FB39BD /* Shared */,
 				D3D4BF3622E174DF00FB39BD /* ClientListing */,
-				D39E334822E0EA1D0079B0AA /* Fonts */,
 				D39E334522E0E7A30079B0AA /* SideMenu */,
 				D35197D922E021320051FE0F /* Onboarding */,
-				D38EB80622DFA139009FFDFF /* WebServiceClasses */,
 				D378CB4622DF9B4E004B51AC /* CommonFiles */,
 				D378CB3122DF9B13004B51AC /* AppDelegate.swift */,
 				D378CB3322DF9B13004B51AC /* ViewController.swift */,
@@ -236,6 +248,8 @@
 		D3D4BF4022E1753400FB39BD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D38EB80622DFA139009FFDFF /* WebServiceClasses */,
+				D39E334822E0EA1D0079B0AA /* Fonts */,
 				D3D4BF4122E1754600FB39BD /* SkyfloatingTextfield */,
 			);
 			path = Shared;
@@ -326,6 +340,7 @@
 				D378CB3722DF9B13004B51AC /* Main.storyboard in Resources */,
 				D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */,
 				D39E335722E0EA1D0079B0AA /* Ubuntu-MI.ttf in Resources */,
+				A51C930B22E2BBCC00AC280D /* Search.storyboard in Resources */,
 				D39E335A22E0EA1D0079B0AA /* Ubuntu-B.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,25 +371,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Mpos/Pods-Mpos-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mpos/Pods-Mpos-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mpos/Pods-Mpos-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mpos/Pods-Mpos-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mpos/Pods-Mpos-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -393,6 +399,7 @@
 				D378CB4B22DF9B6B004B51AC /* Constant.swift in Sources */,
 				D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */,
 				D39E334722E0E7C20079B0AA /* SideMenuVC.swift in Sources */,
+				A51C930922E2BBBA00AC280D /* SearchVC.swift in Sources */,
 				D3D4BF4922E1775C00FB39BD /* AppColors.swift in Sources */,
 				D3D4BF4722E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,
@@ -559,7 +566,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -580,7 +587,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
