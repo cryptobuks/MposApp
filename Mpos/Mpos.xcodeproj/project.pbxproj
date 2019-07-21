@@ -46,6 +46,8 @@
 		D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */; };
 		D3A3684E22E4CAFE0095432C /* MposPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3684D22E4CAFE0095432C /* MposPinVC.swift */; };
 		D3A3685022E4CDD80095432C /* MposReferenciaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3684F22E4CDD80095432C /* MposReferenciaVC.swift */; };
+		D3A3685322E4E24B0095432C /* MposErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3685222E4E24B0095432C /* MposErrorVC.swift */; };
+		D3A3685522E4E2690095432C /* MposError.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A3685422E4E2690095432C /* MposError.storyboard */; };
 		D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */; };
 		D3D4BF3D22E174DF00FB39BD /* InvoiceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */; };
 		D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */; };
@@ -99,6 +101,8 @@
 		D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContentTableViewCell.swift; sourceTree = "<group>"; };
 		D3A3684D22E4CAFE0095432C /* MposPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposPinVC.swift; sourceTree = "<group>"; };
 		D3A3684F22E4CDD80095432C /* MposReferenciaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposReferenciaVC.swift; sourceTree = "<group>"; };
+		D3A3685222E4E24B0095432C /* MposErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposErrorVC.swift; sourceTree = "<group>"; };
+		D3A3685422E4E2690095432C /* MposError.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MposError.storyboard; sourceTree = "<group>"; };
 		D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InvoiceList.storyboard; sourceTree = "<group>"; };
 		D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceListingVC.swift; sourceTree = "<group>"; };
 		D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientDetailCell.xib; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+				D3A3685122E4E2350095432C /* ErrorClass */,
 				D31E97F322E44F14001BE76F /* Payment */,
 				A51C930722E2BB9800AC280D /* Search */,
 				D317FAA722E2CD1F00331680 /* Dashboard */,
@@ -267,6 +272,15 @@
 				D39E335222E0EA1D0079B0AA /* Ubuntu-RI.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D3A3685122E4E2350095432C /* ErrorClass */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3685222E4E24B0095432C /* MposErrorVC.swift */,
+				D3A3685422E4E2690095432C /* MposError.storyboard */,
+			);
+			path = ErrorClass;
 			sourceTree = "<group>";
 		};
 		D3D4BF3622E174DF00FB39BD /* ClientListing */ = {
@@ -378,6 +392,7 @@
 				D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */,
 				D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */,
 				D378CB3C22DF9B19004B51AC /* Assets.xcassets in Resources */,
+				D3A3685522E4E2690095432C /* MposError.storyboard in Resources */,
 				D39E335922E0EA1D0079B0AA /* Ubuntu-LI.ttf in Resources */,
 				D39E335822E0EA1D0079B0AA /* Ubuntu-R.ttf in Resources */,
 				D39E335C22E0EA1D0079B0AA /* Ubuntu-RI.ttf in Resources */,
@@ -448,6 +463,7 @@
 				A51C930922E2BBBA00AC280D /* SearchVC.swift in Sources */,
 				D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */,
 				D3D4BF4922E1775C00FB39BD /* AppColors.swift in Sources */,
+				D3A3685322E4E24B0095432C /* MposErrorVC.swift in Sources */,
 				D3D4BF4722E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,
 				D3D4BF4522E1754600FB39BD /* SkyFloatingLabelTextField.swift in Sources */,

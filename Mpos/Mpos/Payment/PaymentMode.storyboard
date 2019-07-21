@@ -420,16 +420,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Mpin" translatesAutoresizingMaskIntoConstraints="NO" id="mZe-j3-mxe">
-                                <rect key="frame" x="20" y="40" width="280.00000000000006" height="284"/>
+                                <rect key="frame" x="20" y="40" width="280" height="284"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INTRODUZIR O CARTÃO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbR-Cs-8Hl">
-                                <rect key="frame" x="8" y="332" width="304" height="27"/>
+                                <rect key="frame" x="8" y="332" width="304" height="28"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                                 <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Utilize o POS para efetuar a operação pretendida." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdd-N4-a11">
-                                <rect key="frame" x="8" y="389" width="304" height="36"/>
+                                <rect key="frame" x="8" y="390" width="304" height="37.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

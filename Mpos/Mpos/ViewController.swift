@@ -48,6 +48,10 @@ class ViewController: UIViewController
        
     }
     
+    /*
+     Screen 8 | Onboarding
+     The “Mpos_onboarding”, “Mpos_onboarding – 1”, “Mpos_onboarding – 2” screens represent the onboarding panel for this app. They should appear on the first ever login of a user.
+     */
     func setOnboardingUI()
     {
         onboardingContainer.frame = CGRect(x: 0, y: 0, width: MainScreen.width, height: MainScreen.height)
