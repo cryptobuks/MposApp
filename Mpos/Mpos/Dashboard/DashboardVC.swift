@@ -95,5 +95,15 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentMethodListVC") as! PaymentMethodListVC
+        if let dicData = arrRows[indexPath.row] as? [String:Any]
+        {
+            controller.selectedCategoryColor = (dicData["Color"] as? UIColor)!
+        }
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
   
 }

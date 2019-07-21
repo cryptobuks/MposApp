@@ -32,6 +32,9 @@ class ViewController: UIViewController
         self.txtfdPassword.isSecureTextEntry = false
         lblEmail.text = lblEmail.text!.uppercased()
         lblPassword.text = lblPassword.text!.uppercased()
+        
+        txtfdEmail.text = "test@gmail.com"
+        txtfdPassword.text = "test"
 
 //        if UserDefaultManager.SharedInstance.isOnboardingComplete()
 //        {
