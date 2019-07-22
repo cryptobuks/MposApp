@@ -33,6 +33,9 @@ class ViewController: UIViewController
         self.txtfdPassword.isSecureTextEntry = false
         lblEmail.text = lblEmail.text!.uppercased()
         lblPassword.text = lblPassword.text!.uppercased()
+        
+        txtfdEmail.text = "test@gmail.com"
+        txtfdPassword.text = "test"
 
         if Device.IS_IPHONE && Device.SCREEN_HEIGHT < 568
         {
@@ -56,6 +59,10 @@ class ViewController: UIViewController
        
     }
     
+    /*
+     Screen 8 | Onboarding
+     The “Mpos_onboarding”, “Mpos_onboarding – 1”, “Mpos_onboarding – 2” screens represent the onboarding panel for this app. They should appear on the first ever login of a user.
+     */
     func setOnboardingUI()
     {
         onboardingContainer.frame = CGRect(x: 0, y: 0, width: MainScreen.width, height: MainScreen.height)

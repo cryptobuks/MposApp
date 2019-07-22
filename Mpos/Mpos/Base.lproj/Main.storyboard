@@ -437,6 +437,7 @@
                                             <constraint firstAttribute="width" constant="78" id="B3c-iL-Vjt"/>
                                             <constraint firstAttribute="height" constant="52" id="Mq1-5t-efg"/>
                                         </constraints>
+                                        <color key="tintColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="ic_sidebar"/>
                                         <connections>
                                             <action selector="openSidebar:" destination="wA9-yv-LkF" eventType="touchUpInside" id="1Wx-ig-lxb"/>

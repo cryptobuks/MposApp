@@ -9,12 +9,24 @@
 /* Begin PBXBuildFile section */
 		A51C930922E2BBBA00AC280D /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C930822E2BBBA00AC280D /* SearchVC.swift */; };
 		A51C930B22E2BBCC00AC280D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A51C930A22E2BBCC00AC280D /* Search.storyboard */; };
+<<<<<<< HEAD
 		A521CC8A22E44FD700F87701 /* ClientDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521CC8922E44FD700F87701 /* ClientDetailsVC.swift */; };
 		A5BEA8CB22E446ED0077B0ED /* LogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BEA8CA22E446ED0077B0ED /* LogoutVC.swift */; };
 		B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */; };
 		D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317FAA822E2CE7300331680 /* DashboardVC.swift */; };
 		D346ACBB22E3636A001975E6 /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */; };
 		D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35197DA22E021A30051FE0F /* OnboardingViewController.swift */; };
+=======
+		B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */; };
+		D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317FAA822E2CE7300331680 /* DashboardVC.swift */; };
+		D31E97F522E44F58001BE76F /* PaymentMethodListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E97F422E44F58001BE76F /* PaymentMethodListVC.swift */; };
+		D31E97F722E44F9A001BE76F /* PaymentSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E97F622E44F9A001BE76F /* PaymentSuccessVC.swift */; };
+		D31E97F922E44FAE001BE76F /* PaymentMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31E97F822E44FAE001BE76F /* PaymentMode.storyboard */; };
+		D31E97FB22E47BBC001BE76F /* PaymentMethodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E97FA22E47BBC001BE76F /* PaymentMethodListTableViewCell.swift */; };
+		D346ACBB22E3636A001975E6 /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */; };
+		D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35197DA22E021A30051FE0F /* OnboardingViewController.swift */; };
+		D35ADD8822E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35ADD8722E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift */; };
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 		D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB3122DF9B13004B51AC /* AppDelegate.swift */; };
 		D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB3322DF9B13004B51AC /* ViewController.swift */; };
 		D378CB3722DF9B13004B51AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D378CB3522DF9B13004B51AC /* Main.storyboard */; };
@@ -41,6 +53,13 @@
 		D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */; };
 		D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */; };
 		D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */; };
+<<<<<<< HEAD
+=======
+		D3A3684E22E4CAFE0095432C /* MposPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3684D22E4CAFE0095432C /* MposPinVC.swift */; };
+		D3A3685022E4CDD80095432C /* MposReferenciaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3684F22E4CDD80095432C /* MposReferenciaVC.swift */; };
+		D3A3685322E4E24B0095432C /* MposErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3685222E4E24B0095432C /* MposErrorVC.swift */; };
+		D3A3685522E4E2690095432C /* MposError.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A3685422E4E2690095432C /* MposError.storyboard */; };
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 		D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */; };
 		D3D4BF3D22E174DF00FB39BD /* InvoiceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */; };
 		D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */; };
@@ -55,12 +74,24 @@
 		5025BF4792451C800187164E /* Pods-Mpos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mpos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mpos/Pods-Mpos.release.xcconfig"; sourceTree = "<group>"; };
 		A51C930822E2BBBA00AC280D /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		A51C930A22E2BBCC00AC280D /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		A521CC8922E44FD700F87701 /* ClientDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsVC.swift; sourceTree = "<group>"; };
 		A5BEA8CA22E446ED0077B0ED /* LogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
 		AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mpos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D317FAA822E2CE7300331680 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
 		D35197DA22E021A30051FE0F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+=======
+		AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mpos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D317FAA822E2CE7300331680 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		D31E97F422E44F58001BE76F /* PaymentMethodListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodListVC.swift; sourceTree = "<group>"; };
+		D31E97F622E44F9A001BE76F /* PaymentSuccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessVC.swift; sourceTree = "<group>"; };
+		D31E97F822E44FAE001BE76F /* PaymentMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentMode.storyboard; sourceTree = "<group>"; };
+		D31E97FA22E47BBC001BE76F /* PaymentMethodListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodListTableViewCell.swift; sourceTree = "<group>"; };
+		D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
+		D35197DA22E021A30051FE0F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		D35ADD8722E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodListNormalTableViewCell.swift; sourceTree = "<group>"; };
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 		D378CB2E22DF9B13004B51AC /* Mpos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mpos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D378CB3122DF9B13004B51AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D378CB3322DF9B13004B51AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +120,13 @@
 		D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContentTableViewCell.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		D3A3684D22E4CAFE0095432C /* MposPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposPinVC.swift; sourceTree = "<group>"; };
+		D3A3684F22E4CDD80095432C /* MposReferenciaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposReferenciaVC.swift; sourceTree = "<group>"; };
+		D3A3685222E4E24B0095432C /* MposErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposErrorVC.swift; sourceTree = "<group>"; };
+		D3A3685422E4E2690095432C /* MposError.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MposError.storyboard; sourceTree = "<group>"; };
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 		D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InvoiceList.storyboard; sourceTree = "<group>"; };
 		D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceListingVC.swift; sourceTree = "<group>"; };
 		D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientDetailCell.xib; sourceTree = "<group>"; };
@@ -131,6 +169,7 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		A521CC8822E44FB700F87701 /* ClientDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +186,8 @@
 			path = Logout;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 		BBAE67FB76051E6E469355CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +206,23 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		D31E97F322E44F14001BE76F /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				D31E97F422E44F58001BE76F /* PaymentMethodListVC.swift */,
+				D31E97F622E44F9A001BE76F /* PaymentSuccessVC.swift */,
+				D31E97F822E44FAE001BE76F /* PaymentMode.storyboard */,
+				D31E97FA22E47BBC001BE76F /* PaymentMethodListTableViewCell.swift */,
+				D35ADD8722E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift */,
+				D3A3684D22E4CAFE0095432C /* MposPinVC.swift */,
+				D3A3684F22E4CDD80095432C /* MposReferenciaVC.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 		D35197D922E021320051FE0F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +252,11 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				D3A3685122E4E2350095432C /* ErrorClass */,
+				D31E97F322E44F14001BE76F /* Payment */,
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				A51C930722E2BB9800AC280D /* Search */,
 				D317FAA722E2CD1F00331680 /* Dashboard */,
 				D3D4BF4022E1753400FB39BD /* Shared */,
@@ -235,7 +298,10 @@
 		D39E334522E0E7A30079B0AA /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				A5BEA8C922E446CE0077B0ED /* Logout */,
+=======
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				D39E334622E0E7C20079B0AA /* SideMenuVC.swift */,
 				D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */,
 				D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */,
@@ -261,10 +327,25 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		D3D4BF3622E174DF00FB39BD /* ClientListing */ = {
 			isa = PBXGroup;
 			children = (
 				A521CC8822E44FB700F87701 /* ClientDetails */,
+=======
+		D3A3685122E4E2350095432C /* ErrorClass */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3685222E4E24B0095432C /* MposErrorVC.swift */,
+				D3A3685422E4E2690095432C /* MposError.storyboard */,
+			);
+			path = ErrorClass;
+			sourceTree = "<group>";
+		};
+		D3D4BF3622E174DF00FB39BD /* ClientListing */ = {
+			isa = PBXGroup;
+			children = (
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				D3D4BF3722E174DF00FB39BD /* Invoice Listing */,
 				D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */,
 				D3D4BF3B22E174DF00FB39BD /* ClientDetailCell.swift */,
@@ -363,6 +444,10 @@
 			files = (
 				D39E335522E0EA1D0079B0AA /* Ubuntu-BI.ttf in Resources */,
 				D378CB3F22DF9B19004B51AC /* LaunchScreen.storyboard in Resources */,
+<<<<<<< HEAD
+=======
+				D31E97F922E44FAE001BE76F /* PaymentMode.storyboard in Resources */,
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				D39E335422E0EA1D0079B0AA /* Ubuntu-L.ttf in Resources */,
 				D39E335B22E0EA1D0079B0AA /* Ubuntu-C.ttf in Resources */,
 				D39E335322E0EA1D0079B0AA /* Ubuntu-M.ttf in Resources */,
@@ -370,6 +455,10 @@
 				D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */,
 				D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */,
 				D378CB3C22DF9B19004B51AC /* Assets.xcassets in Resources */,
+<<<<<<< HEAD
+=======
+				D3A3685522E4E2690095432C /* MposError.storyboard in Resources */,
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				D39E335922E0EA1D0079B0AA /* Ubuntu-LI.ttf in Resources */,
 				D39E335822E0EA1D0079B0AA /* Ubuntu-R.ttf in Resources */,
 				D39E335C22E0EA1D0079B0AA /* Ubuntu-RI.ttf in Resources */,
@@ -426,6 +515,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+=======
+				D3A3685022E4CDD80095432C /* MposReferenciaVC.swift in Sources */,
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				D378CB4C22DF9B6B004B51AC /* UserDefaultManager.swift in Sources */,
 				D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */,
 				D3D4BF4622E1754600FB39BD /* UITextField+fixCaretPosition.swift in Sources */,
@@ -434,12 +527,16 @@
 				D3D4BF3D22E174DF00FB39BD /* InvoiceListingVC.swift in Sources */,
 				D378CB4B22DF9B6B004B51AC /* Constant.swift in Sources */,
 				D346ACBB22E3636A001975E6 /* CategoryListTableViewCell.swift in Sources */,
+<<<<<<< HEAD
 				A5BEA8CB22E446ED0077B0ED /* LogoutVC.swift in Sources */,
+=======
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */,
 				D39E334722E0E7C20079B0AA /* SideMenuVC.swift in Sources */,
 				A51C930922E2BBBA00AC280D /* SearchVC.swift in Sources */,
 				D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */,
 				D3D4BF4922E1775C00FB39BD /* AppColors.swift in Sources */,
+<<<<<<< HEAD
 				D3D4BF4722E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,
 				D3D4BF4522E1754600FB39BD /* SkyFloatingLabelTextField.swift in Sources */,
@@ -449,6 +546,22 @@
 				D3D4BF3F22E174DF00FB39BD /* ClientDetailCell.swift in Sources */,
 				D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */,
 				D378CB4A22DF9B6B004B51AC /* AppUtils.swift in Sources */,
+=======
+				D3A3685322E4E24B0095432C /* MposErrorVC.swift in Sources */,
+				D3D4BF4722E1754600FB39BD /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,
+				D3D4BF4522E1754600FB39BD /* SkyFloatingLabelTextField.swift in Sources */,
+				D31E97F522E44F58001BE76F /* PaymentMethodListVC.swift in Sources */,
+				D38EB80A22DFA159009FFDFF /* MainReqeustClass.swift in Sources */,
+				D31E97F722E44F9A001BE76F /* PaymentSuccessVC.swift in Sources */,
+				D38EB80922DFA159009FFDFF /* WSConstant.swift in Sources */,
+				D3D4BF3F22E174DF00FB39BD /* ClientDetailCell.swift in Sources */,
+				D31E97FB22E47BBC001BE76F /* PaymentMethodListTableViewCell.swift in Sources */,
+				D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */,
+				D3A3684E22E4CAFE0095432C /* MposPinVC.swift in Sources */,
+				D378CB4A22DF9B6B004B51AC /* AppUtils.swift in Sources */,
+				D35ADD8822E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift in Sources */,
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,7 +719,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+<<<<<<< HEAD
 				SWIFT_VERSION = 4.2;
+=======
+				SWIFT_VERSION = 5.0;
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -627,7 +744,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+<<<<<<< HEAD
 				SWIFT_VERSION = 4.2;
+=======
+				SWIFT_VERSION = 5.0;
+>>>>>>> 1b91466bd89c8f01dd3cb1ecd92e046e62d7d35a
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

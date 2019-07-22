@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Ubuntu-L.ttf">
+            <string>Ubuntu-Light</string>
+        </array>
+        <array key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Mpos ErrorVC-->
+        <scene sceneID="aOs-9q-er2">
+            <objects>
+                <viewController storyboardIdentifier="MposErrorVC" id="17a-VG-EAV" customClass="MposErrorVC" customModule="Mpos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AIY-Ga-Th4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Error" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-AA-ZPe">
+                                <rect key="frame" x="20" y="94" width="374" height="298.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUc-1b-NLq">
+                                <rect key="frame" x="8" y="400.5" width="398" height="35"/>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="30"/>
+                                <color key="textColor" red="0.93333333333333335" green="0.32549019607843138" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tem que cobrar primeiro os recibos mais antigos!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blY-Lj-u48">
+                                <rect key="frame" x="8" y="465.5" width="398" height="19"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5f-HA-KGy">
+                                <rect key="frame" x="356" y="44" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="32W-M7-uyS"/>
+                                    <constraint firstAttribute="height" constant="50" id="sTG-lM-oPN"/>
+                                </constraints>
+                                <state key="normal" image="ic_close">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeTapped:" destination="17a-VG-EAV" eventType="touchUpInside" id="8Ov-cO-oMG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LUc-1b-NLq" firstAttribute="top" secondItem="6zd-AA-ZPe" secondAttribute="bottom" constant="8" id="11c-GQ-yCm"/>
+                            <constraint firstItem="wMt-td-zb3" firstAttribute="trailing" secondItem="6zd-AA-ZPe" secondAttribute="trailing" constant="20" id="5Xu-QW-hUD"/>
+                            <constraint firstItem="wMt-td-zb3" firstAttribute="trailing" secondItem="x5f-HA-KGy" secondAttribute="trailing" constant="8" id="HKC-Ms-TXH"/>
+                            <constraint firstItem="x5f-HA-KGy" firstAttribute="top" secondItem="wMt-td-zb3" secondAttribute="top" id="NOi-Uz-HON"/>
+                            <constraint firstItem="wMt-td-zb3" firstAttribute="trailing" secondItem="LUc-1b-NLq" secondAttribute="trailing" constant="8" id="P0v-fE-uOQ"/>
+                            <constraint firstItem="LUc-1b-NLq" firstAttribute="leading" secondItem="wMt-td-zb3" secondAttribute="leading" constant="8" id="gGq-5M-Nne"/>
+                            <constraint firstItem="blY-Lj-u48" firstAttribute="top" secondItem="LUc-1b-NLq" secondAttribute="bottom" constant="30" id="ls0-Id-jte"/>
+                            <constraint firstItem="wMt-td-zb3" firstAttribute="trailing" secondItem="blY-Lj-u48" secondAttribute="trailing" constant="8" id="mJ2-ks-8Hy"/>
+                            <constraint firstItem="6zd-AA-ZPe" firstAttribute="leading" secondItem="wMt-td-zb3" secondAttribute="leading" constant="20" id="oCv-BX-4sx"/>
+                            <constraint firstItem="6zd-AA-ZPe" firstAttribute="top" secondItem="wMt-td-zb3" secondAttribute="top" constant="50" id="sRK-iE-KPb"/>
+                            <constraint firstItem="6zd-AA-ZPe" firstAttribute="height" secondItem="AIY-Ga-Th4" secondAttribute="height" multiplier="1:3" id="stA-ke-aQG"/>
+                            <constraint firstItem="LUc-1b-NLq" firstAttribute="centerX" secondItem="AIY-Ga-Th4" secondAttribute="centerX" id="uRW-vZ-G7c"/>
+                            <constraint firstItem="blY-Lj-u48" firstAttribute="leading" secondItem="wMt-td-zb3" secondAttribute="leading" constant="8" id="z6i-33-rVf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wMt-td-zb3"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblErrorMessage" destination="blY-Lj-u48" id="85P-F8-npE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZa-hn-D7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.53623188405798" y="95.758928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_Error" width="223" height="138.5"/>
+        <image name="ic_close" width="60" height="60"/>
+    </resources>
+</document>
