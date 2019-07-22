@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tMm-jk-lBI">
-    <device id="retina6_1" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,6 +13,9 @@
         <array key="Ubuntu-B.ttf">
             <string>Ubuntu-Bold</string>
         </array>
+        <array key="Ubuntu-L.ttf">
+            <string>Ubuntu-Light</string>
+        </array>
         <array key="Ubuntu-R.ttf">
             <string>Ubuntu</string>
         </array>
@@ -23,11 +26,11 @@
             <objects>
                 <viewController storyboardIdentifier="SideMenuVC" id="tMm-jk-lBI" customClass="SideMenuVC" customModule="Mpos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8oK-Hh-aGu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kk0-GN-vrP">
-                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXJ-6n-Nyk">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -41,21 +44,27 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvn-9h-pru">
-                                        <rect key="frame" x="278" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="632" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="465-ly-X0h"/>
                                             <constraint firstAttribute="width" constant="60" id="86n-Bl-SO6"/>
                                         </constraints>
                                         <state key="normal" image="ic_search"/>
+                                        <connections>
+                                            <action selector="searchTapped:" destination="tMm-jk-lBI" eventType="touchUpInside" id="NrL-LY-nc4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1g-V7-SEH">
-                                        <rect key="frame" x="346" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="700" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="3dZ-Vs-iKb"/>
                                             <constraint firstAttribute="width" constant="60" id="P7f-bn-TWh"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="-3" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="ic_logout"/>
+                                        <connections>
+                                            <action selector="logoutBtnClicked:" destination="tMm-jk-lBI" eventType="touchUpInside" id="KC3-mt-Vq1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,14 +79,14 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6xm-aD-N2h">
-                                <rect key="frame" x="0.0" y="112" width="414" height="742"/>
+                                <rect key="frame" x="0.0" y="88" width="768" height="928"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuHeaderTableViewCell" rowHeight="124" id="vNc-vP-AS2" customClass="SideMenuHeaderTableViewCell" customModule="Mpos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="124"/>
+                                        <rect key="frame" x="0.0" y="28" width="768" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vNc-vP-AS2" id="qAh-tf-feU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user" translatesAutoresizingMaskIntoConstraints="NO" id="7Nn-m7-aCg">
@@ -88,13 +97,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="FRADE SEGUROS SOCIEDADE DE SEGUROS LDA." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ia-va-P9h">
-                                                    <rect key="frame" x="20" y="48" width="374" height="13.5"/>
+                                                    <rect key="frame" x="20" y="48" width="335" height="13.5"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
                                                     <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASF: 89" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iey-5Y-5ln">
-                                                    <rect key="frame" x="20" y="69.5" width="374" height="20.5"/>
+                                                    <rect key="frame" x="20" y="69.5" width="335" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
                                                     <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -150,10 +159,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuContentTableViewCell" rowHeight="124" id="XRr-M5-ZCt" customClass="SideMenuContentTableViewCell" customModule="Mpos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="152" width="414" height="124"/>
+                                        <rect key="frame" x="0.0" y="152" width="768" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XRr-M5-ZCt" id="1te-xB-IwK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Bz-nu-2mL">
@@ -164,7 +173,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezX-WM-8La">
-                                                    <rect key="frame" x="58" y="8" width="348" height="108"/>
+                                                    <rect key="frame" x="58" y="8" width="309" height="108"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -210,13 +219,94 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZh-a4-LI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278.26086956521743" y="112.5"/>
+            <point key="canvasLocation" x="-893" y="78"/>
+        </scene>
+        <!--LogoutVC-->
+        <scene sceneID="z2s-2F-56c">
+            <objects>
+                <viewController storyboardIdentifier="LogoutVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A4W-gp-W4f" customClass="LogoutVC" customModule="Mpos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fQ5-BX-tBc">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWR-OX-b0A">
+                                <rect key="frame" x="10" y="927" width="748" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NOD-oM-Kj4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
+                                <state key="normal" title="VOLTAR À APP">
+                                    <color key="titleColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnMoveToSideMenuClicked:" destination="A4W-gp-W4f" eventType="touchUpInside" id="du2-ZJ-g6Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwx-DI-DHc">
+                                <rect key="frame" x="21" y="847" width="732" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GrH-Cx-7mA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <state key="normal" title="QUERO SAIR" backgroundImage="ic_buttonBack">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLogoutClicked:" destination="A4W-gp-W4f" eventType="touchUpInside" id="UF7-Tn-FL3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VAI DEIXAR-NOS?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSE-Cm-PdY">
+                                <rect key="frame" x="264" y="495" width="240" height="34"/>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="30"/>
+                                <color key="textColor" red="0.93333333333333335" green="0.32549019607843138" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tem a certeza que quer sair da aplicação MPOS?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZj-Pw-ujV">
+                                <rect key="frame" x="258" y="545" width="252" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="3bx-58-Ced"/>
+                                    <constraint firstAttribute="width" constant="252" id="lZH-QF-eTX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logoutBack" translatesAutoresizingMaskIntoConstraints="NO" id="e7H-1s-azL">
+                                <rect key="frame" x="15" y="63" width="744" height="392"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NSE-Cm-PdY" firstAttribute="centerX" secondItem="fQ5-BX-tBc" secondAttribute="centerX" id="6x6-FL-cpB"/>
+                            <constraint firstItem="e7H-1s-azL" firstAttribute="leading" secondItem="0lp-EF-ypw" secondAttribute="leading" constant="15" id="8Pt-Uh-4DF"/>
+                            <constraint firstItem="YZj-Pw-ujV" firstAttribute="top" secondItem="NSE-Cm-PdY" secondAttribute="bottom" constant="16" id="Cmm-m6-sVu"/>
+                            <constraint firstAttribute="trailing" secondItem="Pwx-DI-DHc" secondAttribute="trailing" constant="15" id="G9t-rO-cvm"/>
+                            <constraint firstAttribute="trailing" secondItem="uWR-OX-b0A" secondAttribute="trailing" constant="10" id="H0f-YW-r9Z"/>
+                            <constraint firstItem="NSE-Cm-PdY" firstAttribute="centerY" secondItem="fQ5-BX-tBc" secondAttribute="centerY" id="H60-jm-ink"/>
+                            <constraint firstItem="YZj-Pw-ujV" firstAttribute="centerX" secondItem="fQ5-BX-tBc" secondAttribute="centerX" id="IdX-bL-6wu"/>
+                            <constraint firstItem="NSE-Cm-PdY" firstAttribute="top" secondItem="e7H-1s-azL" secondAttribute="bottom" constant="40" id="JTn-h2-1Jd"/>
+                            <constraint firstItem="Pwx-DI-DHc" firstAttribute="leading" secondItem="fQ5-BX-tBc" secondAttribute="leading" constant="21" id="LIp-wK-aXu"/>
+                            <constraint firstItem="e7H-1s-azL" firstAttribute="top" secondItem="0lp-EF-ypw" secondAttribute="top" constant="43" id="NtT-f7-Vlv"/>
+                            <constraint firstAttribute="bottom" secondItem="uWR-OX-b0A" secondAttribute="bottom" constant="67" id="emi-iD-0rc"/>
+                            <constraint firstItem="uWR-OX-b0A" firstAttribute="leading" secondItem="fQ5-BX-tBc" secondAttribute="leading" constant="10" id="hKR-3h-EzV"/>
+                            <constraint firstItem="uWR-OX-b0A" firstAttribute="top" secondItem="Pwx-DI-DHc" secondAttribute="bottom" constant="20" id="peb-Sh-Ygy"/>
+                            <constraint firstItem="0lp-EF-ypw" firstAttribute="trailing" secondItem="e7H-1s-azL" secondAttribute="trailing" constant="9" id="pkX-cy-J0G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0lp-EF-ypw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LsG-co-h4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="356.25" y="-22.183098591549296"/>
         </scene>
     </scenes>
     <resources>
         <image name="ic_back" width="24" height="24"/>
+        <image name="ic_buttonBack" width="600" height="60"/>
         <image name="ic_editAgent" width="24" height="24"/>
         <image name="ic_logout" width="24" height="24"/>
+        <image name="ic_logoutBack" width="296" height="164"/>
         <image name="ic_search" width="21" height="20.5"/>
         <image name="ic_user" width="24" height="24"/>
     </resources>

@@ -12,7 +12,6 @@ class SideMenuVC: UIViewController
 {
     @IBOutlet weak var tblSideMenu: UITableView!
     let arrRows = NSMutableArray()
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -45,6 +44,22 @@ class SideMenuVC: UIViewController
     @IBAction func goBackTapped(_ sender: UIButton)
     {
        self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: User Actions
+    @IBAction func searchTapped(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "Search", bundle: nil)
+        let searchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        self.navigationController?.pushViewController(searchVC, animated: true)
+    }
+    
+    //MARK: User Actions
+    @IBAction func logoutBtnClicked(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let logoutvc = storyBoard.instantiateViewController(withIdentifier: "LogoutVC") as! LogoutVC
+        self.navigationController?.pushViewController(logoutvc, animated: true)
     }
     /*
     // MARK: - Navigation

@@ -25,6 +25,7 @@ class ViewController: UIViewController
     
     @IBOutlet weak var btnPasswordEye: UIButton!
 
+    @IBOutlet weak var scrvwLogin: UIScrollView!
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -33,6 +34,16 @@ class ViewController: UIViewController
         lblEmail.text = lblEmail.text!.uppercased()
         lblPassword.text = lblPassword.text!.uppercased()
 
+        if Device.IS_IPHONE && Device.SCREEN_HEIGHT < 568
+        {
+            scrvwLogin.isScrollEnabled = true
+        }
+        else
+        {
+            scrvwLogin.isScrollEnabled = false
+        }
+        
+        
 //        if UserDefaultManager.SharedInstance.isOnboardingComplete()
 //        {
 //            //Normal Login View
@@ -73,16 +84,13 @@ extension ViewController {
     
     //LogIn button click
     @IBAction func btnLoginClicked(_ sender: Any) {
+//        if self.doValidation() {
         
-        
-        
-        if self.doValidation() {
-            
             // api call
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
             self.navigationController?.pushViewController(controller, animated: true)
-        }
+//        }
     }
     
     

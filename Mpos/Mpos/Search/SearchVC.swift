@@ -43,6 +43,9 @@ class SearchVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
     @IBAction func radioBtnSelectionForSearch(_ sender: UIButton) {
         
         switch sender.tag {
@@ -69,5 +72,9 @@ class SearchVC: UIViewController {
         
     }
     
+    @IBAction func btnCrossClicked(_ sender: Any) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }

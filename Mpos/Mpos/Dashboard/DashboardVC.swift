@@ -40,6 +40,14 @@ class DashboardVC: UIViewController
         let controller = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    @IBAction func openSearch(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "Search", bundle: nil)
+        let searchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
+        self.navigationController?.pushViewController(searchVC, animated: true)
+    }
+   
 
     /*
     // MARK: - Navigation
@@ -78,6 +86,7 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         cell.layer.shadowOpacity = 0.5
         cell.layer.shadowRadius = 4
 
+        cell.selectionStyle  = .none
         
         if let dicData = arrRows[indexPath.row] as? [String:Any]
         {
@@ -95,5 +104,11 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+        let invoiceListingVC = storyBoard.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
+        invoiceListingVC.InvoiceType = indexPath.row + 1
+        self.navigationController?.pushViewController(invoiceListingVC, animated: true)
+    }
   
 }
