@@ -5,7 +5,17 @@
 //  Created by kaushal panchal on 20/07/19.
 //  Copyright © 2019 Kevin. All rights reserved.
 //
-
+/*Class Purpose:The general search screen allows users to search for invoices. The screen is represented in figure 5. Users can search for two types of invoices (i.e. “Meus” and “Terceiros”) in the data input bar shown in the middle of the screen. The components of the general search screen are as follows:
+1. The blue cross icon on the top right corner of the screen directs the user back to the Home Page screen;
+2. There is a light blue design element with the standard text “Pesquisa”, which indicates that this is a search screen;
+3. Two radio buttons with the options “Meus” and “Terceiros”. Users can only choose one of these options. The screen represented in figure 5 shows the “Meus” option being selected;
+4. Standard text under the radio buttons. Please note that this standard text changes depending on the radio button selected by users, as outlined in figure 6. When the “Meus” option is selected the standard text is “Introduza um NIF, uma Apólice ou um Recibo”. When the “Terceiros” option is selected the standard text is “Introduza uma Apólice ou um Recibo”. Essentially, this means that there are 3 search criteria available (handled and detected by the web service described in point 6 below and in Annex 1):
+a. “NIF” (i.e. “National Tax Number”);
+b. “Apólice” (i.e. “Insurance Policy”);
+c. “Recibo” (i.e. “Invoice”);
+d. N.B. The “NIF” search criteria is disregarded by the search web service when the “Terceiros” radio button is selected;
+5. A data input bar on which users can insert data. Please note that the native keyboard function of the device should appear on this screen by default, and not only when users press the data input bar;
+6. A blue and white magnifying glass icon which actually performs the search by calling WS007 (as described in Annex 1) and directs users to the general search results screen (Mpos_resultado), as described in the next section.*/
 import UIKit
 
 class SearchVC: UIViewController {

@@ -5,7 +5,14 @@
 //  Created by kaushal panchal on 19/07/19.
 //  Copyright © 2019 k_p. All rights reserved.
 //
-
+/*
+ As outlined above, there are three main buttons in the Home Page screen: “RISCO DE ANULAÇÃO”, “POR COBRAR”, and “COBRADOS”. Pressing each of these will direct the user to a specific screen:
+ 1. If users press the “RISCO DE ANULAÇÃO” button in the Home Page screen they will be directed to the “Mpos_Lista_Risco de anulacao” screen. This action will invoke web service WS006;
+ 2. If users press the “POR COBRAR” button in the Home Page screen they will be directed to the “Mpos_por_cobrar” screen. This action will invoke web service WS006;
+ 3. If users press the “COBRADOS” button in the Home Page screen they will be directed to the “Mpos_Cobrados” screen. This action will invoke web service WS006;
+ 
+ Each of these screens is illustrated below, in figures 17, 18 and 19. Each of the screens presents a lateral menu and “go back” arrow in the top left corner of the screen and a standard text title in the top center. Below the title, each screen presents a standard heading which reads “FILTRAR EM RISCO DE ANULAÇÃO”, “FILTRAR POR COBRAR”, “FILTRAR COBRADOS”. Under each of these headings there is a data input bar which should prompt the native keyboard function on the device. Pressing the magnifying glass or “Return” in the native keyboard will call web services WS007 and WS006 and will result in a filtering of the boxes presented underneath this filter bar according to the filtering criteria inserted by the user. It is worth noting that this filter bar has pre-populated, indicative text stating “Filtrar por : NIF, recibo, apólice”. This pre-populated text should vanish once users press the filter bar.
+ */
 import UIKit
 
 class InvoiceListingVC: UIViewController {

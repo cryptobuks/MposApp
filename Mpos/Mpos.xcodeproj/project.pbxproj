@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		A503C27322E56BB100D2EAE7 /* LogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A503C27222E56BB100D2EAE7 /* LogoutVC.swift */; };
 		A51C930922E2BBBA00AC280D /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C930822E2BBBA00AC280D /* SearchVC.swift */; };
-		A51C930B22E2BBCC00AC280D /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A51C930A22E2BBCC00AC280D /* Search.storyboard */; };
+		A59E4D7822E6191A006FFBB6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */; };
+		A59E4D7A22E619B4006FFBB6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7922E619B4006FFBB6 /* Search.storyboard */; };
 		B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */; };
 		D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317FAA822E2CE7300331680 /* DashboardVC.swift */; };
 		D31E97F522E44F58001BE76F /* PaymentMethodListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E97F422E44F58001BE76F /* PaymentMethodListVC.swift */; };
@@ -42,7 +43,6 @@
 		D39E335A22E0EA1D0079B0AA /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D39E335022E0EA1D0079B0AA /* Ubuntu-B.ttf */; };
 		D39E335B22E0EA1D0079B0AA /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D39E335122E0EA1D0079B0AA /* Ubuntu-C.ttf */; };
 		D39E335C22E0EA1D0079B0AA /* Ubuntu-RI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D39E335222E0EA1D0079B0AA /* Ubuntu-RI.ttf */; };
-		D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */; };
 		D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */; };
 		D39E336422E0F41E0079B0AA /* SideMenuContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */; };
 		D3A3684E22E4CAFE0095432C /* MposPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3684D22E4CAFE0095432C /* MposPinVC.swift */; };
@@ -63,7 +63,8 @@
 		5025BF4792451C800187164E /* Pods-Mpos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mpos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mpos/Pods-Mpos.release.xcconfig"; sourceTree = "<group>"; };
 		A503C27222E56BB100D2EAE7 /* LogoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
 		A51C930822E2BBBA00AC280D /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		A51C930A22E2BBCC00AC280D /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		A59E4D7922E619B4006FFBB6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mpos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D317FAA822E2CE7300331680 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		D31E97F422E44F58001BE76F /* PaymentMethodListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodListVC.swift; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		D39E335022E0EA1D0079B0AA /* Ubuntu-B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-B.ttf"; sourceTree = "<group>"; };
 		D39E335122E0EA1D0079B0AA /* Ubuntu-C.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-C.ttf"; sourceTree = "<group>"; };
 		D39E335222E0EA1D0079B0AA /* Ubuntu-RI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-RI.ttf"; sourceTree = "<group>"; };
-		D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContentTableViewCell.swift; sourceTree = "<group>"; };
 		D3A3684D22E4CAFE0095432C /* MposPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposPinVC.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				A51C930822E2BBBA00AC280D /* SearchVC.swift */,
-				A51C930A22E2BBCC00AC280D /* Search.storyboard */,
+				A59E4D7922E619B4006FFBB6 /* Search.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -261,9 +261,9 @@
 			children = (
 				A503C27122E56BB100D2EAE7 /* Logout */,
 				D39E334622E0E7C20079B0AA /* SideMenuVC.swift */,
-				D39E335D22E0EDAE0079B0AA /* SideMenu.storyboard */,
 				D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */,
 				D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */,
+				A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -400,17 +400,17 @@
 				D39E335B22E0EA1D0079B0AA /* Ubuntu-C.ttf in Resources */,
 				D39E335322E0EA1D0079B0AA /* Ubuntu-M.ttf in Resources */,
 				D39E335622E0EA1D0079B0AA /* Ubuntu-Th.ttf in Resources */,
-				D39E335E22E0EDAE0079B0AA /* SideMenu.storyboard in Resources */,
 				D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */,
+				A59E4D7A22E619B4006FFBB6 /* Search.storyboard in Resources */,
 				D378CB3C22DF9B19004B51AC /* Assets.xcassets in Resources */,
 				D3A3685522E4E2690095432C /* MposError.storyboard in Resources */,
 				D39E335922E0EA1D0079B0AA /* Ubuntu-LI.ttf in Resources */,
 				D39E335822E0EA1D0079B0AA /* Ubuntu-R.ttf in Resources */,
 				D39E335C22E0EA1D0079B0AA /* Ubuntu-RI.ttf in Resources */,
 				D378CB3722DF9B13004B51AC /* Main.storyboard in Resources */,
+				A59E4D7822E6191A006FFBB6 /* SideMenu.storyboard in Resources */,
 				D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */,
 				D39E335722E0EA1D0079B0AA /* Ubuntu-MI.ttf in Resources */,
-				A51C930B22E2BBCC00AC280D /* Search.storyboard in Resources */,
 				D39E335A22E0EA1D0079B0AA /* Ubuntu-B.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
