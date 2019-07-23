@@ -46,6 +46,9 @@ let kIsRememberPassword = "IsRememberPassword"
 
 // Listing constant
 let kCellOfClientListing = "ClientDetailCell"
+let kDataConfirmationHeaderCell = "DataConfirmationHeaderCell"
+let kDataConfirmataionListwithLogoCell = "DataConfirmataionListwithLogoCell"
+let kDataConfirmationNormalListCell = "DataConfirmationNormalListCell"
 
 let isIpad = Device.IS_IPAD
 
