@@ -46,6 +46,8 @@ let kIsRememberPassword = "IsRememberPassword"
 
 // Listing constant
 let kCellOfClientListing = "ClientDetailCell"
+let kCellOfInvoiceDetails = "InvoiceDetailsTableViewCell"
+let kCellOfCompanyDetails = "CompanyDetailsCellTableViewCell"
 
 let isIpad = Device.IS_IPAD
 
