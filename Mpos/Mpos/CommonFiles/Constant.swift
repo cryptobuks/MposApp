@@ -49,6 +49,8 @@ let kCellOfClientListing = "ClientDetailCell"
 let kDataConfirmationHeaderCell = "DataConfirmationHeaderCell"
 let kDataConfirmataionListwithLogoCell = "DataConfirmataionListwithLogoCell"
 let kDataConfirmationNormalListCell = "DataConfirmationNormalListCell"
+let kCellOfInvoiceDetails = "InvoiceDetailsTableViewCell"
+let kCellOfCompanyDetails = "CompanyDetailsCellTableViewCell"
 
 let isIpad = Device.IS_IPAD
 

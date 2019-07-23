@@ -161,6 +161,14 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+        let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
+        if InvoiceType != 2
+        {
+            clientWiseInvoiceVC.InvoiceType = InvoiceType
+            self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
+        }
+        
         
     }
 }
