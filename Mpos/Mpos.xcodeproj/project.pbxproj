@@ -35,6 +35,18 @@
 		D378CB4A22DF9B6B004B51AC /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB4722DF9B6B004B51AC /* AppUtils.swift */; };
 		D378CB4B22DF9B6B004B51AC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB4822DF9B6B004B51AC /* Constant.swift */; };
 		D378CB4C22DF9B6B004B51AC /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB4922DF9B6B004B51AC /* UserDefaultManager.swift */; };
+		D37F816222E78859004729D8 /* Logout.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815A22E78859004729D8 /* Logout.gif */; };
+		D37F816322E78859004729D8 /* card_payment.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815B22E78859004729D8 /* card_payment.gif */; };
+		D37F816422E78859004729D8 /* erro.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815C22E78859004729D8 /* erro.gif */; };
+		D37F816522E78859004729D8 /* onb_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815D22E78859004729D8 /* onb_1.gif */; };
+		D37F816622E78859004729D8 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F815E22E78859004729D8 /* iOSDevCenters+GIF.swift */; };
+		D37F816722E78859004729D8 /* onb_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815F22E78859004729D8 /* onb_2.gif */; };
+		D37F816822E78859004729D8 /* Sucess.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F816022E78859004729D8 /* Sucess.gif */; };
+		D37F816922E78859004729D8 /* onb_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F816122E78859004729D8 /* onb_3.gif */; };
+		D37F816B22E7886F004729D8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37F816A22E7886F004729D8 /* ImageIO.framework */; };
+		D37F816D22E78954004729D8 /* OnboardingFirstPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F816C22E78954004729D8 /* OnboardingFirstPageVC.swift */; };
+		D37F816F22E78A6B004729D8 /* OnboardingSecondPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F816E22E78A6B004729D8 /* OnboardingSecondPageVC.swift */; };
+		D37F817122E78A7B004729D8 /* OnboardingThirdPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F817022E78A7B004729D8 /* OnboardingThirdPageVC.swift */; };
 		D38EB80922DFA159009FFDFF /* WSConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38EB80722DFA159009FFDFF /* WSConstant.swift */; };
 		D38EB80A22DFA159009FFDFF /* MainReqeustClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38EB80822DFA159009FFDFF /* MainReqeustClass.swift */; };
 		D38EB80C22DFA17D009FFDFF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38EB80B22DFA17D009FFDFF /* SystemConfiguration.framework */; };
@@ -119,6 +131,18 @@
 		D378CB4722DF9B6B004B51AC /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		D378CB4822DF9B6B004B51AC /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D378CB4922DF9B6B004B51AC /* UserDefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		D37F815A22E78859004729D8 /* Logout.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Logout.gif; sourceTree = "<group>"; };
+		D37F815B22E78859004729D8 /* card_payment.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = card_payment.gif; sourceTree = "<group>"; };
+		D37F815C22E78859004729D8 /* erro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = erro.gif; sourceTree = "<group>"; };
+		D37F815D22E78859004729D8 /* onb_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onb_1.gif; sourceTree = "<group>"; };
+		D37F815E22E78859004729D8 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
+		D37F815F22E78859004729D8 /* onb_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onb_2.gif; sourceTree = "<group>"; };
+		D37F816022E78859004729D8 /* Sucess.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sucess.gif; sourceTree = "<group>"; };
+		D37F816122E78859004729D8 /* onb_3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onb_3.gif; sourceTree = "<group>"; };
+		D37F816A22E7886F004729D8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		D37F816C22E78954004729D8 /* OnboardingFirstPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFirstPageVC.swift; sourceTree = "<group>"; };
+		D37F816E22E78A6B004729D8 /* OnboardingSecondPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSecondPageVC.swift; sourceTree = "<group>"; };
+		D37F817022E78A7B004729D8 /* OnboardingThirdPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThirdPageVC.swift; sourceTree = "<group>"; };
 		D38EB80722DFA159009FFDFF /* WSConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSConstant.swift; sourceTree = "<group>"; };
 		D38EB80822DFA159009FFDFF /* MainReqeustClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainReqeustClass.swift; sourceTree = "<group>"; };
 		D38EB80B22DFA17D009FFDFF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -189,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37F816B22E7886F004729D8 /* ImageIO.framework in Frameworks */,
 				D38EB80C22DFA17D009FFDFF /* SystemConfiguration.framework in Frameworks */,
 				B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */,
 			);
@@ -279,6 +304,7 @@
 		BBAE67FB76051E6E469355CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D37F816A22E7886F004729D8 /* ImageIO.framework */,
 				D38EB80B22DFA17D009FFDFF /* SystemConfiguration.framework */,
 				AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */,
 			);
@@ -312,6 +338,9 @@
 			isa = PBXGroup;
 			children = (
 				D35197DA22E021A30051FE0F /* OnboardingViewController.swift */,
+				D37F816C22E78954004729D8 /* OnboardingFirstPageVC.swift */,
+				D37F816E22E78A6B004729D8 /* OnboardingSecondPageVC.swift */,
+				D37F817022E78A7B004729D8 /* OnboardingThirdPageVC.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -337,6 +366,7 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+				D37F815922E7882C004729D8 /* GIF */,
 				D3B3D5FF22E6B7B000896564 /* Library */,
 				D3ED55A022E6299000523306 /* DataConfirmation */,
 				D3A3685122E4E2350095432C /* ErrorClass */,
@@ -369,6 +399,21 @@
 				D378CB4922DF9B6B004B51AC /* UserDefaultManager.swift */,
 			);
 			path = CommonFiles;
+			sourceTree = "<group>";
+		};
+		D37F815922E7882C004729D8 /* GIF */ = {
+			isa = PBXGroup;
+			children = (
+				D37F815B22E78859004729D8 /* card_payment.gif */,
+				D37F815C22E78859004729D8 /* erro.gif */,
+				D37F815E22E78859004729D8 /* iOSDevCenters+GIF.swift */,
+				D37F815A22E78859004729D8 /* Logout.gif */,
+				D37F815D22E78859004729D8 /* onb_1.gif */,
+				D37F815F22E78859004729D8 /* onb_2.gif */,
+				D37F816122E78859004729D8 /* onb_3.gif */,
+				D37F816022E78859004729D8 /* Sucess.gif */,
+			);
+			path = GIF;
 			sourceTree = "<group>";
 		};
 		D38EB80622DFA139009FFDFF /* WebServiceClasses */ = {
@@ -582,8 +627,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D39E335522E0EA1D0079B0AA /* Ubuntu-BI.ttf in Resources */,
+				D37F816422E78859004729D8 /* erro.gif in Resources */,
 				D3ED55A822E62CAD00523306 /* DataConfirmationHeaderCell.xib in Resources */,
 				D378CB3F22DF9B19004B51AC /* LaunchScreen.storyboard in Resources */,
+				D37F816922E78859004729D8 /* onb_3.gif in Resources */,
+				D37F816822E78859004729D8 /* Sucess.gif in Resources */,
 				D31E97F922E44FAE001BE76F /* PaymentMode.storyboard in Resources */,
 				D3B3D61A22E6B7B100896564 /* EPSignatureViewController.xib in Resources */,
 				D39E335422E0EA1D0079B0AA /* Ubuntu-L.ttf in Resources */,
@@ -595,6 +643,9 @@
 				A53609D722E635B800F661BB /* InvoiceDetailsTableViewCell.xib in Resources */,
 				D378CB3C22DF9B19004B51AC /* Assets.xcassets in Resources */,
 				D3ED55AC22E62CE000523306 /* DataConfirmataionListwithLogoCell.xib in Resources */,
+				D37F816222E78859004729D8 /* Logout.gif in Resources */,
+				D37F816322E78859004729D8 /* card_payment.gif in Resources */,
+				D37F816722E78859004729D8 /* onb_2.gif in Resources */,
 				D3A3685522E4E2690095432C /* MposError.storyboard in Resources */,
 				A53609D122E62DDB00F661BB /* CompanyDetailsCellTableViewCell.xib in Resources */,
 				D39E335922E0EA1D0079B0AA /* Ubuntu-LI.ttf in Resources */,
@@ -606,6 +657,7 @@
 				D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */,
 				D39E335722E0EA1D0079B0AA /* Ubuntu-MI.ttf in Resources */,
 				D39E335A22E0EA1D0079B0AA /* Ubuntu-B.ttf in Resources */,
+				D37F816522E78859004729D8 /* onb_1.gif in Resources */,
 				D3ED55B022E62D0200523306 /* DataConfirmationNormalListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,7 +711,9 @@
 				D3A3685022E4CDD80095432C /* MposReferenciaVC.swift in Sources */,
 				D3ED55A722E62CAD00523306 /* DataConfirmationHeaderCell.swift in Sources */,
 				D378CB4C22DF9B6B004B51AC /* UserDefaultManager.swift in Sources */,
+				D37F816622E78859004729D8 /* iOSDevCenters+GIF.swift in Sources */,
 				A53609C822E6299C00F661BB /* ClientDetailsVC.swift in Sources */,
+				D37F817122E78A7B004729D8 /* OnboardingThirdPageVC.swift in Sources */,
 				D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */,
 				D3ED55A422E62A0400523306 /* DataConfirmationVC.swift in Sources */,
 				D3D4BF4622E1754600FB39BD /* UITextField+fixCaretPosition.swift in Sources */,
@@ -673,6 +727,7 @@
 				D39E334722E0E7C20079B0AA /* SideMenuVC.swift in Sources */,
 				A51C930922E2BBBA00AC280D /* SearchVC.swift in Sources */,
 				D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */,
+				D37F816D22E78954004729D8 /* OnboardingFirstPageVC.swift in Sources */,
 				D3B3D62522E6B7B100896564 /* ActionSheetMultipleStringPicker.m in Sources */,
 				D3ED55AB22E62CE000523306 /* DataConfirmataionListwithLogoCell.swift in Sources */,
 				D3B3D62422E6B7B100896564 /* DistancePickerView.m in Sources */,
@@ -702,6 +757,7 @@
 				A503C27322E56BB100D2EAE7 /* LogoutVC.swift in Sources */,
 				D3B3D62122E6B7B100896564 /* ActionSheetCustomPicker.m in Sources */,
 				D3A3684E22E4CAFE0095432C /* MposPinVC.swift in Sources */,
+				D37F816F22E78A6B004729D8 /* OnboardingSecondPageVC.swift in Sources */,
 				D3B3D62B22E6BFC200896564 /* DataConfirmationDropDownCell.swift in Sources */,
 				D378CB4A22DF9B6B004B51AC /* AppUtils.swift in Sources */,
 				D35ADD8822E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift in Sources */,

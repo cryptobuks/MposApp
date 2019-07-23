@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gP6-zm-mvb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gP6-zm-mvb">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -318,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="-78.260869565217391" y="144.64285714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding First PageVC-->
         <scene sceneID="4eu-EM-Ime">
             <objects>
-                <viewController storyboardIdentifier="firstPV" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y4e-U7-bpA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstPV" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y4e-U7-bpA" customClass="OnboardingFirstPageVC" customModule="Mpos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eq6-3s-Ox5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,15 +364,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EpG-EL-jo5"/>
                     </view>
+                    <connections>
+                        <outlet property="imgVW" destination="Lbf-dx-7pB" id="oOt-vP-nFD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNo-Ge-dMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="650.72463768115949" y="172.76785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding Second PageVC-->
         <scene sceneID="IN5-d7-1eP">
             <objects>
-                <viewController storyboardIdentifier="secondPV" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oxC-TX-jqf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secondPV" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oxC-TX-jqf" customClass="OnboardingSecondPageVC" customModule="Mpos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PwV-qi-S0c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,6 +418,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QXg-k5-yFD"/>
                     </view>
+                    <connections>
+                        <outlet property="imgVW" destination="qAw-H2-hks" id="JKI-nR-w5Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4H-vi-IAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -630,10 +636,10 @@
             </objects>
             <point key="canvasLocation" x="1983.75" y="172.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding Third PageVC-->
         <scene sceneID="Cn5-DZ-fSl">
             <objects>
-                <viewController storyboardIdentifier="thirdPV" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vlm-QU-jLW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="thirdPV" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vlm-QU-jLW" customClass="OnboardingThirdPageVC" customModule="Mpos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dOg-Eq-vjj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -645,13 +651,13 @@
                                 <rect key="frame" x="8" y="144" width="359" height="203"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAGAMENTOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSl-V6-BVw">
-                                <rect key="frame" x="8" y="397" width="359" height="28"/>
+                                <rect key="frame" x="8" y="397" width="359" height="27"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pode cobrar os recibos selecionados por MBWAY, referências multibanco ou cartão." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68d-AN-tBV">
-                                <rect key="frame" x="8" y="455" width="359" height="37.333333333333314"/>
+                                <rect key="frame" x="8" y="454" width="359" height="36"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -676,6 +682,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vGQ-AQ-MTX"/>
                     </view>
+                    <connections>
+                        <outlet property="imgVW" destination="pgx-8t-DhE" id="y09-jw-k1R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atZ-wI-BbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
