@@ -28,6 +28,12 @@ class ClientWiseInvoiceListing: UIViewController {
     @IBOutlet weak var btnMenu: UIButton!
     @IBOutlet weak var vwHeader: UIView!
     
+    @IBOutlet weak var btnTotalInvoicePrice: UIButton!
+
+    
+    var selectedCompanyIndex:Int = -1
+    var selectedInvoiceIndex:NSMutableArray = []
+
     var InvoiceType:Int = 0
     
     override func viewDidLoad() {
@@ -85,7 +91,9 @@ class ClientWiseInvoiceListing: UIViewController {
         
         self.tblvwInvoiceListing.register(UINib(nibName: kCellOfCompanyDetails, bundle: nil), forCellReuseIdentifier: kCellOfCompanyDetails)
         self.tblvwInvoiceListing.register(UINib(nibName: kCellOfInvoiceDetails, bundle: nil), forCellReuseIdentifier: kCellOfInvoiceDetails)
+        self.tblvwInvoiceListing.register(UINib(nibName: kDataConfirmationHeaderCell, bundle: nil), forCellReuseIdentifier: kDataConfirmationHeaderCell)
         
+        self.tblvwInvoiceListing.estimatedSectionHeaderHeight = 80
         self.tblvwInvoiceListing.estimatedRowHeight = 60.0
         self.tblvwInvoiceListing.rowHeight = UITableView.automaticDimension
         
@@ -102,17 +110,54 @@ class ClientWiseInvoiceListing: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    @IBAction func btnRadioBtnClicked(_ sender: UIButton) {
-        
-        if sender.isSelected
-        {
-            sender.isSelected = false
+    @objc func btnRadioBtnClicked(_ sender: UIButton) {
+
+        if sender.tag == selectedCompanyIndex{
+            selectedCompanyIndex = -1
         }
         else
         {
-            sender.isSelected = true
+            selectedCompanyIndex = sender.tag
         }
+        
+        if selectedCompanyIndex > -1
+        {
+            btnTotalInvoicePrice.isHidden = false
+        }
+        else
+        {
+            btnTotalInvoicePrice.isHidden = true
+        }
+        
+        tblvwInvoiceListing.reloadData()
+        
     }
+    
+    @objc func btnPlusBtnClicked(_ sender: UIButton) {
+        
+        if selectedInvoiceIndex.contains(sender.tag)
+        {
+            selectedInvoiceIndex.remove(sender.tag)
+        }
+        else
+        {
+            selectedInvoiceIndex.add(sender.tag)
+
+        }
+       
+        if selectedInvoiceIndex.count > 0
+        {
+            btnTotalInvoicePrice.isHidden = false
+        }
+        else
+        {
+            btnTotalInvoicePrice.isHidden = true
+        }
+        
+        tblvwInvoiceListing.reloadData()
+        
+    }
+
     
     /*
      // MARK: - Navigation
@@ -129,7 +174,7 @@ class ClientWiseInvoiceListing: UIViewController {
 extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,8 +182,15 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if selectedInvoiceIndex.contains(indexPath.row)
+        {
+            return 85 + (2 * 260)
+        }
+        
         return 85
     }
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
@@ -151,7 +203,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
             companyDetailCell.btnCheckBox.isHidden = false
             break
         case 2: //POR COBRAR
-            companyDetailCell.btnCheckBox.isHidden = true
+            companyDetailCell.btnCheckBox.isHidden = false
             break
         case 3: // COBRADOS
             companyDetailCell.btnCheckBox.isHidden = true
@@ -160,7 +212,17 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
             break
         }
         
+        companyDetailCell.btnCheckBox.tag = section
         companyDetailCell.btnCheckBox.addTarget(self, action: #selector(btnRadioBtnClicked(_:)), for: .touchUpInside)
+        
+        if section == selectedCompanyIndex
+        {
+            companyDetailCell.btnCheckBox.isSelected = true
+        }
+        else
+        {
+            companyDetailCell.btnCheckBox.isSelected = false
+        }
         return companyDetailCell
     }
     
@@ -169,20 +231,23 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         
         cellForClientDetails.selectionStyle = .none
         var lblColor = UIColor()
+        var sideImageColor = UIColor()
+        cellForClientDetails.btnExpandCollapse.isHidden = false
+
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
             lblColor = AppColors.kOrangeColor
-            cellForClientDetails.imgLeftSelection.backgroundColor = AppColors.kOrangeColorWithAlpha
-            cellForClientDetails.btnExpandCollapse.isHidden = false
+            
+            sideImageColor = AppColors.kOrangeColorWithAlpha
             break
         case 2: //POR COBRAR
             lblColor = AppColors.kPurpulColor
-            cellForClientDetails.imgLeftSelection.backgroundColor = AppColors.kPurpulColorWithAlpha
+            sideImageColor = AppColors.kPurpulColorWithAlpha
 
             break
         case 3: // COBRADOS
             lblColor = AppColors.kGreenColor
-            cellForClientDetails.imgLeftSelection.backgroundColor = AppColors.kGreenColorWithAlpha
+            sideImageColor = AppColors.kGreenColorWithAlpha
             cellForClientDetails.btnExpandCollapse.isHidden = true
 
             break
@@ -190,9 +255,27 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
             break
         }
         
+        if indexPath.section == selectedCompanyIndex{
+            cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
+        }
+        else{
+            cellForClientDetails.imgLeftSelection.backgroundColor = UIColor.clear
+
+        }
         cellForClientDetails.lblCaptionInvoiceNumber.textColor = lblColor
         cellForClientDetails.lblCaptionPrice.textColor = lblColor
         
+        cellForClientDetails.btnExpandCollapse.tag = indexPath.row
+        cellForClientDetails.btnExpandCollapse.addTarget(self, action: #selector(btnPlusBtnClicked(_:)), for: .touchUpInside)
+        if selectedInvoiceIndex.contains(indexPath.row)
+        {
+            cellForClientDetails.btnExpandCollapse.isSelected = true
+        }
+        else
+        {
+            cellForClientDetails.btnExpandCollapse.isSelected = false
+        }
+        cellForClientDetails.InvoiceType = InvoiceType
         return cellForClientDetails
     }
     

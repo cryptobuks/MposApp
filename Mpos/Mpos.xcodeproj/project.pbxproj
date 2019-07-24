@@ -16,6 +16,8 @@
 		A53609D722E635B800F661BB /* InvoiceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53609D522E635B800F661BB /* InvoiceDetailsTableViewCell.xib */; };
 		A59E4D7822E6191A006FFBB6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */; };
 		A59E4D7A22E619B4006FFBB6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7922E619B4006FFBB6 /* Search.storyboard */; };
+		A5CA733A22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */; };
+		A5CA733B22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */; };
 		A5F27FEF22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F27FEE22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift */; };
 		B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */; };
 		D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317FAA822E2CE7300331680 /* DashboardVC.swift */; };
@@ -110,6 +112,8 @@
 		A53609D522E635B800F661BB /* InvoiceDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		A59E4D7922E619B4006FFBB6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsWIthCheckBoxTableViewCell.swift; sourceTree = "<group>"; };
+		A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsWIthCheckBoxTableViewCell.xib; sourceTree = "<group>"; };
 		A5F27FEE22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientWiseInvoiceListing.swift; sourceTree = "<group>"; };
 		AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mpos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D317FAA822E2CE7300331680 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
@@ -282,9 +286,19 @@
 			path = InvoiceDetails;
 			sourceTree = "<group>";
 		};
+		A5CA733722E8978D000F547C /* InvoiceDetailwithCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */,
+				A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */,
+			);
+			path = InvoiceDetailwithCheckBox;
+			sourceTree = "<group>";
+		};
 		A5F27FEA22E6AD3D000B82B7 /* ListingCustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				A5CA733722E8978D000F547C /* InvoiceDetailwithCheckBox */,
 				A5F27FEC22E6AD6C000B82B7 /* ClientDetailsCell */,
 				A53609D322E6359100F661BB /* InvoiceDetails */,
 				A53609CE22E62DDB00F661BB /* CompanyDetailsCell */,
@@ -627,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D39E335522E0EA1D0079B0AA /* Ubuntu-BI.ttf in Resources */,
+				A5CA733B22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib in Resources */,
 				D37F816422E78859004729D8 /* erro.gif in Resources */,
 				D3ED55A822E62CAD00523306 /* DataConfirmationHeaderCell.xib in Resources */,
 				D378CB3F22DF9B19004B51AC /* LaunchScreen.storyboard in Resources */,
@@ -739,6 +754,7 @@
 				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,
 				D3D4BF4522E1754600FB39BD /* SkyFloatingLabelTextField.swift in Sources */,
 				D3B3D61F22E6B7B100896564 /* ActionSheetLocalePicker.m in Sources */,
+				A5CA733A22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift in Sources */,
 				D3B3D62022E6B7B100896564 /* ActionSheetDistancePicker.m in Sources */,
 				D31E97F522E44F58001BE76F /* PaymentMethodListVC.swift in Sources */,
 				D38EB80A22DFA159009FFDFF /* MainReqeustClass.swift in Sources */,
@@ -918,7 +934,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Projects/Ravi Projects/MposApp/SourceCode/Mpos/Mpos/Mpos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Mpos-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -940,7 +956,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Projects/Ravi Projects/MposApp/SourceCode/Mpos/Mpos/Mpos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Mpos-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
