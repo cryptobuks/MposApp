@@ -78,8 +78,11 @@ class SearchVC: UIViewController {
         
     }
     
-    @IBAction func btnSearchClicked(_ sender: Any) {
-        
+    @IBAction func btnSearchClicked(_ sender: Any)
+    {
+        let storyBoard = UIStoryboard(name: "Search", bundle: nil)
+        let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "GeneralSearchResultVC") as! GeneralSearchResultVC
+        self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
     }
     
     @IBAction func btnCrossClicked(_ sender: Any) {
