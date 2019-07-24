@@ -938,7 +938,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Mpos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Mpos/Mpos-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -960,7 +960,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Mpos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Mpos/Mpos-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

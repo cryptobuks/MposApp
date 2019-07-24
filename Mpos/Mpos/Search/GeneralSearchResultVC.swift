@@ -89,6 +89,19 @@ class GeneralSearchResultVC: UIViewController
             sender.isSelected = true
         }
     }
+    
+    @IBAction func btnClientClicked(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "ClientDetailsVC") as! ClientDetailsVC
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @IBAction func btnConfirmClicked(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "DataConfirmation", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "DataConfirmationVC") as! DataConfirmationVC
+        controller.selectedCategoryColor = AppColors.kGeneralSearchColor
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 extension GeneralSearchResultVC : UITableViewDelegate,UITableViewDataSource{
     

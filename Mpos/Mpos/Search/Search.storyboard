@@ -353,6 +353,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TN7-HD-CxH">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="btnClientClicked:" destination="Hb8-xx-DiV" eventType="touchUpInside" id="YrD-j8-Dei"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -368,12 +375,15 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBJ-ux-ndr">
                                 <rect key="frame" x="16" y="595" width="343" height="60"/>
-                                <color key="backgroundColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Bqs-fk-bIS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
-                                <state key="normal" title="AVANÇAR | 162€"/>
+                                <state key="normal" title="AVANÇAR | 162€" backgroundImage="ic_buttonBack"/>
+                                <connections>
+                                    <action selector="btnConfirmClicked:" destination="Hb8-xx-DiV" eventType="touchUpInside" id="azd-PK-apv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -412,6 +422,7 @@
     </scenes>
     <resources>
         <image name="ic_backArrow" width="20.5" height="14.5"/>
+        <image name="ic_buttonBack" width="600" height="60"/>
         <image name="ic_close" width="60" height="60"/>
         <image name="ic_menu" width="24" height="24"/>
         <image name="ic_radio_selected" width="50" height="50"/>
