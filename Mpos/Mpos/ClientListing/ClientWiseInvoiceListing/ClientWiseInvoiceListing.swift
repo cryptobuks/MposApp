@@ -248,8 +248,6 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         case 3: // COBRADOS
             lblColor = AppColors.kGreenColor
             sideImageColor = AppColors.kGreenColorWithAlpha
-            cellForClientDetails.btnExpandCollapse.isHidden = true
-
             break
         default:
             break
