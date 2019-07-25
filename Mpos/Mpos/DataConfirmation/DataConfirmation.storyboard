@@ -137,12 +137,15 @@
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIU-2Q-Inu">
                                 <rect key="frame" x="15" y="794" width="384" height="60"/>
-                                <color key="backgroundColor" red="0.40392156862745099" green="0.76862745098039209" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Xkf-VC-2uf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
-                                <state key="normal" title="AVANÇAR"/>
+                                <state key="normal" title="AVANÇAR" backgroundImage="ic_buttonBack"/>
+                                <connections>
+                                    <action selector="gotoPaymentScreen:" destination="IsK-j5-138" eventType="touchUpInside" id="ylL-dF-KuE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,6 +179,7 @@
     <resources>
         <image name="ic_DropDown" width="10" height="8"/>
         <image name="ic_back" width="24" height="24"/>
+        <image name="ic_buttonBack" width="600" height="60"/>
         <image name="ic_sidebar" width="24" height="24"/>
     </resources>
 </document>

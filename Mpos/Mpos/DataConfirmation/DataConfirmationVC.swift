@@ -46,6 +46,13 @@ class DataConfirmationVC: UIViewController
         self.navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func gotoPaymentScreen(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentMethodListVC") as! PaymentMethodListVC
+        controller.selectedCategoryColor = selectedCategoryColor
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     /*
     // MARK: - Navigation
 

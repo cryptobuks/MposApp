@@ -83,6 +83,7 @@
 		D3B3D62522E6B7B100896564 /* ActionSheetMultipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3D61522E6B7B000896564 /* ActionSheetMultipleStringPicker.m */; };
 		D3B3D62622E6B7B100896564 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3D61622E6B7B000896564 /* AbstractActionSheetPicker.m */; };
 		D3B3D62B22E6BFC200896564 /* DataConfirmationDropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B3D62A22E6BFC200896564 /* DataConfirmationDropDownCell.swift */; };
+		D3B9160622E80D34008C62B0 /* GeneralSearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9160522E80D34008C62B0 /* GeneralSearchResultVC.swift */; };
 		D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */; };
 		D3D4BF3D22E174DF00FB39BD /* InvoiceListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */; };
 		D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */; };
@@ -193,6 +194,7 @@
 		D3B3D61922E6B7B000896564 /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
 		D3B3D62A22E6BFC200896564 /* DataConfirmationDropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConfirmationDropDownCell.swift; sourceTree = "<group>"; };
 		D3B3D62C22E6C25800896564 /* Mpos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mpos-Bridging-Header.h"; sourceTree = "<group>"; };
+		D3B9160522E80D34008C62B0 /* GeneralSearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSearchResultVC.swift; sourceTree = "<group>"; };
 		D3D4BF3822E174DF00FB39BD /* InvoiceList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InvoiceList.storyboard; sourceTree = "<group>"; };
 		D3D4BF3922E174DF00FB39BD /* InvoiceListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceListingVC.swift; sourceTree = "<group>"; };
 		D3D4BF3A22E174DF00FB39BD /* ClientDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientDetailCell.xib; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				A51C930822E2BBBA00AC280D /* SearchVC.swift */,
 				A59E4D7922E619B4006FFBB6 /* Search.storyboard */,
+				D3B9160522E80D34008C62B0 /* GeneralSearchResultVC.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A53609D222E62DDB00F661BB /* CompanyDetailsCellTableViewCell.swift in Sources */,
+				D3B9160622E80D34008C62B0 /* GeneralSearchResultVC.swift in Sources */,
 				D3A3685022E4CDD80095432C /* MposReferenciaVC.swift in Sources */,
 				D3ED55A722E62CAD00523306 /* DataConfirmationHeaderCell.swift in Sources */,
 				D378CB4C22DF9B6B004B51AC /* UserDefaultManager.swift in Sources */,
@@ -934,7 +938,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Mpos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Mpos/Mpos-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -956,7 +960,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.demoapp.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Mpos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Mpos/Mpos-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
