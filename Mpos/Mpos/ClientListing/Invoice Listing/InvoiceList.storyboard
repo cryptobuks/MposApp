@@ -260,9 +260,9 @@
                                     <constraint firstAttribute="trailing" secondItem="lDb-Nu-fLG" secondAttribute="trailing" constant="10" id="zil-AM-FhO"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-eP-UcV">
-                                <rect key="frame" x="0.0" y="109" width="375" height="669"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-eP-UcV">
+                                <rect key="frame" x="0.0" y="114" width="375" height="664"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qDY-YN-noN" id="pgb-67-Vkw"/>
                                     <outlet property="delegate" destination="qDY-YN-noN" id="CFM-85-yyY"/>
@@ -280,12 +280,12 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ET3-eJ-chQ" firstAttribute="trailing" secondItem="5ya-fO-mvV" secondAttribute="trailing" constant="10" id="24j-qI-4Qi"/>
                             <constraint firstItem="ET3-eJ-chQ" firstAttribute="trailing" secondItem="Psp-eP-UcV" secondAttribute="trailing" id="MyU-tT-j8V"/>
                             <constraint firstItem="Psp-eP-UcV" firstAttribute="leading" secondItem="ET3-eJ-chQ" secondAttribute="leading" id="NZo-S4-Zn1"/>
-                            <constraint firstItem="Psp-eP-UcV" firstAttribute="top" secondItem="agr-ec-wrh" secondAttribute="bottom" id="RHD-9K-wYr"/>
+                            <constraint firstItem="Psp-eP-UcV" firstAttribute="top" secondItem="agr-ec-wrh" secondAttribute="bottom" constant="5" id="RHD-9K-wYr"/>
                             <constraint firstItem="5ya-fO-mvV" firstAttribute="leading" secondItem="ET3-eJ-chQ" secondAttribute="leading" constant="10" id="Sxf-Zw-qRR"/>
                             <constraint firstItem="agr-ec-wrh" firstAttribute="top" secondItem="ET3-eJ-chQ" secondAttribute="top" id="X3j-uo-1PE"/>
                             <constraint firstItem="agr-ec-wrh" firstAttribute="leading" secondItem="aO5-U9-wjd" secondAttribute="leading" id="YLc-NM-GhD"/>

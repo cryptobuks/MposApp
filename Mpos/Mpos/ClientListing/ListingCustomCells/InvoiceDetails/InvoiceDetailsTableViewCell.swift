@@ -21,6 +21,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
 
     var InvoiceType:Int = 0
 
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,6 +40,12 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @objc func btnMoreInfoClicked(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "ReceiptDetails", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "ReceiptDetailsVC") as! ReceiptDetailsVC
+        controller.InvoiceType = InvoiceType
+        self.viewControllerForTableView?.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 //MARK:-UITableViewDelegate,UITableViewDataSource
@@ -82,7 +89,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         cellForInvoiceWithCheckBox.lblCaptionReceipt.textColor = lblColor
         cellForInvoiceWithCheckBox.lblCaptionValue.textColor = lblColor
         cellForInvoiceWithCheckBox.lblCaptionIssueDate.textColor = lblColor
-        
+        cellForInvoiceWithCheckBox.btnViewMore.addTarget(self, action: #selector(btnMoreInfoClicked(_:)), for: .touchUpInside)
         return cellForInvoiceWithCheckBox
     }
     

@@ -52,6 +52,16 @@ let kDataConfirmationNormalListCell = "DataConfirmationNormalListCell"
 let kCellOfInvoiceDetails = "InvoiceDetailsTableViewCell"
 let kCellOfCompanyDetails = "CompanyDetailsCellTableViewCell"
 let kCellOfInvoiceDetailsWIthCheckBoxTableViewCell = "InvoiceDetailsWIthCheckBoxTableViewCell"
+let kCellOfReceiptHeaderCell = "ReceiptHeaderCell"
+let kCellOfGeneralDataCell = "GeneralDataCell"
+let kCellOfAwardsDetailsCell = "AwardsDetailsCell"
+
+let kCellOfCommitteesDetailsCell = "CommitteesDetailsCell"
+
+let kCellOfPaymentDataCell = "PaymentDataCell"
+
+
+
 
 
 let isIpad = Device.IS_IPAD

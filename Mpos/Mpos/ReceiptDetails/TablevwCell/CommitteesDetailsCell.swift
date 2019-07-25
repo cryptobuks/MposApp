@@ -1,19 +1,20 @@
 //
-//  DataConfirmationHeaderCell.swift
+//  CommitteesDetailsCell.swift
 //  Mpos
 //
-//  Created by Yash on 22/07/19.
+//  Created by kaushal panchal on 25/07/19.
 //  Copyright © 2019 Kevin. All rights reserved.
 //
 
 import UIKit
 
-class DataConfirmationHeaderCell: UITableViewCell {
+class CommitteesDetailsCell: UITableViewCell {
 
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblsubTitle: UILabel!
-    @IBOutlet weak var btnTap: UIButton!
-
+    @IBOutlet weak var lblCaptionAngariation: UILabel!
+    @IBOutlet weak var lblCaptionCollection: UILabel!
+    @IBOutlet weak var lblAngariation: UILabel!
+    @IBOutlet weak var lblCollection: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

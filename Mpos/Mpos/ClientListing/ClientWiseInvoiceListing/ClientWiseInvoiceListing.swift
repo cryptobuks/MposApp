@@ -62,7 +62,7 @@ class ClientWiseInvoiceListing: UIViewController {
         
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
-            imgTopShadow.backgroundColor = AppColors.kOrangeColor
+            imgTopShadow.backgroundColor = AppColors.kOrangeColorWithAlpha
             lblTitleHeader.text = "RISCO DE ANULAÇÃO"
             lblTitleHeader.textColor = AppColors.kOrangeColor
             btnMenu.tintColor = AppColors.kOrangeColor
@@ -70,7 +70,7 @@ class ClientWiseInvoiceListing: UIViewController {
             
             break
         case 2: //POR COBRAR
-            imgTopShadow.backgroundColor = AppColors.kPurpulColor
+            imgTopShadow.backgroundColor = AppColors.kPurpulColorWithAlpha
             lblTitleHeader.text = "POR COBRAR"
             lblTitleHeader.textColor = AppColors.kPurpulColor
             btnMenu.tintColor = AppColors.kPurpulColor
@@ -78,7 +78,7 @@ class ClientWiseInvoiceListing: UIViewController {
             
             break
         case 3: // COBRADOS
-            imgTopShadow.backgroundColor = AppColors.kGreenColor
+            imgTopShadow.backgroundColor = AppColors.kGreenColorWithAlpha
             lblTitleHeader.text = "COBRADOS"
             lblTitleHeader.textColor = AppColors.kGreenColor
             btnMenu.tintColor = AppColors.kGreenColor
@@ -96,7 +96,9 @@ class ClientWiseInvoiceListing: UIViewController {
         self.tblvwInvoiceListing.estimatedSectionHeaderHeight = 80
         self.tblvwInvoiceListing.estimatedRowHeight = 60.0
         self.tblvwInvoiceListing.rowHeight = UITableView.automaticDimension
-        
+
+        self.tblvwInvoiceListing.tableFooterView = UIView(frame: .zero)
+
         self.tblvwInvoiceListing.reloadData()
     }
     
@@ -158,6 +160,12 @@ class ClientWiseInvoiceListing: UIViewController {
         
     }
 
+    @objc func btnClientClicked(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "ClientDetailsVC") as! ClientDetailsVC
+        controller.invoiceType = InvoiceType
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     
     /*
      // MARK: - Navigation
@@ -174,10 +182,14 @@ class ClientWiseInvoiceListing: UIViewController {
 extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0
+        {
+            return 0
+        }
         return 2
     }
     
@@ -190,40 +202,80 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         
         return 85
     }
-    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 0
+        {
+            return 0
+        }
+        return 10
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0
+        {
+            return 60
+        }
         return 60
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let  headerCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmationHeaderCell) as! DataConfirmationHeaderCell
         let companyDetailCell = tableView.dequeueReusableCell(withIdentifier: kCellOfCompanyDetails) as! CompanyDetailsCellTableViewCell
-        switch InvoiceType {
-        case 1: //RISCO DE ANULAÇÃO
-            companyDetailCell.btnCheckBox.isHidden = false
-            break
-        case 2: //POR COBRAR
-            companyDetailCell.btnCheckBox.isHidden = false
-            break
-        case 3: // COBRADOS
-            companyDetailCell.btnCheckBox.isHidden = true
-            break
-        default:
-            break
-        }
         
-        companyDetailCell.btnCheckBox.tag = section
-        companyDetailCell.btnCheckBox.addTarget(self, action: #selector(btnRadioBtnClicked(_:)), for: .touchUpInside)
-        
-        if section == selectedCompanyIndex
+        if section == 0
         {
-            companyDetailCell.btnCheckBox.isSelected = true
+            var lblColor = UIColor()
+            
+            switch InvoiceType {
+            case 1: //RISCO DE ANULAÇÃO
+                lblColor = AppColors.kOrangeColor
+                break
+            case 2: //POR COBRAR
+                lblColor = AppColors.kPurpulColor
+                break
+            case 3: // COBRADOS
+                lblColor = AppColors.kGreenColor
+                break
+            default:
+                break
+            }
+            headerCell.btnTap.addTarget(self, action: #selector(btnClientClicked(_:)), for: .touchUpInside)
+            headerCell.lblTitle.textColor = lblColor
+            
+            return headerCell
         }
         else
         {
-            companyDetailCell.btnCheckBox.isSelected = false
+            switch InvoiceType {
+            case 1: //RISCO DE ANULAÇÃO
+                companyDetailCell.btnCheckBox.isHidden = false
+                break
+            case 2: //POR COBRAR
+                companyDetailCell.btnCheckBox.isHidden = false
+                break
+            case 3: // COBRADOS
+                companyDetailCell.btnCheckBox.isHidden = true
+                break
+            default:
+                break
+            }
+            
+            companyDetailCell.btnCheckBox.tag = section
+            companyDetailCell.btnCheckBox.addTarget(self, action: #selector(btnRadioBtnClicked(_:)), for: .touchUpInside)
+            
+            if section == selectedCompanyIndex
+            {
+                companyDetailCell.btnCheckBox.isSelected = true
+            }
+            else
+            {
+                companyDetailCell.btnCheckBox.isSelected = false
+            }
+            return companyDetailCell
+
         }
-        return companyDetailCell
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -233,7 +285,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         var lblColor = UIColor()
         var sideImageColor = UIColor()
         cellForClientDetails.btnExpandCollapse.isHidden = false
-
+        
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
             lblColor = AppColors.kOrangeColor

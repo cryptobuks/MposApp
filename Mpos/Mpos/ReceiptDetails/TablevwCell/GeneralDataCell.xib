@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Ubuntu-B.ttf">
+            <string>Ubuntu-Bold</string>
+        </array>
+        <array key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GeneralDataCell" id="KGk-i7-Jjw" customClass="GeneralDataCell" customModule="Mpos" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="435"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="434.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwe-dH-XFA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="434.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLIENTE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAu-e2-E43">
+                                <rect key="frame" x="40" y="20" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="H1Y-ZM-rWI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
+                                <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luís Henrique Silveira Gomes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn0-eY-emO">
+                                <rect key="frame" x="40" y="50" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="MSl-g9-Idd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="245 319 873" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ux-0q-wrF">
+                                <rect key="frame" x="40" y="120" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ysI-aa-7VH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APÓLICE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knb-MA-qrL">
+                                <rect key="frame" x="40" y="160" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="xvv-18-Zxk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
+                                <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ULK1983917" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVT-HA-cdU">
+                                <rect key="frame" x="40" y="190" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="KSO-Ud-5gI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECIBO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woF-u5-KeA">
+                                <rect key="frame" x="40" y="90" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="8zI-g3-0bl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
+                                <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ESTADO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-4h-gz5">
+                                <rect key="frame" x="40" y="230" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Zio-a8-Y1U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
+                                <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EM ABERTO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJV-FD-nre">
+                                <rect key="frame" x="40" y="260" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Pwk-ZC-oiY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.21176470588235294" green="0.81960784313725488" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semestral" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEy-w2-wcg">
+                                <rect key="frame" x="40" y="330" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ZQz-R9-a3R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIPO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFI-zh-Y34">
+                                <rect key="frame" x="40" y="370" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="JXO-T5-xge"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
+                                <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continuado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AT9-pG-5gm">
+                                <rect key="frame" x="40" y="400" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="bzU-py-mN8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FRACIONAMENTO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnT-FF-TRC">
+                                <rect key="frame" x="40" y="300" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="eEs-ni-r1o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
+                                <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YEy-w2-wcg" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="0qB-Jb-k14"/>
+                            <constraint firstItem="jFI-zh-Y34" firstAttribute="top" secondItem="YEy-w2-wcg" secondAttribute="bottom" constant="20" id="14f-iU-bRO"/>
+                            <constraint firstItem="4Ux-0q-wrF" firstAttribute="top" secondItem="woF-u5-KeA" secondAttribute="bottom" constant="10" id="3Zu-zo-OjI"/>
+                            <constraint firstItem="woF-u5-KeA" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="3z0-Gv-D5k"/>
+                            <constraint firstItem="PnT-FF-TRC" firstAttribute="top" secondItem="PJV-FD-nre" secondAttribute="bottom" constant="20" id="4vI-ga-Lld"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="woF-u5-KeA" secondAttribute="trailing" constant="10" id="525-ui-z0h"/>
+                            <constraint firstItem="aV3-4h-gz5" firstAttribute="top" secondItem="gVT-HA-cdU" secondAttribute="bottom" constant="20" id="5PW-Ci-5r1"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="Knb-MA-qrL" secondAttribute="trailing" constant="10" id="6fU-tL-8Qq"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="jFI-zh-Y34" secondAttribute="trailing" constant="10" id="762-Rm-npl"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="4Ux-0q-wrF" secondAttribute="trailing" constant="10" id="7vc-gA-kFi"/>
+                            <constraint firstItem="gVT-HA-cdU" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="Cmc-zG-aog"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="aV3-4h-gz5" secondAttribute="trailing" constant="10" id="D5N-0N-GLm"/>
+                            <constraint firstItem="Knb-MA-qrL" firstAttribute="top" secondItem="4Ux-0q-wrF" secondAttribute="bottom" constant="20" id="DZU-FY-D3v"/>
+                            <constraint firstItem="Wn0-eY-emO" firstAttribute="top" secondItem="kAu-e2-E43" secondAttribute="bottom" constant="10" id="Krt-Pn-rMc"/>
+                            <constraint firstItem="AT9-pG-5gm" firstAttribute="top" secondItem="jFI-zh-Y34" secondAttribute="bottom" constant="10" id="LhM-8y-tSG"/>
+                            <constraint firstItem="AT9-pG-5gm" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="MBq-xU-AO7"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="gVT-HA-cdU" secondAttribute="trailing" constant="10" id="MJ1-Pi-tdo"/>
+                            <constraint firstItem="Wn0-eY-emO" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="S4e-xb-do8"/>
+                            <constraint firstItem="woF-u5-KeA" firstAttribute="top" secondItem="Wn0-eY-emO" secondAttribute="bottom" constant="20" id="TEj-cc-X0T"/>
+                            <constraint firstItem="kAu-e2-E43" firstAttribute="top" secondItem="ucU-sL-CsE" secondAttribute="top" constant="20" id="UJ3-Np-w3D"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="PJV-FD-nre" secondAttribute="trailing" constant="10" id="Ww1-Ob-anq"/>
+                            <constraint firstItem="jFI-zh-Y34" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="Xqc-01-EhA"/>
+                            <constraint firstItem="kAu-e2-E43" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="Yin-fG-6Fr"/>
+                            <constraint firstItem="PJV-FD-nre" firstAttribute="top" secondItem="aV3-4h-gz5" secondAttribute="bottom" constant="10" id="ZXf-Bd-BHc"/>
+                            <constraint firstItem="4Ux-0q-wrF" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="gvm-WY-CMi"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="PnT-FF-TRC" secondAttribute="trailing" constant="10" id="jKY-1V-SD8"/>
+                            <constraint firstItem="Knb-MA-qrL" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="kUK-r1-DgN"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="kAu-e2-E43" secondAttribute="trailing" constant="10" id="lrh-Xr-eKD"/>
+                            <constraint firstItem="PJV-FD-nre" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="mSj-Sf-8hu"/>
+                            <constraint firstItem="gVT-HA-cdU" firstAttribute="top" secondItem="Knb-MA-qrL" secondAttribute="bottom" constant="10" id="mbP-tU-J2T"/>
+                            <constraint firstItem="aV3-4h-gz5" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="mix-EJ-blb"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="Wn0-eY-emO" secondAttribute="trailing" constant="10" id="rb2-5o-Vkl"/>
+                            <constraint firstItem="YEy-w2-wcg" firstAttribute="top" secondItem="PnT-FF-TRC" secondAttribute="bottom" constant="10" id="sYJ-Pc-Vdk"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="YEy-w2-wcg" secondAttribute="trailing" constant="10" id="tJq-ek-h00"/>
+                            <constraint firstItem="ucU-sL-CsE" firstAttribute="trailing" secondItem="AT9-pG-5gm" secondAttribute="trailing" constant="10" id="tXB-Rk-5MZ"/>
+                            <constraint firstItem="PnT-FF-TRC" firstAttribute="leading" secondItem="ucU-sL-CsE" secondAttribute="leading" constant="40" id="zxS-QZ-aKb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ucU-sL-CsE"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="xwe-dH-XFA" secondAttribute="bottom" id="4sv-Sp-NKw"/>
+                    <constraint firstItem="xwe-dH-XFA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5xo-g1-20T"/>
+                    <constraint firstAttribute="trailing" secondItem="xwe-dH-XFA" secondAttribute="trailing" id="EcC-x7-qdM"/>
+                    <constraint firstItem="xwe-dH-XFA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nkq-x9-Xgm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblCaptionClient" destination="kAu-e2-E43" id="JGh-1m-8XT"/>
+                <outlet property="lblCaptionFractioning" destination="PnT-FF-TRC" id="o19-Kq-Aan"/>
+                <outlet property="lblCaptionKind" destination="jFI-zh-Y34" id="4m7-mX-whm"/>
+                <outlet property="lblCaptionPolicyNumber" destination="Knb-MA-qrL" id="GcK-fm-m4f"/>
+                <outlet property="lblCaptionReceipt" destination="woF-u5-KeA" id="oKd-pp-5hq"/>
+                <outlet property="lblCaptionState" destination="aV3-4h-gz5" id="h4P-9K-1yv"/>
+                <outlet property="lblClient" destination="Wn0-eY-emO" id="Ehw-mi-hdL"/>
+                <outlet property="lblFractioning" destination="YEy-w2-wcg" id="cTS-3D-UUq"/>
+                <outlet property="lblKind" destination="AT9-pG-5gm" id="F4b-nj-iPo"/>
+                <outlet property="lblPolicyNumber" destination="gVT-HA-cdU" id="8iG-2y-ykX"/>
+                <outlet property="lblReceipt" destination="4Ux-0q-wrF" id="ORS-4Q-hgQ"/>
+                <outlet property="lblState" destination="PJV-FD-nre" id="GT6-Ep-8gR"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

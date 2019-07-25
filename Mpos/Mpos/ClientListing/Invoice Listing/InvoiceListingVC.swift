@@ -54,12 +54,13 @@ class InvoiceListingVC: UIViewController {
         vwHeader.layer.shadowOpacity = 1
         vwHeader.layer.shadowColor = UIColor.gray.cgColor
         vwHeader.layer.shadowOffset = CGSize(width: 0 , height:2)
+    
         btnBackArrow.setImage(btnBackArrow.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         btnMenu.setImage(btnMenu.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
-            imgTopShadow.backgroundColor = AppColors.kOrangeColor
+            imgTopShadow.backgroundColor = AppColors.kOrangeColorWithAlpha
             lblSearchHeader.textColor = AppColors.kOrangeColor
             lblSearchHeader.text = "FILTRAR RISCO DE ANULAÇÃO"
             lblTitleHeader.text = "RISCO DE ANULAÇÃO"
@@ -69,7 +70,7 @@ class InvoiceListingVC: UIViewController {
 
             break
         case 2: //POR COBRAR
-            imgTopShadow.backgroundColor = AppColors.kPurpulColor
+            imgTopShadow.backgroundColor = AppColors.kPurpulColorWithAlpha
             lblSearchHeader.textColor = AppColors.kPurpulColor
             lblSearchHeader.text = "FILTRAR POR COBRAR"
             lblTitleHeader.text = "POR COBRAR"
@@ -79,7 +80,7 @@ class InvoiceListingVC: UIViewController {
 
             break
         case 3: // COBRADOS
-            imgTopShadow.backgroundColor = AppColors.kGreenColor
+            imgTopShadow.backgroundColor = AppColors.kGreenColorWithAlpha
             lblSearchHeader.textColor = AppColors.kGreenColor
             lblSearchHeader.text = "FILTRAR COBRADOS"
             lblTitleHeader.text = "COBRADOS"

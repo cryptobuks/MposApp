@@ -1,18 +1,14 @@
 //
-//  DataConfirmationHeaderCell.swift
+//  AwardsDetailsCell.swift
 //  Mpos
 //
-//  Created by Yash on 22/07/19.
+//  Created by kaushal panchal on 25/07/19.
 //  Copyright © 2019 Kevin. All rights reserved.
 //
 
 import UIKit
 
-class DataConfirmationHeaderCell: UITableViewCell {
-
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblsubTitle: UILabel!
-    @IBOutlet weak var btnTap: UIButton!
+class AwardsDetailsCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,18 +1,17 @@
 //
-//  DataConfirmationHeaderCell.swift
+//  ReceiptHeaderCell.swift
 //  Mpos
 //
-//  Created by Yash on 22/07/19.
+//  Created by kaushal panchal on 25/07/19.
 //  Copyright © 2019 Kevin. All rights reserved.
 //
 
 import UIKit
 
-class DataConfirmationHeaderCell: UITableViewCell {
+class ReceiptHeaderCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblsubTitle: UILabel!
-    @IBOutlet weak var btnTap: UIButton!
+    @IBOutlet weak var btnExpandCollapse: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

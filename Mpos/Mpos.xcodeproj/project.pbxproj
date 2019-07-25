@@ -14,6 +14,19 @@
 		A53609D222E62DDB00F661BB /* CompanyDetailsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53609D022E62DDB00F661BB /* CompanyDetailsCellTableViewCell.swift */; };
 		A53609D622E635B800F661BB /* InvoiceDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53609D422E635B800F661BB /* InvoiceDetailsTableViewCell.swift */; };
 		A53609D722E635B800F661BB /* InvoiceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53609D522E635B800F661BB /* InvoiceDetailsTableViewCell.xib */; };
+		A54FFBB022EA11CE00F03281 /* ReceiptDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FFBAF22EA11CE00F03281 /* ReceiptDetailsVC.swift */; };
+		A54FFBB222EA123200F03281 /* ReceiptDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54FFBB122EA123200F03281 /* ReceiptDetails.storyboard */; };
+		A54FFBB622EA155200F03281 /* ReceiptHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FFBB422EA155200F03281 /* ReceiptHeaderCell.swift */; };
+		A54FFBB722EA155200F03281 /* ReceiptHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54FFBB522EA155200F03281 /* ReceiptHeaderCell.xib */; };
+		A54FFBB922EA1A8900F03281 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FFBB822EA1A8900F03281 /* Extensions.swift */; };
+		A54FFBBC22EA1DF400F03281 /* GeneralDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FFBBA22EA1DF400F03281 /* GeneralDataCell.swift */; };
+		A54FFBBD22EA1DF400F03281 /* GeneralDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54FFBBB22EA1DF400F03281 /* GeneralDataCell.xib */; };
+		A54FFBC222EA1E4300F03281 /* AwardsDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FFBC022EA1E4300F03281 /* AwardsDetailsCell.swift */; };
+		A54FFBC322EA1E4300F03281 /* AwardsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54FFBC122EA1E4300F03281 /* AwardsDetailsCell.xib */; };
+		A54FFBC622EA1E7C00F03281 /* CommitteesDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FFBC422EA1E7C00F03281 /* CommitteesDetailsCell.swift */; };
+		A54FFBC722EA1E7C00F03281 /* CommitteesDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54FFBC522EA1E7C00F03281 /* CommitteesDetailsCell.xib */; };
+		A54FFBCA22EA1E9D00F03281 /* PaymentDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FFBC822EA1E9D00F03281 /* PaymentDataCell.swift */; };
+		A54FFBCB22EA1E9D00F03281 /* PaymentDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54FFBC922EA1E9D00F03281 /* PaymentDataCell.xib */; };
 		A59E4D7822E6191A006FFBB6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */; };
 		A59E4D7A22E619B4006FFBB6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7922E619B4006FFBB6 /* Search.storyboard */; };
 		A5CA733A22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */; };
@@ -111,6 +124,19 @@
 		A53609D022E62DDB00F661BB /* CompanyDetailsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyDetailsCellTableViewCell.swift; sourceTree = "<group>"; };
 		A53609D422E635B800F661BB /* InvoiceDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A53609D522E635B800F661BB /* InvoiceDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		A54FFBAF22EA11CE00F03281 /* ReceiptDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailsVC.swift; sourceTree = "<group>"; };
+		A54FFBB122EA123200F03281 /* ReceiptDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReceiptDetails.storyboard; sourceTree = "<group>"; };
+		A54FFBB422EA155200F03281 /* ReceiptHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHeaderCell.swift; sourceTree = "<group>"; };
+		A54FFBB522EA155200F03281 /* ReceiptHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiptHeaderCell.xib; sourceTree = "<group>"; };
+		A54FFBB822EA1A8900F03281 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A54FFBBA22EA1DF400F03281 /* GeneralDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDataCell.swift; sourceTree = "<group>"; };
+		A54FFBBB22EA1DF400F03281 /* GeneralDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralDataCell.xib; sourceTree = "<group>"; };
+		A54FFBC022EA1E4300F03281 /* AwardsDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsDetailsCell.swift; sourceTree = "<group>"; };
+		A54FFBC122EA1E4300F03281 /* AwardsDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwardsDetailsCell.xib; sourceTree = "<group>"; };
+		A54FFBC422EA1E7C00F03281 /* CommitteesDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteesDetailsCell.swift; sourceTree = "<group>"; };
+		A54FFBC522EA1E7C00F03281 /* CommitteesDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitteesDetailsCell.xib; sourceTree = "<group>"; };
+		A54FFBC822EA1E9D00F03281 /* PaymentDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDataCell.swift; sourceTree = "<group>"; };
+		A54FFBC922EA1E9D00F03281 /* PaymentDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentDataCell.xib; sourceTree = "<group>"; };
 		A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		A59E4D7922E619B4006FFBB6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsWIthCheckBoxTableViewCell.swift; sourceTree = "<group>"; };
@@ -289,6 +315,33 @@
 			path = InvoiceDetails;
 			sourceTree = "<group>";
 		};
+		A54FFBAE22EA11A200F03281 /* ReceiptDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A54FFBB322EA152000F03281 /* TablevwCell */,
+				A54FFBAF22EA11CE00F03281 /* ReceiptDetailsVC.swift */,
+				A54FFBB122EA123200F03281 /* ReceiptDetails.storyboard */,
+			);
+			path = ReceiptDetails;
+			sourceTree = "<group>";
+		};
+		A54FFBB322EA152000F03281 /* TablevwCell */ = {
+			isa = PBXGroup;
+			children = (
+				A54FFBB422EA155200F03281 /* ReceiptHeaderCell.swift */,
+				A54FFBB522EA155200F03281 /* ReceiptHeaderCell.xib */,
+				A54FFBBA22EA1DF400F03281 /* GeneralDataCell.swift */,
+				A54FFBBB22EA1DF400F03281 /* GeneralDataCell.xib */,
+				A54FFBC022EA1E4300F03281 /* AwardsDetailsCell.swift */,
+				A54FFBC122EA1E4300F03281 /* AwardsDetailsCell.xib */,
+				A54FFBC422EA1E7C00F03281 /* CommitteesDetailsCell.swift */,
+				A54FFBC522EA1E7C00F03281 /* CommitteesDetailsCell.xib */,
+				A54FFBC822EA1E9D00F03281 /* PaymentDataCell.swift */,
+				A54FFBC922EA1E9D00F03281 /* PaymentDataCell.xib */,
+			);
+			path = TablevwCell;
+			sourceTree = "<group>";
+		};
 		A5CA733722E8978D000F547C /* InvoiceDetailwithCheckBox */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +436,7 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+				A54FFBAE22EA11A200F03281 /* ReceiptDetails */,
 				D37F815922E7882C004729D8 /* GIF */,
 				D3B3D5FF22E6B7B000896564 /* Library */,
 				D3ED55A022E6299000523306 /* DataConfirmation */,
@@ -403,6 +457,7 @@
 				D378CB4022DF9B19004B51AC /* Info.plist */,
 				D378CB3822DF9B13004B51AC /* Mpos.xcdatamodeld */,
 				D3B3D62C22E6C25800896564 /* Mpos-Bridging-Header.h */,
+				A54FFBB822EA1A8900F03281 /* Extensions.swift */,
 			);
 			path = Mpos;
 			sourceTree = "<group>";
@@ -654,11 +709,13 @@
 				D3B3D61A22E6B7B100896564 /* EPSignatureViewController.xib in Resources */,
 				D39E335422E0EA1D0079B0AA /* Ubuntu-L.ttf in Resources */,
 				D39E335B22E0EA1D0079B0AA /* Ubuntu-C.ttf in Resources */,
+				A54FFBB722EA155200F03281 /* ReceiptHeaderCell.xib in Resources */,
 				D39E335322E0EA1D0079B0AA /* Ubuntu-M.ttf in Resources */,
 				D39E335622E0EA1D0079B0AA /* Ubuntu-Th.ttf in Resources */,
 				D3D4BF3E22E174DF00FB39BD /* ClientDetailCell.xib in Resources */,
 				A59E4D7A22E619B4006FFBB6 /* Search.storyboard in Resources */,
 				A53609D722E635B800F661BB /* InvoiceDetailsTableViewCell.xib in Resources */,
+				A54FFBC722EA1E7C00F03281 /* CommitteesDetailsCell.xib in Resources */,
 				D378CB3C22DF9B19004B51AC /* Assets.xcassets in Resources */,
 				D3ED55AC22E62CE000523306 /* DataConfirmataionListwithLogoCell.xib in Resources */,
 				D37F816222E78859004729D8 /* Logout.gif in Resources */,
@@ -668,6 +725,8 @@
 				A53609D122E62DDB00F661BB /* CompanyDetailsCellTableViewCell.xib in Resources */,
 				D39E335922E0EA1D0079B0AA /* Ubuntu-LI.ttf in Resources */,
 				D39E335822E0EA1D0079B0AA /* Ubuntu-R.ttf in Resources */,
+				A54FFBBD22EA1DF400F03281 /* GeneralDataCell.xib in Resources */,
+				A54FFBCB22EA1E9D00F03281 /* PaymentDataCell.xib in Resources */,
 				D3ED55A222E629D400523306 /* DataConfirmation.storyboard in Resources */,
 				D39E335C22E0EA1D0079B0AA /* Ubuntu-RI.ttf in Resources */,
 				D378CB3722DF9B13004B51AC /* Main.storyboard in Resources */,
@@ -675,7 +734,9 @@
 				D3D4BF3C22E174DF00FB39BD /* InvoiceList.storyboard in Resources */,
 				D39E335722E0EA1D0079B0AA /* Ubuntu-MI.ttf in Resources */,
 				D39E335A22E0EA1D0079B0AA /* Ubuntu-B.ttf in Resources */,
+				A54FFBB222EA123200F03281 /* ReceiptDetails.storyboard in Resources */,
 				D37F816522E78859004729D8 /* onb_1.gif in Resources */,
+				A54FFBC322EA1E4300F03281 /* AwardsDetailsCell.xib in Resources */,
 				D3ED55B022E62D0200523306 /* DataConfirmationNormalListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -726,6 +787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A53609D222E62DDB00F661BB /* CompanyDetailsCellTableViewCell.swift in Sources */,
+				A54FFBB622EA155200F03281 /* ReceiptHeaderCell.swift in Sources */,
 				D3B9160622E80D34008C62B0 /* GeneralSearchResultVC.swift in Sources */,
 				D3A3685022E4CDD80095432C /* MposReferenciaVC.swift in Sources */,
 				D3ED55A722E62CAD00523306 /* DataConfirmationHeaderCell.swift in Sources */,
@@ -734,6 +796,7 @@
 				A53609C822E6299C00F661BB /* ClientDetailsVC.swift in Sources */,
 				D37F817122E78A7B004729D8 /* OnboardingThirdPageVC.swift in Sources */,
 				D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */,
+				A54FFBC622EA1E7C00F03281 /* CommitteesDetailsCell.swift in Sources */,
 				D3ED55A422E62A0400523306 /* DataConfirmationVC.swift in Sources */,
 				D3D4BF4622E1754600FB39BD /* UITextField+fixCaretPosition.swift in Sources */,
 				D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */,
@@ -748,6 +811,7 @@
 				D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */,
 				D37F816D22E78954004729D8 /* OnboardingFirstPageVC.swift in Sources */,
 				D3B3D62522E6B7B100896564 /* ActionSheetMultipleStringPicker.m in Sources */,
+				A54FFBBC22EA1DF400F03281 /* GeneralDataCell.swift in Sources */,
 				D3ED55AB22E62CE000523306 /* DataConfirmataionListwithLogoCell.swift in Sources */,
 				D3B3D62422E6B7B100896564 /* DistancePickerView.m in Sources */,
 				D3B3D61C22E6B7B100896564 /* EPSignatureViewController.swift in Sources */,
@@ -759,7 +823,9 @@
 				D3D4BF4522E1754600FB39BD /* SkyFloatingLabelTextField.swift in Sources */,
 				D3B3D61F22E6B7B100896564 /* ActionSheetLocalePicker.m in Sources */,
 				A5CA733A22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift in Sources */,
+				A54FFBCA22EA1E9D00F03281 /* PaymentDataCell.swift in Sources */,
 				D3B3D62022E6B7B100896564 /* ActionSheetDistancePicker.m in Sources */,
+				A54FFBB022EA11CE00F03281 /* ReceiptDetailsVC.swift in Sources */,
 				D31E97F522E44F58001BE76F /* PaymentMethodListVC.swift in Sources */,
 				D38EB80A22DFA159009FFDFF /* MainReqeustClass.swift in Sources */,
 				D3ED55AF22E62D0200523306 /* DataConfirmationNormalListCell.swift in Sources */,
@@ -779,6 +845,8 @@
 				D3A3684E22E4CAFE0095432C /* MposPinVC.swift in Sources */,
 				D37F816F22E78A6B004729D8 /* OnboardingSecondPageVC.swift in Sources */,
 				D3B3D62B22E6BFC200896564 /* DataConfirmationDropDownCell.swift in Sources */,
+				A54FFBC222EA1E4300F03281 /* AwardsDetailsCell.swift in Sources */,
+				A54FFBB922EA1A8900F03281 /* Extensions.swift in Sources */,
 				D378CB4A22DF9B6B004B51AC /* AppUtils.swift in Sources */,
 				D35ADD8822E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift in Sources */,
 			);

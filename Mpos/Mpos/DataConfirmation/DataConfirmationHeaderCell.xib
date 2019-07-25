@@ -27,33 +27,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="CLIENTE" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3p-tj-n5K">
-                        <rect key="frame" x="16" y="8" width="288" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLIENTE" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3p-tj-n5K">
+                        <rect key="frame" x="16" y="8" width="288" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="wtP-DQ-WyP"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="LUÍS HENRIQUE DE SILV..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flt-5i-3js">
-                        <rect key="frame" x="16" y="32" width="288" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LUÍS HENRIQUE DE SILV..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flt-5i-3js">
+                        <rect key="frame" x="16" y="32" width="288" height="26.5"/>
                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBI-9i-fPs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="flt-5i-3js" secondAttribute="trailing" constant="16" id="217-oY-sgr"/>
-                    <constraint firstAttribute="bottom" secondItem="flt-5i-3js" secondAttribute="bottom" constant="16" id="540-Pb-ITJ"/>
-                    <constraint firstItem="flt-5i-3js" firstAttribute="top" secondItem="G3p-tj-n5K" secondAttribute="bottom" constant="8" id="CnB-sk-Aei"/>
-                    <constraint firstItem="flt-5i-3js" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Czi-qe-LSM"/>
-                    <constraint firstItem="flt-5i-3js" firstAttribute="top" secondItem="G3p-tj-n5K" secondAttribute="bottom" constant="8" id="DVn-Dr-mj3"/>
-                    <constraint firstItem="G3p-tj-n5K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eOu-Vo-crA"/>
-                    <constraint firstAttribute="trailing" secondItem="G3p-tj-n5K" secondAttribute="trailing" constant="16" id="eQb-MX-DJ0"/>
-                    <constraint firstItem="G3p-tj-n5K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="xsG-OR-vIQ"/>
+                    <constraint firstItem="bBI-9i-fPs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6yY-RC-qXq"/>
+                    <constraint firstItem="G3p-tj-n5K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="GJO-b7-hsx"/>
+                    <constraint firstAttribute="bottom" secondItem="bBI-9i-fPs" secondAttribute="bottom" id="T1Z-fr-AuQ"/>
+                    <constraint firstItem="flt-5i-3js" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="TMu-qo-3Ax"/>
+                    <constraint firstAttribute="trailing" secondItem="G3p-tj-n5K" secondAttribute="trailing" constant="16" id="UeT-M4-60S"/>
+                    <constraint firstItem="flt-5i-3js" firstAttribute="top" secondItem="G3p-tj-n5K" secondAttribute="bottom" constant="6" id="Zkr-sg-9WK"/>
+                    <constraint firstItem="bBI-9i-fPs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eMS-jw-OSq"/>
+                    <constraint firstAttribute="trailing" secondItem="flt-5i-3js" secondAttribute="trailing" constant="16" id="gFr-n8-Vg3"/>
+                    <constraint firstAttribute="trailing" secondItem="bBI-9i-fPs" secondAttribute="trailing" id="gtG-rZ-DCM"/>
+                    <constraint firstAttribute="bottom" secondItem="flt-5i-3js" secondAttribute="bottom" constant="10" id="iv4-1c-0wn"/>
+                    <constraint firstItem="G3p-tj-n5K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ybI-4h-H66"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnTap" destination="bBI-9i-fPs" id="1Ix-lJ-O84"/>
                 <outlet property="lblTitle" destination="G3p-tj-n5K" id="QJR-RO-BbR"/>
                 <outlet property="lblsubTitle" destination="flt-5i-3js" id="GbO-Av-b4B"/>
             </connections>

@@ -13,7 +13,7 @@ class ClientDetailsVC: UIViewController
 {
     @IBOutlet weak var tblClientDetails: UITableView!
     let arrRows = NSMutableArray()
-    let invoiceType :Int = 3
+    var invoiceType :Int = 3
     override func viewDidLoad()
     {
         super.viewDidLoad()

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CommitteesDetailsCell" customModule="Mpos" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bmq-zs-mQn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANGARIAÇÃO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jf0-yQ-wpU">
+                                <rect key="frame" x="40" y="20" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Hsa-VS-JOQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-137.86€" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXI-I0-J3N">
+                                <rect key="frame" x="40" y="50" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="vau-be-6WK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COBRANÇA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWU-bp-ev0">
+                                <rect key="frame" x="40" y="90" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="oWh-yn-fKI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-15.31€" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRl-11-Mi0">
+                                <rect key="frame" x="40" y="120" width="270" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="U3P-nP-Ph2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oQG-9M-oiG" firstAttribute="trailing" secondItem="MXI-I0-J3N" secondAttribute="trailing" constant="10" id="E99-Eb-IuW"/>
+                            <constraint firstItem="oQG-9M-oiG" firstAttribute="trailing" secondItem="Jf0-yQ-wpU" secondAttribute="trailing" constant="10" id="KSJ-Ou-K6L"/>
+                            <constraint firstItem="Jf0-yQ-wpU" firstAttribute="top" secondItem="oQG-9M-oiG" secondAttribute="top" constant="20" id="LPt-H1-neO"/>
+                            <constraint firstItem="oQG-9M-oiG" firstAttribute="trailing" secondItem="fWU-bp-ev0" secondAttribute="trailing" constant="10" id="Pel-GV-U6O"/>
+                            <constraint firstItem="Jf0-yQ-wpU" firstAttribute="leading" secondItem="oQG-9M-oiG" secondAttribute="leading" constant="40" id="VMv-eQ-FlF"/>
+                            <constraint firstItem="KRl-11-Mi0" firstAttribute="leading" secondItem="oQG-9M-oiG" secondAttribute="leading" constant="40" id="Vuh-mZ-dec"/>
+                            <constraint firstItem="MXI-I0-J3N" firstAttribute="top" secondItem="Jf0-yQ-wpU" secondAttribute="bottom" constant="10" id="YGJ-os-gxU"/>
+                            <constraint firstItem="KRl-11-Mi0" firstAttribute="top" secondItem="fWU-bp-ev0" secondAttribute="bottom" constant="10" id="dtm-Q1-1jB"/>
+                            <constraint firstItem="oQG-9M-oiG" firstAttribute="trailing" secondItem="KRl-11-Mi0" secondAttribute="trailing" constant="10" id="eLn-kk-YzX"/>
+                            <constraint firstItem="fWU-bp-ev0" firstAttribute="leading" secondItem="oQG-9M-oiG" secondAttribute="leading" constant="40" id="hxZ-gN-EJy"/>
+                            <constraint firstItem="MXI-I0-J3N" firstAttribute="leading" secondItem="oQG-9M-oiG" secondAttribute="leading" constant="40" id="kr3-GV-LD4"/>
+                            <constraint firstItem="fWU-bp-ev0" firstAttribute="top" secondItem="MXI-I0-J3N" secondAttribute="bottom" constant="20" id="m8W-U7-alc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oQG-9M-oiG"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Bmq-zs-mQn" secondAttribute="bottom" id="IhZ-Yb-fY4"/>
+                    <constraint firstItem="Bmq-zs-mQn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="JAK-d6-fnf"/>
+                    <constraint firstAttribute="trailing" secondItem="Bmq-zs-mQn" secondAttribute="trailing" id="WVq-gn-Nai"/>
+                    <constraint firstItem="Bmq-zs-mQn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yBS-uK-Icg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblAngariation" destination="MXI-I0-J3N" id="axs-vk-xsW"/>
+                <outlet property="lblCaptionAngariation" destination="Jf0-yQ-wpU" id="iVT-FK-Up6"/>
+                <outlet property="lblCaptionCollection" destination="fWU-bp-ev0" id="wIc-Hv-vEg"/>
+                <outlet property="lblCollection" destination="KRl-11-Mi0" id="L2j-jQ-OLq"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
