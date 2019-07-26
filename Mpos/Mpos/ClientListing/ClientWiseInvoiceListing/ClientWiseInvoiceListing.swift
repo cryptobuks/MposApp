@@ -85,6 +85,14 @@ class ClientWiseInvoiceListing: UIViewController {
             btnBackArrow.tintColor = AppColors.kGreenColor
             
             break
+        case 4: // Search
+            imgTopShadow.backgroundColor = AppColors.kGeneralSearchColorWithAlpha
+            lblTitleHeader.text = "RESULTADOS"
+            lblTitleHeader.textColor = AppColors.kGeneralSearchColor
+            btnMenu.tintColor = AppColors.kGeneralSearchColor
+            btnBackArrow.tintColor = AppColors.kGeneralSearchColor
+            
+            break
         default:
             break
         }
@@ -237,6 +245,8 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
             case 3: // COBRADOS
                 lblColor = AppColors.kGreenColor
                 break
+            case 4: // Search
+                lblColor = AppColors.kGeneralSearchColor
             default:
                 break
             }
@@ -256,6 +266,9 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
                 break
             case 3: // COBRADOS
                 companyDetailCell.btnCheckBox.isHidden = true
+                break
+            case 4: //General Search
+                companyDetailCell.btnCheckBox.isHidden = false
                 break
             default:
                 break
@@ -289,17 +302,19 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
             lblColor = AppColors.kOrangeColor
-            
             sideImageColor = AppColors.kOrangeColorWithAlpha
             break
         case 2: //POR COBRAR
             lblColor = AppColors.kPurpulColor
             sideImageColor = AppColors.kPurpulColorWithAlpha
-
             break
         case 3: // COBRADOS
             lblColor = AppColors.kGreenColor
             sideImageColor = AppColors.kGreenColorWithAlpha
+            break
+        case 4: // General Search
+            lblColor = AppColors.kGeneralSearchColor
+            sideImageColor = AppColors.kGeneralSearchColorWithAlpha
             break
         default:
             break

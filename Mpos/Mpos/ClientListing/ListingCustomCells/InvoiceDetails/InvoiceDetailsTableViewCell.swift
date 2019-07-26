@@ -80,7 +80,10 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         case 3: // COBRADOS
             lblColor = AppColors.kGreenColor
             cellForInvoiceWithCheckBox.btnDownload.isHidden = false
-
+            break
+        case 4: // General Search
+            lblColor = AppColors.kGeneralSearchColor
+            cellForInvoiceWithCheckBox.btnDownload.isHidden = false
             break
         default:
             break
