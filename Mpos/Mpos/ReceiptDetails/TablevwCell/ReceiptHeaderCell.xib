@@ -42,14 +42,27 @@
                         <state key="normal" image="ic_plusGray"/>
                         <state key="selected" image="ic_minus"/>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVU-Ve-C6D">
+                        <rect key="frame" x="0.0" y="83.5" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="A02-A9-zCE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="SVU-Ve-C6D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0Vn-7C-bWf"/>
                     <constraint firstItem="lV5-oJ-U9q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="BfP-W6-4o4"/>
                     <constraint firstItem="fg2-fK-SEf" firstAttribute="leading" secondItem="lV5-oJ-U9q" secondAttribute="trailing" constant="22" id="BxO-tk-a13"/>
                     <constraint firstAttribute="trailing" secondItem="fg2-fK-SEf" secondAttribute="trailing" constant="20" id="Gfa-Qo-VEn"/>
                     <constraint firstItem="lV5-oJ-U9q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="J6V-lI-sRw"/>
                     <constraint firstItem="fg2-fK-SEf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Kut-Wm-iBx"/>
+                    <constraint firstAttribute="bottom" secondItem="SVU-Ve-C6D" secondAttribute="bottom" id="Osr-50-6pE"/>
+                    <constraint firstAttribute="trailing" secondItem="SVU-Ve-C6D" secondAttribute="trailing" id="mvI-Rx-bIM"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

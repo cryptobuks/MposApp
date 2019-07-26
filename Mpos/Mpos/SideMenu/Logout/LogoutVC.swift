@@ -10,18 +10,22 @@ import UIKit
 
 class LogoutVC: UIViewController {
 
-    
-    
+    @IBOutlet weak var imgvw: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let logoutGIF = UIImage.gifImageWithName("Logout")
+        imgvw.image = logoutGIF
     }
     
 
     @IBAction func btnLogoutClicked(_ sender: Any) {
-        
+        // Do any additional setup after loading the view.
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! ViewController
+        appDelegate.window?.rootViewController = controller
     }
     
     

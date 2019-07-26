@@ -145,7 +145,7 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             case 0:
                 return 455
             case 1:
-                return 0
+                return 600
             case 2:
                 return 160
             case 3:
@@ -248,6 +248,15 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
 
             return cellForGeneralData
         case 1:
+            cellForAwardsDetailsCell.lblCaptionBonus.textColor = lblColor
+            cellForAwardsDetailsCell.lblCaptionTaxes.textColor = lblColor
+            cellForAwardsDetailsCell.lblCaptionAdditional.textColor = lblColor
+            cellForAwardsDetailsCell.lblCaptionCommissions.textColor = lblColor
+            cellForAwardsDetailsCell.lblCaptionTotalReceipt.textColor = lblColor
+            cellForAwardsDetailsCell.lblCaptionLocalRecovery.textColor = lblColor
+            cellForAwardsDetailsCell.lblCaptionCommercialAward.textColor = lblColor
+            cellForAwardsDetailsCell.lblCaptionCapitalAndReceipt.textColor = lblColor
+
             return cellForAwardsDetailsCell
         case 2:
             cellForCommitteesDetailsCell.lblCaptionAngariation.textColor = lblColor

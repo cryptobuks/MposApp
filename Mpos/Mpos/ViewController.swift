@@ -24,8 +24,11 @@ class ViewController: UIViewController
     @IBOutlet weak var lblPassword: UILabel!
     
     @IBOutlet weak var btnPasswordEye: UIButton!
+    @IBOutlet weak var btnRememberPassword: UIButton!
 
     @IBOutlet weak var scrvwLogin: UIScrollView!
+    
+    var isRememberPassword : Bool = false
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -96,8 +99,10 @@ extension ViewController {
             // api call
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
-            self.navigationController?.pushViewController(controller, animated: true)
-//        }
+            let navController = UINavigationController(rootViewController: controller)
+        navController.navigationBar.isHidden = true
+        appDelegate.window?.rootViewController = navController
+        //        }
     }
     
     
@@ -116,6 +121,23 @@ extension ViewController {
     @IBAction func btnSEtVisibilityPasswordLogin(_ sender: UIButton) {
         sender.isSelected.toggle()
         self.txtfdPassword.isSecureTextEntry.toggle()
+    }
+    
+    //MARK: User Actions
+    @IBAction func rememberPasswordClicked(_ sender: UIButton)
+    {
+        if isRememberPassword
+        {
+            isRememberPassword = false
+
+            btnRememberPassword.isSelected = false
+        }
+        else
+        {
+            isRememberPassword = true
+            btnRememberPassword.isSelected = true
+
+        }
     }
     
     /*
