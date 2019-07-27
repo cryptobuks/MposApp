@@ -80,9 +80,14 @@ class SearchVC: UIViewController {
     
     @IBAction func btnSearchClicked(_ sender: Any)
     {
-        let storyBoard = UIStoryboard(name: "Search", bundle: nil)
-        let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "GeneralSearchResultVC") as! GeneralSearchResultVC
+//        let storyBoard = UIStoryboard(name: "Search", bundle: nil)
+//        let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "GeneralSearchResultVC") as! GeneralSearchResultVC
+//        self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
+        let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+        let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
+        clientWiseInvoiceVC.InvoiceType = 4
         self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
+
     }
     
     @IBAction func btnCrossClicked(_ sender: Any) {

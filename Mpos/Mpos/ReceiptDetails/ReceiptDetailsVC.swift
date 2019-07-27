@@ -39,6 +39,7 @@ class ReceiptDetailsVC: UIViewController {
      2. If users press the “POR COBRAR” button in the Home Page screen they will be directed to the “Mpos_por_cobrar” screen. This action will invoke web service WS006;
      3. If users press the “COBRADOS” button in the Home Page screen they will be directed to the “Mpos_Cobrados” screen. This action will invoke web service WS006;
      
+      “PARTILHAR RECIBO”. Pressing this button should result in the invocation of the device’s native “share” function. All the information contained in this screen should be passed on as text to the sharing application chosen by the user;
      */
     func setupUIBasedOnInvoiceType() {
         
@@ -71,7 +72,12 @@ class ReceiptDetailsVC: UIViewController {
             lblTitleHeader.textColor = AppColors.kGreenColor
             btnMenu.tintColor = AppColors.kGreenColor
             btnBackArrow.tintColor = AppColors.kGreenColor
-            
+            break
+        case 4: // COBRADOS
+            imgTopShadow.backgroundColor = AppColors.kGeneralSearchColorWithAlpha
+            lblTitleHeader.textColor = AppColors.kGeneralSearchColor
+            btnMenu.tintColor = AppColors.kGeneralSearchColor
+            btnBackArrow.tintColor = AppColors.kGeneralSearchColor
             break
         default:
             break
@@ -179,6 +185,9 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             case 3: // COBRADOS
                 lblColor = AppColors.kGreenColor
                 break
+            case 4: // COBRADOS
+                lblColor = AppColors.kGeneralSearchColor
+                break
             default:
                 break
             }
@@ -228,10 +237,12 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             break
         case 2: //POR COBRAR
             lblColor = AppColors.kPurpulColor
-
             break
         case 3: // COBRADOS
             lblColor = AppColors.kGreenColor
+            break
+        case 4: // COBRADOS
+            lblColor = AppColors.kGeneralSearchColor
             break
         default:
             break

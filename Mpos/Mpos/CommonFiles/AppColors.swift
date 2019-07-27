@@ -14,4 +14,5 @@ struct AppColors {
     static let kPurpulColorWithAlpha = #colorLiteral(red: 0.7764705882, green: 0.6274509804, blue: 0.8039215686, alpha: 1)
     
     static let kGeneralSearchColor = UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0)
+    static let kGeneralSearchColorWithAlpha = UIColor(red: 179.0/255.0, green: 225.0/255.0, blue: 233.0/255.0, alpha: 1.0)
 }
