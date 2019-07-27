@@ -18,16 +18,35 @@ class PaymentMethodListVC: UIViewController
 
     //Declare Variables
     let arrPaymentData = NSMutableArray()
-    var selectedCategoryColor = UIColor()
+//    var selectedCategoryColor = UIColor()
     var iSelectedPaymentTag = Int()
+    var InvoiceType:Int = 0
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        btnBack.tintColor = selectedCategoryColor
-        btnSidebar.tintColor = selectedCategoryColor
-        lblTitle.textColor = selectedCategoryColor
+        var lblColor = UIColor()
+        switch InvoiceType {
+        case 1: //RISCO DE ANULAÇÃO
+            lblColor = AppColors.kOrangeColor
+            break
+        case 2: //POR COBRAR
+            lblColor = AppColors.kPurpulColor
+            break
+        case 3: // COBRADOS
+            lblColor = AppColors.kGreenColor
+            break
+        case 4: // General Search
+            lblColor = AppColors.kGeneralSearchColor
+            break
+        default:
+            break
+        }
+        
+        btnBack.tintColor = lblColor
+        btnSidebar.tintColor = lblColor
+        lblTitle.textColor = lblColor
 
         self.tblPaymentList.tableFooterView = UIView(frame: .zero)
         self.tblPaymentList.estimatedRowHeight = 80
@@ -107,6 +126,23 @@ extension PaymentMethodListVC: UITableViewDataSource,UITableViewDelegate
     {
         var cell = UITableViewCell()
         
+        var lblColor = UIColor()
+        switch InvoiceType {
+        case 1: //RISCO DE ANULAÇÃO
+            lblColor = AppColors.kOrangeColor
+            break
+        case 2: //POR COBRAR
+            lblColor = AppColors.kPurpulColor
+            break
+        case 3: // COBRADOS
+            lblColor = AppColors.kGreenColor
+            break
+        case 4: // General Search
+            lblColor = AppColors.kGeneralSearchColor
+            break
+        default:
+            break
+        }
         if let dicData = arrPaymentData[indexPath.row] as? [String:Any]
         {
             if indexPath.row == 0
@@ -117,7 +153,7 @@ extension PaymentMethodListVC: UITableViewDataSource,UITableViewDelegate
                 cellPaymentMethodList.lblName.text = dicData["Title"] as? String
                 cellPaymentMethodList.lblsubTitle.text = dicData["subtitle"] as? String
                 cellPaymentMethodList.btnEdit.isHidden = !(dicData["bHasICon"] as? Bool)!
-                cellPaymentMethodList.lblPhoneTitle.textColor = selectedCategoryColor
+                cellPaymentMethodList.lblPhoneTitle.textColor = lblColor
 
                 
                 cellPaymentMethodList.btnEditTapped =
@@ -163,7 +199,7 @@ extension PaymentMethodListVC: UITableViewDataSource,UITableViewDelegate
                 
                 if ((dicData["bisSelected"] as! Bool) == true)
                 {
-                    cellPaymentMethodList.imgSelected.backgroundColor = selectedCategoryColor
+                    cellPaymentMethodList.imgSelected.backgroundColor = lblColor
                     cellPaymentMethodList.contentView.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.6)
 
                 }
@@ -184,7 +220,7 @@ extension PaymentMethodListVC: UITableViewDataSource,UITableViewDelegate
                 
                 if ((dicData["bisSelected"] as! Bool) == true)
                 {
-                    cellPaymentMethodListNormal.imgSelected.backgroundColor = selectedCategoryColor
+                    cellPaymentMethodListNormal.imgSelected.backgroundColor = lblColor
                     cellPaymentMethodListNormal.contentView.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.6)
                 }
                 else

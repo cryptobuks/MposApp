@@ -36,10 +36,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7D-gC-uiv">
-                                        <rect key="frame" x="44" y="20" width="25" height="25"/>
+                                        <rect key="frame" x="55" y="12.5" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="7Nc-zt-ya9"/>
-                                            <constraint firstAttribute="height" constant="25" id="I62-oR-m4H"/>
+                                            <constraint firstAttribute="width" constant="40" id="7Nc-zt-ya9"/>
+                                            <constraint firstAttribute="height" constant="40" id="I62-oR-m4H"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="1" minY="1" maxX="1" maxY="1"/>
@@ -49,10 +49,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-Be-ttP">
-                                        <rect key="frame" x="10" y="22.5" width="25" height="20"/>
+                                        <rect key="frame" x="10" y="12.5" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="JqB-J1-T8k"/>
-                                            <constraint firstAttribute="width" constant="25" id="k72-Qr-g1g"/>
+                                            <constraint firstAttribute="height" constant="40" id="JqB-J1-T8k"/>
+                                            <constraint firstAttribute="width" constant="40" id="k72-Qr-g1g"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="2" minY="2.5" maxX="2" maxY="2.5"/>
                                         <state key="normal" image="ic_backArrow"/>
@@ -70,7 +70,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="T7D-gC-uiv" firstAttribute="leading" secondItem="BYd-Be-ttP" secondAttribute="trailing" constant="9" id="3BC-s7-je5"/>
+                                    <constraint firstItem="T7D-gC-uiv" firstAttribute="leading" secondItem="BYd-Be-ttP" secondAttribute="trailing" constant="5" id="3BC-s7-je5"/>
                                     <constraint firstItem="q7v-Vo-H88" firstAttribute="leading" secondItem="hCt-B1-p4Y" secondAttribute="leading" constant="10" id="Gem-Ad-bVU"/>
                                     <constraint firstItem="T7D-gC-uiv" firstAttribute="centerY" secondItem="hCt-B1-p4Y" secondAttribute="centerY" id="SlN-hm-IlG"/>
                                     <constraint firstAttribute="bottom" secondItem="q7v-Vo-H88" secondAttribute="bottom" id="WuJ-dY-o9Z"/>

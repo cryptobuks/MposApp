@@ -59,6 +59,7 @@ let kCellOfAwardsDetailsCell = "AwardsDetailsCell"
 let kCellOfCommitteesDetailsCell = "CommitteesDetailsCell"
 
 let kCellOfPaymentDataCell = "PaymentDataCell"
+let kCellOfInvoiceDetailsHeaderCell = "InvoiceDetailsHeaderCell"
 
 
 

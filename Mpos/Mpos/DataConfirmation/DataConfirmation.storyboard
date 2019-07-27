@@ -21,7 +21,7 @@
         <!--Data ConfirmationVC-->
         <scene sceneID="Fsu-M2-HfS">
             <objects>
-                <viewController storyboardIdentifier="DataConfirmationVC" id="IsK-j5-138" customClass="DataConfirmationVC" customModule="Mpos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DataConfirmationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IsK-j5-138" customClass="DataConfirmationVC" customModule="Mpos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aIh-kx-3Kq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,10 +30,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hd-GO-1f7">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="ZDk-o7-jzx"/>
-                                            <constraint firstAttribute="height" constant="60" id="giT-2y-s0E"/>
+                                            <constraint firstAttribute="width" constant="40" id="ZDk-o7-jzx"/>
+                                            <constraint firstAttribute="height" constant="40" id="giT-2y-s0E"/>
                                         </constraints>
                                         <color key="tintColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="ic_back"/>
@@ -42,16 +42,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YI-EX-W5R">
-                                        <rect key="frame" x="58" y="0.0" width="50" height="60"/>
+                                        <rect key="frame" x="55" y="10" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="6un-Y1-d6S"/>
-                                            <constraint firstAttribute="height" constant="60" id="zrh-c2-xRe"/>
+                                            <constraint firstAttribute="width" constant="40" id="6un-Y1-d6S"/>
+                                            <constraint firstAttribute="height" constant="40" id="zrh-c2-xRe"/>
                                         </constraints>
                                         <color key="tintColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="ic_sidebar"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRMAÇÃO DE DADOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqo-Xd-EiZ">
-                                        <rect key="frame" x="116" y="8" width="182" height="44"/>
+                                        <rect key="frame" x="103" y="8" width="208" height="44"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -60,12 +60,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.68235294120000001" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="7YI-EX-W5R" firstAttribute="centerY" secondItem="2hd-GO-1f7" secondAttribute="centerY" id="1Y7-RB-FO9"/>
                                     <constraint firstItem="Zqo-Xd-EiZ" firstAttribute="centerX" secondItem="eBq-sh-6Pr" secondAttribute="centerX" id="3gt-aH-E2x"/>
                                     <constraint firstAttribute="height" constant="60" id="DYT-dx-mfp"/>
-                                    <constraint firstItem="2hd-GO-1f7" firstAttribute="leading" secondItem="eBq-sh-6Pr" secondAttribute="leading" id="G5O-an-bMx"/>
+                                    <constraint firstItem="2hd-GO-1f7" firstAttribute="leading" secondItem="eBq-sh-6Pr" secondAttribute="leading" constant="10" id="G5O-an-bMx"/>
                                     <constraint firstItem="Zqo-Xd-EiZ" firstAttribute="leading" secondItem="7YI-EX-W5R" secondAttribute="trailing" constant="8" id="UMK-MW-EBw"/>
-                                    <constraint firstItem="7YI-EX-W5R" firstAttribute="leading" secondItem="2hd-GO-1f7" secondAttribute="trailing" constant="8" id="fqa-OU-HVR"/>
-                                    <constraint firstItem="7YI-EX-W5R" firstAttribute="top" secondItem="eBq-sh-6Pr" secondAttribute="top" id="nsX-eG-APn"/>
+                                    <constraint firstItem="7YI-EX-W5R" firstAttribute="leading" secondItem="2hd-GO-1f7" secondAttribute="trailing" constant="5" id="fqa-OU-HVR"/>
                                     <constraint firstItem="2hd-GO-1f7" firstAttribute="centerY" secondItem="eBq-sh-6Pr" secondAttribute="centerY" id="s3S-vf-1hR"/>
                                     <constraint firstAttribute="bottom" secondItem="Zqo-Xd-EiZ" secondAttribute="bottom" constant="8" id="uki-9f-SEH"/>
                                     <constraint firstItem="Zqo-Xd-EiZ" firstAttribute="top" secondItem="eBq-sh-6Pr" secondAttribute="top" constant="8" id="xZ7-nV-Ru9"/>

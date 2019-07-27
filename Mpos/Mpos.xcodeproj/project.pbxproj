@@ -27,6 +27,8 @@
 		A54FFBC722EA1E7C00F03281 /* CommitteesDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54FFBC522EA1E7C00F03281 /* CommitteesDetailsCell.xib */; };
 		A54FFBCA22EA1E9D00F03281 /* PaymentDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FFBC822EA1E9D00F03281 /* PaymentDataCell.swift */; };
 		A54FFBCB22EA1E9D00F03281 /* PaymentDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54FFBC922EA1E9D00F03281 /* PaymentDataCell.xib */; };
+		A56AF46C22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56AF46A22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.swift */; };
+		A56AF46D22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A56AF46B22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib */; };
 		A59E4D7822E6191A006FFBB6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */; };
 		A59E4D7A22E619B4006FFBB6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7922E619B4006FFBB6 /* Search.storyboard */; };
 		A5CA733A22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */; };
@@ -136,6 +138,8 @@
 		A54FFBC522EA1E7C00F03281 /* CommitteesDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitteesDetailsCell.xib; sourceTree = "<group>"; };
 		A54FFBC822EA1E9D00F03281 /* PaymentDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDataCell.swift; sourceTree = "<group>"; };
 		A54FFBC922EA1E9D00F03281 /* PaymentDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentDataCell.xib; sourceTree = "<group>"; };
+		A56AF46A22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsHeaderCell.swift; sourceTree = "<group>"; };
+		A56AF46B22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsHeaderCell.xib; sourceTree = "<group>"; };
 		A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		A59E4D7922E619B4006FFBB6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsWIthCheckBoxTableViewCell.swift; sourceTree = "<group>"; };
@@ -339,6 +343,15 @@
 			path = TablevwCell;
 			sourceTree = "<group>";
 		};
+		A56AF46E22EBE8F50038BCF0 /* InvoiceDetailHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A56AF46A22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.swift */,
+				A56AF46B22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib */,
+			);
+			path = InvoiceDetailHeader;
+			sourceTree = "<group>";
+		};
 		A5CA733722E8978D000F547C /* InvoiceDetailwithCheckBox */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +368,7 @@
 				A5F27FEC22E6AD6C000B82B7 /* ClientDetailsCell */,
 				A53609D322E6359100F661BB /* InvoiceDetails */,
 				A53609CE22E62DDB00F661BB /* CompanyDetailsCell */,
+				A56AF46E22EBE8F50038BCF0 /* InvoiceDetailHeader */,
 			);
 			path = ListingCustomCells;
 			sourceTree = "<group>";
@@ -703,6 +717,7 @@
 				D37F816922E78859004729D8 /* onb_3.gif in Resources */,
 				D37F816822E78859004729D8 /* Sucess.gif in Resources */,
 				D31E97F922E44FAE001BE76F /* PaymentMode.storyboard in Resources */,
+				A56AF46D22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib in Resources */,
 				D3B3D61A22E6B7B100896564 /* EPSignatureViewController.xib in Resources */,
 				D39E335422E0EA1D0079B0AA /* Ubuntu-L.ttf in Resources */,
 				D39E335B22E0EA1D0079B0AA /* Ubuntu-C.ttf in Resources */,
@@ -789,6 +804,7 @@
 				D3ED55A722E62CAD00523306 /* DataConfirmationHeaderCell.swift in Sources */,
 				D378CB4C22DF9B6B004B51AC /* UserDefaultManager.swift in Sources */,
 				D37F816622E78859004729D8 /* iOSDevCenters+GIF.swift in Sources */,
+				A56AF46C22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.swift in Sources */,
 				A53609C822E6299C00F661BB /* ClientDetailsVC.swift in Sources */,
 				D37F817122E78A7B004729D8 /* OnboardingThirdPageVC.swift in Sources */,
 				D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */,

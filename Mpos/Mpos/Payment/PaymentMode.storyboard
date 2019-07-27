@@ -33,10 +33,10 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orv-tW-L5q">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                        <rect key="frame" x="10" y="10" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="AHF-EA-18d"/>
-                                            <constraint firstAttribute="height" constant="60" id="k9K-xM-tcy"/>
+                                            <constraint firstAttribute="width" constant="40" id="AHF-EA-18d"/>
+                                            <constraint firstAttribute="height" constant="40" id="k9K-xM-tcy"/>
                                         </constraints>
                                         <color key="tintColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="ic_back"/>
@@ -45,16 +45,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDf-om-rXb">
-                                        <rect key="frame" x="58" y="0.0" width="50" height="60"/>
+                                        <rect key="frame" x="55" y="10" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="WNI-Yw-kVK"/>
-                                            <constraint firstAttribute="width" constant="50" id="dHf-Vp-9UQ"/>
+                                            <constraint firstAttribute="height" constant="40" id="WNI-Yw-kVK"/>
+                                            <constraint firstAttribute="width" constant="40" id="dHf-Vp-9UQ"/>
                                         </constraints>
                                         <color key="tintColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="ic_sidebar"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEIO DE PAGAMENTO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-b5-vnI">
-                                        <rect key="frame" x="116" y="8" width="88" height="44"/>
+                                        <rect key="frame" x="103" y="8" width="114" height="44"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -63,12 +63,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.68235294120000001" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="eDf-om-rXb" firstAttribute="centerY" secondItem="Orv-tW-L5q" secondAttribute="centerY" id="0IM-hN-GCS"/>
                                     <constraint firstItem="1zc-b5-vnI" firstAttribute="leading" secondItem="eDf-om-rXb" secondAttribute="trailing" constant="8" id="1kh-Br-6Ew"/>
-                                    <constraint firstItem="Orv-tW-L5q" firstAttribute="leading" secondItem="MKx-j0-ZyU" secondAttribute="leading" id="1m1-As-SSs"/>
-                                    <constraint firstItem="eDf-om-rXb" firstAttribute="top" secondItem="MKx-j0-ZyU" secondAttribute="top" id="6gM-WV-zaV"/>
+                                    <constraint firstItem="Orv-tW-L5q" firstAttribute="leading" secondItem="MKx-j0-ZyU" secondAttribute="leading" constant="10" id="1m1-As-SSs"/>
                                     <constraint firstItem="1zc-b5-vnI" firstAttribute="centerX" secondItem="MKx-j0-ZyU" secondAttribute="centerX" id="82J-9U-DLY"/>
                                     <constraint firstItem="1zc-b5-vnI" firstAttribute="top" secondItem="MKx-j0-ZyU" secondAttribute="top" constant="8" id="Atd-bV-pJx"/>
-                                    <constraint firstItem="eDf-om-rXb" firstAttribute="leading" secondItem="Orv-tW-L5q" secondAttribute="trailing" constant="8" id="Lda-JD-Q1H"/>
+                                    <constraint firstItem="eDf-om-rXb" firstAttribute="leading" secondItem="Orv-tW-L5q" secondAttribute="trailing" constant="5" id="Lda-JD-Q1H"/>
                                     <constraint firstAttribute="height" constant="60" id="Px8-F0-lpC"/>
                                     <constraint firstItem="Orv-tW-L5q" firstAttribute="centerY" secondItem="MKx-j0-ZyU" secondAttribute="centerY" id="djP-ob-sBV"/>
                                     <constraint firstAttribute="bottom" secondItem="1zc-b5-vnI" secondAttribute="bottom" constant="8" id="sQb-0y-Kob"/>

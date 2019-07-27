@@ -175,6 +175,13 @@ class ClientWiseInvoiceListing: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    @IBAction func gotoPaymentScreen(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "DataConfirmation", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "DataConfirmationVC") as! DataConfirmationVC
+        controller.InvoiceType = InvoiceType
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     /*
      // MARK: - Navigation
      

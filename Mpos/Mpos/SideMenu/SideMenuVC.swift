@@ -151,4 +151,15 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
          return UITableView.automaticDimension
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.popViewController(animated: true)
+        
+        if indexPath.row < 3
+        {
+            let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+            let invoiceListingVC = storyBoard.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
+            invoiceListingVC.InvoiceType = indexPath.row + 1
+            self.navigationController?.pushViewController(invoiceListingVC, animated: true)
+        }
+    }
 }

@@ -28,6 +28,8 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         
         self.tblvwInvoices.register(UINib(nibName: kCellOfInvoiceDetailsWIthCheckBoxTableViewCell, bundle: nil), forCellReuseIdentifier: kCellOfInvoiceDetailsWIthCheckBoxTableViewCell)
         
+        self.tblvwInvoices.register(UINib(nibName: kCellOfInvoiceDetailsHeaderCell, bundle: nil), forCellReuseIdentifier: kCellOfInvoiceDetailsHeaderCell)
+        
         self.tblvwInvoices.estimatedRowHeight = 260.0
         self.tblvwInvoices.rowHeight = UITableView.automaticDimension
         
@@ -45,6 +47,16 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         let controller = storyBoard.instantiateViewController(withIdentifier: "ReceiptDetailsVC") as! ReceiptDetailsVC
         controller.InvoiceType = InvoiceType
         self.viewControllerForTableView?.navigationController?.pushViewController(controller, animated: true)
+    }
+    @objc func btnCheckBoxSelected(_ sender: UIButton) {
+        
+        if sender.isSelected{
+            sender.isSelected = false
+        }
+        else
+        {
+            sender .isSelected = true
+        }
     }
 }
 
@@ -93,8 +105,40 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         cellForInvoiceWithCheckBox.lblCaptionValue.textColor = lblColor
         cellForInvoiceWithCheckBox.lblCaptionIssueDate.textColor = lblColor
         cellForInvoiceWithCheckBox.btnViewMore.addTarget(self, action: #selector(btnMoreInfoClicked(_:)), for: .touchUpInside)
+        cellForInvoiceWithCheckBox.btnCheckBox.addTarget(self, action: #selector(btnCheckBoxSelected(_:)), for: .touchUpInside)
         return cellForInvoiceWithCheckBox
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       
+        return 85
+    }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let  headerCell = tableView.dequeueReusableCell(withIdentifier: kCellOfInvoiceDetailsHeaderCell) as! InvoiceDetailsHeaderCell
+        
+            var lblColor = UIColor()
+            
+            switch InvoiceType {
+            case 1: //RISCO DE ANULAÇÃO
+                lblColor = AppColors.kOrangeColor
+                break
+            case 2: //POR COBRAR
+                lblColor = AppColors.kPurpulColor
+                break
+            case 3: // COBRADOS
+                lblColor = AppColors.kGreenColor
+                break
+            case 4: // Search
+                lblColor = AppColors.kGeneralSearchColor
+            default:
+                break
+            }
+            headerCell.lblCaptionBranch.textColor = lblColor
+            headerCell.lblCaptionRegistrationNumber.textColor = lblColor
+
+            
+            return headerCell
+    }
 }

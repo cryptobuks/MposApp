@@ -89,6 +89,7 @@ class ReceiptDetailsVC: UIViewController {
         self.tblvwReceiptDetailsListing.register(UINib(nibName: kCellOfCommitteesDetailsCell, bundle: nil), forCellReuseIdentifier: kCellOfCommitteesDetailsCell)
         self.tblvwReceiptDetailsListing.register(UINib(nibName: kCellOfPaymentDataCell, bundle: nil), forCellReuseIdentifier: kCellOfPaymentDataCell)
 
+        btnTotalInvoicePrice.addTarget(self, action: #selector(btnShareClicked(_:)), for: .touchUpInside)
         
         self.tblvwReceiptDetailsListing.estimatedRowHeight = 60.0
         self.tblvwReceiptDetailsListing.rowHeight = UITableView.automaticDimension
@@ -119,6 +120,25 @@ class ReceiptDetailsVC: UIViewController {
         
     }
 
+    
+    @objc func btnShareClicked(_ sender: UIButton) {
+        
+        // text to share
+        let text = "This is some text that I want to share."
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+        
+    }
+    
     /*
      // MARK: - Navigation
      
