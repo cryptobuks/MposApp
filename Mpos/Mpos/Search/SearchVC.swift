@@ -86,6 +86,14 @@ class SearchVC: UIViewController {
         let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
         let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
         clientWiseInvoiceVC.InvoiceType = 4
+        if (btnRadio2.isSelected == true)
+        {
+            clientWiseInvoiceVC.bTerceirosSelected = true
+        }
+        else
+        {
+            clientWiseInvoiceVC.bTerceirosSelected = false
+        }
         self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
 
     }

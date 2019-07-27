@@ -129,6 +129,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btnDropDown" destination="tVW-rr-vz5" id="0rV-O8-ciC"/>
+                                            <outlet property="ctHeightbtnDropDown" destination="Qb1-HD-CGi" id="82k-kt-gk1"/>
+                                            <outlet property="imgDropDown" destination="EsL-EV-b9H" id="tu1-mx-gGq"/>
                                             <outlet property="lblTitle" destination="DUB-Q5-uUM" id="tkT-aN-36n"/>
                                         </connections>
                                     </tableViewCell>

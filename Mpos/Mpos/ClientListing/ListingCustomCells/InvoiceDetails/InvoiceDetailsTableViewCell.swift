@@ -20,6 +20,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var tblvwInvoices: UITableView!
 
     var InvoiceType:Int = 0
+    var bTerceirosSelected = Bool()
 
 
     override func awakeFromNib() {
@@ -80,6 +81,9 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         
         cellForInvoiceWithCheckBox.btnCheckBox.isHidden = true
         cellForInvoiceWithCheckBox.btnDownload.isHidden = true
+        cellForInvoiceWithCheckBox.btnDownload.isHidden = false
+        cellForInvoiceWithCheckBox.btnViewMore.isHidden = false
+
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
             lblColor = AppColors.kOrangeColor
@@ -95,6 +99,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
             break
         case 4: // General Search
             lblColor = AppColors.kGeneralSearchColor
+            cellForInvoiceWithCheckBox.btnCheckBox.isHidden = false
             cellForInvoiceWithCheckBox.btnDownload.isHidden = false
             break
         default:
@@ -104,6 +109,19 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         cellForInvoiceWithCheckBox.lblCaptionReceipt.textColor = lblColor
         cellForInvoiceWithCheckBox.lblCaptionValue.textColor = lblColor
         cellForInvoiceWithCheckBox.lblCaptionIssueDate.textColor = lblColor
+        
+        /*
+         Furthermore, the screens to be presented as a result of a general search when the “Terceiros” radio button is selected are slightly different as:
+         1. The text under “CLIENTE” is not pressable and does not direct users to the “Detalhe_cliente” screen;
+         2. The “+ VER MAIS” and “DOWNLOAD” text boxes / buttons are not included in individual invoice tickets;
+         */
+        if(bTerceirosSelected == true)
+        {
+            cellForInvoiceWithCheckBox.btnDownload.isHidden = true
+            cellForInvoiceWithCheckBox.btnViewMore.isHidden = true
+        }
+        
+        
         cellForInvoiceWithCheckBox.btnViewMore.addTarget(self, action: #selector(btnMoreInfoClicked(_:)), for: .touchUpInside)
         cellForInvoiceWithCheckBox.btnCheckBox.addTarget(self, action: #selector(btnCheckBoxSelected(_:)), for: .touchUpInside)
         return cellForInvoiceWithCheckBox

@@ -174,6 +174,10 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
                 { text in
                  
                     cellListwithLogoCell.btnDropDown.setTitle(text, for: .normal)
+                    cellListwithLogoCell.btnDropDown.isHidden = true
+                    cellListwithLogoCell.imgDropDown.isHidden = true
+                    cellListwithLogoCell.ctHeightbtnDropDown.constant = 0
+                    self.tblvwDataConfirmation.reloadData()
                     self.btnConfirm.isHidden = false
             }
             

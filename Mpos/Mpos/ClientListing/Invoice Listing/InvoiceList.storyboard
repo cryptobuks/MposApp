@@ -261,7 +261,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-eP-UcV">
-                                <rect key="frame" x="0.0" y="114" width="375" height="664"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="588"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qDY-YN-noN" id="pgb-67-Vkw"/>
@@ -269,7 +269,7 @@
                                 </connections>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-fO-mvV">
-                                <rect key="frame" x="10" y="688" width="355" height="60"/>
+                                <rect key="frame" x="10" y="710" width="355" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CeM-km-Mno"/>
@@ -292,8 +292,8 @@
                             <constraint firstItem="5ya-fO-mvV" firstAttribute="leading" secondItem="ET3-eJ-chQ" secondAttribute="leading" constant="10" id="Sxf-Zw-qRR"/>
                             <constraint firstItem="agr-ec-wrh" firstAttribute="top" secondItem="ET3-eJ-chQ" secondAttribute="top" id="X3j-uo-1PE"/>
                             <constraint firstItem="agr-ec-wrh" firstAttribute="leading" secondItem="aO5-U9-wjd" secondAttribute="leading" id="YLc-NM-GhD"/>
-                            <constraint firstItem="ET3-eJ-chQ" firstAttribute="bottom" secondItem="Psp-eP-UcV" secondAttribute="bottom" id="nDP-Au-WKp"/>
-                            <constraint firstItem="ET3-eJ-chQ" firstAttribute="bottom" secondItem="5ya-fO-mvV" secondAttribute="bottom" constant="30" id="ubD-Wd-CtL"/>
+                            <constraint firstItem="5ya-fO-mvV" firstAttribute="top" secondItem="Psp-eP-UcV" secondAttribute="bottom" constant="8" id="oGS-bq-Zdz"/>
+                            <constraint firstItem="ET3-eJ-chQ" firstAttribute="bottom" secondItem="5ya-fO-mvV" secondAttribute="bottom" constant="8" id="ubD-Wd-CtL"/>
                             <constraint firstItem="ET3-eJ-chQ" firstAttribute="trailing" secondItem="agr-ec-wrh" secondAttribute="trailing" id="zmW-wK-R0g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ET3-eJ-chQ"/>
@@ -302,6 +302,7 @@
                         <outlet property="btnBackArrow" destination="zbr-yO-cji" id="XVd-cw-NsF"/>
                         <outlet property="btnMenu" destination="owX-JT-pVf" id="Um9-b4-YqH"/>
                         <outlet property="btnTotalInvoicePrice" destination="5ya-fO-mvV" id="7Yc-gG-oXU"/>
+                        <outlet property="ctHeightbtnTotalPrice" destination="CeM-km-Mno" id="R9F-Nr-tED"/>
                         <outlet property="imgTopShadow" destination="lDb-Nu-fLG" id="DcC-TZ-pyf"/>
                         <outlet property="lblTitleHeader" destination="4lM-6c-9Vc" id="ekP-oV-ts9"/>
                         <outlet property="tblvwInvoiceListing" destination="Psp-eP-UcV" id="bMV-rg-dTQ"/>
@@ -310,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udq-VP-VAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="486" y="78"/>
+            <point key="canvasLocation" x="485.60000000000002" y="77.58620689655173"/>
         </scene>
         <!--Client DetailsVC-->
         <scene sceneID="gV3-sa-HQb">

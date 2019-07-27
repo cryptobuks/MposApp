@@ -12,6 +12,9 @@ class DataConfirmationDropDownCell: UITableViewCell
 {
     @IBOutlet weak var btnDropDown: UIButton!
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var imgDropDown: UIImageView!
+    @IBOutlet weak var ctHeightbtnDropDown: NSLayoutConstraint!
+
     var btnDropDownTapped: ((String)->())?
 
     override func awakeFromNib() {

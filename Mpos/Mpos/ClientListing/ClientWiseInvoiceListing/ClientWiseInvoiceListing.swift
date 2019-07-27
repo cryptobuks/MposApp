@@ -29,17 +29,25 @@ class ClientWiseInvoiceListing: UIViewController {
     @IBOutlet weak var vwHeader: UIView!
     
     @IBOutlet weak var btnTotalInvoicePrice: UIButton!
-
+    @IBOutlet weak var ctHeightbtnTotalPrice: NSLayoutConstraint!
     
     var selectedCompanyIndex:Int = -1
     var selectedInvoiceIndex:NSMutableArray = []
 
     var InvoiceType:Int = 0
+    /*
+     Furthermore, the screens to be presented as a result of a general search when the “Terceiros” radio button is selected are slightly different as:
+     1. The text under “CLIENTE” is not pressable and does not direct users to the “Detalhe_cliente” screen;
+     2. The “+ VER MAIS” and “DOWNLOAD” text boxes / buttons are not included in individual invoice tickets;
+     */
+    var bTerceirosSelected = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        ctHeightbtnTotalPrice.constant = 0
+        btnTotalInvoicePrice.isHidden = true
         self.setupUIBasedOnInvoiceType()
     }
     
@@ -139,10 +147,12 @@ class ClientWiseInvoiceListing: UIViewController {
         
         if selectedCompanyIndex > -1
         {
+            ctHeightbtnTotalPrice.constant = 60
             btnTotalInvoicePrice.isHidden = false
         }
         else
         {
+            ctHeightbtnTotalPrice.constant = 0
             btnTotalInvoicePrice.isHidden = true
         }
         
@@ -164,10 +174,12 @@ class ClientWiseInvoiceListing: UIViewController {
        
         if selectedInvoiceIndex.count > 0
         {
+            ctHeightbtnTotalPrice.constant = 60
             btnTotalInvoicePrice.isHidden = false
         }
         else
         {
+            ctHeightbtnTotalPrice.constant = 0
             btnTotalInvoicePrice.isHidden = true
         }
         
@@ -175,11 +187,15 @@ class ClientWiseInvoiceListing: UIViewController {
         
     }
 
-    @objc func btnClientClicked(_ sender: Any) {
-        let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "ClientDetailsVC") as! ClientDetailsVC
-        controller.invoiceType = InvoiceType
-        self.navigationController?.pushViewController(controller, animated: true)
+    @objc func btnClientClicked(_ sender: Any)
+    {
+        if(bTerceirosSelected == false)
+        {
+            let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "ClientDetailsVC") as! ClientDetailsVC
+            controller.invoiceType = InvoiceType
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     @IBAction func gotoPaymentScreen(_ sender: UIButton)
@@ -219,9 +235,8 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         
         if selectedInvoiceIndex.contains(indexPath.row)
         {
-            return 85 + (2 * 260)
+            return 85 + 100 + (2 * 260)
         }
-        
         return 85
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -355,6 +370,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
             cellForClientDetails.btnExpandCollapse.isSelected = false
         }
         cellForClientDetails.InvoiceType = InvoiceType
+        cellForClientDetails.bTerceirosSelected = bTerceirosSelected
         return cellForClientDetails
     }
     
