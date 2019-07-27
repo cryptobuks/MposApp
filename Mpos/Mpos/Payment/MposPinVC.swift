@@ -16,6 +16,14 @@ class MposPinVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func viewTapped(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+        controller.strSucessMessage = "A cobrança foi efetuada com sucesso."
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     //MARK: User Actions
     @IBAction func closeTapped(_ sender: UIButton)
     {

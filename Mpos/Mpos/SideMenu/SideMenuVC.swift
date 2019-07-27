@@ -43,7 +43,13 @@ class SideMenuVC: UIViewController
     //MARK: User Actions
     @IBAction func goBackTapped(_ sender: UIButton)
     {
-       self.navigationController?.popViewController(animated: true)
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: User Actions

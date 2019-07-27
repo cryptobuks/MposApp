@@ -71,6 +71,10 @@ class PaymentMethodListVC: UIViewController
         switch iSelectedPaymentTag
         {
         case 0:
+            let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+            controller.strSucessMessage = "O envio foi efetuado com sucesso."
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         case 1:
             let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
@@ -93,7 +97,20 @@ class PaymentMethodListVC: UIViewController
         self.navigationController?.popViewController(animated: true)
     }
 
-    
+    //MARK: User Actions
+    @IBAction func openSidebar(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+
     
     /*
     // MARK: - Navigation

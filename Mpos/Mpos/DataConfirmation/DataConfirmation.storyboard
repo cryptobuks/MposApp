@@ -49,6 +49,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="ic_sidebar"/>
+                                        <connections>
+                                            <action selector="openSidebar:" destination="IsK-j5-138" eventType="touchUpInside" id="KjS-5r-1aI"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIRMAÇÃO DE DADOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqo-Xd-EiZ">
                                         <rect key="frame" x="103" y="8" width="208" height="44"/>

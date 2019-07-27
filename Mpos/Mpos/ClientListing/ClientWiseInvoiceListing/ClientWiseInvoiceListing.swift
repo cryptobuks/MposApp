@@ -117,6 +117,13 @@ class ClientWiseInvoiceListing: UIViewController {
     @IBAction func btnMenuClicked(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

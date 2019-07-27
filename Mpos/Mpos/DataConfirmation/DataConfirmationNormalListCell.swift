@@ -10,6 +10,8 @@ import UIKit
 
 class DataConfirmationNormalListCell: UITableViewCell {
 
+    @IBOutlet weak var lblTitleHeader: UILabel!
+    @IBOutlet weak var lblPriceHeader: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
 

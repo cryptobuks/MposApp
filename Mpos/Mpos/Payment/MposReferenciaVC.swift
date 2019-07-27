@@ -34,7 +34,14 @@ class MposReferenciaVC: UIViewController
         
         // exclude some activity types from the list (optional)
         // present the view controller
-        self.present(activityViewController, animated: true, completion: nil)
+        self.present(activityViewController, animated: true, completion: {
+            
+            let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+            controller.strSucessMessage = "O envio foi efetuado com sucesso."
+            self.navigationController?.pushViewController(controller, animated: true)
+            
+        })
     }
     @IBAction func closeTapped(_ sender: UIButton)
     {

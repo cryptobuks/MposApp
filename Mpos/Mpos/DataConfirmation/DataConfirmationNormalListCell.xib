@@ -66,7 +66,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="lblPrice" destination="Kil-hE-nh9" id="uuk-3q-KXb"/>
+                <outlet property="lblPriceHeader" destination="Xvo-k0-4Lp" id="nFA-ax-Sfw"/>
                 <outlet property="lblTitle" destination="lNP-fA-8r2" id="4HE-UB-KBB"/>
+                <outlet property="lblTitleHeader" destination="as0-6j-nOl" id="UfO-gZ-0zk"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="44.196428571428569"/>
         </tableViewCell>

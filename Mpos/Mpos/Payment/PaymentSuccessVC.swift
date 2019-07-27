@@ -10,7 +10,7 @@ import UIKit
 
 class PaymentSuccessVC: UIViewController
 {
-
+    @IBOutlet weak var imgvw: UIImageView!
     @IBOutlet weak var lblSucessMessage: UILabel!
     var strSucessMessage = String()
 
@@ -19,8 +19,15 @@ class PaymentSuccessVC: UIViewController
     {
         super.viewDidLoad()
 
+        let logoutGIF = UIImage.gifImageWithName("Sucess")
+        imgvw.image = logoutGIF
+
         // Do any additional setup after loading the view.
         lblSucessMessage.text = strSucessMessage
+        
+        let timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { timer in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
 

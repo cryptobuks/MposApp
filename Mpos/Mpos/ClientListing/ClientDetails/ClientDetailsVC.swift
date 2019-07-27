@@ -99,7 +99,9 @@ extension ClientDetailsVC: UITableViewDataSource,UITableViewDelegate
             case 3:
                 clientHeaderDetails.lblCaption.textColor = AppColors.kGreenColor
                 break
-                
+            case 4:
+                clientHeaderDetails.lblCaption.textColor = AppColors.kGeneralSearchColor
+                break
             default:
                 break
             }
@@ -122,7 +124,9 @@ extension ClientDetailsVC: UITableViewDataSource,UITableViewDelegate
             case 3:
                 clientDetails.lblCaption.textColor = AppColors.kGreenColor
                 break
-                
+            case 4:
+                clientDetails.lblCaption.textColor = AppColors.kGeneralSearchColor
+                break
             default:
                 break
             }

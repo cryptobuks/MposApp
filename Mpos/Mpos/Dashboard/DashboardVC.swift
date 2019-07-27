@@ -12,6 +12,7 @@ class DashboardVC: UIViewController
 {
     @IBOutlet weak var tblCategoryList: UITableView!
     let arrRows = NSMutableArray()
+    @IBOutlet weak var lblAgentCode: UILabel!
 
     override func viewDidLoad()
     {
@@ -38,6 +39,12 @@ class DashboardVC: UIViewController
     {
         let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -46,6 +53,17 @@ class DashboardVC: UIViewController
         let storyBoard = UIStoryboard(name: "Search", bundle: nil)
         let searchVC = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
         self.navigationController?.pushViewController(searchVC, animated: true)
+    }
+    
+    @IBAction func btnChangeAgentDropDownAction(_ sender: UIButton)
+    {
+        let arrtemp = ["256","257","258","259","260","261","262","263","264","265"]
+        ActionSheetStringPicker.show(withTitle: "", rows: arrtemp as [Any], initialSelection: 0, doneBlock:
+            {
+                picker, value, index in
+                self.lblAgentCode.text = (index as? String ?? "")
+                return
+        }, cancel: { ActionStringCancelBlock in return }, origin: sender)
     }
    
 

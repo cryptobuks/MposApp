@@ -52,6 +52,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="ic_sidebar"/>
+                                        <connections>
+                                            <action selector="openSidebar:" destination="Dhi-EO-bZz" eventType="touchUpInside" id="QDD-HA-M4h"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEIO DE PAGAMENTO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-b5-vnI">
                                         <rect key="frame" x="103" y="8" width="114" height="44"/>
@@ -375,13 +378,13 @@
                                 <rect key="frame" x="20" y="40" width="280" height="227"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeah!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1f6-mN-rDM">
-                                <rect key="frame" x="8" y="275" width="304" height="34"/>
+                                <rect key="frame" x="8" y="275" width="304" height="35"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.21176470588235294" green="0.81960784313725488" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O envio foi efetuado com sucesso." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1N-3J-ge1">
-                                <rect key="frame" x="8" y="339" width="304" height="18"/>
+                                <rect key="frame" x="8" y="340" width="304" height="19"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -404,6 +407,7 @@
                         <viewLayoutGuide key="safeArea" id="VHV-cm-s42"/>
                     </view>
                     <connections>
+                        <outlet property="imgvw" destination="42N-7l-LPS" id="YAJ-sL-ynC"/>
                         <outlet property="lblSucessMessage" destination="H1N-3J-ge1" id="KL5-qf-cZo"/>
                     </connections>
                 </viewController>
@@ -447,15 +451,24 @@
                                     <action selector="closeTapped:" destination="xLg-Me-jnK" eventType="touchUpInside" id="eGT-RC-4vt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="097-2o-7Nv">
+                                <rect key="frame" x="0.0" y="332" width="320" height="236"/>
+                                <connections>
+                                    <action selector="viewTapped:" destination="xLg-Me-jnK" eventType="touchUpInside" id="Mq0-rl-7O2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mZe-j3-mxe" firstAttribute="height" secondItem="tMy-J1-zBH" secondAttribute="height" multiplier="1:2" id="36Z-Z5-vlv"/>
                             <constraint firstItem="ZIX-iG-gJ6" firstAttribute="top" secondItem="Git-m1-roW" secondAttribute="top" id="3bZ-Ps-Ya0"/>
+                            <constraint firstItem="097-2o-7Nv" firstAttribute="bottom" secondItem="Git-m1-roW" secondAttribute="bottom" id="Ia9-cV-uh1"/>
                             <constraint firstItem="Qdd-N4-a11" firstAttribute="leading" secondItem="Git-m1-roW" secondAttribute="leading" constant="8" id="P6S-aY-rCS"/>
                             <constraint firstItem="Git-m1-roW" firstAttribute="trailing" secondItem="ZIX-iG-gJ6" secondAttribute="trailing" constant="8" id="VFV-0V-lhr"/>
+                            <constraint firstItem="097-2o-7Nv" firstAttribute="top" secondItem="MbR-Cs-8Hl" secondAttribute="top" id="Ypy-s7-K5Y"/>
                             <constraint firstItem="Git-m1-roW" firstAttribute="trailing" secondItem="mZe-j3-mxe" secondAttribute="trailing" constant="20" id="ZTT-69-E50"/>
                             <constraint firstItem="Git-m1-roW" firstAttribute="trailing" secondItem="Qdd-N4-a11" secondAttribute="trailing" constant="8" id="bf0-7C-aHJ"/>
+                            <constraint firstItem="097-2o-7Nv" firstAttribute="trailing" secondItem="Git-m1-roW" secondAttribute="trailing" id="czc-WZ-T3g"/>
                             <constraint firstItem="MbR-Cs-8Hl" firstAttribute="leading" secondItem="Git-m1-roW" secondAttribute="leading" constant="8" id="gj5-HP-jnl"/>
                             <constraint firstItem="MbR-Cs-8Hl" firstAttribute="top" secondItem="mZe-j3-mxe" secondAttribute="bottom" constant="8" id="nsd-qH-bF8"/>
                             <constraint firstItem="mZe-j3-mxe" firstAttribute="leading" secondItem="Git-m1-roW" secondAttribute="leading" constant="20" id="oi1-ym-PWa"/>
@@ -463,13 +476,14 @@
                             <constraint firstItem="mZe-j3-mxe" firstAttribute="top" secondItem="Git-m1-roW" secondAttribute="top" constant="20" id="uxT-0f-b6C"/>
                             <constraint firstItem="Qdd-N4-a11" firstAttribute="top" secondItem="MbR-Cs-8Hl" secondAttribute="bottom" constant="30" id="yCL-9o-53d"/>
                             <constraint firstItem="Git-m1-roW" firstAttribute="trailing" secondItem="MbR-Cs-8Hl" secondAttribute="trailing" constant="8" id="yW8-w1-YoP"/>
+                            <constraint firstItem="097-2o-7Nv" firstAttribute="leading" secondItem="Git-m1-roW" secondAttribute="leading" id="yd2-y6-vce"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Git-m1-roW"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30d-Kb-9Ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="96"/>
+            <point key="canvasLocation" x="780" y="95.070422535211264"/>
         </scene>
         <!--Mpos ReferenciaVC-->
         <scene sceneID="g0s-Na-3H3">

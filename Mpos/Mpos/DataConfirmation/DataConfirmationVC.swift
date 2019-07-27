@@ -18,12 +18,12 @@ class DataConfirmationVC: UIViewController
 
     //Declare Variables
     var InvoiceType:Int = 0
+    var lblColor = UIColor()
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        var lblColor = UIColor()
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
             lblColor = AppColors.kOrangeColor
@@ -78,6 +78,21 @@ class DataConfirmationVC: UIViewController
         controller.invoiceType = InvoiceType
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    //MARK: User Actions
+    @IBAction func openSidebar(_ sender: UIButton)
+    {
+        let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+
     /*
     // MARK: - Navigation
 
@@ -143,32 +158,17 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
         {
         case 0:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmataionListwithLogoCell, for: indexPath) as! DataConfirmataionListwithLogoCell
-            
+            cellListwithLogoCell.lblTitle.textColor = lblColor
             cell = cellListwithLogoCell
             break
         case 1...2:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmationNormalListCell, for: indexPath) as! DataConfirmationNormalListCell
+            cellListwithLogoCell.lblTitleHeader.textColor = lblColor
+            cellListwithLogoCell.lblPriceHeader.textColor = lblColor
             cell = cellListwithLogoCell
             break
         case 3:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: "DataConfirmationDropDownCell", for: indexPath) as! DataConfirmationDropDownCell
-            var lblColor = UIColor()
-            switch InvoiceType {
-            case 1: //RISCO DE ANULAÇÃO
-                lblColor = AppColors.kOrangeColor
-                break
-            case 2: //POR COBRAR
-                lblColor = AppColors.kPurpulColor
-                break
-            case 3: // COBRADOS
-                lblColor = AppColors.kGreenColor
-                break
-            case 4: // General Search
-                lblColor = AppColors.kGeneralSearchColor
-                break
-            default:
-                break
-            }
             cellListwithLogoCell.lblTitle.textColor = lblColor
             cellListwithLogoCell.btnDropDownTapped =
                 { text in

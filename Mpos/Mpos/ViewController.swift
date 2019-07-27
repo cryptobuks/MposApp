@@ -50,15 +50,16 @@ class ViewController: UIViewController
         }
         
         
-//        if UserDefaultManager.SharedInstance.isOnboardingComplete()
-//        {
-//            //Normal Login View
-//            self.skipBtn.isHidden = true
-//        }
-//        else
-//        {
+        if UserDefaultManager.SharedInstance.isOnboardingComplete()
+        {
+            //Normal Login View
+            onboardingContainer.removeFromSuperview()
+            self.skipBtn.isHidden = true
+        }
+        else
+        {
             self.setOnboardingUI()
-//        }
+        }
        
     }
     
@@ -115,6 +116,9 @@ extension ViewController {
     @IBAction func btnForgotPasswordClicked(_ sender: Any) {
         
         // forgot password logic
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "ForgotPasswordVC") as! ForgotPasswordVC
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     //set visibility for password in SignUp
