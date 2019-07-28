@@ -49,15 +49,14 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         controller.InvoiceType = InvoiceType
         self.viewControllerForTableView?.navigationController?.pushViewController(controller, animated: true)
     }
-    @objc func btnCheckBoxSelected(_ sender: UIButton) {
-        
-        if sender.isSelected{
-            sender.isSelected = false
-        }
-        else
-        {
-            sender .isSelected = true
-        }
+    
+    func goToErrorPage()
+    {
+        let storyBoard = UIStoryboard(name: "MposError", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "MposErrorVC") as! MposErrorVC
+        controller.strErrorMessage = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed interdum elit, fringilla commodo nunc."
+        self.viewControllerForTableView?.navigationController?.pushViewController(controller, animated: true)
+
     }
 }
 
@@ -78,29 +77,34 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         
         cellForInvoiceWithCheckBox.selectionStyle = .none
         var lblColor = UIColor()
-        
+        var lblAlphaColor = UIColor()
+
         cellForInvoiceWithCheckBox.btnCheckBox.isHidden = true
         cellForInvoiceWithCheckBox.btnDownload.isHidden = true
-        cellForInvoiceWithCheckBox.btnDownload.isHidden = false
         cellForInvoiceWithCheckBox.btnViewMore.isHidden = false
+        cellForInvoiceWithCheckBox.imgSelected.isHidden = true
+        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
 
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
             lblColor = AppColors.kOrangeColor
+            lblAlphaColor = AppColors.kOrangeColorWithAlpha
             cellForInvoiceWithCheckBox.btnCheckBox.isHidden = false
             break
         case 2: //POR COBRAR
             lblColor = AppColors.kPurpulColor
+            lblAlphaColor = AppColors.kPurpulColorWithAlpha
             cellForInvoiceWithCheckBox.btnCheckBox.isHidden = false
             break
         case 3: // COBRADOS
             lblColor = AppColors.kGreenColor
+            lblAlphaColor = AppColors.kGreenColorWithAlpha
             cellForInvoiceWithCheckBox.btnDownload.isHidden = false
             break
         case 4: // General Search
             lblColor = AppColors.kGeneralSearchColor
+            lblAlphaColor = AppColors.kGeneralSearchColorWithAlpha
             cellForInvoiceWithCheckBox.btnCheckBox.isHidden = false
-            cellForInvoiceWithCheckBox.btnDownload.isHidden = false
             break
         default:
             break
@@ -121,9 +125,47 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
             cellForInvoiceWithCheckBox.btnViewMore.isHidden = true
         }
         
+        /*
+            In addition to the two points above, there can also be instances in which individual invoice tickets cannot be selected. Also, there can be instances where only the back-end is aware that particular invoice tickets cannot proceed to further screens within the app. In the first instance, these individual receipts have red design elements and a “danger” icon instead of a checkbox, as illustrated in figure 15 (i.e. in the second invoice ticket shown in the figure). In the second instance, as well as when users press the “danger” icon, the full-screen, closeable pop-up window represented in figure 16 is presented to the user;
+         */
+        if indexPath.row == 1
+        {
+            cellForInvoiceWithCheckBox.btnCheckBox.setImage(UIImage(named: "ic_InvoiceError"), for: .normal)
+            cellForInvoiceWithCheckBox.imgSelected.isHidden = false
+            cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
+            cellForInvoiceWithCheckBox.imgSelected.backgroundColor = AppColors.kErrorColor
+        }
+        
+        cellForInvoiceWithCheckBox.btnCheckBoxTapped =
+            {
+                //For Error
+                if indexPath.row == 1
+                {
+                    self.goToErrorPage()
+                }
+                else
+                {
+                    if cellForInvoiceWithCheckBox.btnCheckBox.isSelected
+                    {
+                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
+                        cellForInvoiceWithCheckBox.imgSelected.isHidden = true
+                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
+                    }
+                    else
+                    {
+                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
+                        cellForInvoiceWithCheckBox.imgSelected.isHidden = false
+                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
+                        cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
+
+                    }
+                }
+        }
         
         cellForInvoiceWithCheckBox.btnViewMore.addTarget(self, action: #selector(btnMoreInfoClicked(_:)), for: .touchUpInside)
-        cellForInvoiceWithCheckBox.btnCheckBox.addTarget(self, action: #selector(btnCheckBoxSelected(_:)), for: .touchUpInside)
+        
+    
+        
         return cellForInvoiceWithCheckBox
     }
     

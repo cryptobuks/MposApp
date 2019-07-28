@@ -80,6 +80,9 @@
                                 </constraints>
                                 <state key="normal" image="ic_checkbox_unselected"/>
                                 <state key="selected" image="ic_checkbox_selected"/>
+                                <connections>
+                                    <action selector="btnCheckboxAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YNh-U5-cZZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0o-rU-AFy">
                                 <rect key="frame" x="181" y="215" width="109" height="24"/>
@@ -114,21 +117,31 @@
                                 <color key="textColor" red="0.56470588239999997" green="0.73725490199999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sPi-z2-xSb">
+                                <rect key="frame" x="0.0" y="0.0" width="10" height="249.5"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="hiU-FD-Kci"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yWQ-VJ-5gO" firstAttribute="leading" secondItem="DYh-Fy-8uU" secondAttribute="trailing" constant="15" id="0rL-Yy-1LV"/>
                             <constraint firstItem="BhM-xv-7Yl" firstAttribute="trailing" secondItem="1OM-5p-6ZA" secondAttribute="trailing" id="A2r-fv-kom"/>
+                            <constraint firstItem="sPi-z2-xSb" firstAttribute="top" secondItem="WeB-8z-Kta" secondAttribute="top" id="Bwx-Ft-lHz"/>
                             <constraint firstItem="gd8-ry-MAy" firstAttribute="trailing" secondItem="BhM-xv-7Yl" secondAttribute="trailing" id="Cmf-5R-GDQ"/>
                             <constraint firstItem="WeB-8z-Kta" firstAttribute="bottom" secondItem="DTw-DD-jeS" secondAttribute="bottom" constant="10.5" id="FKt-Yg-loz"/>
                             <constraint firstItem="DYh-Fy-8uU" firstAttribute="top" secondItem="WeB-8z-Kta" secondAttribute="top" constant="20" id="FpM-X7-hK4"/>
                             <constraint firstItem="1OM-5p-6ZA" firstAttribute="leading" secondItem="wt3-rm-oQF" secondAttribute="leading" id="Fqw-O7-G7V"/>
+                            <constraint firstAttribute="bottom" secondItem="sPi-z2-xSb" secondAttribute="bottom" id="Hme-dg-9iW"/>
                             <constraint firstItem="gd8-ry-MAy" firstAttribute="leading" secondItem="BhM-xv-7Yl" secondAttribute="leading" id="Iac-g9-b2R"/>
                             <constraint firstItem="WeB-8z-Kta" firstAttribute="trailing" secondItem="z0o-rU-AFy" secondAttribute="trailing" constant="10" id="Kmm-EG-Myk"/>
                             <constraint firstItem="BhM-xv-7Yl" firstAttribute="leading" secondItem="1OM-5p-6ZA" secondAttribute="leading" id="LBi-fD-AUr"/>
                             <constraint firstItem="wl1-bB-ZvL" firstAttribute="leading" secondItem="DYh-Fy-8uU" secondAttribute="trailing" constant="15" id="N9z-Z5-u3W"/>
                             <constraint firstItem="WeB-8z-Kta" firstAttribute="trailing" secondItem="wl1-bB-ZvL" secondAttribute="trailing" constant="10" id="Q8d-mT-mga"/>
                             <constraint firstItem="gd8-ry-MAy" firstAttribute="top" secondItem="BhM-xv-7Yl" secondAttribute="bottom" constant="10" id="RFc-Ub-Ncl"/>
+                            <constraint firstItem="sPi-z2-xSb" firstAttribute="leading" secondItem="WeB-8z-Kta" secondAttribute="leading" id="YYg-90-1lK"/>
                             <constraint firstItem="DYh-Fy-8uU" firstAttribute="leading" secondItem="WeB-8z-Kta" secondAttribute="leading" constant="20" id="aLl-62-guE"/>
                             <constraint firstItem="1OM-5p-6ZA" firstAttribute="trailing" secondItem="wt3-rm-oQF" secondAttribute="trailing" id="bYk-Yx-8hx"/>
                             <constraint firstItem="yWQ-VJ-5gO" firstAttribute="top" secondItem="WeB-8z-Kta" secondAttribute="top" constant="20" id="d4S-Hq-zKl"/>
@@ -159,6 +172,8 @@
                 <outlet property="btnCheckBox" destination="DYh-Fy-8uU" id="z0I-8l-bK3"/>
                 <outlet property="btnDownload" destination="DTw-DD-jeS" id="WVN-wC-uan"/>
                 <outlet property="btnViewMore" destination="z0o-rU-AFy" id="wwk-Ia-qUE"/>
+                <outlet property="ctWidthImgSelected" destination="hiU-FD-Kci" id="NJR-cr-ONk"/>
+                <outlet property="imgSelected" destination="sPi-z2-xSb" id="1Pr-XI-VPu"/>
                 <outlet property="lblCaptionIssueDate" destination="wt3-rm-oQF" id="MmR-mk-ZLS"/>
                 <outlet property="lblCaptionReceipt" destination="yWQ-VJ-5gO" id="YDa-AH-KuG"/>
                 <outlet property="lblCaptionValue" destination="BhM-xv-7Yl" id="jQn-eb-WCI"/>

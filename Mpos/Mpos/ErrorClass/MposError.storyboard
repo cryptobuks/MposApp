@@ -30,13 +30,13 @@
                                 <rect key="frame" x="20" y="94" width="374" height="298.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OPS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUc-1b-NLq">
-                                <rect key="frame" x="8" y="400.5" width="398" height="35"/>
+                                <rect key="frame" x="8" y="400.5" width="398" height="34"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.93333333333333335" green="0.32549019607843138" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tem que cobrar primeiro os recibos mais antigos!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blY-Lj-u48">
-                                <rect key="frame" x="8" y="465.5" width="398" height="19"/>
+                                <rect key="frame" x="8" y="464.5" width="398" height="18"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -74,6 +74,7 @@
                         <viewLayoutGuide key="safeArea" id="wMt-td-zb3"/>
                     </view>
                     <connections>
+                        <outlet property="imgvw" destination="6zd-AA-ZPe" id="57s-eK-dxZ"/>
                         <outlet property="lblErrorMessage" destination="blY-Lj-u48" id="85P-F8-npE"/>
                     </connections>
                 </viewController>

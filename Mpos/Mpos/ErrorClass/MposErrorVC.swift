@@ -12,9 +12,14 @@ class MposErrorVC: UIViewController {
 
     @IBOutlet weak var lblErrorMessage: UILabel!
     var strErrorMessage = String()
+    @IBOutlet weak var imgvw: UIImageView!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+
+        let logoutGIF = UIImage.gifImageWithName("erro")
+        imgvw.image = logoutGIF
 
         // Do any additional setup after loading the view.
         lblErrorMessage.text = strErrorMessage
@@ -24,7 +29,7 @@ class MposErrorVC: UIViewController {
     //MARK: User Actions
     @IBAction func closeTapped(_ sender: UIButton)
     {
-        self.view.removeFromSuperview()
+        self.navigationController?.popViewController(animated: true)
     }
 
     /*

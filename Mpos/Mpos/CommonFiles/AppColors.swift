@@ -15,4 +15,6 @@ struct AppColors {
     
     static let kGeneralSearchColor = UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0)
     static let kGeneralSearchColorWithAlpha = UIColor(red: 179.0/255.0, green: 225.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+    
+    static let kErrorColor = UIColor(red: 251.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0)
 }
