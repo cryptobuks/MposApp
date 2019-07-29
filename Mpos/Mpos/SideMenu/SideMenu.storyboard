@@ -210,6 +210,9 @@
                                                         <constraint firstAttribute="height" constant="24" id="suQ-2Y-KFm"/>
                                                     </constraints>
                                                     <state key="normal" image="ic_editAgent"/>
+                                                    <connections>
+                                                        <action selector="btnChangeAgentDropDownAction:" destination="0hI-Ar-EGf" eventType="touchUpInside" id="p1Y-Th-gwD"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
