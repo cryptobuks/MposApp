@@ -21,6 +21,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
 
     var InvoiceType:Int = 0
     var bTerceirosSelected = Bool()
+    var bSectionSelected = Bool()
 
 
     override func awakeFromNib() {
@@ -160,6 +161,22 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
 
                     }
                 }
+        }
+        
+        
+       
+        if bSectionSelected
+        {
+            cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
+            cellForInvoiceWithCheckBox.imgSelected.isHidden = false
+            cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
+            cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
+        }
+        else
+        {
+            cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
+            cellForInvoiceWithCheckBox.imgSelected.isHidden = true
+            cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
         }
         
         cellForInvoiceWithCheckBox.btnViewMore.addTarget(self, action: #selector(btnMoreInfoClicked(_:)), for: .touchUpInside)
