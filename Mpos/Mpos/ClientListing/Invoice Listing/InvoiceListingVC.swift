@@ -31,8 +31,6 @@ class InvoiceListingVC: UIViewController {
 
     var InvoiceType:Int = 0
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

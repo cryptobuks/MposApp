@@ -119,16 +119,26 @@
                                                             <constraint firstAttribute="height" constant="1" id="jT0-gu-WgV"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CH8-3a-TPT">
+                                                        <rect key="frame" x="328" y="46.666666666666657" width="25" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="86n-eM-c1U"/>
+                                                            <constraint firstAttribute="width" constant="25" id="gVv-vG-DYh"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ic_searchDashboard"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="T3I-s4-CFa" firstAttribute="leading" secondItem="20T-Rn-Euy" secondAttribute="leading" constant="30" id="2Rx-HB-HD6"/>
                                                     <constraint firstItem="ffa-Oa-zaj" firstAttribute="top" secondItem="T3I-s4-CFa" secondAttribute="bottom" constant="10" id="3zJ-x2-hrR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="CH8-3a-TPT" secondAttribute="trailing" constant="22" id="AVg-y4-G3x"/>
                                                     <constraint firstItem="T3I-s4-CFa" firstAttribute="top" secondItem="iub-3o-zYo" secondAttribute="bottom" constant="10" id="Dee-JY-gc2"/>
                                                     <constraint firstAttribute="trailing" secondItem="T3I-s4-CFa" secondAttribute="trailing" constant="50" id="Nhg-eJ-HJZ"/>
                                                     <constraint firstItem="iub-3o-zYo" firstAttribute="leading" secondItem="20T-Rn-Euy" secondAttribute="leading" constant="30" id="QtO-Jm-Yqz"/>
                                                     <constraint firstItem="iub-3o-zYo" firstAttribute="top" secondItem="20T-Rn-Euy" secondAttribute="top" constant="25" id="YE1-M3-3dK"/>
                                                     <constraint firstItem="ffa-Oa-zaj" firstAttribute="leading" secondItem="20T-Rn-Euy" secondAttribute="leading" constant="22" id="YFE-r6-qbs"/>
+                                                    <constraint firstItem="CH8-3a-TPT" firstAttribute="centerY" secondItem="T3I-s4-CFa" secondAttribute="centerY" id="dJe-yp-IXX"/>
                                                     <constraint firstAttribute="height" constant="95" id="dQY-gL-LXL"/>
                                                     <constraint firstAttribute="trailing" secondItem="ffa-Oa-zaj" secondAttribute="trailing" constant="22" id="hgE-Mi-p8m"/>
                                                     <constraint firstAttribute="trailing" secondItem="iub-3o-zYo" secondAttribute="trailing" constant="10" id="lfZ-m6-dT5"/>
@@ -451,5 +461,6 @@
         <image name="ic_buttonBack" width="600" height="60"/>
         <image name="ic_close" width="60" height="60"/>
         <image name="ic_menu" width="24" height="24"/>
+        <image name="ic_searchDashboard" width="24" height="24"/>
     </resources>
 </document>

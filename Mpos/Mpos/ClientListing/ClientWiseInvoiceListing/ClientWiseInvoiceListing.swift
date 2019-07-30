@@ -32,7 +32,7 @@ class ClientWiseInvoiceListing: UIViewController {
     @IBOutlet weak var ctHeightbtnTotalPrice: NSLayoutConstraint!
     
     var selectedCompanyIndex:Int = -1
-    var selectedInvoiceIndex:NSMutableArray = []
+    var selectedInvoiceIndex = NSMutableArray()
 
     var InvoiceType:Int = 0
     /*
@@ -162,27 +162,31 @@ class ClientWiseInvoiceListing: UIViewController {
     
     @objc func btnPlusBtnClicked(_ sender: UIButton) {
         
-        if selectedInvoiceIndex.contains(sender.tag)
+        let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:tblvwInvoiceListing)
+        let indexPath = self.tblvwInvoiceListing.indexPathForRow(at: buttonPosition)
+        
+        
+        if selectedInvoiceIndex.contains(indexPath!)
         {
-            selectedInvoiceIndex.remove(sender.tag)
+            selectedInvoiceIndex.remove(indexPath!)
         }
         else
         {
-            selectedInvoiceIndex.add(sender.tag)
+            selectedInvoiceIndex.add(indexPath!)
 
         }
        
-        if selectedInvoiceIndex.count > 0
-        {
-            ctHeightbtnTotalPrice.constant = 60
-            btnTotalInvoicePrice.isHidden = false
-        }
-        else
-        {
-            ctHeightbtnTotalPrice.constant = 0
-            btnTotalInvoicePrice.isHidden = true
-        }
-        
+//        if selectedInvoiceIndex.count > 0
+//        {
+//            ctHeightbtnTotalPrice.constant = 60
+//            btnTotalInvoicePrice.isHidden = false
+//        }
+//        else
+//        {
+//            ctHeightbtnTotalPrice.constant = 0
+//            btnTotalInvoicePrice.isHidden = true
+//        }
+//        
         tblvwInvoiceListing.reloadData()
         
     }
@@ -233,7 +237,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if selectedInvoiceIndex.contains(indexPath.row)
+        if selectedInvoiceIndex.contains(indexPath)
         {
             return 85 + 100 + (2 * 260)
         }
@@ -361,7 +365,8 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         
         cellForClientDetails.btnExpandCollapse.tag = indexPath.row
         cellForClientDetails.btnExpandCollapse.addTarget(self, action: #selector(btnPlusBtnClicked(_:)), for: .touchUpInside)
-        if selectedInvoiceIndex.contains(indexPath.row)
+        
+        if selectedInvoiceIndex.contains(indexPath)
         {
             cellForClientDetails.btnExpandCollapse.isSelected = true
         }
@@ -369,6 +374,17 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         {
             cellForClientDetails.btnExpandCollapse.isSelected = false
         }
+        
+        if selectedCompanyIndex == indexPath.section
+        {
+            cellForClientDetails.bSectionSelected = true
+        }
+        else
+        {
+            cellForClientDetails.bSectionSelected = false
+        }
+
+        cellForClientDetails.tblvwInvoices.reloadData()
         cellForClientDetails.InvoiceType = InvoiceType
         cellForClientDetails.bTerceirosSelected = bTerceirosSelected
         return cellForClientDetails
