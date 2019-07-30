@@ -30,7 +30,7 @@ class DataConfirmationDropDownCell: UITableViewCell
     
     @IBAction func btnDropDownAction(_ sender: UIButton)
     {
-        let arrtemp = ["SELECIONE UMA OPÇÃO","Eu entrego ao cliente","Ageas envia automaticamente","email para luis.gomes@mail.com"]
+        let arrtemp = ["Eu entrego ao cliente","Ageas envia automaticamente","email para luis.gomes@mail.com"]
         ActionSheetStringPicker.show(withTitle: "", rows: arrtemp as [Any], initialSelection: 0, doneBlock:
             {
                 picker, value, index in
