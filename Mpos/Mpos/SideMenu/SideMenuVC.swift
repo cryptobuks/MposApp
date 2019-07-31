@@ -161,15 +161,26 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
         }
          return UITableView.automaticDimension
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         self.navigationController?.popViewController(animated: true)
-        
+
+        /*
+         The navigation keeps stacking the screens when the user changes the invoice type (KPI) from the side menu
+         - The correct behaviour is: whenever the user changes the context (e.g. from POR COBRAR to COBRADOS), the stack resets and starts from the home screen
+         */
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+        let navController = UINavigationController(rootViewController: controller)
+        navController.navigationBar.isHidden = true
+        appDelegate.window?.rootViewController = navController
+
         if indexPath.row < 3
         {
             let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
             let invoiceListingVC = storyBoard.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
             invoiceListingVC.InvoiceType = indexPath.row + 1
-            self.navigationController?.pushViewController(invoiceListingVC, animated: true)
+            navController.pushViewController(invoiceListingVC, animated: true)
         }
     }
 }
