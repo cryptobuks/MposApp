@@ -151,6 +151,8 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                         cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
                         cellForInvoiceWithCheckBox.imgSelected.isHidden = true
                         cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
+                        (self.viewControllerForTableView as! ClientWiseInvoiceListing).btnTotalInvoicePrice.isHidden = true
+                        (self.viewControllerForTableView as! ClientWiseInvoiceListing).ctHeightbtnTotalPrice.constant = 0
                     }
                     else
                     {
@@ -158,6 +160,8 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                         cellForInvoiceWithCheckBox.imgSelected.isHidden = false
                         cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
                         cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
+                        (self.viewControllerForTableView as! ClientWiseInvoiceListing).btnTotalInvoicePrice.isHidden = false
+                        (self.viewControllerForTableView as! ClientWiseInvoiceListing).ctHeightbtnTotalPrice.constant = 60
 
                     }
                 }

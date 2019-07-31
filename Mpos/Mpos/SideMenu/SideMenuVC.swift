@@ -90,7 +90,7 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 170
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -146,7 +146,7 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     {
         if UITableView.automaticDimension < 40
         {
-            return 40
+            return 60
         }
         else
         {
@@ -155,6 +155,10 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if UITableView.automaticDimension < 170
+        {
+            return 170
+        }
          return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
