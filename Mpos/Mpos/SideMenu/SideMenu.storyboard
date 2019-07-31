@@ -161,50 +161,50 @@
                                     <constraint firstItem="iLr-d1-Li3" firstAttribute="leading" secondItem="DGC-ZZ-Gyx" secondAttribute="leading" id="zdB-Zb-wUB"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ete-I9-qOT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ete-I9-qOT">
                                 <rect key="frame" x="0.0" y="88" width="375" height="571"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuHeaderTableViewCell" rowHeight="124" id="0hI-Ar-EGf" customClass="SideMenuHeaderTableViewCell" customModule="Mpos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="124"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0hI-Ar-EGf" id="4Fg-SR-LgF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user" translatesAutoresizingMaskIntoConstraints="NO" id="Nnq-54-d7a">
-                                                    <rect key="frame" x="20" y="0.0" width="40" height="40"/>
+                                                    <rect key="frame" x="40" y="0.0" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="lUJ-gg-ivJ"/>
                                                         <constraint firstAttribute="width" constant="40" id="qPq-Pw-Hxa"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="FRADE SEGUROS SOCIEDADE DE SEGUROS LDA." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyu-gm-uFc">
-                                                    <rect key="frame" x="20" y="48" width="335" height="13.5"/>
+                                                    <rect key="frame" x="40" y="48" width="315" height="13.5"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
                                                     <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASF: 89" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NS-G3-pPH">
-                                                    <rect key="frame" x="20" y="69.5" width="335" height="20.5"/>
+                                                    <rect key="frame" x="40" y="71.5" width="315" height="18"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
                                                     <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agente:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKg-pC-ztO">
-                                                    <rect key="frame" x="20" y="98" width="57" height="18"/>
+                                                    <rect key="frame" x="40" y="99.5" width="57" height="18"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
                                                     <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="256" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca5-zl-SOG">
-                                                    <rect key="frame" x="78" y="98" width="27.5" height="18"/>
+                                                    <rect key="frame" x="98" y="99.5" width="27.5" height="18"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
                                                     <color key="textColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdb-Q8-MHl">
-                                                    <rect key="frame" x="120.5" y="93" width="24" height="24"/>
+                                                    <rect key="frame" x="140.5" y="94.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="548-HE-8uv"/>
                                                         <constraint firstAttribute="height" constant="24" id="suQ-2Y-KFm"/>
@@ -216,25 +216,22 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Nnq-54-d7a" firstAttribute="leading" secondItem="4Fg-SR-LgF" secondAttribute="leading" constant="20" id="4A7-2q-w5q"/>
-                                                <constraint firstItem="ca5-zl-SOG" firstAttribute="top" secondItem="7NS-G3-pPH" secondAttribute="bottom" constant="8" id="7W2-bx-tah"/>
+                                                <constraint firstItem="Nnq-54-d7a" firstAttribute="leading" secondItem="4Fg-SR-LgF" secondAttribute="leading" constant="40" id="4A7-2q-w5q"/>
+                                                <constraint firstItem="ca5-zl-SOG" firstAttribute="top" secondItem="7NS-G3-pPH" secondAttribute="bottom" constant="10" id="7W2-bx-tah"/>
                                                 <constraint firstItem="Pdb-Q8-MHl" firstAttribute="leading" secondItem="ca5-zl-SOG" secondAttribute="trailing" constant="15" id="A7l-Rf-ZSQ"/>
                                                 <constraint firstItem="ca5-zl-SOG" firstAttribute="leading" secondItem="DKg-pC-ztO" secondAttribute="trailing" constant="1" id="DKd-rs-EXl"/>
                                                 <constraint firstItem="nyu-gm-uFc" firstAttribute="top" secondItem="Nnq-54-d7a" secondAttribute="bottom" constant="8" id="DyF-cC-9iU"/>
-                                                <constraint firstAttribute="bottom" secondItem="ca5-zl-SOG" secondAttribute="bottom" constant="8" id="IKk-y4-VJe"/>
-                                                <constraint firstItem="nyu-gm-uFc" firstAttribute="leading" secondItem="4Fg-SR-LgF" secondAttribute="leading" constant="20" id="IVJ-hy-iHC"/>
-                                                <constraint firstItem="DKg-pC-ztO" firstAttribute="top" secondItem="7NS-G3-pPH" secondAttribute="bottom" constant="8" id="K0R-NF-djP"/>
-                                                <constraint firstItem="7NS-G3-pPH" firstAttribute="top" secondItem="nyu-gm-uFc" secondAttribute="bottom" constant="8" id="MR1-eF-PVE"/>
-                                                <constraint firstItem="7NS-G3-pPH" firstAttribute="top" secondItem="nyu-gm-uFc" secondAttribute="bottom" constant="8" id="RDp-I4-NC7"/>
-                                                <constraint firstItem="DKg-pC-ztO" firstAttribute="leading" secondItem="4Fg-SR-LgF" secondAttribute="leading" constant="20" id="UR4-nb-wSo"/>
+                                                <constraint firstItem="nyu-gm-uFc" firstAttribute="leading" secondItem="4Fg-SR-LgF" secondAttribute="leading" constant="40" id="IVJ-hy-iHC"/>
+                                                <constraint firstItem="DKg-pC-ztO" firstAttribute="top" secondItem="7NS-G3-pPH" secondAttribute="bottom" constant="10" id="K0R-NF-djP"/>
+                                                <constraint firstItem="7NS-G3-pPH" firstAttribute="top" secondItem="nyu-gm-uFc" secondAttribute="bottom" constant="10" id="RDp-I4-NC7"/>
+                                                <constraint firstItem="DKg-pC-ztO" firstAttribute="leading" secondItem="4Fg-SR-LgF" secondAttribute="leading" constant="40" id="UR4-nb-wSo"/>
                                                 <constraint firstItem="Nnq-54-d7a" firstAttribute="top" secondItem="4Fg-SR-LgF" secondAttribute="top" id="bW4-nU-8bn"/>
                                                 <constraint firstAttribute="trailing" secondItem="7NS-G3-pPH" secondAttribute="trailing" constant="20" id="cNg-6X-Ve8"/>
                                                 <constraint firstItem="Pdb-Q8-MHl" firstAttribute="top" secondItem="DKg-pC-ztO" secondAttribute="top" constant="-5" id="h1V-Ib-9lu"/>
                                                 <constraint firstAttribute="trailing" secondItem="nyu-gm-uFc" secondAttribute="trailing" constant="20" id="o2l-VH-XMx"/>
                                                 <constraint firstItem="ca5-zl-SOG" firstAttribute="leading" secondItem="DKg-pC-ztO" secondAttribute="trailing" constant="1" id="pfI-Nz-CpF"/>
                                                 <constraint firstItem="nyu-gm-uFc" firstAttribute="top" secondItem="Nnq-54-d7a" secondAttribute="bottom" constant="8" id="vDS-Qc-for"/>
-                                                <constraint firstItem="7NS-G3-pPH" firstAttribute="leading" secondItem="4Fg-SR-LgF" secondAttribute="leading" constant="20" id="yMI-fJ-cnh"/>
-                                                <constraint firstAttribute="bottom" secondItem="DKg-pC-ztO" secondAttribute="bottom" constant="8" id="yjq-oK-MLB"/>
+                                                <constraint firstItem="7NS-G3-pPH" firstAttribute="leading" secondItem="4Fg-SR-LgF" secondAttribute="leading" constant="40" id="yMI-fJ-cnh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -245,7 +242,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuContentTableViewCell" rowHeight="124" id="cga-Bs-6PN" customClass="SideMenuContentTableViewCell" customModule="Mpos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="152" width="375" height="124"/>
+                                        <rect key="frame" x="0.0" y="179.5" width="375" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cga-Bs-6PN" id="sko-yT-eTy">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
@@ -259,7 +256,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYA-io-3e0">
-                                                    <rect key="frame" x="58" y="8" width="309" height="108"/>
+                                                    <rect key="frame" x="70" y="8" width="297" height="108"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -267,7 +264,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="HYA-io-3e0" secondAttribute="bottom" constant="8" id="7d8-tN-Z4h"/>
-                                                <constraint firstItem="HYA-io-3e0" firstAttribute="leading" secondItem="bPn-aD-2c3" secondAttribute="trailing" constant="8" id="BZ3-8Q-OdM"/>
+                                                <constraint firstItem="HYA-io-3e0" firstAttribute="leading" secondItem="bPn-aD-2c3" secondAttribute="trailing" constant="20" id="BZ3-8Q-OdM"/>
                                                 <constraint firstItem="HYA-io-3e0" firstAttribute="top" secondItem="sko-yT-eTy" secondAttribute="top" constant="8" id="Bys-dZ-B6t"/>
                                                 <constraint firstAttribute="trailing" secondItem="HYA-io-3e0" secondAttribute="trailing" constant="8" id="io5-52-UPE"/>
                                                 <constraint firstItem="bPn-aD-2c3" firstAttribute="leading" secondItem="sko-yT-eTy" secondAttribute="leading" constant="20" id="tCA-NQ-TKh"/>
