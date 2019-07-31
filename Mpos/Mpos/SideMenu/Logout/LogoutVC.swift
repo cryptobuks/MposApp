@@ -16,8 +16,14 @@ class LogoutVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let logoutGIF = UIImage.gifImageWithName("Logout")
-        imgvw.image = logoutGIF
+        let gifName = "Logout.gif"
+        
+        do {
+            let gifImage = try UIImage(gifName: gifName)
+            imgvw.setGifImage(gifImage)
+        } catch let error {
+            print("Error : \(error.localizedDescription)")
+        }
     }
     
 

@@ -16,8 +16,14 @@ class OnboardingThirdPageVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let jeremyGif = UIImage.gifImageWithName("onb_3")
-        imgVW.image = jeremyGif
+        let gifName = "onb_3.gif"
+        
+        do {
+            let gifImage = try UIImage(gifName: gifName)
+            imgVW.setGifImage(gifImage)
+        } catch let error {
+            print("Error : \(error.localizedDescription)")
+        }
 
     }
     

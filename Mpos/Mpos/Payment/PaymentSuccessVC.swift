@@ -18,9 +18,15 @@ class PaymentSuccessVC: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        let logoutGIF = UIImage.gifImageWithName("Sucess")
-        imgvw.image = logoutGIF
+        
+        let gifName = "Sucess.gif"
+        
+        do {
+            let gifImage = try UIImage(gifName: gifName)
+            imgvw.setGifImage(gifImage)
+        } catch let error {
+            print("Error : \(error.localizedDescription)")
+        }
 
         // Do any additional setup after loading the view.
         lblSucessMessage.text = strSucessMessage
