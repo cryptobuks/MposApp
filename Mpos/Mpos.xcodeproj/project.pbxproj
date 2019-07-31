@@ -31,6 +31,9 @@
 		A56AF46D22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A56AF46B22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib */; };
 		A59E4D7822E6191A006FFBB6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */; };
 		A59E4D7A22E619B4006FFBB6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7922E619B4006FFBB6 /* Search.storyboard */; };
+		A5CA097822F1FCBF0084D7DE /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA097522F1FCBF0084D7DE /* UIImageView+SwiftyGif.swift */; };
+		A5CA097922F1FCBF0084D7DE /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA097622F1FCBF0084D7DE /* UIImage+SwiftyGif.swift */; };
+		A5CA097A22F1FCBF0084D7DE /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA097722F1FCBF0084D7DE /* SwiftyGifManager.swift */; };
 		A5CA733A22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */; };
 		A5CA733B22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */; };
 		A5F27FEF22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F27FEE22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift */; };
@@ -57,7 +60,6 @@
 		D37F816322E78859004729D8 /* card_payment.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815B22E78859004729D8 /* card_payment.gif */; };
 		D37F816422E78859004729D8 /* erro.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815C22E78859004729D8 /* erro.gif */; };
 		D37F816522E78859004729D8 /* onb_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815D22E78859004729D8 /* onb_1.gif */; };
-		D37F816622E78859004729D8 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37F815E22E78859004729D8 /* iOSDevCenters+GIF.swift */; };
 		D37F816722E78859004729D8 /* onb_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F815F22E78859004729D8 /* onb_2.gif */; };
 		D37F816822E78859004729D8 /* Sucess.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F816022E78859004729D8 /* Sucess.gif */; };
 		D37F816922E78859004729D8 /* onb_3.gif in Resources */ = {isa = PBXBuildFile; fileRef = D37F816122E78859004729D8 /* onb_3.gif */; };
@@ -143,6 +145,9 @@
 		A56AF46B22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsHeaderCell.xib; sourceTree = "<group>"; };
 		A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		A59E4D7922E619B4006FFBB6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		A5CA097522F1FCBF0084D7DE /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
+		A5CA097622F1FCBF0084D7DE /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
+		A5CA097722F1FCBF0084D7DE /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsWIthCheckBoxTableViewCell.swift; sourceTree = "<group>"; };
 		A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsWIthCheckBoxTableViewCell.xib; sourceTree = "<group>"; };
 		A5F27FEE22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientWiseInvoiceListing.swift; sourceTree = "<group>"; };
@@ -171,7 +176,6 @@
 		D37F815B22E78859004729D8 /* card_payment.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = card_payment.gif; sourceTree = "<group>"; };
 		D37F815C22E78859004729D8 /* erro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = erro.gif; sourceTree = "<group>"; };
 		D37F815D22E78859004729D8 /* onb_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onb_1.gif; sourceTree = "<group>"; };
-		D37F815E22E78859004729D8 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		D37F815F22E78859004729D8 /* onb_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onb_2.gif; sourceTree = "<group>"; };
 		D37F816022E78859004729D8 /* Sucess.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sucess.gif; sourceTree = "<group>"; };
 		D37F816122E78859004729D8 /* onb_3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = onb_3.gif; sourceTree = "<group>"; };
@@ -354,6 +358,16 @@
 			path = InvoiceDetailHeader;
 			sourceTree = "<group>";
 		};
+		A5CA097422F1FCBF0084D7DE /* SwiftyGif */ = {
+			isa = PBXGroup;
+			children = (
+				A5CA097522F1FCBF0084D7DE /* UIImageView+SwiftyGif.swift */,
+				A5CA097622F1FCBF0084D7DE /* UIImage+SwiftyGif.swift */,
+				A5CA097722F1FCBF0084D7DE /* SwiftyGifManager.swift */,
+			);
+			path = SwiftyGif;
+			sourceTree = "<group>";
+		};
 		A5CA733722E8978D000F547C /* InvoiceDetailwithCheckBox */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,9 +512,9 @@
 		D37F815922E7882C004729D8 /* GIF */ = {
 			isa = PBXGroup;
 			children = (
+				A5CA097422F1FCBF0084D7DE /* SwiftyGif */,
 				D37F815B22E78859004729D8 /* card_payment.gif */,
 				D37F815C22E78859004729D8 /* erro.gif */,
-				D37F815E22E78859004729D8 /* iOSDevCenters+GIF.swift */,
 				D37F815A22E78859004729D8 /* Logout.gif */,
 				D37F815D22E78859004729D8 /* onb_1.gif */,
 				D37F815F22E78859004729D8 /* onb_2.gif */,
@@ -813,14 +827,15 @@
 				A54FFBB622EA155200F03281 /* ReceiptHeaderCell.swift in Sources */,
 				D3A3685022E4CDD80095432C /* MposReferenciaVC.swift in Sources */,
 				D3ED55A722E62CAD00523306 /* DataConfirmationHeaderCell.swift in Sources */,
+				A5CA097922F1FCBF0084D7DE /* UIImage+SwiftyGif.swift in Sources */,
 				D378CB4C22DF9B6B004B51AC /* UserDefaultManager.swift in Sources */,
-				D37F816622E78859004729D8 /* iOSDevCenters+GIF.swift in Sources */,
 				A56AF46C22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.swift in Sources */,
 				A53609C822E6299C00F661BB /* ClientDetailsVC.swift in Sources */,
 				D37F817122E78A7B004729D8 /* OnboardingThirdPageVC.swift in Sources */,
 				D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */,
 				A54FFBC622EA1E7C00F03281 /* CommitteesDetailsCell.swift in Sources */,
 				D3ED55A422E62A0400523306 /* DataConfirmationVC.swift in Sources */,
+				A5CA097A22F1FCBF0084D7DE /* SwiftyGifManager.swift in Sources */,
 				D3D4BF4622E1754600FB39BD /* UITextField+fixCaretPosition.swift in Sources */,
 				D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */,
 				D3390D2822EC7E730013067A /* ForgotPasswordVC.swift in Sources */,
@@ -835,6 +850,7 @@
 				D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */,
 				D37F816D22E78954004729D8 /* OnboardingFirstPageVC.swift in Sources */,
 				D3B3D62522E6B7B100896564 /* ActionSheetMultipleStringPicker.m in Sources */,
+				A5CA097822F1FCBF0084D7DE /* UIImageView+SwiftyGif.swift in Sources */,
 				A54FFBBC22EA1DF400F03281 /* GeneralDataCell.swift in Sources */,
 				D3ED55AB22E62CE000523306 /* DataConfirmataionListwithLogoCell.swift in Sources */,
 				D3B3D62422E6B7B100896564 /* DistancePickerView.m in Sources */,

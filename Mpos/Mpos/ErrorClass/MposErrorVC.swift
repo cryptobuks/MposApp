@@ -18,8 +18,15 @@ class MposErrorVC: UIViewController {
     {
         super.viewDidLoad()
 
-        let logoutGIF = UIImage.gifImageWithName("erro")
-        imgvw.image = logoutGIF
+        let gifName = "erro.gif"
+        
+        do {
+            let gifImage = try UIImage(gifName: gifName)
+            imgvw.setGifImage(gifImage)
+        } catch let error {
+            print("Error : \(error.localizedDescription)")
+        }
+        
 
         // Do any additional setup after loading the view.
         lblErrorMessage.text = strErrorMessage

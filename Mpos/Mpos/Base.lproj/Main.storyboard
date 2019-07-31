@@ -574,13 +574,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sg-i0-pj5">
-                                                    <rect key="frame" x="18" y="8" width="264" height="73"/>
+                                                    <rect key="frame" x="18" y="34" width="264" height="21"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="18"/>
                                                     <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q6-nf-4SA">
-                                                    <rect key="frame" x="290" y="8" width="79" height="45.666666666666664"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q6-nf-4SA">
+                                                    <rect key="frame" x="290" y="8" width="79" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="79" id="XXh-S8-eDt"/>
                                                     </constraints>
@@ -589,7 +589,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-q9-ElT">
-                                                    <rect key="frame" x="290" y="60.666666666666664" width="79" height="20.333333333333336"/>
+                                                    <rect key="frame" x="290" y="58" width="79" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="79" id="SOT-cM-Ul5"/>
                                                     </constraints>
@@ -603,14 +603,13 @@
                                                 <constraint firstItem="EWZ-oz-kGE" firstAttribute="leading" secondItem="mLk-w4-Evj" secondAttribute="leading" id="FST-Ct-05s"/>
                                                 <constraint firstAttribute="bottom" secondItem="EWZ-oz-kGE" secondAttribute="bottom" constant="8" id="GE9-t7-rv6"/>
                                                 <constraint firstItem="7Sg-i0-pj5" firstAttribute="leading" secondItem="EWZ-oz-kGE" secondAttribute="trailing" constant="8" id="Kt3-2i-3CF"/>
-                                                <constraint firstAttribute="bottom" secondItem="7Sg-i0-pj5" secondAttribute="bottom" constant="8" id="RQJ-9f-pYi"/>
                                                 <constraint firstAttribute="trailing" secondItem="5q6-nf-4SA" secondAttribute="trailing" constant="15" id="Vl5-m2-EFC"/>
                                                 <constraint firstItem="CI6-q9-ElT" firstAttribute="top" secondItem="5q6-nf-4SA" secondAttribute="bottom" constant="7" id="Vzr-A4-1cU"/>
                                                 <constraint firstItem="EWZ-oz-kGE" firstAttribute="top" secondItem="mLk-w4-Evj" secondAttribute="top" constant="8" id="X71-Fp-uCq"/>
                                                 <constraint firstItem="5q6-nf-4SA" firstAttribute="top" secondItem="mLk-w4-Evj" secondAttribute="top" constant="8" id="a7u-uJ-etp"/>
-                                                <constraint firstItem="7Sg-i0-pj5" firstAttribute="top" secondItem="mLk-w4-Evj" secondAttribute="top" constant="8" id="bfI-G9-vli"/>
+                                                <constraint firstItem="7Sg-i0-pj5" firstAttribute="centerY" secondItem="mLk-w4-Evj" secondAttribute="centerY" id="gaZ-5b-WFa"/>
                                                 <constraint firstAttribute="trailing" secondItem="CI6-q9-ElT" secondAttribute="trailing" constant="15" id="ibn-Z1-axZ"/>
-                                                <constraint firstAttribute="bottom" secondItem="CI6-q9-ElT" secondAttribute="bottom" constant="8" id="zCf-5g-RX0"/>
+                                                <constraint firstAttribute="bottom" secondItem="CI6-q9-ElT" secondAttribute="bottom" constant="10" id="zCf-5g-RX0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
