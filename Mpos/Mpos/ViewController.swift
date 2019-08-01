@@ -60,7 +60,7 @@ class ViewController: UIViewController
         {
             self.setOnboardingUI()
         }
-       
+        
     }
     
     /*
@@ -94,16 +94,31 @@ class ViewController: UIViewController
 extension ViewController {
     
     //LogIn button click
-    @IBAction func btnLoginClicked(_ sender: Any) {
-//        if self.doValidation() {
-        
-            // api call
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
-            let navController = UINavigationController(rootViewController: controller)
-        navController.navigationBar.isHidden = true
-        appDelegate.window?.rootViewController = navController
-        //        }
+    @IBAction func btnLoginClicked(_ sender: Any)
+    {
+        if self.doValidation()
+        {
+            //Call Login Service
+            MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b0fa83000008800a29f75", parameter: nil, success: { (response) in
+                print(response)
+
+                if let dictagentContext = response["agentContext"] as? [String : Any]
+                {
+                    UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictagentContext)
+                }
+                
+                // api call
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+                let navController = UINavigationController(rootViewController: controller)
+                navController.navigationBar.isHidden = true
+                appDelegate.window?.rootViewController = navController
+
+            })
+            { (responseError) in
+                print(responseError)
+            }
+        }
     }
     
     
