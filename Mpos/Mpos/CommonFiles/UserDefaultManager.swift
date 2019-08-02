@@ -20,6 +20,29 @@ class UserDefaultManager: NSObject
         defaut.synchronize()
     }
     
+    func saveData(dict:[String:Any],strKeyName:String)
+    {
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: dict)
+        let defaut = UserDefaults.standard
+        defaut.set(encodedData, forKey:strKeyName)
+        defaut.synchronize()
+    }
+    
+    func getData(dict:[String:Any],strKeyName:String) -> Dictionary<String, Any>?
+    {
+        let defaut = UserDefaults.standard
+        let data = defaut.object(forKey: strKeyName)
+        if (data != nil)
+        {
+            let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: data as! Data)
+            return decodedTeams as? Dictionary<String, Any>
+        }
+        else {
+            return nil
+        }
+    }
+
+
     func getLoggedUser() -> Dictionary<String, Any>?
     {
         let defaut = UserDefaults.standard

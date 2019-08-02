@@ -580,7 +580,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q6-nf-4SA">
-                                                    <rect key="frame" x="290" y="8" width="79" height="43"/>
+                                                    <rect key="frame" x="290" y="8" width="79" height="43.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="79" id="XXh-S8-eDt"/>
                                                     </constraints>
@@ -589,7 +589,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-q9-ElT">
-                                                    <rect key="frame" x="290" y="58" width="79" height="21"/>
+                                                    <rect key="frame" x="290" y="58.666666666666664" width="79" height="20.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="79" id="SOT-cM-Ul5"/>
                                                     </constraints>
@@ -643,6 +643,8 @@
                     </view>
                     <connections>
                         <outlet property="lblAgentCode" destination="6Qq-vK-kdB" id="Y94-1b-fhv"/>
+                        <outlet property="lblAgentID" destination="z2x-2U-NsZ" id="Qch-EG-15y"/>
+                        <outlet property="lblAgentName" destination="hSf-f6-QRs" id="Luu-oP-8DV"/>
                         <outlet property="tblCategoryList" destination="aVQ-F6-tKQ" id="mGB-VU-j6S"/>
                     </connections>
                 </viewController>

@@ -13,24 +13,47 @@ class DashboardVC: UIViewController
     @IBOutlet weak var tblCategoryList: UITableView!
     let arrRows = NSMutableArray()
     @IBOutlet weak var lblAgentCode: UILabel!
-
+    @IBOutlet weak var lblAgentName: UILabel!
+    @IBOutlet weak var lblAgentID: UILabel!
+    var categoryColor = UIColor()
+    var dictNotificationobject = [String:Any]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
+        {
+            lblAgentName.text = "\(dictagentContext["name"] ?? "")"
+            lblAgentID.text = "ASF: \(dictagentContext["id"] ?? "")"
+            lblAgentCode.text = "\(dictagentContext["agent"] ?? "")"
+        }
         
+        //Call KPI api is called to fill up the three main buttons (KPIs) in the home screen
         self.tblCategoryList.estimatedRowHeight = 80
         self.tblCategoryList.rowHeight = UITableView.automaticDimension
         
-        var dictTemp = ["Title":"RISCO DE ANULAÇÃO","Count":"10","Price":"600€","Color":AppColors.kOrangeColor] as [String : Any]
-        arrRows.add(dictTemp)
-        
-        dictTemp = ["Title":"POR COBRAR","Count":"123","Price":"4.532€","Color":AppColors.kPurpulColor]
-        arrRows.add(dictTemp)
-        
-        dictTemp = ["Title":"COBRADOS","Count":"2","Price":"396€","Color":AppColors.kGreenColor]
-        arrRows.add(dictTemp)
-        
+        self.getKPI()
+    }
+    
+    func getKPI()
+    {
+        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b10593000008800a29f78", parameter: nil, success: { (response) in
+            print(response)
+            
+            if let arrKPIList = response["kpiList"] as? NSArray
+            {
+                self.dictNotificationobject = arrKPIList.lastObject as! [String : Any]
+                for index in 0..<arrKPIList.count-1
+                {
+                    self.arrRows.add(arrKPIList[index])
+                    self.tblCategoryList.reloadData()
+                }
+            }
+        })
+        { (responseError) in
+            print(responseError)
+        }
         self.tblCategoryList.reloadData()
     }
     
@@ -108,11 +131,30 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         
         if let dicData = arrRows[indexPath.row] as? [String:Any]
         {
-            cell.lblCategoryName.text = dicData["Title"] as? String
-            cell.imgCategoryColor.backgroundColor = dicData["Color"] as? UIColor
-            cell.lblCount.textColor = dicData["Color"] as? UIColor
-            cell.lblCount.text = dicData["Count"] as? String
-            cell.lblPrice.text = dicData["Price"] as? String
+            cell.lblCategoryName.text = dicData["type"] as? String
+            
+            switch indexPath.row
+            {
+            case 0:
+                cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColor
+                cell.lblCount.textColor = AppColors.kOrangeColor
+                break
+            case 1:
+                cell.imgCategoryColor.backgroundColor = AppColors.kPurpulColor
+                cell.lblCount.textColor = AppColors.kPurpulColor
+                break
+            case 2:
+                cell.imgCategoryColor.backgroundColor = AppColors.kGreenColor
+                cell.lblCount.textColor = AppColors.kGreenColor
+                break
+            default:
+                cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColor
+                cell.lblCount.textColor = AppColors.kOrangeColor
+                break
+            }
+            
+            cell.lblCount.text =  "\(dicData["quantity"] ?? "")"
+            cell.lblPrice.text = "\(dicData["amount"] ?? "")€"
         }
         return cell
     }
@@ -127,15 +169,5 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         invoiceListingVC.InvoiceType = indexPath.row + 1
         self.navigationController?.pushViewController(invoiceListingVC, animated: true)
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-//    {
-//        let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
-//        let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentMethodListVC") as! PaymentMethodListVC
-//        if let dicData = arrRows[indexPath.row] as? [String:Any]
-//        {
-//            controller.selectedCategoryColor = (dicData["Color"] as? UIColor)!
-//        }
-//        self.navigationController?.pushViewController(controller, animated: true)
-//    }
   
 }

@@ -98,6 +98,7 @@ extension ViewController {
     {
         if self.doValidation()
         {
+            let params = ["bsUSer":txtfdEmail.text,"bsPassword":txtfdPassword.text]
             //Call Login Service
             MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b0fa83000008800a29f75", parameter: nil, success: { (response) in
                 print(response)
@@ -166,7 +167,8 @@ extension ViewController {
      - Remark: nil
      */
     //LogIn Screen
-    func doValidation() -> Bool {
+    func doValidation() -> Bool
+    {
         //Validation: Check For Username
         if !((self.txtfdEmail.text?.trimmingCharacters(in: CharacterSet.whitespaces).count ?? 0) > 0) {
             self.txtfdEmail.errorMessage = kAlertEnterEmailId
