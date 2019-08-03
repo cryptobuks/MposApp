@@ -80,22 +80,29 @@ class SearchVC: UIViewController {
     
     @IBAction func btnSearchClicked(_ sender: Any)
     {
+        MainReqeustClass.BaseRequestSharedInstance.getSearchResult(parameter: nil, header: nil, strMethodName: "5d3b117d3000008600a29f84", successCall: { (response) in
+            print(response)
+            
+            let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+            let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
+            clientWiseInvoiceVC.InvoiceType = 4
+            if (self.btnRadio2.isSelected == true)
+            {
+                clientWiseInvoiceVC.bTerceirosSelected = true
+            }
+            else
+            {
+                clientWiseInvoiceVC.bTerceirosSelected = false
+            }
+            self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
+        })
+        { (responseError) in
+            print(responseError)
+        }
+        
 //        let storyBoard = UIStoryboard(name: "Search", bundle: nil)
 //        let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "GeneralSearchResultVC") as! GeneralSearchResultVC
 //        self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
-        let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
-        let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
-        clientWiseInvoiceVC.InvoiceType = 4
-        if (btnRadio2.isSelected == true)
-        {
-            clientWiseInvoiceVC.bTerceirosSelected = true
-        }
-        else
-        {
-            clientWiseInvoiceVC.bTerceirosSelected = false
-        }
-        self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
-
     }
     
     @IBAction func btnCrossClicked(_ sender: Any) {

@@ -38,6 +38,7 @@
 		A5CA733B22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */; };
 		A5F27FEF22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F27FEE22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift */; };
 		B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */; };
+		D30B192222F5BB9200DC9B8D /* SearchServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B192122F5BB9200DC9B8D /* SearchServices.swift */; };
 		D317FAA922E2CE7300331680 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317FAA822E2CE7300331680 /* DashboardVC.swift */; };
 		D31E97F522E44F58001BE76F /* PaymentMethodListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E97F422E44F58001BE76F /* PaymentMethodListVC.swift */; };
 		D31E97F722E44F9A001BE76F /* PaymentSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E97F622E44F9A001BE76F /* PaymentSuccessVC.swift */; };
@@ -152,6 +153,7 @@
 		A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsWIthCheckBoxTableViewCell.xib; sourceTree = "<group>"; };
 		A5F27FEE22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientWiseInvoiceListing.swift; sourceTree = "<group>"; };
 		AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mpos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30B192122F5BB9200DC9B8D /* SearchServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServices.swift; sourceTree = "<group>"; };
 		D317FAA822E2CE7300331680 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		D31E97F422E44F58001BE76F /* PaymentMethodListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodListVC.swift; sourceTree = "<group>"; };
 		D31E97F622E44F9A001BE76F /* PaymentSuccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessVC.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 			children = (
 				D38EB80822DFA159009FFDFF /* MainReqeustClass.swift */,
 				D38EB80722DFA159009FFDFF /* WSConstant.swift */,
+				D30B192122F5BB9200DC9B8D /* SearchServices.swift */,
 			);
 			path = WebServiceClasses;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				D3ED55A422E62A0400523306 /* DataConfirmationVC.swift in Sources */,
 				A5CA097A22F1FCBF0084D7DE /* SwiftyGifManager.swift in Sources */,
 				D3D4BF4622E1754600FB39BD /* UITextField+fixCaretPosition.swift in Sources */,
+				D30B192222F5BB9200DC9B8D /* SearchServices.swift in Sources */,
 				D39E336222E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift in Sources */,
 				D3390D2822EC7E730013067A /* ForgotPasswordVC.swift in Sources */,
 				D378CB3A22DF9B13004B51AC /* Mpos.xcdatamodeld in Sources */,
