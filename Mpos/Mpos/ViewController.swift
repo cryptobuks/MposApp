@@ -105,7 +105,8 @@ extension ViewController {
 
                 if let dictagentContext = response["agentContext"] as? [String : Any]
                 {
-                    UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictagentContext)
+                    let dictTemp = NSMutableDictionary(dictionary: dictagentContext)
+                    UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictTemp as! [String : Any])
                 }
                 
                 // api call

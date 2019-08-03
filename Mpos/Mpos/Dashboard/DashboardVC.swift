@@ -15,25 +15,34 @@ class DashboardVC: UIViewController
     @IBOutlet weak var lblAgentCode: UILabel!
     @IBOutlet weak var lblAgentName: UILabel!
     @IBOutlet weak var lblAgentID: UILabel!
+    @IBOutlet weak var btnChageAgent: UIButton!
     var categoryColor = UIColor()
     var dictNotificationobject = [String:Any]()
-    
+    var arrListofAgents = NSMutableArray()
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
+        
+        //Call KPI api is called to fill up the three main buttons (KPIs) in the home screen
+        self.tblCategoryList.estimatedRowHeight = 80
+        self.tblCategoryList.rowHeight = UITableView.automaticDimension
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.getKPI()
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
         {
             lblAgentName.text = "\(dictagentContext["name"] ?? "")"
             lblAgentID.text = "ASF: \(dictagentContext["id"] ?? "")"
             lblAgentCode.text = "\(dictagentContext["agent"] ?? "")"
         }
-        
-        //Call KPI api is called to fill up the three main buttons (KPIs) in the home screen
-        self.tblCategoryList.estimatedRowHeight = 80
-        self.tblCategoryList.rowHeight = UITableView.automaticDimension
-        
-        self.getKPI()
     }
     
     func getKPI()
@@ -56,6 +65,44 @@ class DashboardVC: UIViewController
         }
         self.tblCategoryList.reloadData()
     }
+    
+    func getListofAgents()
+    {
+        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b10293000005f00a29f77", parameter: nil, success: { (response) in
+            print(response)
+            
+            if let agentList = response["agentList"] as? NSArray
+            {
+                self.arrListofAgents = NSMutableArray(array: agentList)
+                
+                var arrtemp = [Any]()
+                for index in 0..<self.arrListofAgents.count
+                {
+                    let dictTemp = self.arrListofAgents[index] as! [String:Any]
+                    arrtemp.append("\(dictTemp["id"] ?? "") - \(dictTemp["name"] ?? "")")
+                }
+                
+                ActionSheetStringPicker.show(withTitle: "", rows: arrtemp , initialSelection: 0, doneBlock:
+                    {
+                        picker, value, index in
+                        
+                        let dictTemp = self.arrListofAgents[value] as! [String:Any]
+                        self.lblAgentCode.text = ("\(dictTemp["id"] ?? "")")
+                        if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
+                        {
+                            let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
+                            dictUserObject.setValue(dictTemp["id"], forKey: "agent")
+                            UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictUserObject as! [String : Any])
+                        }
+                        return
+                }, cancel: { ActionStringCancelBlock in return }, origin: self.btnChageAgent)
+            }
+        })
+        { (responseError) in
+            print(responseError)
+        }
+    }
+    
     
      //MARK: User Actions
     @IBAction func openSidebar(_ sender: UIButton)
@@ -80,13 +127,8 @@ class DashboardVC: UIViewController
     
     @IBAction func btnChangeAgentDropDownAction(_ sender: UIButton)
     {
-        let arrtemp = ["256","257","258","259","260","261","262","263","264","265"]
-        ActionSheetStringPicker.show(withTitle: "", rows: arrtemp as [Any], initialSelection: 0, doneBlock:
-            {
-                picker, value, index in
-                self.lblAgentCode.text = (index as? String ?? "")
-                return
-        }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+        self.getListofAgents()
+        
     }
    
 
