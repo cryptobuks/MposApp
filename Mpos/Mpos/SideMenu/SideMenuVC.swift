@@ -101,6 +101,13 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: "SideMenuHeaderTableViewCell") as! SideMenuHeaderTableViewCell
+       
+        if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
+        {
+            headerCell.lblAgentName.text = "\(dictagentContext["name"] ?? "")"
+            headerCell.lblAgentTitle.text = "ASF: \(dictagentContext["id"] ?? "")"
+            headerCell.lblAgentNumber.text = "\(dictagentContext["agent"] ?? "")"
+        }
         return headerCell
     }
 

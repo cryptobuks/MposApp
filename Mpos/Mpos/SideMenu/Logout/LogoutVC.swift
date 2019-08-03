@@ -27,16 +27,25 @@ class LogoutVC: UIViewController {
     }
     
 
-    @IBAction func btnLogoutClicked(_ sender: Any) {
+    @IBAction func btnLogoutClicked(_ sender: Any)
+    {
         // Do any additional setup after loading the view.
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! ViewController
-        appDelegate.window?.rootViewController = controller
+        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b10e93000008600a29f7b", parameter: nil, success: { (response) in
+            print(response)
+            
+            UserDefaultManager.SharedInstance.removeUser()
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! ViewController
+            appDelegate.window?.rootViewController = controller
+            
+        })
+        { (responseError) in
+            print(responseError)
+        }
     }
     
-    
-    @IBAction func btnMoveToSideMenuClicked(_ sender: Any) {
-        
+    @IBAction func btnMoveToSideMenuClicked(_ sender: Any)
+    {
         self.navigationController?.popViewController(animated: true)
     }
     
