@@ -25,6 +25,10 @@ class ReceiptDetailsVC: UIViewController {
     
     var InvoiceType:Int = 0
     var arrayTitles : [String] = []
+    var dicReceiptDetails = [String:Any]()
+    private let refreshControl = UIRefreshControl()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +55,16 @@ class ReceiptDetailsVC: UIViewController {
         btnBackArrow.setImage(btnBackArrow.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         btnMenu.setImage(btnMenu.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         lblTitleHeader.text = "DETALHE DO RECIBO"
+        
+        
+        // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            tblvwReceiptDetailsListing.refreshControl = refreshControl
+        } else {
+            tblvwReceiptDetailsListing.addSubview(refreshControl)
+        }
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
 
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
@@ -93,8 +107,33 @@ class ReceiptDetailsVC: UIViewController {
         
         self.tblvwReceiptDetailsListing.estimatedRowHeight = 60.0
         self.tblvwReceiptDetailsListing.rowHeight = UITableView.automaticDimension
-        self.tblvwReceiptDetailsListing.reloadData()
+        
+        self.callReceiptDetails()
     }
+    
+    
+    @objc func pullToRefresh(){
+        self.callReceiptDetails()
+    }
+    
+    // MARK: ClientsReceipts API CALL
+    func callReceiptDetails(){
+        let params = ["type":"type"]
+        //Call lientsReceipts Service
+        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11ef3000008600a29f87", parameter: params as [String : AnyObject], success: { (response) in
+            print(response)
+            
+            self.dicReceiptDetails = response
+
+            self.tblvwReceiptDetailsListing.reloadData()
+            self.refreshControl.endRefreshing()
+            
+        })
+        { (responseError) in
+            print(responseError)
+        }
+    }
+    
     
     @IBAction func btnBackClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -282,7 +321,14 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             cellForGeneralData.lblCaptionReceipt.textColor = lblColor
             cellForGeneralData.lblCaptionFractioning.textColor = lblColor
             cellForGeneralData.lblCaptionPolicyNumber.textColor = lblColor
-
+            
+            cellForGeneralData.lblClient.text = dicReceiptDetails["clientName"] as? String
+            cellForGeneralData.lblReceipt.text = dicReceiptDetails["receipt"] as? String
+            cellForGeneralData.lblPolicyNumber.text = dicReceiptDetails["policy"] as? String
+            cellForGeneralData.lblState.text = dicReceiptDetails["situation"] as? String
+            cellForGeneralData.lblFractioning.text = dicReceiptDetails["fractionation"] as? String
+            cellForGeneralData.lblKind.text = dicReceiptDetails["type"] as? String
+            
             return cellForGeneralData
         case 1:
             cellForAwardsDetailsCell.lblCaptionBonus.textColor = lblColor
@@ -294,15 +340,29 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             cellForAwardsDetailsCell.lblCaptionCommercialAward.textColor = lblColor
             cellForAwardsDetailsCell.lblCaptionCapitalAndReceipt.textColor = lblColor
 
+            
+            cellForAwardsDetailsCell.lblBonus.text = "\(dicReceiptDetails["bonusMalus"] as! Float)"
+            cellForAwardsDetailsCell.lblTaxes.text = "\(dicReceiptDetails["taxes"] as! Float)"
+            cellForAwardsDetailsCell.lblAdditional.text = "\(dicReceiptDetails["additional"] as? Float ?? 0)"
+            cellForAwardsDetailsCell.lblCommissions.text = "\(dicReceiptDetails["lifeCharges"] as? Float ?? 0)"
+            cellForAwardsDetailsCell.lblTotalReceipt.text = "\(dicReceiptDetails["total"] as? Float ?? 0)"
+            cellForAwardsDetailsCell.lblLocalRecovery.text = dicReceiptDetails["billingLocation"] as? String
+            cellForAwardsDetailsCell.lblCommercialAward.text = "\(dicReceiptDetails["commercialPremium"] as? Float ?? 0)"
+            cellForAwardsDetailsCell.lblCapitalAndReceipt.text = "\(dicReceiptDetails["capitalAndReceipt"] as? Float ?? 0)"
+            
             return cellForAwardsDetailsCell
         case 2:
             cellForCommitteesDetailsCell.lblCaptionAngariation.textColor = lblColor
             cellForCommitteesDetailsCell.lblCaptionCollection.textColor = lblColor
+            
+            cellForCommitteesDetailsCell.lblAngariation.text = "\(dicReceiptDetails["fundraising"] as? Float ?? 0)"
+            cellForCommitteesDetailsCell.lblCollection.text = "\(dicReceiptDetails["collections"] as? Float ?? 0)"
             return cellForCommitteesDetailsCell
         case 3:
             cellForPaymentCell.lblCaptionEntity.textColor = lblColor
             cellForPaymentCell.lblCaptionReference.textColor = lblColor
             cellForPaymentCell.lblCaptionTotalValue.textColor = lblColor
+            
             return cellForPaymentCell
         default:
             break

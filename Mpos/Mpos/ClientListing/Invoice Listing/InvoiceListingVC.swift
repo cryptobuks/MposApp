@@ -29,13 +29,20 @@ class InvoiceListingVC: UIViewController {
     @IBOutlet weak var btnMenu: UIButton!
     @IBOutlet weak var vwHeader: UIView!
 
+    var arrClientRefs = NSMutableArray()
     var InvoiceType:Int = 0
+    var StrType : String = ""
     
+    
+    private let refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
         self.setupUIBasedOnInvoiceType()
+        callSumClientsReceipts(type: StrType)
     }
     
     /*
@@ -56,6 +63,17 @@ class InvoiceListingVC: UIViewController {
         btnBackArrow.setImage(btnBackArrow.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         btnMenu.setImage(btnMenu.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         
+        
+        // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            tblvwInvoiceListing.refreshControl = refreshControl
+        } else {
+            tblvwInvoiceListing.addSubview(refreshControl)
+        }
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        
+        
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
             imgTopShadow.backgroundColor = AppColors.kOrangeColorWithAlpha
@@ -65,6 +83,7 @@ class InvoiceListingVC: UIViewController {
             lblTitleHeader.textColor = AppColors.kOrangeColor
             btnMenu.tintColor = AppColors.kOrangeColor
             btnBackArrow.tintColor = AppColors.kOrangeColor
+            refreshControl.tintColor = AppColors.kOrangeColor
 
             break
         case 2: //POR COBRAR
@@ -75,7 +94,7 @@ class InvoiceListingVC: UIViewController {
             lblTitleHeader.textColor = AppColors.kPurpulColor
             btnMenu.tintColor = AppColors.kPurpulColor
             btnBackArrow.tintColor = AppColors.kPurpulColor
-
+            refreshControl.tintColor = AppColors.kPurpulColor
             break
         case 3: // COBRADOS
             imgTopShadow.backgroundColor = AppColors.kGreenColorWithAlpha
@@ -85,6 +104,8 @@ class InvoiceListingVC: UIViewController {
             lblTitleHeader.textColor = AppColors.kGreenColor
             btnMenu.tintColor = AppColors.kGreenColor
             btnBackArrow.tintColor = AppColors.kGreenColor
+            refreshControl.tintColor = AppColors.kGreenColor
+
 
             break
         default:
@@ -96,9 +117,35 @@ class InvoiceListingVC: UIViewController {
         self.tblvwInvoiceListing.estimatedRowHeight = 150.0
         self.tblvwInvoiceListing.rowHeight = UITableView.automaticDimension
 
-        self.tblvwInvoiceListing.reloadData()
-        scrvw_Height_Constraint.constant = (self.tblvwInvoiceListing.contentSize.height + 100)
     }
+   
+    @objc func pullToRefresh(){
+        self.callSumClientsReceipts(type: StrType)
+    }
+    
+    // MARK: SumClientsReceipts API CALL
+    func callSumClientsReceipts(type:String){
+        let params = ["type":type]
+        //Call SumClientsReceipts Service
+        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11163000008800a29f7d", parameter: params as [String : AnyObject], success: { (response) in
+            print(response)
+        
+            self.arrClientRefs.removeAllObjects()
+            
+            if let arrClientList = response["clientRefs"] as? NSArray
+            {
+                self.arrClientRefs.addObjects(from: arrClientList as! [Any])
+            }
+            self.tblvwInvoiceListing.reloadData()
+            self.scrvw_Height_Constraint.constant = (self.tblvwInvoiceListing.contentSize.height + 100)
+            self.refreshControl.endRefreshing()
+            
+        })
+        { (responseError) in
+            print(responseError)
+        }
+    }
+    
 
     @IBAction func btnBackClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -131,7 +178,7 @@ class InvoiceListingVC: UIViewController {
 extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return arrClientRefs.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -162,6 +209,14 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         cellForClientDetails.lblCaptionNIF.textColor = lblColor
         cellForClientDetails.lblCaptionRECIBOS.textColor = lblColor
         
+        
+        if let objClientDetails = arrClientRefs.object(at: indexPath.row) as? [String:Any]
+        {
+            cellForClientDetails.lblClientName.text = objClientDetails["name"] as? String
+            cellForClientDetails.lblNIFValue.text = "\(objClientDetails["nif"] as! Int)"
+            cellForClientDetails.lblRECIBOSValue.text = "\(String(describing: objClientDetails["quantity"] as! Int)) - \(String(describing: objClientDetails["amount"] as! Int))€"
+        }
+        
         return cellForClientDetails
     }
     
@@ -169,6 +224,7 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
         let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
         clientWiseInvoiceVC.InvoiceType = InvoiceType
+        clientWiseInvoiceVC.objClientRef = arrClientRefs.object(at: indexPath.row) as! [String : Any]
         clientWiseInvoiceVC.bTerceirosSelected = false
         self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
     }

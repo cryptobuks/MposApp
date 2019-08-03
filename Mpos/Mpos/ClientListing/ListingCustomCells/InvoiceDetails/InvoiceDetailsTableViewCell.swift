@@ -19,6 +19,8 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var btnExpandCollapse: UIButton!
     @IBOutlet weak var tblvwInvoices: UITableView!
 
+    var objPolicyDetails = [String:Any]()
+
     var InvoiceType:Int = 0
     var bTerceirosSelected = Bool()
     var bSectionSelected = Bool()
@@ -65,7 +67,12 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
 extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        
+        if let arrReceipts = objPolicyDetails["receipts"] as? [Any]
+        {
+            return arrReceipts.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -114,6 +121,16 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         cellForInvoiceWithCheckBox.lblCaptionReceipt.textColor = lblColor
         cellForInvoiceWithCheckBox.lblCaptionValue.textColor = lblColor
         cellForInvoiceWithCheckBox.lblCaptionIssueDate.textColor = lblColor
+        
+        if let arrReceipts = objPolicyDetails["receipts"] as? [Any]
+        {
+            if let objReceiptsDetail = arrReceipts[indexPath.row] as? [String:Any]
+            {
+                cellForInvoiceWithCheckBox.lblReceiptNumber.text = objReceiptsDetail["receipt"] as? String
+                cellForInvoiceWithCheckBox.lblIssueDate.text = objReceiptsDetail["issueDate"] as? String
+                cellForInvoiceWithCheckBox.lblValue.text = "\(objReceiptsDetail["amount"] as! Int)"
+            }
+        }
         
         /*
          Furthermore, the screens to be presented as a result of a general search when the “Terceiros” radio button is selected are slightly different as:
@@ -199,27 +216,30 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: kCellOfInvoiceDetailsHeaderCell) as! InvoiceDetailsHeaderCell
         
-            var lblColor = UIColor()
-            
-            switch InvoiceType {
-            case 1: //RISCO DE ANULAÇÃO
-                lblColor = AppColors.kOrangeColor
-                break
-            case 2: //POR COBRAR
-                lblColor = AppColors.kPurpulColor
-                break
-            case 3: // COBRADOS
-                lblColor = AppColors.kGreenColor
-                break
-            case 4: // Search
-                lblColor = AppColors.kGeneralSearchColor
-            default:
-                break
-            }
-            headerCell.lblCaptionBranch.textColor = lblColor
-            headerCell.lblCaptionRegistrationNumber.textColor = lblColor
-
-            
-            return headerCell
+        var lblColor = UIColor()
+        
+        switch InvoiceType {
+        case 1: //RISCO DE ANULAÇÃO
+            lblColor = AppColors.kOrangeColor
+            break
+        case 2: //POR COBRAR
+            lblColor = AppColors.kPurpulColor
+            break
+        case 3: // COBRADOS
+            lblColor = AppColors.kGreenColor
+            break
+        case 4: // Search
+            lblColor = AppColors.kGeneralSearchColor
+        default:
+            break
+        }
+        headerCell.lblCaptionBranch.textColor = lblColor
+        headerCell.lblCaptionRegistrationNumber.textColor = lblColor
+        
+        headerCell.lblBranch.text = (objPolicyDetails["branch"] as! String)
+        headerCell.lblCaptionRegistrationNumber.text = (objPolicyDetails["insuredType"] as! String)
+        headerCell.lblRegistrationNumber.text = (objPolicyDetails["insuredObject"] as! String)
+        
+        return headerCell
     }
 }

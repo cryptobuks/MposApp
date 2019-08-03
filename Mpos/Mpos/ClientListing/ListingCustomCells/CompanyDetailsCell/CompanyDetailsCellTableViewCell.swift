@@ -13,6 +13,7 @@ class CompanyDetailsCellTableViewCell: UITableViewCell {
     @IBOutlet weak var imgvwCompanyLogo: UIImageView!
     @IBOutlet weak var lblInvoiceTotal: UILabel!
     @IBOutlet weak var btnCheckBox: UIButton!
+    @IBOutlet weak var lblCompanyName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -31,6 +31,7 @@
 		A56AF46D22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A56AF46B22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib */; };
 		A59E4D7822E6191A006FFBB6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */; };
 		A59E4D7A22E619B4006FFBB6 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59E4D7922E619B4006FFBB6 /* Search.storyboard */; };
+		A5AD625E22F5F29800710DEB /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD625D22F5F29800710DEB /* CommonMethods.swift */; };
 		A5CA097822F1FCBF0084D7DE /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA097522F1FCBF0084D7DE /* UIImageView+SwiftyGif.swift */; };
 		A5CA097922F1FCBF0084D7DE /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA097622F1FCBF0084D7DE /* UIImage+SwiftyGif.swift */; };
 		A5CA097A22F1FCBF0084D7DE /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA097722F1FCBF0084D7DE /* SwiftyGifManager.swift */; };
@@ -145,6 +146,7 @@
 		A56AF46B22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsHeaderCell.xib; sourceTree = "<group>"; };
 		A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		A59E4D7922E619B4006FFBB6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		A5AD625D22F5F29800710DEB /* CommonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		A5CA097522F1FCBF0084D7DE /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
 		A5CA097622F1FCBF0084D7DE /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		A5CA097722F1FCBF0084D7DE /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
@@ -644,6 +646,7 @@
 				D38EB80622DFA139009FFDFF /* WebServiceClasses */,
 				D39E334822E0EA1D0079B0AA /* Fonts */,
 				D3D4BF4122E1754600FB39BD /* SkyfloatingTextfield */,
+				A5AD625D22F5F29800710DEB /* CommonMethods.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				A54FFBCA22EA1E9D00F03281 /* PaymentDataCell.swift in Sources */,
 				D3B3D62022E6B7B100896564 /* ActionSheetDistancePicker.m in Sources */,
 				A54FFBB022EA11CE00F03281 /* ReceiptDetailsVC.swift in Sources */,
+				A5AD625E22F5F29800710DEB /* CommonMethods.swift in Sources */,
 				D31E97F522E44F58001BE76F /* PaymentMethodListVC.swift in Sources */,
 				D38EB80A22DFA159009FFDFF /* MainReqeustClass.swift in Sources */,
 				D3ED55AF22E62D0200523306 /* DataConfirmationNormalListCell.swift in Sources */,

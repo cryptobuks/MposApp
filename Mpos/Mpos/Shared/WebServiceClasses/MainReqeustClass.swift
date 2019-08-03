@@ -92,6 +92,7 @@ class MainReqeustClass: NSObject
         }
         else
         {
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failed(Alert_NoInternet)
         }
     }
@@ -152,6 +153,7 @@ class MainReqeustClass: NSObject
                 }
             }
         } else {
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failed(Alert_NoInternet)
         }
     }
@@ -213,6 +215,7 @@ class MainReqeustClass: NSObject
                 }
             }
         }else{
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failed(Alert_NoInternet)
         }
     }
@@ -274,6 +277,7 @@ class MainReqeustClass: NSObject
                 }
             }
         }else{
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failed(Alert_NoInternet)
         }
     }
@@ -321,6 +325,7 @@ class MainReqeustClass: NSObject
             }
         }else{
             MainReqeustClass.HideActivityIndicatorInStatusBar()
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failedCall(Alert_NoInternet)
         }
     }
@@ -380,6 +385,7 @@ class MainReqeustClass: NSObject
                 }
             }
         }else{
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failed(Alert_NoInternet)
         }
     }
@@ -448,6 +454,7 @@ class MainReqeustClass: NSObject
             })
             
         } else {
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
            failed(Alert_NoInternet)
         } 
     }
@@ -553,6 +560,7 @@ class MainReqeustClass: NSObject
         }
         else
         {
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failed(Alert_NoInternet)
         }
     }
@@ -620,6 +628,7 @@ class MainReqeustClass: NSObject
                 }
             }
         } else {
+            CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failed(Alert_NoInternet)
         }
     }

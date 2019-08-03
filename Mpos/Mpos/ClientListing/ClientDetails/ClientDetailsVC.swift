@@ -14,6 +14,8 @@ class ClientDetailsVC: UIViewController
     @IBOutlet weak var tblClientDetails: UITableView!
     let arrRows = NSMutableArray()
     var invoiceType :Int = 3
+    var objClientRef = [String:Any]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -22,22 +24,24 @@ class ClientDetailsVC: UIViewController
         self.tblClientDetails.estimatedSectionHeaderHeight = UITableView.automaticDimension
         self.tblClientDetails.rowHeight = UITableView.automaticDimension
         
-        var dictTemp = ["details":"LUÍS HENRIQUE DE SILVEIRA GOMES","Title":"CLIENTE"]
+        var dictTemp = [String:Any]()
+        
+        dictTemp = ["details":objClientRef["name"] as? String ?? "","Title":"CLIENTE"]
         arrRows.add(dictTemp)
         
-        dictTemp = ["details":"6","Title":"Nº RECIBOS"]
+        dictTemp = ["details": "\(objClientRef["quantity"] as? Int ?? 0 )","Title":"Nº RECIBOS"]
         arrRows.add(dictTemp)
         
-        dictTemp = ["details":"200€","Title":"A PAGAR"]
+        dictTemp = ["details":"\(objClientRef["amount"] as? Int ?? 0)€","Title":"A PAGAR"]
         arrRows.add(dictTemp)
         
-        dictTemp = ["details":"245 319 873","Title":"NIF"]
+        dictTemp = ["details":"\(objClientRef["nif"] as? Int ?? 0)","Title":"NIF"]
         arrRows.add(dictTemp)
         
-        dictTemp = ["details":"917 839 278","Title":"CONTACTO"]
+        dictTemp = ["details":"\(objClientRef["phone"] as? String ?? "")","Title":"CONTACTO"]
         arrRows.add(dictTemp)
         
-        dictTemp = ["details":"luis.gomes@mail.com","Title":"E-MAIL"]
+        dictTemp = ["details":"\(objClientRef["email"] as? String ?? "")","Title":"E-MAIL"]
         arrRows.add(dictTemp)
         
         

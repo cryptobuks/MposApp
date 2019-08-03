@@ -35,6 +35,14 @@ class ClientWiseInvoiceListing: UIViewController {
     var selectedInvoiceIndex = NSMutableArray()
 
     var InvoiceType:Int = 0
+    var objClientRef = [String:Any]()
+    
+    var arrCompanies = NSMutableArray()
+    var StrType : String = ""
+
+    private let refreshControl = UIRefreshControl()
+
+
     /*
      Furthermore, the screens to be presented as a result of a general search when the “Terceiros” radio button is selected are slightly different as:
      1. The text under “CLIENTE” is not pressable and does not direct users to the “Detalhe_cliente” screen;
@@ -68,6 +76,16 @@ class ClientWiseInvoiceListing: UIViewController {
         btnBackArrow.setImage(btnBackArrow.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         btnMenu.setImage(btnMenu.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         
+        // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            tblvwInvoiceListing.refreshControl = refreshControl
+        } else {
+            tblvwInvoiceListing.addSubview(refreshControl)
+        }
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        
+        
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
             imgTopShadow.backgroundColor = AppColors.kOrangeColorWithAlpha
@@ -75,7 +93,7 @@ class ClientWiseInvoiceListing: UIViewController {
             lblTitleHeader.textColor = AppColors.kOrangeColor
             btnMenu.tintColor = AppColors.kOrangeColor
             btnBackArrow.tintColor = AppColors.kOrangeColor
-            
+            refreshControl.tintColor = AppColors.kOrangeColor
             break
         case 2: //POR COBRAR
             imgTopShadow.backgroundColor = AppColors.kPurpulColorWithAlpha
@@ -83,6 +101,8 @@ class ClientWiseInvoiceListing: UIViewController {
             lblTitleHeader.textColor = AppColors.kPurpulColor
             btnMenu.tintColor = AppColors.kPurpulColor
             btnBackArrow.tintColor = AppColors.kPurpulColor
+            refreshControl.tintColor = AppColors.kPurpulColor
+
             
             break
         case 3: // COBRADOS
@@ -91,6 +111,8 @@ class ClientWiseInvoiceListing: UIViewController {
             lblTitleHeader.textColor = AppColors.kGreenColor
             btnMenu.tintColor = AppColors.kGreenColor
             btnBackArrow.tintColor = AppColors.kGreenColor
+            refreshControl.tintColor = AppColors.kGreenColor
+
             
             break
         case 4: // Search
@@ -99,7 +121,8 @@ class ClientWiseInvoiceListing: UIViewController {
             lblTitleHeader.textColor = AppColors.kGeneralSearchColor
             btnMenu.tintColor = AppColors.kGeneralSearchColor
             btnBackArrow.tintColor = AppColors.kGeneralSearchColor
-            
+            refreshControl.tintColor = AppColors.kGeneralSearchColor
+
             break
         default:
             break
@@ -112,11 +135,37 @@ class ClientWiseInvoiceListing: UIViewController {
         self.tblvwInvoiceListing.estimatedSectionHeaderHeight = 80
         self.tblvwInvoiceListing.estimatedRowHeight = 60.0
         self.tblvwInvoiceListing.rowHeight = UITableView.automaticDimension
-
         self.tblvwInvoiceListing.tableFooterView = UIView(frame: .zero)
-
-        self.tblvwInvoiceListing.reloadData()
+        self.callClientReceipts(type: StrType)
     }
+    
+    
+    @objc func pullToRefresh(){
+        self.callClientReceipts(type: StrType)
+    }
+    
+    // MARK: ClientsReceipts API CALL
+    func callClientReceipts(type:String){
+        let params = ["type":type]
+        //Call lientsReceipts Service
+        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11453000000f00a29f7e", parameter: params as [String : AnyObject], success: { (response) in
+            print(response)
+            
+            self.arrCompanies.removeAllObjects()
+            
+            if let arrCompanies = response["companies"] as? NSArray
+            {
+                self.arrCompanies.addObjects(from: arrCompanies as! [Any])
+            }
+            self.tblvwInvoiceListing.reloadData()
+            self.refreshControl.endRefreshing()
+            
+        })
+        { (responseError) in
+            print(responseError)
+        }
+    }
+    
     
     @IBAction func btnBackClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -198,6 +247,7 @@ class ClientWiseInvoiceListing: UIViewController {
             let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "ClientDetailsVC") as! ClientDetailsVC
             controller.invoiceType = InvoiceType
+            controller.objClientRef = objClientRef
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
@@ -224,7 +274,7 @@ class ClientWiseInvoiceListing: UIViewController {
 extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return arrCompanies.count + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -232,7 +282,16 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         {
             return 0
         }
-        return 2
+        
+        if let dicCompany = arrCompanies[section-1] as? [String:Any]
+        {
+            if let arrPolicies = dicCompany["policies"] as? [Any]
+            {
+              return arrPolicies.count
+            }
+        }
+        return 0
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -254,7 +313,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0
         {
-            return 60
+            return UITableView.automaticDimension
         }
         return 60
     }
@@ -285,6 +344,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
             }
             headerCell.btnTap.addTarget(self, action: #selector(btnClientClicked(_:)), for: .touchUpInside)
             headerCell.lblTitle.textColor = lblColor
+            headerCell.lblsubTitle.text = objClientRef["name"] as? String
             
             return headerCell
         }
@@ -317,6 +377,12 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
             else
             {
                 companyDetailCell.btnCheckBox.isSelected = false
+            }
+            
+            if let dicCompany = arrCompanies[section-1] as? [String:Any]
+            {
+                companyDetailCell.lblCompanyName.text = dicCompany["company"] as? String
+                companyDetailCell.lblInvoiceTotal.text = "\(dicCompany["amount"] as? Int ?? 0)€"
             }
             return companyDetailCell
 
@@ -387,6 +453,19 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         cellForClientDetails.tblvwInvoices.reloadData()
         cellForClientDetails.InvoiceType = InvoiceType
         cellForClientDetails.bTerceirosSelected = bTerceirosSelected
+        
+        if let dicCompany = arrCompanies[indexPath.section-1] as? [String:Any]
+        {
+            if let arrPolicies = dicCompany["policies"] as? [Any]
+            {
+                if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
+                {
+                    cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policy"] as! String)
+                    cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(objPolicyDetail["amount"] as! Int)"
+                    cellForClientDetails.objPolicyDetails = objPolicyDetail
+                }
+            }
+        }
         return cellForClientDetails
     }
     
