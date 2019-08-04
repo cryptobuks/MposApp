@@ -82,10 +82,23 @@ class SearchVC: UIViewController {
     {
         MainReqeustClass.BaseRequestSharedInstance.getSearchResult(parameter: nil, header: nil, strMethodName: "5d3b117d3000008600a29f84", successCall: { (response) in
             print(response)
-            
+
             let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
             let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
             clientWiseInvoiceVC.InvoiceType = 4
+            
+            //set data for client Listing
+            clientWiseInvoiceVC.arrCompanies.removeAllObjects()
+            if let arrCompanies = response["companies"] as? NSArray
+            {
+                clientWiseInvoiceVC.arrCompanies.addObjects(from: arrCompanies as! [Any])
+            }
+            
+            if let dictClientRef = response["clientRef"] as? [String:Any]
+            {
+                clientWiseInvoiceVC.objClientRef = dictClientRef
+            }
+            
             if (self.btnRadio2.isSelected == true)
             {
                 clientWiseInvoiceVC.bTerceirosSelected = true

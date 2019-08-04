@@ -76,14 +76,6 @@ class ClientWiseInvoiceListing: UIViewController {
         btnBackArrow.setImage(btnBackArrow.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         btnMenu.setImage(btnMenu.imageView?.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         
-        // Add Refresh Control to Table View
-        if #available(iOS 10.0, *) {
-            tblvwInvoiceListing.refreshControl = refreshControl
-        } else {
-            tblvwInvoiceListing.addSubview(refreshControl)
-        }
-        // Configure Refresh Control
-        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         
         
         switch InvoiceType {
@@ -136,7 +128,23 @@ class ClientWiseInvoiceListing: UIViewController {
         self.tblvwInvoiceListing.estimatedRowHeight = 60.0
         self.tblvwInvoiceListing.rowHeight = UITableView.automaticDimension
         self.tblvwInvoiceListing.tableFooterView = UIView(frame: .zero)
-        self.callClientReceipts(type: StrType)
+        
+        if InvoiceType < 4
+        {
+            // Add Refresh Control to Table View
+            if #available(iOS 10.0, *) {
+                tblvwInvoiceListing.refreshControl = refreshControl
+            } else {
+                tblvwInvoiceListing.addSubview(refreshControl)
+            }
+            // Configure Refresh Control
+            refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+            self.callClientReceipts(type: StrType)
+        }
+        else
+        {
+            self.tblvwInvoiceListing.reloadData()
+        }
     }
     
     
@@ -145,7 +153,8 @@ class ClientWiseInvoiceListing: UIViewController {
     }
     
     // MARK: ClientsReceipts API CALL
-    func callClientReceipts(type:String){
+    func callClientReceipts(type:String)
+    {
         let params = ["type":type]
         //Call lientsReceipts Service
         MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11453000000f00a29f7e", parameter: params as [String : AnyObject], success: { (response) in
