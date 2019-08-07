@@ -10,9 +10,6 @@ import UIKit
 import Foundation
 import CoreGraphics
 
-/* Created by Yash on 28-Sep-2018
- * * Purpose : This class is utility class designed to extend functionality of exisitng classes.
- */
 
 //MARK: UIView designable Methods
 @IBDesignable extension UIView
@@ -80,9 +77,6 @@ private var kAssociationKeyMaxLength: Int = 0
 //MARK: TextField Methods
 extension UITextField {
     
-    /* Created by Yash on 28-Sep-2018
-     * * Purpose : This method is to add custom stoaryboard property max length to textfield.
-     */
     @IBInspectable var maxLength: Int {
         get {
             if let length = objc_getAssociatedObject(self, &kAssociationKeyMaxLength) as? Int {
@@ -97,9 +91,6 @@ extension UITextField {
         }
     }
     
-    /* Created by Yash on 28-Sep-2018
-     * * Purpose : This method is to validate max length of textfield.
-     */
     @objc func checkMaxLength(textField: UITextField) {
         guard let prospectiveText = self.text,
             prospectiveText.count > maxLength

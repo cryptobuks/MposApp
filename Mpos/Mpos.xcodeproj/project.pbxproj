@@ -89,6 +89,7 @@
 		D3A3685022E4CDD80095432C /* MposReferenciaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3684F22E4CDD80095432C /* MposReferenciaVC.swift */; };
 		D3A3685322E4E24B0095432C /* MposErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3685222E4E24B0095432C /* MposErrorVC.swift */; };
 		D3A3685522E4E2690095432C /* MposError.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A3685422E4E2690095432C /* MposError.storyboard */; };
+		D3ACC07B22F7E37200602238 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3ACC07A22F7E37200602238 /* QuickLook.framework */; };
 		D3B3D61A22E6B7B100896564 /* EPSignatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B3D60222E6B7B000896564 /* EPSignatureViewController.xib */; };
 		D3B3D61B22E6B7B100896564 /* EPExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B3D60322E6B7B000896564 /* EPExtensions.swift */; };
 		D3B3D61C22E6B7B100896564 /* EPSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B3D60422E6B7B000896564 /* EPSignatureViewController.swift */; };
@@ -207,6 +208,7 @@
 		D3A3684F22E4CDD80095432C /* MposReferenciaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposReferenciaVC.swift; sourceTree = "<group>"; };
 		D3A3685222E4E24B0095432C /* MposErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MposErrorVC.swift; sourceTree = "<group>"; };
 		D3A3685422E4E2690095432C /* MposError.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MposError.storyboard; sourceTree = "<group>"; };
+		D3ACC07A22F7E37200602238 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		D3B3D60222E6B7B000896564 /* EPSignatureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPSignatureViewController.xib; sourceTree = "<group>"; };
 		D3B3D60322E6B7B000896564 /* EPExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPExtensions.swift; sourceTree = "<group>"; };
 		D3B3D60422E6B7B000896564 /* EPSignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPSignatureViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3ACC07B22F7E37200602238 /* QuickLook.framework in Frameworks */,
 				D37F816B22E7886F004729D8 /* ImageIO.framework in Frameworks */,
 				D38EB80C22DFA17D009FFDFF /* SystemConfiguration.framework in Frameworks */,
 				B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */,
@@ -405,6 +408,7 @@
 		BBAE67FB76051E6E469355CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3ACC07A22F7E37200602238 /* QuickLook.framework */,
 				D37F816A22E7886F004729D8 /* ImageIO.framework */,
 				D38EB80B22DFA17D009FFDFF /* SystemConfiguration.framework */,
 				AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */,

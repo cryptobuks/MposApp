@@ -28,6 +28,7 @@ class InvoiceDetailsWIthCheckBoxTableViewCell: UITableViewCell {
     var btnCheckBoxTapped: (()->())?
     @IBOutlet weak var imgSelected: UIImageView!
     @IBOutlet weak var ctWidthImgSelected: NSLayoutConstraint!
+    var btnDownloadTapped: (()->())?
 
     
     override func awakeFromNib() {
@@ -44,5 +45,10 @@ class InvoiceDetailsWIthCheckBoxTableViewCell: UITableViewCell {
     @IBAction func btnCheckboxAction(_ sender: UIButton)
     {
         self.btnCheckBoxTapped?()
+    }
+    
+    @IBAction func btnDownloadAction(_ sender: UIButton)
+    {
+        self.btnDownloadTapped?()
     }
 }

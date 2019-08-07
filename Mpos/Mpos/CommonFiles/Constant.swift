@@ -260,3 +260,24 @@ func validEmailAddress(_ emailString: String) -> Bool
     return emailPredicate.evaluate(with: emailString)
     // email valid
 }
+
+func saveImageDocumentDirectory(imageData:Data, imageName: String)
+{
+    let fileManager = FileManager.default
+    let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString)
+    let url = NSURL(string: path as String)
+    let imagePath = url!.appendingPathComponent(imageName)
+    let urlString: String = imagePath!.absoluteString
+    fileManager.createFile(atPath: urlString as String, contents: imageData, attributes: nil)
+}
+
+func getImageFromDocumentDirectory(imageName: String) -> NSURL
+{
+    let fileManager = FileManager.default
+    let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString)
+    let url = NSURL(string: path as String)
+    let imagePath = url!.appendingPathComponent(imageName)
+    let urlString: String = imagePath!.absoluteString
+    let fileurl = NSURL(fileURLWithPath: urlString)
+    return fileurl
+}

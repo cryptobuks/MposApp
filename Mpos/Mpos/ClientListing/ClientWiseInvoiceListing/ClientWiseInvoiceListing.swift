@@ -473,6 +473,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         cellForClientDetails.tblvwInvoices.reloadData()
         cellForClientDetails.InvoiceType = InvoiceType
         cellForClientDetails.bTerceirosSelected = bTerceirosSelected
+        cellForClientDetails.objParent = self
         
         if let dicCompany = arrCompanies[indexPath.section-1] as? [String:Any]
         {
