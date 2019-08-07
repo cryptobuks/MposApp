@@ -33,7 +33,6 @@ class InvoiceListingVC: UIViewController {
     var InvoiceType:Int = 0
     var StrType : String = ""
     
-    
     private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
@@ -163,6 +162,41 @@ class InvoiceListingVC: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    @IBAction func btnSearchClicked(_ sender: Any) {
+        self.callSearchAPI()
+    }
+    
+    
+    func callSearchAPI()
+    {
+        MainReqeustClass.BaseRequestSharedInstance.getSearchResult(parameter: nil, header: nil, strMethodName: "5d3b117d3000008600a29f84", successCall: { (response) in
+            print(response)
+            
+            let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
+            let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
+            clientWiseInvoiceVC.InvoiceType = 4
+            
+            //set data for client Listing
+            clientWiseInvoiceVC.arrCompanies.removeAllObjects()
+            if let arrCompanies = response["companies"] as? NSArray
+            {
+                clientWiseInvoiceVC.arrCompanies.addObjects(from: arrCompanies as! [Any])
+            }
+            
+            if let dictClientRef = response["clientRef"] as? [String:Any]
+            {
+                clientWiseInvoiceVC.objClientRef = dictClientRef
+            }
+            
+            clientWiseInvoiceVC.bTerceirosSelected = false
+            self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
+        })
+        { (responseError) in
+            print(responseError)
+        }
+
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -227,5 +261,17 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         clientWiseInvoiceVC.objClientRef = arrClientRefs.object(at: indexPath.row) as! [String : Any]
         clientWiseInvoiceVC.bTerceirosSelected = false
         self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
+    }
+}
+extension InvoiceListingVC : UITextFieldDelegate
+{
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        self.callSearchAPI()
+        return true
     }
 }

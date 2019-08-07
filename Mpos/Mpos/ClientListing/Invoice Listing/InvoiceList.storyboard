@@ -40,7 +40,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRN-LF-nvp">
-                                        <rect key="frame" x="168" y="23.666666666666671" width="39.333333333333343" height="18"/>
+                                        <rect key="frame" x="166.33333333333334" y="23.666666666666671" width="42.333333333333343" height="18"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -110,7 +110,10 @@
                                                         </constraints>
                                                         <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="ORf-Nl-Yof" id="CVL-jo-lqd"/>
+                                                        </connections>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ffa-Oa-zaj">
                                                         <rect key="frame" x="22" y="79" width="331" height="1"/>
@@ -126,6 +129,9 @@
                                                             <constraint firstAttribute="width" constant="25" id="gVv-vG-DYh"/>
                                                         </constraints>
                                                         <state key="normal" image="ic_searchDashboard"/>
+                                                        <connections>
+                                                            <action selector="btnSearchClicked:" destination="ORf-Nl-Yof" eventType="touchUpInside" id="QI4-w5-M5G"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -216,7 +222,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lM-6c-9Vc">
-                                        <rect key="frame" x="168" y="23.666666666666671" width="39.333333333333343" height="18"/>
+                                        <rect key="frame" x="166.33333333333334" y="23.666666666666671" width="42.333333333333343" height="18"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
