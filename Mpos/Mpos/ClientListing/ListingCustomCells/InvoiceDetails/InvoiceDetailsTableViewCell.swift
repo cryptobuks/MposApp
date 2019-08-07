@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuickLook
 
 class InvoiceDetailsTableViewCell: UITableViewCell {
 
@@ -20,10 +21,12 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var tblvwInvoices: UITableView!
 
     var objPolicyDetails = [String:Any]()
+    var objParent = UIViewController()
 
     var InvoiceType:Int = 0
     var bTerceirosSelected = Bool()
     var bSectionSelected = Bool()
+    lazy var previewItem = NSURL()
 
 
     override func awakeFromNib() {
@@ -60,6 +63,30 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         controller.strErrorMessage = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed interdum elit, fringilla commodo nunc."
         self.viewControllerForTableView?.navigationController?.pushViewController(controller, animated: true)
 
+    }
+    
+    func downloadDocuments(iSelectedIndexPath:IndexPath)
+    {
+        //Call lientsReceipts Service
+        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11c23000008800a29f85", parameter: nil, success: { (response) in
+            print(response)
+            
+            if let strBase64String = response["pdf"] as? String
+            {
+                let base64Encoded = strBase64String
+                let decodedData = Data(base64Encoded: base64Encoded)!
+                saveImageDocumentDirectory(imageData: decodedData, imageName: "Test\(iSelectedIndexPath.row)\(iSelectedIndexPath.section).pdf")
+            }
+            
+            self.previewItem = getImageFromDocumentDirectory(imageName: "Test\(iSelectedIndexPath.row)\(iSelectedIndexPath.section).pdf")
+            // Display file
+            let previewController = QLPreviewController()
+            previewController.dataSource = self
+            self.objParent.present(previewController, animated: true, completion: nil)
+        })
+        { (responseError) in
+            print(responseError)
+        }
     }
 }
 
@@ -184,6 +211,11 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                 }
         }
         
+        cellForInvoiceWithCheckBox.btnDownloadTapped =
+            {
+                self.downloadDocuments(iSelectedIndexPath: indexPath)
+        }
+        
         
        
         if bSectionSelected
@@ -241,5 +273,17 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         headerCell.lblRegistrationNumber.text = (objPolicyDetails["insuredObject"] as! String)
         
         return headerCell
+    }
+}
+//MARK:- QLPreviewController Datasource
+extension InvoiceDetailsTableViewCell: QLPreviewControllerDataSource
+{
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int
+    {
+        return 1
+    }
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem
+    {
+        return self.previewItem as QLPreviewItem
     }
 }

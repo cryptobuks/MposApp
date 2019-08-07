@@ -107,6 +107,9 @@
                                 <state key="normal" title="DOWNLOAD" image="ic_download">
                                     <color key="titleColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnDownloadAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Y4S-fa-XnW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMISSÃO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt3-rm-oQF">
                                 <rect key="frame" x="60" y="83" width="230" height="15"/>
