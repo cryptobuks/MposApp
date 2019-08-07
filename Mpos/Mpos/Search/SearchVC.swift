@@ -36,7 +36,7 @@ class SearchVC: UIViewController {
         btnRadio2.isSelected = false
         lblSeachSelectionInstruction.text = "Introduza um NIF, uma Apólice ou um Recibo"
         
-        txtfdSearch.text = "ULK1983919"
+        txtfdSearch.text = ""
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: txtfdSearch.frame.size.height))
         txtfdSearch.leftView = paddingView
         txtfdSearch.leftViewMode = .always
@@ -64,13 +64,13 @@ class SearchVC: UIViewController {
             btnRadio2.isSelected = false
             lblSeachSelectionInstruction.text = "Introduza um NIF, uma Apólice ou um Recibo"
             
-            txtfdSearch.text = "ULK1983919"
+            txtfdSearch.text = ""
             break
         case 2:
             btnRadio1.isSelected = false
             btnRadio2.isSelected = true
             lblSeachSelectionInstruction.text = "Introduza uma Apólice ou um Recibo"
-            txtfdSearch.text = "245319873"
+            txtfdSearch.text = ""
             break
         default:
             break

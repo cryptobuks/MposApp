@@ -214,6 +214,11 @@ class ClientWiseInvoiceListing: UIViewController {
             btnTotalInvoicePrice.isHidden = true
         }
         
+        if let dicCompany = arrCompanies[sender.tag-1] as? [String:Any]
+        {
+            btnTotalInvoicePrice.setTitle("AVANÇAR | \(dicCompany["amount"] as? Int ?? 0)€", for: .normal)
+
+        }
         tblvwInvoiceListing.reloadData()
         
     }
@@ -307,7 +312,13 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         
         if selectedInvoiceIndex.contains(indexPath)
         {
-            return 85 + 100 + (2 * 260)
+            if let dicCompany = arrCompanies[indexPath.section-1] as? [String:Any]
+            {
+                if let arrPolicies = dicCompany["policies"] as? [Any]
+                {
+                    return CGFloat(85 + 100 + (arrPolicies.count * 260))
+                }
+            }
         }
         return 85
     }
