@@ -61,6 +61,7 @@ let kCellOfCommitteesDetailsCell = "CommitteesDetailsCell"
 let kCellOfPaymentDataCell = "PaymentDataCell"
 let kCellOfInvoiceDetailsHeaderCell = "InvoiceDetailsHeaderCell"
 
+let kSectionCellSelected = "isSectionCellSelected"
 
 
 

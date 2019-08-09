@@ -269,8 +269,16 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         headerCell.lblCaptionRegistrationNumber.textColor = lblColor
         
         headerCell.lblBranch.text = (objPolicyDetails["branch"] as! String)
-        headerCell.lblCaptionRegistrationNumber.text = (objPolicyDetails["insuredType"] as! String)
-        headerCell.lblRegistrationNumber.text = (objPolicyDetails["insuredObject"] as! String)
+        
+        if let strInsuredType = objPolicyDetails["insuredType"]
+        {
+            headerCell.lblCaptionRegistrationNumber.text = "\(strInsuredType)"
+        }
+        
+        if let strInsuredObject = objPolicyDetails["insuredObject"]
+        {
+            headerCell.lblRegistrationNumber.text = "\(strInsuredObject)"
+        }
         
         return headerCell
     }
