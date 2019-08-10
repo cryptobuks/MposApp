@@ -33,13 +33,13 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        self.txtfdPassword.isSecureTextEntry = false
+        self.txtfdPassword.isSecureTextEntry = true
         lblEmail.text = lblEmail.text!.uppercased()
         lblPassword.text = lblPassword.text!.uppercased()
         
         txtfdEmail.text = "test@gmail.com"
         txtfdPassword.text = "test"
-
+        
         if Device.IS_IPHONE && Device.SCREEN_HEIGHT < 568
         {
             scrvwLogin.isScrollEnabled = true
@@ -47,6 +47,13 @@ class ViewController: UIViewController
         else
         {
             scrvwLogin.isScrollEnabled = false
+        }
+        
+        if userDefaults.bool(forKey: kbIsRememberPassword)
+        {
+            txtfdEmail.text = (userDefaults.value(forKey: kkey_email) as! String)
+            txtfdPassword.text = userDefaults.value(forKey: kkey_password) as? String
+            btnRememberPassword.isSelected = true
         }
         
         
@@ -60,6 +67,7 @@ class ViewController: UIViewController
         {
             self.setOnboardingUI()
         }
+        
         
     }
     
@@ -96,6 +104,18 @@ extension ViewController {
     //LogIn button click
     @IBAction func btnLoginClicked(_ sender: Any)
     {
+        
+        if userDefaults.bool(forKey: kbIsRememberPassword)
+        {
+            userDefaults.set(txtfdEmail.text, forKey: kkey_email)
+            userDefaults.set(txtfdPassword.text, forKey: kkey_password)
+        }
+        else
+        {
+            userDefaults.removeObject(forKey: kkey_email)
+            userDefaults.removeObject(forKey: kkey_password)
+        }
+        
         if self.doValidation()
         {
             let params = ["bsUSer":txtfdEmail.text,"bsPassword":txtfdPassword.text]
@@ -119,6 +139,12 @@ extension ViewController {
             })
             { (responseError) in
                 print(responseError)
+                // api call
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+                let navController = UINavigationController(rootViewController: controller)
+                navController.navigationBar.isHidden = true
+                appDelegate.window?.rootViewController = navController
             }
         }
     }
@@ -147,15 +173,15 @@ extension ViewController {
     //MARK: User Actions
     @IBAction func rememberPasswordClicked(_ sender: UIButton)
     {
-        if isRememberPassword
+        
+        if userDefaults.bool(forKey: kbIsRememberPassword)
         {
-            isRememberPassword = false
-
+            userDefaults.set(false, forKey: kbIsRememberPassword)
             btnRememberPassword.isSelected = false
         }
         else
         {
-            isRememberPassword = true
+            userDefaults.set(true, forKey: kbIsRememberPassword)
             btnRememberPassword.isSelected = true
 
         }

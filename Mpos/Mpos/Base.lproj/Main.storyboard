@@ -222,7 +222,7 @@
                                                 <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BR2-3X-ukf">
+                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BR2-3X-ukf">
                                                 <rect key="frame" x="349" y="381" width="45" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="Pjn-3K-WxZ"/>
@@ -230,6 +230,8 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="ic_eyevisible"/>
+                                                <state key="selected" image="ic_eyeInvisible"/>
+                                                <state key="highlighted" image="ic_eyevisible"/>
                                                 <connections>
                                                     <action selector="btnSEtVisibilityPasswordLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qvl-1y-pmI"/>
                                                 </connections>
@@ -580,7 +582,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q6-nf-4SA">
-                                                    <rect key="frame" x="290" y="8" width="79" height="43"/>
+                                                    <rect key="frame" x="290" y="8" width="79" height="43.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="79" id="XXh-S8-eDt"/>
                                                     </constraints>
@@ -589,7 +591,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-q9-ElT">
-                                                    <rect key="frame" x="290" y="58" width="79" height="21"/>
+                                                    <rect key="frame" x="290" y="58.666666666666664" width="79" height="20.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="79" id="SOT-cM-Ul5"/>
                                                     </constraints>
@@ -876,6 +878,7 @@
         <image name="ic_checkbox_selected" width="50" height="50"/>
         <image name="ic_checkbox_unselected" width="50" height="50"/>
         <image name="ic_close" width="60" height="60"/>
+        <image name="ic_eyeInvisible" width="46.333332061767578" height="34"/>
         <image name="ic_eyevisible" width="46.333332061767578" height="34"/>
         <image name="ic_logo" width="300" height="300"/>
         <image name="ic_onboarding1" width="168" height="141.33332824707031"/>

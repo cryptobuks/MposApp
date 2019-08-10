@@ -169,7 +169,7 @@ class ReceiptDetailsVC: UIViewController {
     @objc func btnShareClicked(_ sender: UIButton) {
         
         // text to share
-        let text = "This is some text that I want to share."
+        let text = "DADOS GERAIS\n\nPRÉMIOS\n\nCOMISSÕES\n\nDADOS DE PAGAMENTO"
         
         // set up activity view controller
         let textToShare = [ text ]
@@ -328,7 +328,7 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             cellForGeneralData.lblState.text = dicReceiptDetails["situation"] as? String
             cellForGeneralData.lblFractioning.text = dicReceiptDetails["fractionation"] as? String
             cellForGeneralData.lblKind.text = dicReceiptDetails["type"] as? String
-            
+            print(cellForGeneralData)
             return cellForGeneralData
         case 1:
             cellForAwardsDetailsCell.lblCaptionBonus.textColor = lblColor
@@ -349,7 +349,7 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             cellForAwardsDetailsCell.lblLocalRecovery.text = dicReceiptDetails["billingLocation"] as? String
             cellForAwardsDetailsCell.lblCommercialAward.text = "\(dicReceiptDetails["commercialPremium"] as? Float ?? 0)"
             cellForAwardsDetailsCell.lblCapitalAndReceipt.text = "\(dicReceiptDetails["capitalAndReceipt"] as? Float ?? 0)"
-            
+            print(cellForAwardsDetailsCell)
             return cellForAwardsDetailsCell
         case 2:
             cellForCommitteesDetailsCell.lblCaptionAngariation.textColor = lblColor
@@ -357,12 +357,15 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             
             cellForCommitteesDetailsCell.lblAngariation.text = "\(dicReceiptDetails["fundraising"] as? Float ?? 0)"
             cellForCommitteesDetailsCell.lblCollection.text = "\(dicReceiptDetails["collections"] as? Float ?? 0)"
+            print(cellForCommitteesDetailsCell)
+
             return cellForCommitteesDetailsCell
         case 3:
             cellForPaymentCell.lblCaptionEntity.textColor = lblColor
             cellForPaymentCell.lblCaptionReference.textColor = lblColor
             cellForPaymentCell.lblCaptionTotalValue.textColor = lblColor
-            
+            print(cellForPaymentCell)
+
             return cellForPaymentCell
         default:
             break
