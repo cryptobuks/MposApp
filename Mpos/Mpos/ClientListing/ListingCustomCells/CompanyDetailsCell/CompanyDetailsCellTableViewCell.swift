@@ -14,16 +14,21 @@ class CompanyDetailsCellTableViewCell: UITableViewCell {
     @IBOutlet weak var lblInvoiceTotal: UILabel!
     @IBOutlet weak var btnCheckBox: UIButton!
     @IBOutlet weak var lblCompanyName: UILabel!
+    var btnRadioTapped: (()->())?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    
+    @IBAction func btnCheckboxAction(_ sender: Any)
+    {
+        self.btnRadioTapped?()
+    }
+  
+    override func setSelected(_ selected: Bool, animated: Bool)
+    {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-    
 }

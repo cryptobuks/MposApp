@@ -45,6 +45,9 @@
                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" image="ic_radio_unselected"/>
                                 <state key="selected" image="ic_radio_selected"/>
+                                <connections>
+                                    <action selector="btnCheckboxAction:" destination="-1" eventType="touchUpInside" id="QU3-eK-9k8"/>
+                                </connections>
                             </button>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Sample_Company" translatesAutoresizingMaskIntoConstraints="NO" id="6zS-Rh-hE4">
                                 <rect key="frame" x="20" y="15" width="100" height="30"/>
@@ -77,6 +80,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kse-jl-vv2"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmJ-Mb-tis">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <connections>
+                            <action selector="btnCheckboxAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NNk-B1-6bK"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="k7l-yF-KqW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="089-K7-Jp1"/>

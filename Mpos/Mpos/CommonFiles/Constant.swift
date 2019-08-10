@@ -62,8 +62,10 @@ let kCellOfPaymentDataCell = "PaymentDataCell"
 let kCellOfInvoiceDetailsHeaderCell = "InvoiceDetailsHeaderCell"
 let kbIsRememberPassword = "isRememberPassword"
 
+
 let kkey_email = "email"
 let kkey_password = "password"
+let kSectionCellSelected = "isSectionCellSelected"
 
 
 

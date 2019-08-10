@@ -31,7 +31,6 @@ class ClientWiseInvoiceListing: UIViewController {
     @IBOutlet weak var btnTotalInvoicePrice: UIButton!
     @IBOutlet weak var ctHeightbtnTotalPrice: NSLayoutConstraint!
     
-    var selectedCompanyIndex:Int = -1
     var selectedInvoiceIndex = NSMutableArray()
 
     var InvoiceType:Int = 0
@@ -143,6 +142,7 @@ class ClientWiseInvoiceListing: UIViewController {
         }
         else
         {
+            self.setSelectedKeyinServerResponse()
             self.tblvwInvoiceListing.reloadData()
         }
     }
@@ -166,6 +166,7 @@ class ClientWiseInvoiceListing: UIViewController {
             {
                 self.arrCompanies.addObjects(from: arrCompanies as! [Any])
             }
+            self.setSelectedKeyinServerResponse()
             self.tblvwInvoiceListing.reloadData()
             self.refreshControl.endRefreshing()
             
@@ -175,7 +176,20 @@ class ClientWiseInvoiceListing: UIViewController {
         }
     }
     
+    func setSelectedKeyinServerResponse()
+    {
+        for iIndex in 0..<arrCompanies.count
+        {
+            if let dicCompany = arrCompanies[iIndex] as? [String:Any]
+            {
+                let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
+                dictCompanyMutableObject.setValue(false, forKey: kSectionCellSelected)
+                arrCompanies.replaceObject(at: iIndex, with: dictCompanyMutableObject)
+            }
+        }
+    }
     
+    //MARK: User actions
     @IBAction func btnBackClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -193,20 +207,30 @@ class ClientWiseInvoiceListing: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    @objc func btnRadioBtnClicked(_ sender: UIButton) {
+    func setSectionSelection(iSelectedIndex: Int,bSetValue:Bool)
+    {
+        for iIndex in 0..<arrCompanies.count
+        {
+            if let dicCompany = arrCompanies[iIndex] as? [String:Any]
+            {
+                let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
+                dictCompanyMutableObject.setValue(false, forKey: kSectionCellSelected)
+                arrCompanies.replaceObject(at: iIndex, with: dictCompanyMutableObject)
+            }
+        }
 
-        if sender.tag == selectedCompanyIndex{
-            selectedCompanyIndex = -1
-        }
-        else
+        if bSetValue == true
         {
-            selectedCompanyIndex = sender.tag
-        }
-        
-        if selectedCompanyIndex > -1
-        {
-            ctHeightbtnTotalPrice.constant = 60
-            btnTotalInvoicePrice.isHidden = false
+            if let dicCompany = arrCompanies[iSelectedIndex] as? [String:Any]
+            {
+                let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
+                dictCompanyMutableObject.setValue(true, forKey: kSectionCellSelected)
+                arrCompanies.replaceObject(at: iSelectedIndex, with: dictCompanyMutableObject)
+                btnTotalInvoicePrice.setTitle("AVANÇAR | \(dicCompany["amount"] as? Int ?? 0)€", for: .normal)
+                ctHeightbtnTotalPrice.constant = 60
+                btnTotalInvoicePrice.isHidden = false
+
+            }
         }
         else
         {
@@ -214,13 +238,7 @@ class ClientWiseInvoiceListing: UIViewController {
             btnTotalInvoicePrice.isHidden = true
         }
         
-        if let dicCompany = arrCompanies[sender.tag-1] as? [String:Any]
-        {
-            btnTotalInvoicePrice.setTitle("AVANÇAR | \(dicCompany["amount"] as? Int ?? 0)€", for: .normal)
-
-        }
         tblvwInvoiceListing.reloadData()
-        
     }
     
     @objc func btnPlusBtnClicked(_ sender: UIButton) {
@@ -285,13 +303,15 @@ class ClientWiseInvoiceListing: UIViewController {
     
 }
 //MARK:-UITableViewDelegate,UITableViewDataSource
-extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
+{
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
         return arrCompanies.count + 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         if section == 0
         {
             return 0
@@ -322,7 +342,8 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         }
         return 85
     }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    {
         if section == 0
         {
             return 0
@@ -330,16 +351,13 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         return 10
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0
-        {
-            return UITableView.automaticDimension
-        }
-        return 60
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmationHeaderCell) as! DataConfirmationHeaderCell
         let companyDetailCell = tableView.dequeueReusableCell(withIdentifier: kCellOfCompanyDetails) as! CompanyDetailsCellTableViewCell
         
@@ -387,27 +405,27 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
                 break
             }
             
-            companyDetailCell.btnCheckBox.tag = section
-            companyDetailCell.btnCheckBox.addTarget(self, action: #selector(btnRadioBtnClicked(_:)), for: .touchUpInside)
-            
-            if section == selectedCompanyIndex
-            {
-                companyDetailCell.btnCheckBox.isSelected = true
-            }
-            else
-            {
-                companyDetailCell.btnCheckBox.isSelected = false
-            }
-            
             if let dicCompany = arrCompanies[section-1] as? [String:Any]
             {
                 companyDetailCell.lblCompanyName.text = dicCompany["company"] as? String
                 companyDetailCell.lblInvoiceTotal.text = "\(dicCompany["amount"] as? Int ?? 0)€"
+                companyDetailCell.btnCheckBox.isSelected = dicCompany[kSectionCellSelected] as! Bool
+            }
+
+            companyDetailCell.btnRadioTapped = {
+                
+                if let dicCompany = self.arrCompanies[section-1] as? [String:Any]
+                {
+                    if (dicCompany[kSectionCellSelected] as! Bool == true) {
+                        self.setSectionSelection(iSelectedIndex: section-1, bSetValue: false)
+                    }
+                    else {
+                        self.setSectionSelection(iSelectedIndex: section-1, bSetValue: true)
+                    }
+                }
             }
             return companyDetailCell
-
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -439,13 +457,33 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
             break
         }
         
-        if indexPath.section == selectedCompanyIndex{
-            cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
-        }
-        else{
-            cellForClientDetails.imgLeftSelection.backgroundColor = UIColor.clear
+        
+        if let dicCompany = arrCompanies[indexPath.section-1] as? [String:Any]
+        {
+            
+            if dicCompany[kSectionCellSelected] as! Bool == true
+            {
+                cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
+                cellForClientDetails.bSectionSelected = true
+            }
+            else
+            {
+                cellForClientDetails.imgLeftSelection.backgroundColor = UIColor.clear
+                cellForClientDetails.bSectionSelected = false
+            }
 
+            if let arrPolicies = dicCompany["policies"] as? [Any]
+            {
+                if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
+                {
+                    cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policy"] as! String)
+                    cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(objPolicyDetail["amount"] as! Int)"
+                    cellForClientDetails.objPolicyDetails = objPolicyDetail
+                }
+            }
         }
+
+        
         cellForClientDetails.lblCaptionInvoiceNumber.textColor = lblColor
         cellForClientDetails.lblCaptionPrice.textColor = lblColor
         
@@ -460,33 +498,12 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource{
         {
             cellForClientDetails.btnExpandCollapse.isSelected = false
         }
-        
-        if selectedCompanyIndex == indexPath.section
-        {
-            cellForClientDetails.bSectionSelected = true
-        }
-        else
-        {
-            cellForClientDetails.bSectionSelected = false
-        }
 
         cellForClientDetails.tblvwInvoices.reloadData()
         cellForClientDetails.InvoiceType = InvoiceType
         cellForClientDetails.bTerceirosSelected = bTerceirosSelected
         cellForClientDetails.objParent = self
         
-        if let dicCompany = arrCompanies[indexPath.section-1] as? [String:Any]
-        {
-            if let arrPolicies = dicCompany["policies"] as? [Any]
-            {
-                if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
-                {
-                    cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policy"] as! String)
-                    cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(objPolicyDetail["amount"] as! Int)"
-                    cellForClientDetails.objPolicyDetails = objPolicyDetail
-                }
-            }
-        }
         return cellForClientDetails
     }
     
