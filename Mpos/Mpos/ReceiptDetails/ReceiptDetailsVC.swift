@@ -167,9 +167,70 @@ class ReceiptDetailsVC: UIViewController {
 
     
     @objc func btnShareClicked(_ sender: UIButton) {
+               // text to share
+        let text = """
+        DADOS GERAIS
         
-        // text to share
-        let text = "DADOS GERAIS\n\nPRÉMIOS\n\nCOMISSÕES\n\nDADOS DE PAGAMENTO"
+        CLIENTE
+        \(dicReceiptDetails["clientName"] as? String ?? "")
+        
+        RECIBO
+        \(dicReceiptDetails["receipt"] as? String ?? "")
+        
+        APÓLICE
+        \(dicReceiptDetails["policy"] as? String ?? "")
+        
+        ESTADO
+        \(dicReceiptDetails["situation"] as? String ?? "")
+        
+        FRACIONAMENTO
+        \(dicReceiptDetails["fractionation"] as? String ?? "")
+        
+        TIPO
+        \(dicReceiptDetails["type"] as? String ?? "")
+        
+        PRÉMIOS
+        
+        PRÉMIO COMERCIAL
+        \(dicReceiptDetails["commercialPremium"] as? Float ?? 0)€
+        
+        ENCARGOS DE VIDA
+        \(dicReceiptDetails["lifeCharges"] as? Float ?? 0)€
+        
+        BONUS/MALUS
+        \(dicReceiptDetails["bonusMalus"] as! Float)€
+            
+        IMPOSTOS
+        \(dicReceiptDetails["taxes"] as! Float)€
+        
+        TOTAL RECIBO
+        \(dicReceiptDetails["total"] as? Float ?? 0)€
+        
+        CAPITAL E RECIBO
+        \(dicReceiptDetails["commercialPremium"] as? Float ?? 0)€
+        
+        LOCAL DE COBRANÇA
+        \(dicReceiptDetails["billingLocation"] as? String ?? "")
+        
+        COMISSÕES
+        
+        ANGARIAÇÃO
+        \(dicReceiptDetails["fundraising"] as? Float ?? 0)€
+        
+        COBRANÇA
+        \(dicReceiptDetails["collections"] as? Float ?? 0)€
+        
+        DADOS DE PAGAMENTO
+        
+        ENTIDADE
+        112543
+        
+        REFERÊNCIA
+        256389187
+        
+        VALOR TOTAL
+        \(dicReceiptDetails["total"] as? Float ?? 0)€
+        """
         
         // set up activity view controller
         let textToShare = [ text ]
