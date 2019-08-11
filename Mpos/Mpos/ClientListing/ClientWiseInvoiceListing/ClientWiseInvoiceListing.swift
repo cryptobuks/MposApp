@@ -364,6 +364,8 @@ class ClientWiseInvoiceListing: UIViewController {
                 arrCompanies.replaceObject(at: iIndex, with: dictCompanyMutableObject)
             }
         }*/
+        indexSelectedCompany = iSelectedSection
+
         if let dicCompany = arrCompanies[iSelectedSection] as? [String:Any]
         {
             let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
