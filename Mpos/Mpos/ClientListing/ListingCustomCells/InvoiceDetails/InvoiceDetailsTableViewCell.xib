@@ -71,6 +71,9 @@
                                 </constraints>
                                 <state key="normal" image="ic_plusGray"/>
                                 <state key="selected" image="ic_minus"/>
+                                <connections>
+                                    <action selector="btnExpandCollapseAction:" destination="-1" eventType="touchUpInside" id="73Q-Dd-A1m"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 - 400€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NC3-Xt-fSJ">
                                 <rect key="frame" x="140" y="43" width="110" height="21"/>

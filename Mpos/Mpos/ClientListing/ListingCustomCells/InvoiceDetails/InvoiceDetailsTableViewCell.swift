@@ -27,7 +27,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     var bTerceirosSelected = Bool()
     var bSectionSelected = Bool()
     lazy var previewItem = NSURL()
-
+    var btnExpandCollapseSelected: (()->())?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +38,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         self.tblvwInvoices.register(UINib(nibName: kCellOfInvoiceDetailsHeaderCell, bundle: nil), forCellReuseIdentifier: kCellOfInvoiceDetailsHeaderCell)
         
         self.tblvwInvoices.estimatedRowHeight = 260.0
+        self.tblvwInvoices.estimatedSectionHeaderHeight = 85
         self.tblvwInvoices.rowHeight = UITableView.automaticDimension
         
         self.tblvwInvoices.reloadData()
@@ -88,6 +89,11 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
             print(responseError)
         }
     }
+    
+    @IBAction func btnExpandCollapseAction(_ sender: UIButton)
+    {
+        self.btnExpandCollapseSelected?()
+    }
 }
 
 //MARK:-UITableViewDelegate,UITableViewDataSource
@@ -104,12 +110,13 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 260
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellForInvoiceWithCheckBox = tableView.dequeueReusableCell(withIdentifier: kCellOfInvoiceDetailsWIthCheckBoxTableViewCell) as! InvoiceDetailsWIthCheckBoxTableViewCell
         
+
         cellForInvoiceWithCheckBox.selectionStyle = .none
         var lblColor = UIColor()
         var lblAlphaColor = UIColor()
@@ -180,7 +187,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
             cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
             cellForInvoiceWithCheckBox.imgSelected.backgroundColor = AppColors.kErrorColor
         }
-        
+                
         cellForInvoiceWithCheckBox.btnCheckBoxTapped =
             {
                 //For Error
@@ -188,35 +195,12 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                 {
                     self.goToErrorPage()
                 }
-                else
-                {
-                    if cellForInvoiceWithCheckBox.btnCheckBox.isSelected
-                    {
-                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
-                        cellForInvoiceWithCheckBox.imgSelected.isHidden = true
-                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
-                        (self.viewControllerForTableView as! ClientWiseInvoiceListing).btnTotalInvoicePrice.isHidden = true
-                        (self.viewControllerForTableView as! ClientWiseInvoiceListing).ctHeightbtnTotalPrice.constant = 0
-                    }
-                    else
-                    {
-                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
-                        cellForInvoiceWithCheckBox.imgSelected.isHidden = false
-                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
-                        cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
-                        (self.viewControllerForTableView as! ClientWiseInvoiceListing).btnTotalInvoicePrice.isHidden = false
-                        (self.viewControllerForTableView as! ClientWiseInvoiceListing).ctHeightbtnTotalPrice.constant = 60
-
-                    }
-                }
         }
         
         cellForInvoiceWithCheckBox.btnDownloadTapped =
             {
                 self.downloadDocuments(iSelectedIndexPath: indexPath)
         }
-        
-        
        
         if bSectionSelected
         {
@@ -233,15 +217,12 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         }
         
         cellForInvoiceWithCheckBox.btnViewMore.addTarget(self, action: #selector(btnMoreInfoClicked(_:)), for: .touchUpInside)
-        
-    
-        
         return cellForInvoiceWithCheckBox
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
        
-        return 85
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -270,13 +251,21 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         
         headerCell.lblBranch.text = (objPolicyDetails["branch"] as! String)
         
-        if let strInsuredType = objPolicyDetails["insuredType"]
+        if var strInsuredType = objPolicyDetails["insuredType"]
         {
+            if (strInsuredType is NSNull)
+            {
+                strInsuredType = ""
+            }
             headerCell.lblCaptionRegistrationNumber.text = "\(strInsuredType)"
         }
         
-        if let strInsuredObject = objPolicyDetails["insuredObject"]
+        if var strInsuredObject = objPolicyDetails["insuredObject"]
         {
+            if (strInsuredObject is NSNull)
+            {
+                strInsuredObject = ""
+            }
             headerCell.lblRegistrationNumber.text = "\(strInsuredObject)"
         }
         

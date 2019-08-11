@@ -31,8 +31,6 @@ class ClientWiseInvoiceListing: UIViewController {
     @IBOutlet weak var btnTotalInvoicePrice: UIButton!
     @IBOutlet weak var ctHeightbtnTotalPrice: NSLayoutConstraint!
     
-    var selectedInvoiceIndex = NSMutableArray()
-
     var InvoiceType:Int = 0
     var objClientRef = [String:Any]()
     
@@ -184,6 +182,22 @@ class ClientWiseInvoiceListing: UIViewController {
             {
                 let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
                 dictCompanyMutableObject.setValue(false, forKey: kSectionCellSelected)
+                
+                var arrPoliciesMutableObject = NSMutableArray()
+                if let arrPolicies = dicCompany["policies"] as? [Any]
+                {
+                    arrPoliciesMutableObject = NSMutableArray(array: arrPolicies)
+                    for iIndexPolicy in 0..<arrPoliciesMutableObject.count
+                    {
+                        if let objPolicyDetail = arrPoliciesMutableObject[iIndexPolicy] as? [String:Any]
+                        {
+                            let dictPolicyDetailMutableObject = NSMutableDictionary(dictionary: objPolicyDetail)
+                            dictPolicyDetailMutableObject.setValue(false, forKey: kkeyisPolicySelected)
+                            arrPoliciesMutableObject.replaceObject(at: iIndexPolicy, with: dictPolicyDetailMutableObject)
+                        }
+                    }
+                }
+                dictCompanyMutableObject.setValue(arrPoliciesMutableObject, forKey: "policies")
                 arrCompanies.replaceObject(at: iIndex, with: dictCompanyMutableObject)
             }
         }
@@ -215,6 +229,9 @@ class ClientWiseInvoiceListing: UIViewController {
             {
                 let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
                 dictCompanyMutableObject.setValue(false, forKey: kSectionCellSelected)
+                
+                let arrPoliciesMutableObject = self.setCompanybasedPolicySelection(dictCompany: dicCompany, bSelected: false)
+                dictCompanyMutableObject.setValue(arrPoliciesMutableObject, forKey: "policies")
                 arrCompanies.replaceObject(at: iIndex, with: dictCompanyMutableObject)
             }
         }
@@ -225,53 +242,148 @@ class ClientWiseInvoiceListing: UIViewController {
             {
                 let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
                 dictCompanyMutableObject.setValue(true, forKey: kSectionCellSelected)
+//
+//                let arrPoliciesMutableObject = self.setCompanybasedPolicySelection(dictCompany: dicCompany, bSelected: true)
+//                dictCompanyMutableObject.setValue(arrPoliciesMutableObject, forKey: "policies")
                 arrCompanies.replaceObject(at: iSelectedIndex, with: dictCompanyMutableObject)
-                btnTotalInvoicePrice.setTitle("AVANÇAR | \(dicCompany["amount"] as? Int ?? 0)€", for: .normal)
-                ctHeightbtnTotalPrice.constant = 60
-                btnTotalInvoicePrice.isHidden = false
-
             }
         }
-        else
-        {
-            ctHeightbtnTotalPrice.constant = 0
-            btnTotalInvoicePrice.isHidden = true
-        }
-        
+
+        self.setTotalInvoicePrice(iSelectedSection: iSelectedIndex, iSelectedRow: -1)
         tblvwInvoiceListing.reloadData()
     }
     
-    @objc func btnPlusBtnClicked(_ sender: UIButton) {
-        
-        let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:tblvwInvoiceListing)
-        let indexPath = self.tblvwInvoiceListing.indexPathForRow(at: buttonPosition)
-        
-        
-        if selectedInvoiceIndex.contains(indexPath!)
+    func setCompanybasedPolicySelection(dictCompany:[String:Any], bSelected: Bool) -> NSMutableArray
+    {
+        var arrPoliciesMutableObject = NSMutableArray()
+        if let arrPolicies = dictCompany["policies"] as? [Any]
         {
-            selectedInvoiceIndex.remove(indexPath!)
+            arrPoliciesMutableObject = NSMutableArray(array: arrPolicies)
+            for iIndexPolicy in 0..<arrPoliciesMutableObject.count
+            {
+                if let objPolicyDetail = arrPoliciesMutableObject[iIndexPolicy] as? [String:Any]
+                {
+                    let dictPolicyDetailMutableObject = NSMutableDictionary(dictionary: objPolicyDetail)
+                    dictPolicyDetailMutableObject.setValue(bSelected, forKey: kkeyisPolicySelected)
+                    arrPoliciesMutableObject.replaceObject(at: iIndexPolicy, with: dictPolicyDetailMutableObject)
+                }
+            }
         }
-        else
-        {
-            selectedInvoiceIndex.add(indexPath!)
-
-        }
-       
-//        if selectedInvoiceIndex.count > 0
-//        {
-//            ctHeightbtnTotalPrice.constant = 60
-//            btnTotalInvoicePrice.isHidden = false
-//        }
-//        else
-//        {
-//            ctHeightbtnTotalPrice.constant = 0
-//            btnTotalInvoicePrice.isHidden = true
-//        }
-//        
-        tblvwInvoiceListing.reloadData()
-        
+        return arrPoliciesMutableObject
     }
+    
+    func setTotalInvoicePrice(iSelectedSection: Int,iSelectedRow: Int)
+    {
+        if let dicCompany = arrCompanies[iSelectedSection] as? [String:Any]
+        {
+            if (dicCompany[kSectionCellSelected] as! Bool == true)
+            {
+                btnTotalInvoicePrice.setTitle("AVANÇAR | \(dicCompany["amount"] as? Int ?? 0)€", for: .normal)
+                ctHeightbtnTotalPrice.constant = 60
+                btnTotalInvoicePrice.isHidden = false
+            }
+            else
+            {
+                var bPolicySelected = false
+                var iAmount = 0
+                if iSelectedRow == -1
+                {
+                    if let arrPolicies = dicCompany["policies"] as? [Any]
+                    {
+                        for iIndexPolicy in 0..<arrPolicies.count
+                        {
+                            if let objPolicyDetail = arrPolicies[iIndexPolicy] as? [String:Any]
+                            {
+                                if objPolicyDetail[kkeyisPolicySelected] as! Bool == true
+                                {
+                                    iAmount = iAmount + (objPolicyDetail["amount"] as? Int ?? 0)
+                                    bPolicySelected = true
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if let arrPolicies = dicCompany["policies"] as? [Any]
+                    {
+                        if let objPolicyDetail = arrPolicies[iSelectedRow] as? [String:Any]
+                        {
+                            if objPolicyDetail[kkeyisPolicySelected] as! Bool == true
+                            {
+                                bPolicySelected = true
+                                iAmount = iAmount + (objPolicyDetail["amount"] as? Int ?? 0)
+                            }
+                            else
+                            {
+                                bPolicySelected = false
+                            }
+                        }
+                    }
+                }
+                
+                if bPolicySelected == true
+                {
+                    btnTotalInvoicePrice.setTitle("AVANÇAR | \(iAmount)€", for: .normal)
+                    ctHeightbtnTotalPrice.constant = 60
+                    btnTotalInvoicePrice.isHidden = false
+                }
+                else
+                {
+                    ctHeightbtnTotalPrice.constant = 0
+                    btnTotalInvoicePrice.isHidden = true
+                }
+            }
+        }
+    }
+    
+    func setPolicySelection(iSelectedSection: Int,iSelectedRow: Int,bSetValue:Bool)
+    {
+        /*for iIndex in 0..<arrCompanies.count
+        {
+            if let dicCompany = arrCompanies[iIndex] as? [String:Any]
+            {
+                let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
+                var arrPoliciesMutableObject = NSMutableArray()
+                if let arrPolicies = dicCompany["policies"] as? [Any]
+                {
+                    arrPoliciesMutableObject = NSMutableArray(array: arrPolicies)
+                    for iIndexPolicy in 0..<arrPoliciesMutableObject.count
+                    {
+                        if let objPolicyDetail = arrPoliciesMutableObject[iIndexPolicy] as? [String:Any]
+                        {
+                            let dictPolicyDetailMutableObject = NSMutableDictionary(dictionary: objPolicyDetail)
+                            dictPolicyDetailMutableObject.setValue(false, forKey: kkeyisPolicySelected)
+                            arrPoliciesMutableObject.replaceObject(at: iIndexPolicy, with: dictPolicyDetailMutableObject)
+                        }
+                    }
+                }
+                dictCompanyMutableObject.setValue(arrPoliciesMutableObject, forKey: "policies")
+                arrCompanies.replaceObject(at: iIndex, with: dictCompanyMutableObject)
+            }
+        }*/
+        if let dicCompany = arrCompanies[iSelectedSection] as? [String:Any]
+        {
+            let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
+            var arrPoliciesMutableObject = NSMutableArray()
+            if let arrPolicies = dicCompany["policies"] as? [Any]
+            {
+                arrPoliciesMutableObject = NSMutableArray(array: arrPolicies)
+                if let objPolicyDetail = arrPoliciesMutableObject[iSelectedRow] as? [String:Any]
+                {
+                    let dictPolicyDetailMutableObject = NSMutableDictionary(dictionary: objPolicyDetail)
+                    dictPolicyDetailMutableObject.setValue(bSetValue, forKey: kkeyisPolicySelected)
+                    arrPoliciesMutableObject.replaceObject(at: iSelectedRow, with: dictPolicyDetailMutableObject)
+                }
+            }
+            dictCompanyMutableObject.setValue(arrPoliciesMutableObject, forKey: "policies")
+            arrCompanies.replaceObject(at: iSelectedSection, with: dictCompanyMutableObject)
+        }
 
+        self.setTotalInvoicePrice(iSelectedSection: iSelectedSection, iSelectedRow: iSelectedRow)
+        tblvwInvoiceListing.reloadData()
+    }
+    
     @objc func btnClientClicked(_ sender: Any)
     {
         if(bTerceirosSelected == false)
@@ -325,18 +437,23 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
             }
         }
         return 0
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if selectedInvoiceIndex.contains(indexPath)
+        if let dicCompany = arrCompanies[indexPath.section-1] as? [String:Any]
         {
-            if let dicCompany = arrCompanies[indexPath.section-1] as? [String:Any]
+            if let arrPolicies = dicCompany["policies"] as? [Any]
             {
-                if let arrPolicies = dicCompany["policies"] as? [Any]
+                if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
                 {
-                    return CGFloat(85 + 100 + (arrPolicies.count * 260))
+                    if (objPolicyDetail[kkeyisPolicySelected] as! Bool == true)
+                    {
+                        if let arrReceipts = objPolicyDetail["receipts"] as? [Any]
+                        {
+                            return CGFloat(85 + 100 + (arrReceipts.count * 260))
+                        }
+                    }
                 }
             }
         }
@@ -430,7 +547,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellForClientDetails = tableView.dequeueReusableCell(withIdentifier: kCellOfInvoiceDetails) as! InvoiceDetailsTableViewCell
-        
+
         cellForClientDetails.selectionStyle = .none
         var lblColor = UIColor()
         var sideImageColor = UIColor()
@@ -457,27 +574,34 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
             break
         }
         
-        
         if let dicCompany = arrCompanies[indexPath.section-1] as? [String:Any]
         {
-            
-            if dicCompany[kSectionCellSelected] as! Bool == true
-            {
-                cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
-                cellForClientDetails.bSectionSelected = true
-            }
-            else
-            {
-                cellForClientDetails.imgLeftSelection.backgroundColor = UIColor.clear
-                cellForClientDetails.bSectionSelected = false
-            }
-
             if let arrPolicies = dicCompany["policies"] as? [Any]
             {
                 if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
                 {
                     cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policy"] as! String)
                     cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(objPolicyDetail["amount"] as! Int)"
+                    cellForClientDetails.btnExpandCollapse.isSelected = objPolicyDetail[kkeyisPolicySelected] as! Bool
+                    
+                    if objPolicyDetail[kkeyisPolicySelected] as! Bool == true
+                    {
+                        cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
+                        cellForClientDetails.bSectionSelected = true
+                    }
+                    else
+                    {
+                        if (dicCompany[kSectionCellSelected] as! Bool == true)
+                        {
+                            cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
+                        }
+                        else
+                        {
+                            cellForClientDetails.imgLeftSelection.backgroundColor = UIColor.clear
+                        }
+
+                        cellForClientDetails.bSectionSelected = false
+                    }
                     cellForClientDetails.objPolicyDetails = objPolicyDetail
                 }
             }
@@ -486,19 +610,28 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
         
         cellForClientDetails.lblCaptionInvoiceNumber.textColor = lblColor
         cellForClientDetails.lblCaptionPrice.textColor = lblColor
+        cellForClientDetails.btnExpandCollapse.addTarget(cellForClientDetails, action: #selector(cellForClientDetails.btnExpandCollapseAction(_:)), for: .touchUpInside)
         
-        cellForClientDetails.btnExpandCollapse.tag = indexPath.row
-        cellForClientDetails.btnExpandCollapse.addTarget(self, action: #selector(btnPlusBtnClicked(_:)), for: .touchUpInside)
-        
-        if selectedInvoiceIndex.contains(indexPath)
-        {
-            cellForClientDetails.btnExpandCollapse.isSelected = true
+        cellForClientDetails.btnExpandCollapseSelected = {
+            
+            if let dicCompany = self.arrCompanies[indexPath.section-1] as? [String:Any]
+            {
+                if let arrPolicies = dicCompany["policies"] as? [Any]
+                {
+                    if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
+                    {
+                        if (objPolicyDetail[kkeyisPolicySelected] as! Bool == true)
+                        {
+                            self.setPolicySelection(iSelectedSection: indexPath.section-1, iSelectedRow: indexPath.row, bSetValue: false)
+                        }
+                        else
+                        {
+                            self.setPolicySelection(iSelectedSection: indexPath.section-1, iSelectedRow: indexPath.row, bSetValue: true)
+                        }
+                    }
+                }
+            }
         }
-        else
-        {
-            cellForClientDetails.btnExpandCollapse.isSelected = false
-        }
-
         cellForClientDetails.tblvwInvoices.reloadData()
         cellForClientDetails.InvoiceType = InvoiceType
         cellForClientDetails.bTerceirosSelected = bTerceirosSelected
