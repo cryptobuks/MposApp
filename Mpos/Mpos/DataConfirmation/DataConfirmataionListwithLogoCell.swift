@@ -13,6 +13,8 @@ class DataConfirmataionListwithLogoCell: UITableViewCell
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblSubPrice: UILabel!
+    @IBOutlet weak var lblCompanyTitle: UILabel!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()

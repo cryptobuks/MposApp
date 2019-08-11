@@ -19,6 +19,9 @@ class DataConfirmationVC: UIViewController
     //Declare Variables
     var InvoiceType:Int = 0
     var lblColor = UIColor()
+    var objClientRef = [String:Any]()
+    var objSelectedCompany = [String:Any]()
+    
 
     override func viewDidLoad()
     {
@@ -57,6 +60,8 @@ class DataConfirmationVC: UIViewController
         self.tblvwDataConfirmation.register(UINib(nibName: kDataConfirmataionListwithLogoCell, bundle: nil), forCellReuseIdentifier: kDataConfirmataionListwithLogoCell)
 
         self.tblvwDataConfirmation.register(UINib(nibName: kDataConfirmationNormalListCell, bundle: nil), forCellReuseIdentifier: kDataConfirmationNormalListCell)
+        
+        tblvwDataConfirmation.reloadData()
     }
     
     @IBAction func goBackTapped(_ sender: UIButton)
@@ -76,6 +81,7 @@ class DataConfirmationVC: UIViewController
         let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "ClientDetailsVC") as! ClientDetailsVC
         controller.invoiceType = InvoiceType
+        controller.objClientRef = objClientRef
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -128,7 +134,6 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
     {
         let  headerCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmationHeaderCell) as! DataConfirmationHeaderCell
         
-        headerCell.btnTap.addTarget(self, action: #selector(btnClientClicked(_:)), for: .touchUpInside)
         var lblColor = UIColor()
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
@@ -147,7 +152,9 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
             break
         }
         headerCell.lblTitle.textColor = lblColor
-        
+        headerCell.btnTap.addTarget(self, action: #selector(btnClientClicked(_:)), for: .touchUpInside)
+        headerCell.lblTitle.textColor = lblColor
+        headerCell.lblsubTitle.text = objClientRef["name"] as? String
         return headerCell
     }
     
@@ -159,6 +166,16 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
         case 0:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmataionListwithLogoCell, for: indexPath) as! DataConfirmataionListwithLogoCell
             cellListwithLogoCell.lblTitle.textColor = lblColor
+            cellListwithLogoCell.lblCompanyTitle.text = objSelectedCompany["company"] as? String
+            if let isSectionSelected = objSelectedCompany[kSectionCellSelected] as? Bool, isSectionSelected == true
+            {
+                cellListwithLogoCell.lblSubPrice.text = "\(objSelectedCompany["amount"] as? Int ?? 0)€"
+
+            }
+            else
+            {
+                
+            }
             cell = cellListwithLogoCell
             break
         case 1...2:
