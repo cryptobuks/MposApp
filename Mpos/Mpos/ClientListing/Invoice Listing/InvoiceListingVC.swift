@@ -257,7 +257,7 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
         let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
-        clientWiseInvoiceVC.InvoiceType = InvoiceType
+        clientWiseInvoiceVC.InvoiceType = self.InvoiceType
         clientWiseInvoiceVC.objClientRef = arrClientRefs.object(at: indexPath.row) as! [String : Any]
         clientWiseInvoiceVC.bTerceirosSelected = false
         self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)

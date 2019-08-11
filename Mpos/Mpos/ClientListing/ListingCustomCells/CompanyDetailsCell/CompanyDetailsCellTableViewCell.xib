@@ -80,9 +80,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kse-jl-vv2"/>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmJ-Mb-tis">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmJ-Mb-tis">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <connections>
                             <action selector="btnCheckboxAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NNk-B1-6bK"/>
                         </connections>
@@ -91,8 +90,12 @@
                 <constraints>
                     <constraint firstItem="k7l-yF-KqW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="089-K7-Jp1"/>
                     <constraint firstAttribute="bottom" secondItem="k7l-yF-KqW" secondAttribute="bottom" id="4VZ-Af-hP5"/>
+                    <constraint firstAttribute="bottom" secondItem="YmJ-Mb-tis" secondAttribute="bottom" id="EI4-Ww-06e"/>
                     <constraint firstItem="k7l-yF-KqW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KEd-S7-eGz"/>
+                    <constraint firstAttribute="trailing" secondItem="YmJ-Mb-tis" secondAttribute="trailing" id="Sot-Cm-zsG"/>
                     <constraint firstAttribute="trailing" secondItem="k7l-yF-KqW" secondAttribute="trailing" id="Uu4-jb-l5R"/>
+                    <constraint firstItem="YmJ-Mb-tis" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eCx-Qr-Ayr"/>
+                    <constraint firstItem="YmJ-Mb-tis" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sD4-5v-WJ3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
