@@ -35,7 +35,8 @@ class ClientWiseInvoiceListing: UIViewController {
 
     var InvoiceType:Int = 0
     var objClientRef = [String:Any]()
-    
+    var indexSelectedCompany:Int = -1
+
     var arrCompanies = NSMutableArray()
     var StrType : String = ""
 
@@ -223,6 +224,7 @@ class ClientWiseInvoiceListing: UIViewController {
         {
             if let dicCompany = arrCompanies[iSelectedIndex] as? [String:Any]
             {
+                indexSelectedCompany = iSelectedIndex
                 let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
                 dictCompanyMutableObject.setValue(true, forKey: kSectionCellSelected)
                 arrCompanies.replaceObject(at: iSelectedIndex, with: dictCompanyMutableObject)
@@ -234,6 +236,7 @@ class ClientWiseInvoiceListing: UIViewController {
         }
         else
         {
+            indexSelectedCompany = -1
             ctHeightbtnTotalPrice.constant = 0
             btnTotalInvoicePrice.isHidden = true
         }
@@ -289,6 +292,8 @@ class ClientWiseInvoiceListing: UIViewController {
         let storyBoard = UIStoryboard(name: "DataConfirmation", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "DataConfirmationVC") as! DataConfirmationVC
         controller.InvoiceType = InvoiceType
+        controller.objClientRef = self.objClientRef
+        controller.objSelectedCompany = self.arrCompanies[indexSelectedCompany] as! [String : Any]
         self.navigationController?.pushViewController(controller, animated: true)
     }
     /*
@@ -477,7 +482,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
                 if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
                 {
                     cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policy"] as! String)
-                    cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(objPolicyDetail["amount"] as! Int)"
+                    cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(objPolicyDetail["amount"] as! Int)€"
                     cellForClientDetails.objPolicyDetails = objPolicyDetail
                 }
             }
