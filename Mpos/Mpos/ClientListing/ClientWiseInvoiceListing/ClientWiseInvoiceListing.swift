@@ -194,6 +194,25 @@ class ClientWiseInvoiceListing: UIViewController {
                         {
                             let dictPolicyDetailMutableObject = NSMutableDictionary(dictionary: objPolicyDetail)
                             dictPolicyDetailMutableObject.setValue(false, forKey: kkeyisPolicySelected)
+                            
+                            //set Receipt selected Key
+                            var arrReceiptsMutableObject = NSMutableArray()
+                            if let arrReceipts = objPolicyDetail["receipts"] as? [Any]
+                            {
+                                arrReceiptsMutableObject = NSMutableArray(array: arrReceipts)
+                                for iIndexReceipt in 0..<arrReceiptsMutableObject.count
+                                {
+                                    if let objReceiptsDetail = arrReceiptsMutableObject[iIndexReceipt] as? [String:Any]
+                                    {
+                                        let dictReceiptsDetailMutableObject = NSMutableDictionary(dictionary: objReceiptsDetail)
+                                        dictReceiptsDetailMutableObject.setValue(false, forKey: kkeyisReceiptSelected)
+                                        arrReceiptsMutableObject.replaceObject(at: iIndexReceipt, with: dictReceiptsDetailMutableObject)
+                                    }
+                                }
+                            }
+                            /////////////////////////////
+                            dictPolicyDetailMutableObject.setValue(arrReceiptsMutableObject, forKey: "receipts")
+
                             arrPoliciesMutableObject.replaceObject(at: iIndexPolicy, with: dictPolicyDetailMutableObject)
                         }
                     }
@@ -309,16 +328,15 @@ class ClientWiseInvoiceListing: UIViewController {
                 {
                     if let arrPolicies = dicCompany["policies"] as? [Any]
                     {
-                        if let objPolicyDetail = arrPolicies[iSelectedRow] as? [String:Any]
+                        for iIndexPolicy in 0..<arrPolicies.count
                         {
-                            if objPolicyDetail[kkeyisPolicySelected] as! Bool == true
+                            if let objPolicyDetail = arrPolicies[iIndexPolicy] as? [String:Any]
                             {
-                                bPolicySelected = true
-                                iAmount = iAmount + (objPolicyDetail["amount"] as? Int ?? 0)
-                            }
-                            else
-                            {
-                                bPolicySelected = false
+                                if objPolicyDetail[kkeyisPolicySelected] as! Bool == true
+                                {
+                                    bPolicySelected = true
+                                    iAmount = iAmount + (objPolicyDetail["amount"] as? Int ?? 0)
+                                }
                             }
                         }
                     }
@@ -366,6 +384,25 @@ class ClientWiseInvoiceListing: UIViewController {
         }*/
         indexSelectedCompany = iSelectedSection
 
+        for iIndex in 0..<arrCompanies.count
+        {
+            if iSelectedSection == iIndex
+            {
+            }
+            else
+            {
+                if let dicCompany = arrCompanies[iIndex] as? [String:Any]
+                {
+                    let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)
+                    dictCompanyMutableObject.setValue(false, forKey: kSectionCellSelected)
+                    let arrPoliciesMutableObject = self.setCompanybasedPolicySelection(dictCompany: dicCompany, bSelected: false)
+                    dictCompanyMutableObject.setValue(arrPoliciesMutableObject, forKey: "policies")
+                    arrCompanies.replaceObject(at: iIndex, with: dictCompanyMutableObject)
+                }
+            }
+        }
+
+        
         if let dicCompany = arrCompanies[iSelectedSection] as? [String:Any]
         {
             let dictCompanyMutableObject = NSMutableDictionary(dictionary: dicCompany)

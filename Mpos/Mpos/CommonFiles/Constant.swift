@@ -67,6 +67,7 @@ let kkey_email = "email"
 let kkey_password = "password"
 let kSectionCellSelected = "isSectionCellSelected"
 let kkeyisPolicySelected = "isPolicySelected"
+let kkeyisReceiptSelected = "isReceiptSelected"
 
 
 
