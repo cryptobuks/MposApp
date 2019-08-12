@@ -41,9 +41,14 @@ class DashboardVC: UIViewController
         {
             lblAgentName.text = "\(dictagentContext["name"] ?? "")"
             lblAgentID.text = "ASF: \(dictagentContext["id"] ?? "")"
-            lblAgentCode.text = "\(dictagentContext["agent"] ?? "")"
+            let myMutableString = NSMutableAttributedString(string: "Agente:\(dictagentContext["agent"] ?? "")", attributes: [NSAttributedString.Key.font : lblAgentCode.font])
+            myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictagentContext["agent"] ?? "")".count))
+
+            lblAgentCode.attributedText = myMutableString
         }
     }
+    
+    
     
     func getKPI()
     {
@@ -87,7 +92,12 @@ class DashboardVC: UIViewController
                         picker, value, index in
                         
                         let dictTemp = self.arrListofAgents[value] as! [String:Any]
-                        self.lblAgentCode.text = ("\(dictTemp["id"] ?? "")")
+                        
+                        let myMutableString = NSMutableAttributedString(string: "Agente:\(dictTemp["id"] ?? "")", attributes: [NSAttributedString.Key.font : self.lblAgentCode.font])
+                        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictTemp["id"] ?? "")".count))
+                        
+                        self.lblAgentCode.attributedText = myMutableString
+                        
                         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
                         {
                             let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
@@ -173,7 +183,7 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         
         if let dicData = arrRows[indexPath.row] as? [String:Any]
         {
-            cell.lblCategoryName.text = dicData["type"] as? String
+            cell.lblCategoryName.text = (dicData["type"] as? String)?.uppercased()
             
             switch indexPath.row
             {
@@ -196,7 +206,8 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
             }
             
             cell.lblCount.text =  "\(dicData["quantity"] ?? "")"
-            cell.lblPrice.text = "\(dicData["amount"] ?? "")€"
+            print("\(dicData["amount"] ?? "")".toCurrencyFormat())
+            cell.lblPrice.text = "\(dicData["amount"] ?? "")".toCurrencyFormat()
         }
         return cell
     }

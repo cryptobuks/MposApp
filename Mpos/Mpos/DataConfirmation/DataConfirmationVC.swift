@@ -169,7 +169,7 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
             cellListwithLogoCell.lblCompanyTitle.text = objSelectedCompany["company"] as? String
             if let isSectionSelected = objSelectedCompany[kSectionCellSelected] as? Bool, isSectionSelected == true
             {
-                cellListwithLogoCell.lblSubPrice.text = "\(objSelectedCompany["amount"] as? Int ?? 0)€"
+                cellListwithLogoCell.lblSubPrice.text = "\(objSelectedCompany["amount"])".toCurrencyFormat()
 
             }
             else

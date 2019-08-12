@@ -18,3 +18,14 @@ class CommonMethods: NSObject {
     }
 }
 
+extension String{
+    func toCurrencyFormat() -> String {
+        if let doubleValue = Double(self){
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.locale = Locale(identifier: "fr_FR")
+            return formatter.string(from: NSNumber(value: doubleValue)) ?? ""
+        }
+        return ""
+    }
+}

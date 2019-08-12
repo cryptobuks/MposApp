@@ -162,7 +162,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
             {
                 cellForInvoiceWithCheckBox.lblReceiptNumber.text = objReceiptsDetail["receipt"] as? String
                 cellForInvoiceWithCheckBox.lblIssueDate.text = objReceiptsDetail["issueDate"] as? String
-                cellForInvoiceWithCheckBox.lblValue.text = "\(objReceiptsDetail["amount"] as! Int)"
+                cellForInvoiceWithCheckBox.lblValue.text = "\(String(describing: objReceiptsDetail["amount"] as! Double).toCurrencyFormat())"
             }
         }
         

@@ -248,7 +248,7 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         {
             cellForClientDetails.lblClientName.text = objClientDetails["name"] as? String
             cellForClientDetails.lblNIFValue.text = "\(objClientDetails["nif"] as! Int)"
-            cellForClientDetails.lblRECIBOSValue.text = "\(String(describing: objClientDetails["quantity"] as! Int)) - \(String(describing: objClientDetails["amount"] as! Int))€"
+            cellForClientDetails.lblRECIBOSValue.text = "\(String(describing: objClientDetails["quantity"] as! Int)) - \(String(describing: objClientDetails["amount"] as! Double).toCurrencyFormat())"
         }
         
         return cellForClientDetails
