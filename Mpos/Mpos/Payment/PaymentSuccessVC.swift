@@ -36,6 +36,11 @@ class PaymentSuccessVC: UIViewController
         }
     }
     
+    //MARK: User Actions
+    @IBAction func closeTapped(_ sender: UIButton)
+    {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 
     /*
     // MARK: - Navigation
