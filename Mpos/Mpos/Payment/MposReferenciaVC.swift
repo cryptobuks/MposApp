@@ -45,7 +45,11 @@ class MposReferenciaVC: UIViewController
     }
     @IBAction func closeTapped(_ sender: UIButton)
     {
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+        controller.strSucessMessage = "O envio foi efetuado com sucesso."
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     /*
     // MARK: - Navigation

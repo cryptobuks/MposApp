@@ -375,25 +375,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_SuccessHeader" translatesAutoresizingMaskIntoConstraints="NO" id="42N-7l-LPS">
-                                <rect key="frame" x="20" y="40" width="280" height="227"/>
+                                <rect key="frame" x="20" y="60" width="280" height="227"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeah!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1f6-mN-rDM">
-                                <rect key="frame" x="8" y="275" width="304" height="35"/>
+                                <rect key="frame" x="8" y="295" width="304" height="34"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.21176470588235294" green="0.81960784313725488" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O envio foi efetuado com sucesso." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1N-3J-ge1">
-                                <rect key="frame" x="8" y="340" width="304" height="19"/>
+                                <rect key="frame" x="8" y="359" width="304" height="18"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2O-ng-wNv">
+                                <rect key="frame" x="262" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9lk-yF-Ga2"/>
+                                    <constraint firstAttribute="height" constant="50" id="Myw-wo-vb5"/>
+                                </constraints>
+                                <state key="normal" image="ic_close">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeTapped:" destination="nsF-jh-mEq" eventType="touchUpInside" id="Mc5-KB-DpX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VHV-cm-s42" firstAttribute="trailing" secondItem="J2O-ng-wNv" secondAttribute="trailing" constant="8" id="3xh-Bg-0TF"/>
                             <constraint firstItem="VHV-cm-s42" firstAttribute="trailing" secondItem="1f6-mN-rDM" secondAttribute="trailing" constant="8" id="5pO-Y1-ycr"/>
-                            <constraint firstItem="42N-7l-LPS" firstAttribute="top" secondItem="VHV-cm-s42" secondAttribute="top" constant="20" id="6oE-Lq-Izr"/>
+                            <constraint firstItem="42N-7l-LPS" firstAttribute="top" secondItem="VHV-cm-s42" secondAttribute="top" constant="40" id="6oE-Lq-Izr"/>
                             <constraint firstItem="1f6-mN-rDM" firstAttribute="centerX" secondItem="QVJ-vh-65s" secondAttribute="centerX" id="EK1-Fy-XXR"/>
                             <constraint firstItem="H1N-3J-ge1" firstAttribute="leading" secondItem="VHV-cm-s42" secondAttribute="leading" constant="8" id="Gdc-6o-2Nf"/>
                             <constraint firstItem="1f6-mN-rDM" firstAttribute="top" secondItem="42N-7l-LPS" secondAttribute="bottom" constant="8" id="I0l-CB-Ssc"/>
@@ -401,6 +415,7 @@
                             <constraint firstItem="42N-7l-LPS" firstAttribute="height" secondItem="QVJ-vh-65s" secondAttribute="height" multiplier="1:2.5" id="LZX-sV-tsT"/>
                             <constraint firstItem="42N-7l-LPS" firstAttribute="leading" secondItem="VHV-cm-s42" secondAttribute="leading" constant="20" id="OwA-3U-ess"/>
                             <constraint firstItem="1f6-mN-rDM" firstAttribute="leading" secondItem="VHV-cm-s42" secondAttribute="leading" constant="8" id="SPM-au-ms4"/>
+                            <constraint firstItem="J2O-ng-wNv" firstAttribute="top" secondItem="VHV-cm-s42" secondAttribute="top" id="hVD-Ps-p8a"/>
                             <constraint firstItem="H1N-3J-ge1" firstAttribute="top" secondItem="1f6-mN-rDM" secondAttribute="bottom" constant="30" id="rBL-vN-bSZ"/>
                             <constraint firstItem="VHV-cm-s42" firstAttribute="trailing" secondItem="42N-7l-LPS" secondAttribute="trailing" constant="20" id="x5C-ZZ-k5M"/>
                         </constraints>
