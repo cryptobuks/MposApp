@@ -631,10 +631,19 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
                     cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(String(describing: objPolicyDetail["amount"] as! Double).toCurrencyFormat())"
                     cellForClientDetails.btnExpandCollapse.isSelected = objPolicyDetail[kkeyisPolicySelected] as? Bool ?? false
                     
+                    
+                    if (dicCompany[kSectionCellSelected] as! Bool == true) {
+                        cellForClientDetails.bSectionSelected = true
+                        
+                    }
+                    else {
+                        cellForClientDetails.bSectionSelected = false
+                        
+                    }
+                    
                     if let policySelected = objPolicyDetail[kkeyisPolicySelected] as? Bool, policySelected == true
                     {
                         cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
-                        cellForClientDetails.bSectionSelected = true
                     }
                     else
                     {
@@ -647,9 +656,10 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
                             cellForClientDetails.imgLeftSelection.backgroundColor = UIColor.clear
                         }
 
-                        cellForClientDetails.bSectionSelected = false
                     }
                     cellForClientDetails.objPolicyDetails = objPolicyDetail
+                    cellForClientDetails.delegate = self
+                    cellForClientDetails.selectedIndexPath = indexPath
                 }
             }
         }
@@ -693,3 +703,22 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
     }
 }
 
+extension ClientWiseInvoiceListing : InvoiceDetailsTableViewCellDelegate
+{
+    func updateReceiptObject(selectedReceipt: [String:Any],indexpath:IndexPath)
+    {
+        if var dicCompany = arrCompanies[indexpath.section-1] as? [String:Any]
+        {
+            if var arrPolicies = dicCompany["policies"] as? [Any]
+            {
+                arrPolicies[indexpath.row] = selectedReceipt
+                dicCompany["policies"] = arrPolicies
+            }
+            arrCompanies.replaceObject(at: indexpath.section-1, with: dicCompany)
+
+        }
+        tblvwInvoiceListing.reloadData()
+        
+    }
+
+}

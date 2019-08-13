@@ -8,7 +8,9 @@
 
 import UIKit
 import QuickLook
-
+protocol InvoiceDetailsTableViewCellDelegate {
+    func updateReceiptObject(selectedReceipt: [String:Any],indexpath:IndexPath)
+}
 class InvoiceDetailsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imgLeftSelection: UIImageView!
@@ -20,7 +22,10 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var btnExpandCollapse: UIButton!
     @IBOutlet weak var tblvwInvoices: UITableView!
 
+    var delegate: InvoiceDetailsTableViewCellDelegate?
+
     var objPolicyDetails = [String:Any]()
+    var selectedIndexPath = IndexPath()
     var objParent = UIViewController()
 
     var InvoiceType:Int = 0
@@ -163,6 +168,30 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                 cellForInvoiceWithCheckBox.lblReceiptNumber.text = objReceiptsDetail["receipt"] as? String
                 cellForInvoiceWithCheckBox.lblIssueDate.text = objReceiptsDetail["issueDate"] as? String
                 cellForInvoiceWithCheckBox.lblValue.text = "\(String(describing: objReceiptsDetail["amount"] as! Double).toCurrencyFormat())"
+                
+                
+                if bSectionSelected{
+                    cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
+                    cellForInvoiceWithCheckBox.imgSelected.isHidden = false
+                    cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
+                    cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
+                }
+                else
+                {
+                    if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
+                    {
+                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
+                        cellForInvoiceWithCheckBox.imgSelected.isHidden = false
+                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
+                        cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
+                    }
+                    else
+                    {
+                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
+                        cellForInvoiceWithCheckBox.imgSelected.isHidden = true
+                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
+                    }
+                }
             }
         }
         
@@ -180,21 +209,43 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         /*
             In addition to the two points above, there can also be instances in which individual invoice tickets cannot be selected. Also, there can be instances where only the back-end is aware that particular invoice tickets cannot proceed to further screens within the app. In the first instance, these individual receipts have red design elements and a “danger” icon instead of a checkbox, as illustrated in figure 15 (i.e. in the second invoice ticket shown in the figure). In the second instance, as well as when users press the “danger” icon, the full-screen, closeable pop-up window represented in figure 16 is presented to the user;
          */
-        if indexPath.row == 1
-        {
-            cellForInvoiceWithCheckBox.btnCheckBox.setImage(UIImage(named: "ic_InvoiceError"), for: .normal)
-            cellForInvoiceWithCheckBox.imgSelected.isHidden = false
-            cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
-            cellForInvoiceWithCheckBox.imgSelected.backgroundColor = AppColors.kErrorColor
-        }
-                
+//        if indexPath.row == 1
+//        {
+//            cellForInvoiceWithCheckBox.btnCheckBox.setImage(UIImage(named: "ic_InvoiceError"), for: .normal)
+//            cellForInvoiceWithCheckBox.imgSelected.isHidden = false
+//            cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
+//            cellForInvoiceWithCheckBox.imgSelected.backgroundColor = AppColors.kErrorColor
+//        }
+        
         cellForInvoiceWithCheckBox.btnCheckBoxTapped =
             {
-                //For Error
-                if indexPath.row == 1
+                
+                if var arrReceipts = self.objPolicyDetails["receipts"] as? [Any]
                 {
-                    self.goToErrorPage()
+                    if var objReceiptsDetail = arrReceipts[indexPath.row] as? [String:Any]
+                    {
+                        if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
+                        {
+                            cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
+                        }
+                        else
+                        {
+                            cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
+
+                        }
+                        objReceiptsDetail[kkeyisReceiptSelected] = cellForInvoiceWithCheckBox.btnCheckBox.isSelected
+                        arrReceipts[indexPath.row] = objReceiptsDetail
+                    }
+                    
+                    self.objPolicyDetails["receipts"] = arrReceipts
                 }
+                self.delegate?.updateReceiptObject(selectedReceipt: self.objPolicyDetails, indexpath: self.selectedIndexPath)
+
+                //For Error
+//                if indexPath.row == 1
+//                {
+//                    self.goToErrorPage()
+//                }
         }
         
         cellForInvoiceWithCheckBox.btnDownloadTapped =
@@ -202,19 +253,6 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                 self.downloadDocuments(iSelectedIndexPath: indexPath)
         }
        
-        if bSectionSelected
-        {
-            cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
-            cellForInvoiceWithCheckBox.imgSelected.isHidden = false
-            cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
-            cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
-        }
-        else
-        {
-            cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
-            cellForInvoiceWithCheckBox.imgSelected.isHidden = true
-            cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
-        }
         
         cellForInvoiceWithCheckBox.btnViewMore.addTarget(self, action: #selector(btnMoreInfoClicked(_:)), for: .touchUpInside)
         return cellForInvoiceWithCheckBox
