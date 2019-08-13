@@ -492,7 +492,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
             {
                 if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
                 {
-                    if (objPolicyDetail[kkeyisPolicySelected] as! Bool == true)
+                    if let isPolicySelected = objPolicyDetail[kkeyisPolicySelected] as? Bool ,isPolicySelected == true
                     {
                         if let arrReceipts = objPolicyDetail["receipts"] as? [Any]
                         {
@@ -573,7 +573,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
 
 
                 companyDetailCell.lblInvoiceTotal.text = "\(String(describing: dicCompany["amount"] as! Double).toCurrencyFormat())"
-                companyDetailCell.btnCheckBox.isSelected = dicCompany[kSectionCellSelected] as! Bool
+                companyDetailCell.btnCheckBox.isSelected = dicCompany[kSectionCellSelected] as? Bool ?? false
             }
 
             companyDetailCell.btnRadioTapped = {
@@ -629,16 +629,16 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
                 {
                     cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policy"] as! String)
                     cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(String(describing: objPolicyDetail["amount"] as! Double).toCurrencyFormat())"
-                    cellForClientDetails.btnExpandCollapse.isSelected = objPolicyDetail[kkeyisPolicySelected] as! Bool
+                    cellForClientDetails.btnExpandCollapse.isSelected = objPolicyDetail[kkeyisPolicySelected] as? Bool ?? false
                     
-                    if objPolicyDetail[kkeyisPolicySelected] as! Bool == true
+                    if let policySelected = objPolicyDetail[kkeyisPolicySelected] as? Bool, policySelected == true
                     {
                         cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
                         cellForClientDetails.bSectionSelected = true
                     }
                     else
                     {
-                        if (dicCompany[kSectionCellSelected] as! Bool == true)
+                        if let iscompanySelected = dicCompany[kSectionCellSelected] as? Bool, iscompanySelected == true
                         {
                             cellForClientDetails.imgLeftSelection.backgroundColor = sideImageColor
                         }

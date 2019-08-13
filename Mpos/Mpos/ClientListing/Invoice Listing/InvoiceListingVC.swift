@@ -174,7 +174,7 @@ class InvoiceListingVC: UIViewController {
             
             let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
             let clientWiseInvoiceVC = storyBoard.instantiateViewController(withIdentifier: "ClientWiseInvoiceListing") as! ClientWiseInvoiceListing
-            clientWiseInvoiceVC.InvoiceType = 4
+            clientWiseInvoiceVC.InvoiceType = self.InvoiceType
             
             //set data for client Listing
             clientWiseInvoiceVC.arrCompanies.removeAllObjects()
