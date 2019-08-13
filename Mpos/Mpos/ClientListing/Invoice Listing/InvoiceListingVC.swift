@@ -187,7 +187,7 @@ class InvoiceListingVC: UIViewController {
             {
                 clientWiseInvoiceVC.objClientRef = dictClientRef
             }
-            
+            clientWiseInvoiceVC.bSearchClicked = true
             clientWiseInvoiceVC.bTerceirosSelected = false
             self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
         })
@@ -260,6 +260,7 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         clientWiseInvoiceVC.InvoiceType = self.InvoiceType
         clientWiseInvoiceVC.objClientRef = arrClientRefs.object(at: indexPath.row) as! [String : Any]
         clientWiseInvoiceVC.bTerceirosSelected = false
+        clientWiseInvoiceVC.bSearchClicked = false
         self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
     }
 }

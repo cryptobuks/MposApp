@@ -9,7 +9,7 @@
 import UIKit
 import QuickLook
 protocol InvoiceDetailsTableViewCellDelegate {
-    func updateReceiptObject(selectedReceipt: [String:Any],indexpath:IndexPath)
+    func updateReceiptObject(bSelectedValue:Bool,indexpath:IndexPath,iSelectedReceiptIndex:Int)
 }
 class InvoiceDetailsTableViewCell: UITableViewCell {
 
@@ -178,7 +178,8 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                 cellForInvoiceWithCheckBox.lblIssueDate.text = objReceiptsDetail["issueDate"] as? String
                 cellForInvoiceWithCheckBox.lblValue.text = "\(String(describing: objReceiptsDetail["amount"] as! Double).toCurrencyFormat())"
                 
-                if bSectionSelected{
+                if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
+                {
                     cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
                     cellForInvoiceWithCheckBox.imgSelected.isHidden = false
                     cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
@@ -186,19 +187,9 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                 }
                 else
                 {
-                    if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
-                    {
-                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
-                        cellForInvoiceWithCheckBox.imgSelected.isHidden = false
-                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
-                        cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
-                    }
-                    else
-                    {
-                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
-                        cellForInvoiceWithCheckBox.imgSelected.isHidden = true
-                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
-                    }
+                    cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
+                    cellForInvoiceWithCheckBox.imgSelected.isHidden = true
+                    cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
                 }
             }
         }
@@ -227,28 +218,22 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         
         cellForInvoiceWithCheckBox.btnCheckBoxTapped =
             {
-                
-                if var arrReceipts = self.objPolicyDetails["receipts"] as? [Any]
+                if let arrReceipts = self.objPolicyDetails["receipts"] as? [Any]
                 {
-                    if var objReceiptsDetail = arrReceipts[indexPath.row] as? [String:Any]
+                    if let objReceiptsDetail = arrReceipts[indexPath.row] as? [String:Any]
                     {
                         if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
                         {
                             cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
+                            self.delegate?.updateReceiptObject(bSelectedValue: false, indexpath: self.selectedIndexPath,iSelectedReceiptIndex:indexPath.row)
                         }
                         else
                         {
                             cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
-
+                            self.delegate?.updateReceiptObject(bSelectedValue: true, indexpath: self.selectedIndexPath,iSelectedReceiptIndex:indexPath.row)
                         }
-                        objReceiptsDetail[kkeyisReceiptSelected] = cellForInvoiceWithCheckBox.btnCheckBox.isSelected
-                        arrReceipts[indexPath.row] = objReceiptsDetail
                     }
-                    
-                    self.objPolicyDetails["receipts"] = arrReceipts
                 }
-                self.delegate?.updateReceiptObject(selectedReceipt: self.objPolicyDetails, indexpath: self.selectedIndexPath)
-
                 //For Error
 //                if indexPath.row == 1
 //                {
