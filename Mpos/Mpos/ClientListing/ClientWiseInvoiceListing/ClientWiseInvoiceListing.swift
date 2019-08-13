@@ -205,7 +205,7 @@ class ClientWiseInvoiceListing: UIViewController {
                                     if let objReceiptsDetail = arrReceiptsMutableObject[iIndexReceipt] as? [String:Any]
                                     {
                                         let dictReceiptsDetailMutableObject = NSMutableDictionary(dictionary: objReceiptsDetail)
-                                        dictReceiptsDetailMutableObject.setValue(false, forKey: kkeyisReceiptSelected)
+                                        dictReceiptsDetailMutableObject.setValue(true, forKey: kkeyisReceiptSelected)
                                         arrReceiptsMutableObject.replaceObject(at: iIndexReceipt, with: dictReceiptsDetailMutableObject)
                                     }
                                 }
