@@ -173,11 +173,11 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryListTableViewCell", for: indexPath) as! CategoryListTableViewCell
         
-        cell.layer.masksToBounds = false
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.shadowRadius = 4
+        cell.imgBack.layer.masksToBounds = false
+        cell.imgBack.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cell.imgBack.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.imgBack.layer.shadowOpacity = 0.8
+//        cell.imgBack.layer.shadowRadius = 8
 
         cell.selectionStyle  = .none
         
@@ -188,19 +188,19 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
             switch indexPath.row
             {
             case 0:
-                cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColor
+                cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColorWithAlpha
                 cell.lblCount.textColor = AppColors.kOrangeColor
                 break
             case 1:
-                cell.imgCategoryColor.backgroundColor = AppColors.kPurpulColor
+                cell.imgCategoryColor.backgroundColor = AppColors.kPurpulColorWithAlpha
                 cell.lblCount.textColor = AppColors.kPurpulColor
                 break
             case 2:
-                cell.imgCategoryColor.backgroundColor = AppColors.kGreenColor
+                cell.imgCategoryColor.backgroundColor = AppColors.kGreenColorWithAlpha
                 cell.lblCount.textColor = AppColors.kGreenColor
                 break
             default:
-                cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColor
+                cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColorWithAlpha
                 cell.lblCount.textColor = AppColors.kOrangeColor
                 break
             }
@@ -213,7 +213,7 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 80
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
