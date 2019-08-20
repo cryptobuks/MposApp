@@ -16,6 +16,19 @@ class CommonMethods: NSObject {
         }))
         appDelegate.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
+    public func createHeaderDic(strMethod:String) -> [String:String]
+    {
+        
+        let myText = #"\BS\ViaConsultingD"#
+        let  dicRequestHeaders = ["Content-Type":"application/json","Accept":"application/json",
+                                  "bsPassword" : "eUNfNkE5az8=",
+                                  "bsSolution" : "ViaConsulting",
+                                  "bsUSer" : "\(myText)",
+                                  "bsWebMethod":"\(strMethod)","bsWebService":"ageas-api-MPOS"]
+        
+        return dicRequestHeaders
+    }
+    
 }
 
 extension String{

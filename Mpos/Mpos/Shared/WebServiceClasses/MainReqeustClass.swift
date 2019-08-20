@@ -121,10 +121,11 @@ class MainReqeustClass: NSObject
      - parameter showLoader: Do you need to show Loader[Prgoress View] or Hide it.
      - parameter header: if needed pass it else not required.
      */
-    func postRequestWithHeader(showloaderText:String = "Loading...", showLoader: Bool, url:String, parameter:[String : AnyObject]?,header:[String : String]?, success:@escaping (Dictionary<String, AnyObject>) -> Void, failed:@escaping (String) -> Void)
+    func postRequestWithHeader(showloaderText:String = "Loading...", showLoader: Bool, url:String, parameter:[String : AnyObject],header:[String : String], success:@escaping (Dictionary<String, AnyObject>) -> Void, failed:@escaping (String) -> Void)
     {
         if(isInternetConnection())
         {
+            
             MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: showLoader,loadingText:showloaderText)
             Alamofire.request(url, method: .post, parameters: parameter, encoding: URLEncoding.default, headers: header).responseJSON { (response:DataResponse<Any>) in
                 if showLoader {

@@ -118,9 +118,10 @@ extension ViewController {
         
         if self.doValidation()
         {
-            let params = ["bsUSer":txtfdEmail.text,"bsPassword":txtfdPassword.text]
+            let params = ["username":txtfdEmail.text!,"password":txtfdPassword.text!]
             //Call Login Service
-            MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b0fa83000008800a29f75", parameter: nil, success: { (response) in
+            
+            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: loginUrl), success: { (response) in
                 print(response)
 
                 if let dictagentContext = response["agentContext"] as? [String : Any]
@@ -139,12 +140,7 @@ extension ViewController {
             })
             { (responseError) in
                 print(responseError)
-                // api call
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
-                let navController = UINavigationController(rootViewController: controller)
-                navController.navigationBar.isHidden = true
-                appDelegate.window?.rootViewController = navController
+                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
             }
         }
     }
@@ -201,13 +197,13 @@ extension ViewController {
             self.txtfdEmail.errorMessage = kAlertEnterEmailId
             return false
         }
-        else {
-            if validEmailAddress(txtfdEmail.text!) == false
-            {
-                self.txtfdEmail.errorMessage = kAlertInvalidEmailId
-                return false
-            }
-        }
+//        else {
+//            if validEmailAddress(txtfdEmail.text!) == false
+//            {
+//                self.txtfdEmail.errorMessage = kAlertInvalidEmailId
+//                return false
+//            }
+//        }
         //Validation: Check For password
         if !((self.txtfdPassword.text?.trimmingCharacters(in: CharacterSet.whitespaces).count ?? 0) > 0)
         {
