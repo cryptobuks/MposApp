@@ -123,10 +123,12 @@ class InvoiceListingVC: UIViewController {
     }
     
     // MARK: SumClientsReceipts API CALL
-    func callSumClientsReceipts(type:String){
-        let params = ["type":type]
+    func callSumClientsReceipts(type:String)
+    {
+        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+        let params = ["agentContext":loggedUser!,"type":type] as [String : Any]
         //Call SumClientsReceipts Service
-        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11163000008800a29f7d", parameter: params as [String : AnyObject], success: { (response) in
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: sumClientsReceiptsUrl), success: { (response) in
             print(response)
         
             self.arrClientRefs.removeAllObjects()
@@ -141,7 +143,7 @@ class InvoiceListingVC: UIViewController {
             
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
         }
     }
     
@@ -169,7 +171,10 @@ class InvoiceListingVC: UIViewController {
     
     func callSearchAPI()
     {
-        MainReqeustClass.BaseRequestSharedInstance.getSearchResult(parameter: nil, header: nil, strMethodName: "5d3b117d3000008600a29f84", successCall: { (response) in
+        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+        let params = ["agentContext":loggedUser!,"searchValue": txtfdSearch.text!,"thirdParties": false,"searchType": "R","statusType": "RA"] as [String : Any]
+        
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: searchReceiptsUrl), success: { (response) in
             print(response)
             
             let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
@@ -192,9 +197,8 @@ class InvoiceListingVC: UIViewController {
             self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
         }
-
     }
     
     /*
@@ -247,7 +251,7 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         if let objClientDetails = arrClientRefs.object(at: indexPath.row) as? [String:Any]
         {
             cellForClientDetails.lblClientName.text = objClientDetails["name"] as? String
-            cellForClientDetails.lblNIFValue.text = "\(objClientDetails["nif"] as! Int)"
+            cellForClientDetails.lblNIFValue.text = objClientDetails["nif"] as? String
             cellForClientDetails.lblRECIBOSValue.text = "\(String(describing: objClientDetails["quantity"] as! Int)) - \(String(describing: objClientDetails["amount"] as! Double).toCurrencyFormat())"
         }
         

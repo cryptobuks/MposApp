@@ -81,9 +81,19 @@ class SearchVC: UIViewController {
     
     @IBAction func btnSearchClicked(_ sender: Any)
     {
-        
-        if txtfdSearch.text!.count > 0 {
-            MainReqeustClass.BaseRequestSharedInstance.getSearchResult(parameter: nil, header: nil, strMethodName: "5d3b117d3000008600a29f84", successCall: { (response) in
+        if txtfdSearch.text!.count > 0
+        {
+            let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+            
+            var bthirdParties = false
+            if (self.btnRadio2.isSelected == true)
+            {
+                bthirdParties = true
+            }
+            
+            let params = ["agentContext":loggedUser!,"searchValue": txtfdSearch.text!,"thirdParties": bthirdParties,"searchType": "R","statusType": "RA"] as [String : Any]
+            
+            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: searchReceiptsUrl), success: { (response) in
                 print(response)
                 
                 let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
@@ -114,7 +124,7 @@ class SearchVC: UIViewController {
                 self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
             })
             { (responseError) in
-                print(responseError)
+                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
             }
         }
         else

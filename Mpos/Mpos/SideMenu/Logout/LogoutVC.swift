@@ -30,17 +30,18 @@ class LogoutVC: UIViewController {
     @IBAction func btnLogoutClicked(_ sender: Any)
     {
         // Do any additional setup after loading the view.
-        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b10e93000008600a29f7b", parameter: nil, success: { (response) in
+        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+        let params = ["agentContext":loggedUser]
+        
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: logoutUrl), success: { (response) in
             print(response)
-            
             UserDefaultManager.SharedInstance.removeUser()
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! ViewController
             appDelegate.window?.rootViewController = controller
-            
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
         }
     }
     

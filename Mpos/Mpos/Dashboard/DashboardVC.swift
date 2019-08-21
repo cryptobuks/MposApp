@@ -225,6 +225,10 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
         let invoiceListingVC = storyBoard.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
         invoiceListingVC.InvoiceType = indexPath.row + 1
+        if let dicData = arrRows[indexPath.row] as? [String:Any]
+        {
+            invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+        }
         self.navigationController?.pushViewController(invoiceListingVC, animated: true)
     }
   
