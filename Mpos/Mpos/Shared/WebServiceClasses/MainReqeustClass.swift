@@ -142,9 +142,24 @@ class MainReqeustClass: NSObject
                         {
                             let dictemp = json as! NSDictionary
                             print("dictemp :> \(dictemp)")
-                            if let errorcode = dictemp["errorCode"] as? Int {
-                                if errorcode == 401 || errorcode == 403{
-                                    failed("")
+                            if let errorobject = dictemp["error"] as? [String:Any]
+                            {
+                                if let errorcode = errorobject["errorCode"] as? String
+                                {
+                                    if errorcode != "200"
+                                    {
+                                        failed("\(errorobject["errorMessage"] ?? "")")
+                                        break
+                                    }
+                                }
+                                
+                                if let errorType = errorobject["errorType"] as? String
+                                {
+                                    if errorType != "OK"
+                                    {
+                                        failed("\(errorobject["errorMessage"] ?? "")")
+                                        break
+                                    }
                                 }
                             }
                             

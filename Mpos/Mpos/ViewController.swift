@@ -37,8 +37,8 @@ class ViewController: UIViewController
         lblEmail.text = lblEmail.text!.uppercased()
         lblPassword.text = lblPassword.text!.uppercased()
         
-        txtfdEmail.text = "test@gmail.com"
-        txtfdPassword.text = "test"
+        txtfdEmail.text = "joao.luis"
+        txtfdPassword.text = "abc123"
         
         if Device.IS_IPHONE && Device.SCREEN_HEIGHT < 568
         {

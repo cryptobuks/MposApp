@@ -55,7 +55,7 @@ class DashboardVC: UIViewController
         let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
         let params = ["agentContext":loggedUser!,"timestamp": "2019-04-12 11:06:17"] as [String : Any]
         
-        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: asfAgentsUrl), success: { (response) in
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: kpiUrl), success: { (response) in
             print(response)
             
             if let arrKPIList = response["kpiList"] as? NSArray
