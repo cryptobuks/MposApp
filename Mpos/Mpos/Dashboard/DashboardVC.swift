@@ -52,7 +52,10 @@ class DashboardVC: UIViewController
     
     func getKPI()
     {
-        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b10593000008800a29f78", parameter: nil, success: { (response) in
+        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+        let params = ["agentContext":loggedUser!,"timestamp": "2019-04-12 11:06:17"] as [String : Any]
+        
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: asfAgentsUrl), success: { (response) in
             print(response)
             
             if let arrKPIList = response["kpiList"] as? NSArray
@@ -73,9 +76,11 @@ class DashboardVC: UIViewController
     
     func getListofAgents()
     {
-        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b10293000005f00a29f77", parameter: nil, success: { (response) in
+        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()        
+        let params = ["agentContext":loggedUser]
+
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: asfAgentsUrl), success: { (response) in
             print(response)
-            
             if let agentList = response["agentList"] as? NSArray
             {
                 self.arrListofAgents = NSMutableArray(array: agentList)
@@ -109,7 +114,7 @@ class DashboardVC: UIViewController
             }
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
         }
     }
     

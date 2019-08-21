@@ -35,7 +35,10 @@ class SideMenuHeaderTableViewCell: UITableViewCell {
 //                return
 //        }, cancel: { ActionStringCancelBlock in return }, origin: sender)
 
-        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b10293000005f00a29f77", parameter: nil, success: { (response) in
+        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+        let params = ["agentContext":loggedUser]
+        
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: asfAgentsUrl), success: { (response) in
             print(response)
             
             if let agentList = response["agentList"] as? NSArray
@@ -66,7 +69,7 @@ class SideMenuHeaderTableViewCell: UITableViewCell {
             }
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
         }
     }
 

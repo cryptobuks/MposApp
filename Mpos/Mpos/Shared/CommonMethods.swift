@@ -19,15 +19,16 @@ class CommonMethods: NSObject {
     public func createHeaderDic(strMethod:String) -> [String:String]
     {
         
-        let myText = #"\BS\ViaConsultingD"#
-        let  dicRequestHeaders = ["Content-Type":"application/json","Accept":"application/json",
+        let  dicRequestHeaders = ["Content-Type":"application/json",
                                   "bsPassword" : "eUNfNkE5az8=",
                                   "bsSolution" : "ViaConsulting",
-                                  "bsUSer" : "\(myText)",
-                                  "bsWebMethod":"\(strMethod)","bsWebService":"ageas-api-MPOS"]
+                                  "bsUSer" : #"\BS\ViaConsultingD"#,
+                                  "bsWebMethod":"\(strMethod)",
+                            "bsWebService":"ageas-api-MPOS"]
         
         return dicRequestHeaders
     }
+    
     
 }
 
