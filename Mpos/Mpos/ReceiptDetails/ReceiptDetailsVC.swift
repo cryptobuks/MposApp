@@ -26,6 +26,7 @@ class ReceiptDetailsVC: UIViewController {
     var InvoiceType:Int = 0
     var arrayTitles : [String] = []
     var dicReceiptDetails = [String:Any]()
+    var dicRequestParameter = [String:AnyObject]()
     private let refreshControl = UIRefreshControl()
 
     
@@ -118,11 +119,10 @@ class ReceiptDetailsVC: UIViewController {
     
     // MARK: ClientsReceipts API CALL
     func callReceiptDetails(){
-        let params = ["type":"type"]
+        
         //Call lientsReceipts Service
-        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11ef3000008600a29f87", parameter: params as [String : AnyObject], success: { (response) in
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: dicRequestParameter as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: receiptDetailsUrl), success: { (response) in
             print(response)
-            
             self.dicReceiptDetails = response
 
             self.tblvwReceiptDetailsListing.reloadData()
@@ -130,7 +130,7 @@ class ReceiptDetailsVC: UIViewController {
             
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
         }
     }
     

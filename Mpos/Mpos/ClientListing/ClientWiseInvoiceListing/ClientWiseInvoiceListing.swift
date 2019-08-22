@@ -155,11 +155,11 @@ class ClientWiseInvoiceListing: UIViewController {
     // MARK: ClientsReceipts API CALL
     func callClientReceipts(type:String)
     {
-        let params = ["type":type]
+        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+        let params = ["agentContext":loggedUser!,"type":type,"nif": objClientRef["nif"] as! String] as [String : Any]
         //Call lientsReceipts Service
-        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11453000000f00a29f7e", parameter: params as [String : AnyObject], success: { (response) in
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: clientReceiptsUrl), success: { (response) in
             print(response)
-            
             self.arrCompanies.removeAllObjects()
             
             if let arrCompanies = response["companies"] as? NSArray
@@ -172,7 +172,7 @@ class ClientWiseInvoiceListing: UIViewController {
             
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
         }
     }
     

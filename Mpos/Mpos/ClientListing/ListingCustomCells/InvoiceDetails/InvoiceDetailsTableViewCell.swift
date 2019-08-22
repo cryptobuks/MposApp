@@ -32,6 +32,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     var bTerceirosSelected = Bool()
     var bSectionSelected = Bool()
     lazy var previewItem = NSURL()
+    
     var btnExpandCollapseSelected: (()->())?
 
     override func awakeFromNib() {
@@ -55,10 +56,22 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @objc func btnMoreInfoClicked(_ sender: Any) {
+    @objc func btnMoreInfoClicked(_ sender: UIButton) {
         let storyBoard = UIStoryboard(name: "ReceiptDetails", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "ReceiptDetailsVC") as! ReceiptDetailsVC
         controller.InvoiceType = InvoiceType
+        var dicRequest = [String:AnyObject]()
+        if let arrReceipts = self.objPolicyDetails["receipts"] as? [Any]
+        {
+            if let objReceiptsDetail = arrReceipts[sender.tag] as? [String:Any]
+            {
+                dicRequest["policy"] = objReceiptsDetail["policy"] as AnyObject?
+                dicRequest["receipt"] = objReceiptsDetail["receipt"] as AnyObject?
+                dicRequest["company"] = objReceiptsDetail["company"] as AnyObject?
+
+            }
+        }
+        controller.dicRequestParameter = dicRequest
         self.viewControllerForTableView?.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -73,8 +86,22 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     
     func downloadDocuments(iSelectedIndexPath:IndexPath)
     {
-        //Call lientsReceipts Service
-        MainReqeustClass.BaseRequestSharedInstance.PostRequset(showLoader: true, url: "5d3b11c23000008800a29f85", parameter: nil, success: { (response) in
+        
+        
+        var dicRequest = [String:AnyObject]()
+        if let arrReceipts = self.objPolicyDetails["receipts"] as? [Any]
+        {
+            if let objReceiptsDetail = arrReceipts[iSelectedIndexPath.row] as? [String:Any]
+            {
+                dicRequest["policy"] = objReceiptsDetail["policy"] as AnyObject?
+                dicRequest["receipt"] = objReceiptsDetail["receipt"] as AnyObject?
+                dicRequest["company"] = objReceiptsDetail["company"] as AnyObject?
+                dicRequest["documentId"] = objReceiptsDetail["pdf"] as AnyObject?
+
+            }
+        }
+       
+        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: dicRequest as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: getDocUrl), success: { (response) in
             print(response)
             
             if let strBase64String = response["pdf"] as? String
@@ -91,7 +118,7 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
             self.objParent.present(previewController, animated: true, completion: nil)
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
         }
     }
     
@@ -248,6 +275,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
        
         
         cellForInvoiceWithCheckBox.btnViewMore.addTarget(self, action: #selector(btnMoreInfoClicked(_:)), for: .touchUpInside)
+        cellForInvoiceWithCheckBox.btnViewMore.tag = indexPath.row
         return cellForInvoiceWithCheckBox
     }
     

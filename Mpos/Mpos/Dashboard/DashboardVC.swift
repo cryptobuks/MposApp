@@ -69,7 +69,8 @@ class DashboardVC: UIViewController
             }
         })
         { (responseError) in
-            print(responseError)
+            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+
         }
         self.tblCategoryList.reloadData()
     }
