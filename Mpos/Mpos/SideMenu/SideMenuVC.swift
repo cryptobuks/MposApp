@@ -11,7 +11,7 @@ import UIKit
 class SideMenuVC: UIViewController
 {
     @IBOutlet weak var tblSideMenu: UITableView!
-    let arrRows = NSMutableArray()
+    var arrRows = NSMutableArray()
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -21,20 +21,8 @@ class SideMenuVC: UIViewController
         self.tblSideMenu.estimatedSectionHeaderHeight = UITableView.automaticDimension
         self.tblSideMenu.rowHeight = UITableView.automaticDimension
         
-        var dictTemp = ["imgIcon":"ic_Category1","Title":"RISCO DE ANULAÇÃO"]
-        arrRows.add(dictTemp)
-        
-        dictTemp = ["imgIcon":"ic_Category2","Title":"POR COBRAR"]
-        arrRows.add(dictTemp)
-        
-        dictTemp = ["imgIcon":"ic_Category3","Title":"COBRADOS"]
-        arrRows.add(dictTemp)
-        
-        dictTemp = ["imgIcon":"ic_terms","Title":"POLÍTICA DE PRIVACIDADE"]
-        arrRows.add(dictTemp)
-
-        dictTemp = ["imgIcon":"ic_terms","Title":"TERMOS E CONDIÇÕES"]
-        arrRows.add(dictTemp)
+        let arrData = UserDefaultManager.SharedInstance.getArrayData(strKeyName: "SidebarData")
+        arrRows = arrData ?? NSMutableArray()
 
         self.tblSideMenu.reloadData()
         // Do any additional setup after loading the view.
@@ -95,7 +83,7 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return arrRows.count
+        return arrRows.count+2
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
@@ -115,13 +103,9 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SideMenuContentTableViewCell", for: indexPath) as! SideMenuContentTableViewCell
         
-        if let dicData = arrRows[indexPath.row] as? [String:AnyObject]
-        {
-            cell.imgIcon.image = UIImage(named: dicData["imgIcon"] as! String)
-            cell.lblTitle.text = dicData["Title"] as? String
-            
             if indexPath.row > 2
             {
+                cell.imgIcon.image = UIImage(named:"ic_terms")
                 cell.lblTitle.font = UIFont(name: "Ubuntu", size: 14.0)
                 cell.lblTitle.textColor = UIColor(red: 177.0/255.0, green: 177.0/255.0, blue: 177.0/255.0, alpha: 1.0)
             }
@@ -131,14 +115,17 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
                 {
                 case 0:
                     cell.lblTitle.textColor = AppColors.kOrangeColor
+                    cell.imgIcon.image = UIImage(named:"ic_Category1")
                     break
                     
                 case 1:
                     cell.lblTitle.textColor = AppColors.kPurpulColor
+                    cell.imgIcon.image = UIImage(named:"ic_Category2")
                     break
                     
                 case 2:
                     cell.lblTitle.textColor = AppColors.kGreenColor
+                    cell.imgIcon.image = UIImage(named:"ic_Category3")
                     break
                     
                 default:
@@ -146,7 +133,25 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
                 }
                 cell.lblTitle.font = UIFont(name: "Ubuntu-Bold", size: 14.0)
             }
-        }
+            
+            switch(indexPath.row)
+            {
+            case 0...2:
+                if let dicData = arrRows[indexPath.row] as? [String:AnyObject]
+                {
+                    cell.lblTitle.text = (dicData["type"] as? String)?.uppercased()
+                }
+            case 3:
+                cell.lblTitle.text = "POLÍTICA DE PRIVACIDADE"
+                break
+                
+            case 4:
+                cell.lblTitle.text = "TERMOS E CONDIÇÕES"
+                break
+                
+            default:
+                break
+            }
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -187,6 +192,10 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
             let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
             let invoiceListingVC = storyBoard.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
             invoiceListingVC.InvoiceType = indexPath.row + 1
+            if let dicData = arrRows[indexPath.row] as? [String:Any]
+            {
+                invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+            }
             navController.pushViewController(invoiceListingVC, animated: true)
         }
     }

@@ -64,8 +64,11 @@ class DashboardVC: UIViewController
                 for index in 0..<arrKPIList.count-1
                 {
                     self.arrRows.add(arrKPIList[index])
-                    self.tblCategoryList.reloadData()
                 }
+                
+                UserDefaultManager.SharedInstance.saveArrayData(arr: self.arrRows, strKeyName: "SidebarData")
+                self.tblCategoryList.reloadData()
+
             }
         })
         { (responseError) in
