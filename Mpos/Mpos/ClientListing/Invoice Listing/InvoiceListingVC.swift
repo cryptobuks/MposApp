@@ -247,6 +247,11 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         cellForClientDetails.lblCaptionNIF.textColor = lblColor
         cellForClientDetails.lblCaptionRECIBOS.textColor = lblColor
         
+        if indexPath.row == arrClientRefs.count - 1
+        {
+            self.scrvw_Height_Constraint.constant = (self.tblvwInvoiceListing.contentSize.height + 100)
+        }
+        
         
         if let objClientDetails = arrClientRefs.object(at: indexPath.row) as? [String:Any]
         {

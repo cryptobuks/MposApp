@@ -11,7 +11,7 @@ import UIKit
 class DashboardVC: UIViewController
 {
     @IBOutlet weak var tblCategoryList: UITableView!
-    let arrRows = NSMutableArray()
+    var arrRows = NSMutableArray()
     @IBOutlet weak var lblAgentCode: UILabel!
     @IBOutlet weak var lblAgentName: UILabel!
     @IBOutlet weak var lblAgentID: UILabel!
@@ -52,6 +52,7 @@ class DashboardVC: UIViewController
     
     func getKPI()
     {
+        arrRows = NSMutableArray()
         let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
         let params = ["agentContext":loggedUser!,"timestamp": "2019-04-12 11:06:17"] as [String : Any]
         
@@ -112,6 +113,11 @@ class DashboardVC: UIViewController
                             let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
                             dictUserObject.setValue(dictTemp["id"], forKey: "agent")
                             UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictUserObject as! [String : Any])
+                            
+                            //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                                self.getKPI()
+                            })
                         }
                         return
                 }, cancel: { ActionStringCancelBlock in return }, origin: self.btnChageAgent)
