@@ -36,7 +36,7 @@ class MposErrorVC: UIViewController {
     //MARK: User Actions
     @IBAction func closeTapped(_ sender: UIButton)
     {
-        self.navigationController?.popViewController(animated: true)
+        self.view.removeFromSuperview()
     }
 
     /*

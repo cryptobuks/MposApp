@@ -143,7 +143,8 @@ class InvoiceListingVC: UIViewController {
             
         })
         { (responseError) in
-            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            addErrorView(senderViewController: self, strErrorMessage: responseError)
         }
     }
     
@@ -164,7 +165,9 @@ class InvoiceListingVC: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    @IBAction func btnSearchClicked(_ sender: Any) {
+    @IBAction func btnSearchClicked(_ sender: Any)
+    {
+        self.txtfdSearch.resignFirstResponder()
         self.callSearchAPI()
     }
     
@@ -197,7 +200,8 @@ class InvoiceListingVC: UIViewController {
             self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
         })
         { (responseError) in
-            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            addErrorView(senderViewController: self, strErrorMessage: responseError)
         }
     }
     

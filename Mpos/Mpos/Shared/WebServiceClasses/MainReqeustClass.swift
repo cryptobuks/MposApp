@@ -166,6 +166,7 @@ class MainReqeustClass: NSObject
                             if dictemp.count > 0
                             {
                                 success(dictemp as! Dictionary<String, AnyObject>)
+                                break
                             }
                             else
                             {
@@ -176,6 +177,7 @@ class MainReqeustClass: NSObject
                     else
                     {
                         failed("\(response.result.error?.localizedDescription ?? "")")
+                        break
                     }
                     break
                 case .failure(_):

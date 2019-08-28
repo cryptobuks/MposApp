@@ -172,7 +172,8 @@ class ClientWiseInvoiceListing: UIViewController {
             
         })
         { (responseError) in
-            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            addErrorView(senderViewController: self, strErrorMessage: responseError)
         }
     }
     
