@@ -41,8 +41,8 @@ class DashboardVC: UIViewController
         {
             lblAgentName.text = "\(dictagentContext["name"] ?? "")"
             lblAgentID.text = "ASF: \(dictagentContext["id"] ?? "")"
-            let myMutableString = NSMutableAttributedString(string: "Agente:\(dictagentContext["agent"] ?? "")", attributes: [NSAttributedString.Key.font : lblAgentCode.font])
-            myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictagentContext["agent"] ?? "")".count))
+            let myMutableString = NSMutableAttributedString(string: "Agente:\(dictagentContext["agentId"] ?? "")", attributes: [NSAttributedString.Key.font : lblAgentCode.font])
+            myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictagentContext["agentId"] ?? "")".count))
 
             lblAgentCode.attributedText = myMutableString
         }
@@ -107,7 +107,7 @@ class DashboardVC: UIViewController
                         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
                         {
                             let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
-                            dictUserObject.setValue(dictTemp["id"], forKey: "agent")
+                            dictUserObject.setValue(dictTemp["id"], forKey: "agentId")
                             UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictUserObject as! [String : Any])
                         }
                         return

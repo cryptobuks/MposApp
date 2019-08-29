@@ -65,9 +65,9 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         {
             if let objReceiptsDetail = arrReceipts[sender.tag] as? [String:Any]
             {
-                dicRequest["policy"] = objReceiptsDetail["policy"] as AnyObject?
-                dicRequest["receipt"] = objReceiptsDetail["receipt"] as AnyObject?
-                dicRequest["company"] = objReceiptsDetail["company"] as AnyObject?
+                dicRequest["policyId"] = objReceiptsDetail["policyId"] as AnyObject?
+                dicRequest["receiptId"] = objReceiptsDetail["receiptId"] as AnyObject?
+                dicRequest["companyId"] = objReceiptsDetail["companyId"] as AnyObject?
 
             }
         }
@@ -93,9 +93,9 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
         {
             if let objReceiptsDetail = arrReceipts[iSelectedIndexPath.row] as? [String:Any]
             {
-                dicRequest["policy"] = objReceiptsDetail["policy"] as AnyObject?
-                dicRequest["receipt"] = objReceiptsDetail["receipt"] as AnyObject?
-                dicRequest["company"] = objReceiptsDetail["company"] as AnyObject?
+                dicRequest["policyId"] = objReceiptsDetail["policyId"] as AnyObject?
+                dicRequest["receiptId"] = objReceiptsDetail["receiptId"] as AnyObject?
+                dicRequest["companyId"] = objReceiptsDetail["companyId"] as AnyObject?
                 dicRequest["documentId"] = objReceiptsDetail["pdf"] as AnyObject?
 
             }
@@ -201,7 +201,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         {
             if let objReceiptsDetail = arrReceipts[indexPath.row] as? [String:Any]
             {
-                cellForInvoiceWithCheckBox.lblReceiptNumber.text = objReceiptsDetail["receipt"] as? String
+                cellForInvoiceWithCheckBox.lblReceiptNumber.text = objReceiptsDetail["receiptId"] as? String
                 cellForInvoiceWithCheckBox.lblIssueDate.text = objReceiptsDetail["issueDate"] as? String
                 cellForInvoiceWithCheckBox.lblValue.text = "\(String(describing: objReceiptsDetail["amount"] as! Double).toCurrencyFormat())"
                 

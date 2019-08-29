@@ -120,6 +120,9 @@ class ReceiptDetailsVC: UIViewController {
     // MARK: ClientsReceipts API CALL
     func callReceiptDetails(){
         
+        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+        dicRequestParameter["agentContext"] = loggedUser! as AnyObject
+        
         //Call lientsReceipts Service
         MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: dicRequestParameter as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: receiptDetailsUrl), success: { (response) in
             print(response)
@@ -175,10 +178,10 @@ class ReceiptDetailsVC: UIViewController {
         \(dicReceiptDetails["clientName"] as? String ?? "")
         
         RECIBO
-        \(dicReceiptDetails["receipt"] as? String ?? "")
+        \(dicReceiptDetails["receiptId"] as? String ?? "")
         
         APÓLICE
-        \(dicReceiptDetails["policy"] as? String ?? "")
+        \(dicReceiptDetails["policyId"] as? String ?? "")
         
         ESTADO
         \(dicReceiptDetails["situation"] as? String ?? "")
@@ -384,8 +387,8 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             cellForGeneralData.lblCaptionPolicyNumber.textColor = lblColor
             
             cellForGeneralData.lblClient.text = dicReceiptDetails["clientName"] as? String
-            cellForGeneralData.lblReceipt.text = dicReceiptDetails["receipt"] as? String
-            cellForGeneralData.lblPolicyNumber.text = dicReceiptDetails["policy"] as? String
+            cellForGeneralData.lblReceipt.text = dicReceiptDetails["receiptId"] as? String
+            cellForGeneralData.lblPolicyNumber.text = dicReceiptDetails["policyId"] as? String
             cellForGeneralData.lblState.text = dicReceiptDetails["situation"] as? String
             cellForGeneralData.lblFractioning.text = dicReceiptDetails["fractionation"] as? String
             cellForGeneralData.lblKind.text = dicReceiptDetails["type"] as? String

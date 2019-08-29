@@ -91,7 +91,7 @@ class SearchVC: UIViewController {
                 bthirdParties = true
             }
             
-            let params = ["agentContext":loggedUser!,"searchValue": txtfdSearch.text!,"thirdParties": bthirdParties,"searchType": "R","statusType": "RA"] as [String : Any]
+            let params = ["agentContext":loggedUser!,"searchValue": txtfdSearch.text!,"thirdParties": bthirdParties,"statusType": "RA"] as [String : Any]
             
             MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: searchReceiptsUrl), success: { (response) in
                 print(response)

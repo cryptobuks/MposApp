@@ -620,9 +620,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
             
             if let dicCompany = arrCompanies[section-1] as? [String:Any]
             {
-                companyDetailCell.lblCompanyName.text = dicCompany["company"] as? String
-
-
+                companyDetailCell.lblCompanyName.text = dicCompany["companyId"] as? String
                 companyDetailCell.lblInvoiceTotal.text = "\(String(describing: dicCompany["amount"] as! Double).toCurrencyFormat())"
                 companyDetailCell.btnCheckBox.isSelected = dicCompany[kSectionCellSelected] as? Bool ?? false
             }
@@ -678,7 +676,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
             {
                 if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
                 {
-                    cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policy"] as! String)
+                    cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policyId"] as! String)
                     cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(String(describing: objPolicyDetail["amount"] as! Double).toCurrencyFormat())"
                     cellForClientDetails.btnExpandCollapse.isSelected = objPolicyDetail[kkeyisPolicySelected] as? Bool ?? false
                     

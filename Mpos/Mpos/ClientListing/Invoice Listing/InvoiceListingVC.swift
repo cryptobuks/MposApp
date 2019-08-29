@@ -172,7 +172,7 @@ class InvoiceListingVC: UIViewController {
     func callSearchAPI()
     {
         let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
-        let params = ["agentContext":loggedUser!,"searchValue": txtfdSearch.text!,"thirdParties": false,"searchType": "R","statusType": "RA"] as [String : Any]
+        let params = ["agentContext":loggedUser!,"searchValue": txtfdSearch.text!,"thirdParties": false,"statusType": StrType] as [String : Any]
         
         MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: searchReceiptsUrl), success: { (response) in
             print(response)

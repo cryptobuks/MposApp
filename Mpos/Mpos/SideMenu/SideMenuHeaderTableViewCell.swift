@@ -61,7 +61,7 @@ class SideMenuHeaderTableViewCell: UITableViewCell {
                         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
                         {
                             let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
-                            dictUserObject.setValue(dictTemp["id"], forKey: "agent")
+                            dictUserObject.setValue(dictTemp["id"], forKey: "agentId")
                             UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictUserObject as! [String : Any])
                         }
                         return

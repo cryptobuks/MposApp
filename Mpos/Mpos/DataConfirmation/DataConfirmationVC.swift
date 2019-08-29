@@ -166,7 +166,7 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
         case 0:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmataionListwithLogoCell, for: indexPath) as! DataConfirmataionListwithLogoCell
             cellListwithLogoCell.lblTitle.textColor = lblColor
-            cellListwithLogoCell.lblCompanyTitle.text = objSelectedCompany["company"] as? String
+            cellListwithLogoCell.lblCompanyTitle.text = objSelectedCompany["companyId"] as? String
             if let isSectionSelected = objSelectedCompany[kSectionCellSelected] as? Bool, isSectionSelected == true
             {
                 cellListwithLogoCell.lblSubPrice.text = "\(objSelectedCompany["amount"])".toCurrencyFormat()
