@@ -144,20 +144,17 @@ class MainReqeustClass: NSObject
                             print("dictemp :> \(dictemp)")
                             if let errorobject = dictemp["errors"] as? [[String:Any]]
                             {
-                                if let errordata = errorobject.first?["errorCode"] as? [String:Any]
+                                if let errorCode = errorobject.first?["errorCode"] as? String,errorCode != "200"
                                 {
-                                    if let error = errordata["errorCode"] as? String, error != "200"
-                                    {
-                                        failed("\(errordata["errorMessage"] ?? "")")
-                                        break
-                                    }
-                                    if let errorType = errordata["errorCode"] as? String, errorType != "OK"
-                                    {
-                                        failed("\(errordata["errorMessage"] ?? "")")
-                                        break
-                                    }
+                                    failed("\(errorobject.first?["errorMessage"] ?? "")")
+                                    break
                                 }
                                 
+                                if let errorType = errorobject.first?["errorType"] as? String, errorType != "OK"
+                                {
+                                    failed("\(errorobject.first?["errorMessage"] ?? "")")
+                                    break
+                                }
                             }
                             
                             if dictemp.count > 0

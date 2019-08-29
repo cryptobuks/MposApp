@@ -49,7 +49,7 @@ class SideMenuHeaderTableViewCell: UITableViewCell {
                 for index in 0..<arrListofAgents.count
                 {
                     let dictTemp = arrListofAgents[index] as! [String:Any]
-                    arrtemp.append("\(dictTemp["id"] ?? "") - \(dictTemp["name"] ?? "")")
+                    arrtemp.append("\(dictTemp["agentId"] ?? "") - \(dictTemp["name"] ?? "")")
                 }
                 
                 ActionSheetStringPicker.show(withTitle: "", rows: arrtemp , initialSelection: 0, doneBlock:
@@ -57,11 +57,11 @@ class SideMenuHeaderTableViewCell: UITableViewCell {
                         picker, value, index in
                         
                         let dictTemp = arrListofAgents[value] as! [String:Any]
-                        self.lblAgentNumber.text = ("\(dictTemp["id"] ?? "")")
+                        self.lblAgentNumber.text = ("\(dictTemp["agentId"] ?? "")")
                         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
                         {
                             let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
-                            dictUserObject.setValue(dictTemp["id"], forKey: "agentId")
+                            dictUserObject.setValue(dictTemp["agentId"], forKey: "agentId")
                             UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictUserObject as! [String : Any])
                         }
                         return

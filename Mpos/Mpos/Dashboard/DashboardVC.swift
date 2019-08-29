@@ -40,7 +40,7 @@ class DashboardVC: UIViewController
         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
         {
             lblAgentName.text = "\(dictagentContext["name"] ?? "")"
-            lblAgentID.text = "ASF: \(dictagentContext["id"] ?? "")"
+            lblAgentID.text = "ASF: \(dictagentContext["agentId"] ?? "")"
             let myMutableString = NSMutableAttributedString(string: "Agente:\(dictagentContext["agentId"] ?? "")", attributes: [NSAttributedString.Key.font : lblAgentCode.font])
             myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictagentContext["agentId"] ?? "")".count))
 
@@ -94,7 +94,7 @@ class DashboardVC: UIViewController
                 for index in 0..<self.arrListofAgents.count
                 {
                     let dictTemp = self.arrListofAgents[index] as! [String:Any]
-                    arrtemp.append("\(dictTemp["id"] ?? "") - \(dictTemp["name"] ?? "")")
+                    arrtemp.append("\(dictTemp["agentId"] ?? "") - \(dictTemp["name"] ?? "")")
                 }
                 
                 ActionSheetStringPicker.show(withTitle: "", rows: arrtemp , initialSelection: 0, doneBlock:
@@ -103,15 +103,15 @@ class DashboardVC: UIViewController
                         
                         let dictTemp = self.arrListofAgents[value] as! [String:Any]
                         
-                        let myMutableString = NSMutableAttributedString(string: "Agente:\(dictTemp["id"] ?? "")", attributes: [NSAttributedString.Key.font : self.lblAgentCode.font])
-                        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictTemp["id"] ?? "")".count))
+                        let myMutableString = NSMutableAttributedString(string: "Agente:\(dictTemp["agentId"] ?? "")", attributes: [NSAttributedString.Key.font : self.lblAgentCode.font])
+                        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictTemp["agentId"] ?? "")".count))
                         
                         self.lblAgentCode.attributedText = myMutableString
                         
                         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
                         {
                             let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
-                            dictUserObject.setValue(dictTemp["id"], forKey: "agentId")
+                            dictUserObject.setValue(dictTemp["agentId"], forKey: "agentId")
                             UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictUserObject as! [String : Any])
                             
                             //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
