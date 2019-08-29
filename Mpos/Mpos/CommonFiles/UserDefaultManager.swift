@@ -28,6 +28,28 @@ class UserDefaultManager: NSObject
         defaut.synchronize()
     }
     
+    func saveArrayData(arr:NSMutableArray,strKeyName:String)
+    {
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: arr)
+        let defaut = UserDefaults.standard
+        defaut.set(encodedData, forKey:strKeyName)
+        defaut.synchronize()
+    }
+    func getArrayData(strKeyName:String) -> NSMutableArray?
+    {
+        let defaut = UserDefaults.standard
+        let data = defaut.object(forKey: strKeyName)
+        if (data != nil)
+        {
+            let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: data as! Data)
+            return decodedTeams as? NSMutableArray
+        }
+        else {
+            return nil
+        }
+    }
+
+    
     func getData(dict:[String:Any],strKeyName:String) -> Dictionary<String, Any>?
     {
         let defaut = UserDefaults.standard

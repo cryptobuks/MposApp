@@ -118,7 +118,8 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
             self.objParent.present(previewController, animated: true, completion: nil)
         })
         { (responseError) in
-            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            addErrorView(senderViewController: self.objParent, strErrorMessage: responseError)
         }
     }
     

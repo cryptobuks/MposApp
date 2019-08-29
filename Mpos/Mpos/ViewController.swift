@@ -140,7 +140,8 @@ extension ViewController {
             })
             { (responseError) in
                 print(responseError)
-                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+                addErrorView(senderViewController: self, strErrorMessage: responseError)
+//                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
             }
         }
     }

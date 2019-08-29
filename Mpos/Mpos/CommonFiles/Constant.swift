@@ -133,21 +133,6 @@ enum kValidationMsg : String {
     case userIsOfflineMode = "You are offline"
 }
 
-enum kServerStatus : Int {
-    case NOValue ///No Value as per server enum match
-    case New // 1
-    case InProgress //2
-    case OnHold // 3
-    case Transferred // 4
-    case InRectification // 5
-    case Rejected // 6
-    case Downloaded // 7
-    case Invalid  //8
-    case AwaitingPreInstall //9
-    case PreInstallCompleted //10
-    case AwaitingPostInstall  //11
-    case PostInstallCompleted  //12
-}
 
 enum kWebURLs: String {
     case terms_conditions = ""
@@ -287,4 +272,15 @@ func getImageFromDocumentDirectory(imageName: String) -> NSURL
     let urlString: String = imagePath!.absoluteString
     let fileurl = NSURL(fileURLWithPath: urlString)
     return fileurl
+}
+
+func addErrorView(senderViewController:UIViewController,strErrorMessage:String)
+{
+    let storyBoard = UIStoryboard(name: "MposError", bundle: nil)
+    let controller = storyBoard.instantiateViewController(withIdentifier: "MposErrorVC") as! MposErrorVC
+    controller.strErrorMessage = strErrorMessage
+    senderViewController.willMove(toParent: senderViewController)
+    senderViewController.view.addSubview(controller.view)
+    senderViewController.addChild(controller)
+    controller.didMove(toParent: senderViewController)
 }

@@ -70,6 +70,7 @@ class SideMenuHeaderTableViewCell: UITableViewCell {
         })
         { (responseError) in
             CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//            addErrorView(senderViewController: self, strErrorMessage: responseError)
         }
     }
 

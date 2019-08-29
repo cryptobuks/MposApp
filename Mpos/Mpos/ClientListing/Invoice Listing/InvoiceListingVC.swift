@@ -143,7 +143,8 @@ class InvoiceListingVC: UIViewController {
             
         })
         { (responseError) in
-            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            addErrorView(senderViewController: self, strErrorMessage: responseError)
         }
     }
     
@@ -164,7 +165,9 @@ class InvoiceListingVC: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    @IBAction func btnSearchClicked(_ sender: Any) {
+    @IBAction func btnSearchClicked(_ sender: Any)
+    {
+        self.txtfdSearch.resignFirstResponder()
         self.callSearchAPI()
     }
     
@@ -197,7 +200,8 @@ class InvoiceListingVC: UIViewController {
             self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
         })
         { (responseError) in
-            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            addErrorView(senderViewController: self, strErrorMessage: responseError)
         }
     }
     
@@ -246,6 +250,11 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         cellForClientDetails.lblCaptionClientName.textColor = lblColor
         cellForClientDetails.lblCaptionNIF.textColor = lblColor
         cellForClientDetails.lblCaptionRECIBOS.textColor = lblColor
+        
+        if indexPath.row == arrClientRefs.count - 1
+        {
+            self.scrvw_Height_Constraint.constant = (self.tblvwInvoiceListing.contentSize.height + 100)
+        }
         
         
         if let objClientDetails = arrClientRefs.object(at: indexPath.row) as? [String:Any]

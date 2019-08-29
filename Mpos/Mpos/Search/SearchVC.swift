@@ -81,6 +81,8 @@ class SearchVC: UIViewController {
     
     @IBAction func btnSearchClicked(_ sender: Any)
     {
+        self.txtfdSearch.resignFirstResponder()
+
         if txtfdSearch.text!.count > 0
         {
             let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
@@ -124,7 +126,8 @@ class SearchVC: UIViewController {
                 self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
             })
             { (responseError) in
-                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+                addErrorView(senderViewController: self, strErrorMessage: responseError)
             }
         }
         else
