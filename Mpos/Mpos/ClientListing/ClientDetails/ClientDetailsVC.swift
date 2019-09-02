@@ -32,7 +32,7 @@ class ClientDetailsVC: UIViewController
         dictTemp = ["details": "\(objClientRef["quantity"] as? Int ?? 0 )","Title":"Nº RECIBOS"]
         arrRows.add(dictTemp)
         
-        let amount = "\(objClientRef["amount"])".toCurrencyFormat()
+        let amount = "\(objClientRef["amount"] ?? "")".toCurrencyFormat()
         dictTemp = ["details":"\(amount)","Title":"A PAGAR"]
         arrRows.add(dictTemp)
         

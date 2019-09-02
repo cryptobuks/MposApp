@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/Shared/WebServiceClasses/MainReqeustClass.swift"
+            timestampString = "589138326.65619"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "postRequestWithHeader(showloaderText:showLoader:url:parameter:header:success:failed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mpos.MainReqeustClass.postRequestWithHeader(showloaderText: Swift.String, showLoader: Swift.Bool, url: Swift.String, parameter: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, header: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, success: (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; (), failed: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "Mpos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Shared/WebServiceClasses/MainReqeustClass.swift"
+                  timestampString = "589139955.348121"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "580">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Mpos.MainReqeustClass.postRequestWithHeader(showloaderText: Swift.String, showLoader: Swift.Bool, url: Swift.String, parameter: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, header: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, success: (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; (), failed: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "Mpos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Shared/WebServiceClasses/MainReqeustClass.swift"
+                  timestampString = "589139955.350149"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "498">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/Shared/WebServiceClasses/MainReqeustClass.swift"
+            timestampString = "589138326.657142"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "postRequestWithHeader(showloaderText:showLoader:url:parameter:header:success:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/SideMenu/SideMenuHeaderTableViewCell.swift"
+            timestampString = "588796446.705483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "btnChangeAgentDropDownAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mpos.SideMenuHeaderTableViewCell.btnChangeAgentDropDownAction(__C.UIButton) -&gt; ()"
+                  moduleName = "Mpos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/SideMenu/SideMenuHeaderTableViewCell.swift"
+                  timestampString = "589139955.361582"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "331">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; () in Mpos.SideMenuHeaderTableViewCell.btnChangeAgentDropDownAction(__C.UIButton) -&gt; ()"
+                  moduleName = "Mpos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/SideMenu/SideMenuHeaderTableViewCell.swift"
+                  timestampString = "589139955.363242"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "338">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/Dashboard/DashboardVC.swift"
+            timestampString = "589140292.461079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "getKPI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mpos.DashboardVC.getKPI() -&gt; ()"
+                  moduleName = "Mpos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Dashboard/DashboardVC.swift"
+                  timestampString = "589139955.367932"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "640">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; () in Mpos.DashboardVC.getKPI() -&gt; ()"
+                  moduleName = "Mpos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Dashboard/DashboardVC.swift"
+                  timestampString = "589139955.369639"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "221">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/ClientListing/ListingCustomCells/InvoiceDetails/InvoiceDetailsTableViewCell.swift"
+            timestampString = "589139955.038735"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "btnMoreInfoClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/Shared/WebServiceClasses/MainReqeustClass.swift"
+            timestampString = "589138326.6576149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "postRequestWithHeader(showloaderText:showLoader:url:parameter:header:success:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/Search/SearchVC.swift"
+            timestampString = "589140292.4614739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "btnSearchClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/Shared/WebServiceClasses/MainReqeustClass.swift"
+            timestampString = "589138326.657825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "postRequestWithHeader(showloaderText:showLoader:url:parameter:header:success:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/Shared/WebServiceClasses/MainReqeustClass.swift"
+            timestampString = "589138326.658017"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "postRequestWithHeader(showloaderText:showLoader:url:parameter:header:success:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/ClientListing/Invoice Listing/InvoiceListingVC.swift"
+            timestampString = "589138406.131361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "callSearchAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/Search/SearchVC.swift"
+            timestampString = "589140292.461553"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "btnSearchClicked(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mpos.SearchVC.btnSearchClicked(Any) -&gt; ()"
+                  moduleName = "Mpos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Search/SearchVC.swift"
+                  timestampString = "589139955.394174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "2514">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;) -&gt; () in Mpos.SearchVC.btnSearchClicked(Any) -&gt; ()"
+                  moduleName = "Mpos"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///MySpace/Projects/Mpos/GitSourceCode/MposApp/Mpos/Mpos/Search/SearchVC.swift"
+                  timestampString = "589139955.395649"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mpos/ClientListing/ClientDetails/ClientDetailsVC.swift"
+            timestampString = "589140292.461594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

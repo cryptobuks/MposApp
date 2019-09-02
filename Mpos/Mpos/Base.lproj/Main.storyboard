@@ -192,11 +192,11 @@
                                                     <action selector="btnForgotPasswordClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JFo-JP-OzY"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hTk-ej-sed">
-                                                <rect key="frame" x="110" y="16" width="100" height="100"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hTk-ej-sed">
+                                                <rect key="frame" x="95" y="2.5" width="130" height="130"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="Ftu-fy-RQs"/>
-                                                    <constraint firstAttribute="height" constant="100" id="sxc-mO-PZO"/>
+                                                    <constraint firstAttribute="width" constant="130" id="Ftu-fy-RQs"/>
+                                                    <constraint firstAttribute="height" constant="130" id="sxc-mO-PZO"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btp-vC-pyS">
@@ -247,7 +247,7 @@
                                             <constraint firstItem="Rpd-tM-sHm" firstAttribute="centerX" secondItem="P7H-Gj-4ha" secondAttribute="centerX" id="AsK-oz-uxf"/>
                                             <constraint firstAttribute="trailing" secondItem="Rpd-tM-sHm" secondAttribute="trailing" constant="20" id="BAL-vO-CJt"/>
                                             <constraint firstItem="rmq-ze-9Zy" firstAttribute="top" secondItem="Omz-TG-6qC" secondAttribute="bottom" constant="30" id="DWq-3Z-2wD"/>
-                                            <constraint firstItem="Rpd-tM-sHm" firstAttribute="top" secondItem="hTk-ej-sed" secondAttribute="bottom" multiplier="1.2" constant="50" id="Dd8-uY-7gc"/>
+                                            <constraint firstItem="Rpd-tM-sHm" firstAttribute="top" secondItem="hTk-ej-sed" secondAttribute="bottom" multiplier="1.2" constant="30" id="Dd8-uY-7gc"/>
                                             <constraint firstItem="Rpd-tM-sHm" firstAttribute="centerY" secondItem="P7H-Gj-4ha" secondAttribute="centerY" constant="-65" id="IhM-BG-6ai"/>
                                             <constraint firstItem="rmq-ze-9Zy" firstAttribute="leading" secondItem="P7H-Gj-4ha" secondAttribute="leading" constant="20" id="JHF-xz-xGh"/>
                                             <constraint firstItem="BR2-3X-ukf" firstAttribute="trailing" secondItem="b4a-vB-fWO" secondAttribute="trailing" id="LN7-ZW-nVV"/>
@@ -401,13 +401,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="DETALHE DOS RECIBOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb2-HS-6TX">
-                                <rect key="frame" x="8" y="404" width="304" height="28"/>
+                                <rect key="frame" x="8" y="407" width="304" height="27"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Pode aceder aos detalhes dos teus recibos, para consultar bônus, comissões, etc..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwR-83-vzX">
-                                <rect key="frame" x="8" y="462" width="304" height="56"/>
+                                <rect key="frame" x="8" y="464" width="304" height="54"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -463,7 +463,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Header" translatesAutoresizingMaskIntoConstraints="NO" id="2l9-xm-tPY">
-                                        <rect key="frame" x="152" y="20" width="16" height="42"/>
+                                        <rect key="frame" x="152" y="5" width="16" height="60"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl9-Ad-HiN">
                                         <rect key="frame" x="260" y="5" width="60" height="60"/>
@@ -480,12 +480,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="2l9-xm-tPY" secondAttribute="bottom" constant="8" id="7C2-XX-Dw1"/>
+                                    <constraint firstAttribute="bottom" secondItem="2l9-xm-tPY" secondAttribute="bottom" constant="5" id="7C2-XX-Dw1"/>
                                     <constraint firstItem="Cl9-Ad-HiN" firstAttribute="top" secondItem="b0e-Mi-pUR" secondAttribute="top" constant="5" id="BsD-PP-g5e"/>
                                     <constraint firstItem="ico-MI-hKS" firstAttribute="leading" secondItem="b0e-Mi-pUR" secondAttribute="leading" constant="8" id="D0O-Y2-yO4"/>
                                     <constraint firstItem="2l9-xm-tPY" firstAttribute="centerX" secondItem="b0e-Mi-pUR" secondAttribute="centerX" id="Mfl-Y3-DGH"/>
                                     <constraint firstAttribute="trailing" secondItem="Cl9-Ad-HiN" secondAttribute="trailing" id="S1b-m7-QaD"/>
-                                    <constraint firstItem="2l9-xm-tPY" firstAttribute="top" secondItem="b0e-Mi-pUR" secondAttribute="top" constant="20" id="bRg-rO-iM6"/>
+                                    <constraint firstItem="2l9-xm-tPY" firstAttribute="top" secondItem="b0e-Mi-pUR" secondAttribute="top" constant="5" id="bRg-rO-iM6"/>
                                     <constraint firstItem="ico-MI-hKS" firstAttribute="top" secondItem="b0e-Mi-pUR" secondAttribute="top" constant="11" id="gaT-sq-dux"/>
                                     <constraint firstAttribute="bottom" secondItem="ico-MI-hKS" secondAttribute="bottom" constant="7" id="uCj-v5-uCa"/>
                                 </constraints>
@@ -494,31 +494,31 @@
                                 <rect key="frame" x="0.0" y="90" width="320" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEM-VINDO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQf-V2-OuC">
-                                        <rect key="frame" x="121.5" y="0.0" width="77.5" height="16"/>
+                                        <rect key="frame" x="120.5" y="0.0" width="79" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                                         <color key="textColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FRADE SEGUROS SOCIEDADE DE SEGUROS LDA." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSf-f6-QRs">
-                                        <rect key="frame" x="8" y="24" width="304" height="36"/>
+                                        <rect key="frame" x="8" y="24.5" width="304" height="37.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
                                         <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASF: 89" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2x-2U-NsZ">
-                                        <rect key="frame" x="8" y="68" width="304" height="18"/>
+                                        <rect key="frame" x="8" y="70" width="304" height="19"/>
                                         <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
                                         <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qq-vK-kdB">
-                                        <rect key="frame" x="15" y="94" width="290" height="18"/>
+                                        <rect key="frame" x="15" y="97" width="290" height="19"/>
                                         <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
                                         <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dox-Bj-BtP">
-                                        <rect key="frame" x="8" y="120" width="304" height="26"/>
+                                        <rect key="frame" x="8" y="124" width="304" height="26"/>
                                         <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="12"/>
                                         <state key="normal" title="ALTERAR O AGENTE">
                                             <color key="titleColor" red="0.40392156862745099" green="0.76862745098039209" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
@@ -734,11 +734,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CN7-cT-c2K">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="WTr-qR-l7x">
-                                                <rect key="frame" x="110" y="70" width="100" height="100"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="WTr-qR-l7x">
+                                                <rect key="frame" x="95" y="48.5" width="130" height="130"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="COf-y2-bvy"/>
-                                                    <constraint firstAttribute="width" constant="100" id="dCd-Xg-I4N"/>
+                                                    <constraint firstAttribute="height" constant="130" id="COf-y2-bvy"/>
+                                                    <constraint firstAttribute="width" constant="130" id="dCd-Xg-I4N"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erY-xF-GbD">
@@ -814,7 +814,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="erY-xF-GbD" firstAttribute="top" secondItem="WTr-qR-l7x" secondAttribute="bottom" multiplier="1.2" constant="50" id="2sJ-8D-Szv"/>
+                                            <constraint firstItem="erY-xF-GbD" firstAttribute="top" secondItem="WTr-qR-l7x" secondAttribute="bottom" multiplier="1.2" constant="40" id="2sJ-8D-Szv"/>
                                             <constraint firstItem="erY-xF-GbD" firstAttribute="leading" secondItem="CN7-cT-c2K" secondAttribute="leading" constant="20" id="617-es-gSQ"/>
                                             <constraint firstItem="erY-xF-GbD" firstAttribute="centerY" secondItem="CN7-cT-c2K" secondAttribute="centerY" id="6NR-SA-SiQ"/>
                                             <constraint firstItem="WTr-qR-l7x" firstAttribute="centerX" secondItem="CN7-cT-c2K" secondAttribute="centerX" id="6b3-Fz-jdn"/>
@@ -873,14 +873,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_Header" width="79.5" height="30"/>
+        <image name="ic_Header" width="3982" height="1677"/>
         <image name="ic_buttonBack" width="600" height="60"/>
         <image name="ic_checkbox_selected" width="50" height="50"/>
         <image name="ic_checkbox_unselected" width="50" height="50"/>
         <image name="ic_close" width="60" height="60"/>
         <image name="ic_eyeInvisible" width="46.5" height="34"/>
         <image name="ic_eyevisible" width="46.5" height="34"/>
-        <image name="ic_logo" width="300" height="300"/>
+        <image name="ic_logo" width="1900" height="1712"/>
         <image name="ic_onboarding1" width="168" height="141.5"/>
         <image name="ic_searchDashboard" width="24" height="24"/>
         <image name="ic_sidebar" width="24" height="24"/>
