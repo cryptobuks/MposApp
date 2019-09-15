@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController
 {
+    
     @IBOutlet weak var onboardingContainer: UIView!
     @IBOutlet weak var skipBtn: UIButton!
 
@@ -57,6 +57,12 @@ class ViewController: UIViewController
         }
         
         
+        do {
+            try self.initMSAL()
+        } catch let error {
+            addErrorView(senderViewController: self, strErrorMessage: "Unable to create Application Context \(error)")
+        }
+        
         if UserDefaultManager.SharedInstance.isOnboardingComplete()
         {
             //Normal Login View
@@ -69,6 +75,33 @@ class ViewController: UIViewController
         }
         
         
+        
+    }
+    
+    
+    
+    /**
+     
+     Initialize a MSALPublicClientApplication with a given clientID and authority
+     
+     - clientId:            The clientID of your application, you should get this from the app portal.
+     - redirectUri:         A redirect URI of your application, you should get this from the app portal.
+     If nil, MSAL will create one by default. i.e./ msauth.<bundleID>://auth
+     - authority:           A URL indicating a directory that MSAL can use to obtain tokens. In Azure AD
+     it is of the form https://<instance/<tenant>, where <instance> is the
+     directory host (e.g. https://login.microsoftonline.com) and <tenant> is a
+     identifier within the directory itself (e.g. a domain associated to the
+     tenant, such as contoso.onmicrosoft.com, or the GUID representing the
+     TenantID property of the directory)
+     - error                The error that occurred creating the application object, if any, if you're
+     not interested in the specific error pass in nil.
+     */
+    func initMSAL() throws {
+        
+        let authority = try MSALAADAuthority(cloudInstance: .publicCloudInstance, audienceType: .azureADMyOrgOnlyAudience, rawTenant: "e7f9d69c-13f3-457c-a04c-f555c1134fa4")
+        
+        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: appDelegate.kClientID, redirectUri: appDelegate.kRedirectURL, authority: authority)
+        appDelegate.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
     }
     
     /*
@@ -102,139 +135,189 @@ class ViewController: UIViewController
 extension ViewController {
     
     //LogIn button click
-    @IBAction func btnLoginClicked(_ sender: Any)
+    @IBAction func btnLoginClicked(_ sender: UIButton)
     {
+        callGraphAPI(sender)
         
-        if userDefaults.bool(forKey: kbIsRememberPassword)
-        {
-            userDefaults.set(txtfdEmail.text, forKey: kkey_email)
-            userDefaults.set(txtfdPassword.text, forKey: kkey_password)
-        }
-        else
-        {
-            userDefaults.removeObject(forKey: kkey_email)
-            userDefaults.removeObject(forKey: kkey_password)
-        }
         
-        if self.doValidation()
-        {
-            let params = ["username":txtfdEmail.text!,"password":txtfdPassword.text!]
-            //Call Login Service
-            
-            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: loginUrl), success: { (response) in
-                print(response)
-
-                if let dictagentContext = response["agentContext"] as? [String : Any]
-                {
-                    let dictTemp = NSMutableDictionary(dictionary: dictagentContext)
-                    UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictTemp as! [String : Any])
-                }
-                
-                // api call
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
-                let navController = UINavigationController(rootViewController: controller)
-                navController.navigationBar.isHidden = true
-                appDelegate.window?.rootViewController = navController
-
-            })
-            { (responseError) in
-                print(responseError)
-                addErrorView(senderViewController: self, strErrorMessage: responseError)
-//                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
-            }
-        }
-    }
-    
-    
-    
-    /*
-     Forgot password button click event.
-     - Version: 1.0
-     - Remark:nil
-     */
-    @IBAction func btnForgotPasswordClicked(_ sender: Any) {
-        
-        // forgot password logic
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "ForgotPasswordVC") as! ForgotPasswordVC
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    //set visibility for password in SignUp
-    @IBAction func btnSEtVisibilityPasswordLogin(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        self.txtfdPassword.isSecureTextEntry.toggle()
-    }
-    
-    //MARK: User Actions
-    @IBAction func rememberPasswordClicked(_ sender: UIButton)
-    {
-        
-        if userDefaults.bool(forKey: kbIsRememberPassword)
-        {
-            userDefaults.set(false, forKey: kbIsRememberPassword)
-            btnRememberPassword.isSelected = false
-        }
-        else
-        {
-            userDefaults.set(true, forKey: kbIsRememberPassword)
-            btnRememberPassword.isSelected = true
-
-        }
-    }
-    
-    /*
-     Validation at login time
-     - Authors:
-     - Version: 1.0
-     - Remark: nil
-     */
-    //LogIn Screen
-    func doValidation() -> Bool
-    {
-        //Validation: Check For Username
-        if !((self.txtfdEmail.text?.trimmingCharacters(in: CharacterSet.whitespaces).count ?? 0) > 0) {
-            self.txtfdEmail.errorMessage = kAlertEnterEmailId
-            return false
-        }
-//        else {
-//            if validEmailAddress(txtfdEmail.text!) == false
-//            {
-//                self.txtfdEmail.errorMessage = kAlertInvalidEmailId
-//                return false
+//        if userDefaults.bool(forKey: kbIsRememberPassword)
+//        {
+//            userDefaults.set(txtfdEmail.text, forKey: kkey_email)
+//            userDefaults.set(txtfdPassword.text, forKey: kkey_password)
+//        }
+//        else
+//        {
+//            userDefaults.removeObject(forKey: kkey_email)
+//            userDefaults.removeObject(forKey: kkey_password)
+//        }
+//
+//        if self.doValidation()
+//        {
+//            let params = ["username":txtfdEmail.text!,"password":txtfdPassword.text!]
+//            //Call Login Service
+//
+//            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: loginUrl), success: { (response) in
+//                print(response)
+//
+//                if let dictagentContext = response["agentContext"] as? [String : Any]
+//                {
+//                    let dictTemp = NSMutableDictionary(dictionary: dictagentContext)
+//                    UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictTemp as! [String : Any])
+//                }
+//
+//                // api call
+//                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//                let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+//                let navController = UINavigationController(rootViewController: controller)
+//                navController.navigationBar.isHidden = true
+//                appDelegate.window?.rootViewController = navController
+//
+//            })
+//            { (responseError) in
+//                print(responseError)
+//                addErrorView(senderViewController: self, strErrorMessage: responseError)
+////                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
 //            }
 //        }
-        //Validation: Check For password
-        if !((self.txtfdPassword.text?.trimmingCharacters(in: CharacterSet.whitespaces).count ?? 0) > 0)
-        {
-            self.txtfdPassword.errorMessage = kAlertEnterPassword
-            return false
-        }
-        return true
     }
+    
+    
 }
 
-extension ViewController : UITextFieldDelegate
-{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        textField.resignFirstResponder()
-        return true
-    }
+// MARK: Acquiring and using token
+
+extension ViewController {
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
+    /**
+     This will invoke the authorization flow.
+     */
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    @objc func callGraphAPI(_ sender: UIButton) {
         
-        //        let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
-        if textField.isKind(of: SkyFloatingLabelTextField.self)
-        {
-            (textField as! SkyFloatingLabelTextField).errorMessage = ""
+        guard let currentAccount = appDelegate.currentAccount() else {
+            // We check to see if we have a current logged in account.
+            // If we don't, then we need to sign someone in.
+            acquireTokenInteractively()
+            return
         }
-        return true
+        
+        acquireTokenSilently(currentAccount)
+    }
+    
+    func acquireTokenInteractively() {
+        
+        guard let applicationContext = appDelegate.applicationContext else { return }
+        
+        let parameters = MSALInteractiveTokenParameters(scopes: appDelegate.kScopes)
+        
+        applicationContext.acquireToken(with: parameters) { (result, error) in
+            
+            if let error = error {
+                addErrorView(senderViewController: self, strErrorMessage: "Could not acquire token: \(error)")
+                return
+            }
+            
+            guard let result = result else {
+                addErrorView(senderViewController: self, strErrorMessage: "Could not acquire token: No result returned")
+                return
+            }
+            
+            appDelegate.accessToken = result.accessToken
+            
+            self.getContentWithToken()
+        }
+    }
+    
+    func acquireTokenSilently(_ account : MSALAccount!) {
+        
+        guard let applicationContext = appDelegate.applicationContext else { return }
+        
+        /**
+         
+         Acquire a token for an existing account silently
+         
+         - forScopes:           Permissions you want included in the access token received
+         in the result in the completionBlock. Not all scopes are
+         guaranteed to be included in the access token returned.
+         - account:             An account object that we retrieved from the application object before that the
+         authentication flow will be locked down to.
+         - completionBlock:     The completion block that will be called when the authentication
+         flow completes, or encounters an error.
+         */
+        
+        let parameters = MSALSilentTokenParameters(scopes: appDelegate.kScopes, account: account)
+        
+        applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
+            
+            if let error = error {
+                
+                let nsError = error as NSError
+                
+                // interactionRequired means we need to ask the user to sign-in. This usually happens
+                // when the user's Refresh Token is expired or if the user has changed their password
+                // among other possible reasons.
+                
+                if (nsError.domain == MSALErrorDomain) {
+                    
+                    if (nsError.code == MSALError.interactionRequired.rawValue) {
+                        
+                        DispatchQueue.main.async {
+                            self.acquireTokenInteractively()
+                        }
+                        return
+                    }
+                }
+                addErrorView(senderViewController: self, strErrorMessage: "Could not acquire token silently: \(error)")
+
+                return
+            }
+            
+            guard let result = result else {
+                addErrorView(senderViewController: self, strErrorMessage: "Could not acquire token: No result returned")
+                return
+            }
+            
+            appDelegate.accessToken = result.accessToken
+            self.getContentWithToken()
+        }
+    }
+    
+    /**
+     This will invoke the call to the Microsoft Graph API. It uses the
+     built in URLSession to create a connection.
+     */
+    
+    func getContentWithToken() {
+        
+        // Specify the Graph API endpoint
+        let url = URL(string: appDelegate.kGraphURI)
+        var request = URLRequest(url: url!)
+        
+        // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
+        request.setValue("Bearer \(appDelegate.accessToken)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let error = error {
+                addErrorView(senderViewController: self, strErrorMessage: "Couldn't get graph result: \(error)")
+                return
+            }
+            
+            guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
+                addErrorView(senderViewController: self, strErrorMessage: "Couldn't deserialize result JSON")
+                return
+            }
+            
+            UserDefaultManager.SharedInstance.saveLoggedUser(dict: result as! [String : Any])
+            
+            // api call
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+            let navController = UINavigationController(rootViewController: controller)
+            navController.navigationBar.isHidden = true
+            appDelegate.window?.rootViewController = navController
+            }.resume()
     }
     
 }
+

@@ -29,21 +29,47 @@ class LogoutVC: UIViewController {
 
     @IBAction func btnLogoutClicked(_ sender: Any)
     {
-        // Do any additional setup after loading the view.
-        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
-        let params = ["agentContext":loggedUser]
         
-        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: logoutUrl), success: { (response) in
-            print(response)
+        guard let applicationContext = appDelegate.applicationContext else { return }
+        
+        guard let account = appDelegate.currentAccount() else { return }
+        
+        do {
+            
+            /**
+             Removes all tokens from the cache for this application for the provided account
+             
+             - account:    The account to remove from the cache
+             */
+            
+            try applicationContext.remove(account)
+            appDelegate.accessToken = ""
             UserDefaultManager.SharedInstance.removeUser()
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! ViewController
             appDelegate.window?.rootViewController = controller
-        })
-        { (responseError) in
-//            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
-            addErrorView(senderViewController: self, strErrorMessage: responseError)
+            
+        } catch let error as NSError {
+            addErrorView(senderViewController: self, strErrorMessage: "Received error signing account out: \(error)")
         }
+        
+        
+        
+//        // Do any additional setup after loading the view.
+//        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
+//        let params = ["agentContext":loggedUser]
+//
+//        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: logoutUrl), success: { (response) in
+//            print(response)
+//            UserDefaultManager.SharedInstance.removeUser()
+//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//            let controller = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! ViewController
+//            appDelegate.window?.rootViewController = controller
+//        })
+//        { (responseError) in
+////            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+//            addErrorView(senderViewController: self, strErrorMessage: responseError)
+//        }
     }
     
     @IBAction func btnMoveToSideMenuClicked(_ sender: Any)

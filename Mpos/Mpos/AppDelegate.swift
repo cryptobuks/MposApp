@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     static var shared:AppDelegate? = nil
-
+    // Update the below to your client ID you received in the portal. The below is for running the demo only
+    let kClientID = "e51e8134-96e9-49a9-bde3-af2a360a65a9"
+    let kRedirectURL =  "msauth://com.via.Mpos/Bmce%2B9aHdOoVtE7fS3B07tfj7Bc%3D"
+    // Additional variables for Auth and Graph API
+    let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
+    let kScopes: [String] = ["https://graph.microsoft.com/user.read"]    
+    var accessToken = String()
+    var applicationContext : MSALPublicClientApplication?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
         // Override point for customization after application launch.
@@ -24,6 +32,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
 
+        // The MSAL Logger should be set as early as possible in the app launch sequence, before any MSAL
+        // requests are made.
+        
+        /** When capturing log messages from MSAL you only need to capture either messages where
+         containsPII == YES or containsPII == NO, as log messages are duplicated between the
+         two, however the containsPII version might contain Personally Identifiable Information (PII)
+         about the user being logged in.
+         */
+        
+        MSALGlobalConfig.loggerConfig.setLogCallback { (logLevel, message, containsPII) in
+            
+            if (!containsPII) {
+                
+                print("%@", message!)
+            }
+        }
         return true
     }
 
@@ -50,7 +74,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    /*! @brief Handles inbound URLs. Checks if the URL matches the redirect URI for a pending
+     AppAuth authorization request and if so, will look for the code in the response.
+     */
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
+            return false
+        }
+        
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
+    }
+    // MARK: Get account and removing cache
+    
+    func currentAccount() -> MSALAccount? {
+        
+        guard let applicationContext = self.applicationContext else { return nil }
+        
+        // We retrieve our current account by getting the first account from cache
+        // In multi-account applications, account should be retrieved by home account identifier or username instead
+        
+        do {
+            
+            let cachedAccounts = try applicationContext.allAccounts()
+            
+            if !cachedAccounts.isEmpty {
+                return cachedAccounts.first
+            }
+            
+        } catch let error as NSError {
+            
+            addErrorView(senderViewController: self.window!.rootViewController!, strErrorMessage: "Didn't find any accounts in cache: \(error)")
+        }
+        
+        return nil
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
