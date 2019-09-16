@@ -57,14 +57,15 @@ class ViewController: UIViewController
         }
         
         
-        do {
-            try self.initMSAL()
-        } catch let error {
-            addErrorView(senderViewController: self, strErrorMessage: "Unable to create Application Context \(error)")
-        }
         
         if UserDefaultManager.SharedInstance.isOnboardingComplete()
         {
+            do {
+                try self.initMSAL()
+            } catch let error {
+                addErrorView(senderViewController: self, strErrorMessage: "Unable to create Application Context \(error)")
+            }
+
             //Normal Login View
             onboardingContainer.removeFromSuperview()
             self.skipBtn.isHidden = true
@@ -98,10 +99,21 @@ class ViewController: UIViewController
      */
     func initMSAL() throws {
         
-        let authority = try MSALAADAuthority(cloudInstance: .publicCloudInstance, audienceType: .azureADMyOrgOnlyAudience, rawTenant: "e7f9d69c-13f3-457c-a04c-f555c1134fa4")
+        //https://login.microsoftonline.com/e7f9d69c-13f3-457c-a04c-f555c1134fa4
+        /*let authority = try MSALAADAuthority(cloudInstance: .publicCloudInstance, audienceType: .azureADMyOrgOnlyAudience, rawTenant: "e7f9d69c-13f3-457c-a04c-f555c1134fa4")
         
-        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: appDelegate.kClientID, redirectUri: appDelegate.kRedirectURL, authority: authority)
+        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: appDelegate.kClientID, redirectUri: nil, authority: authority)
+        appDelegate.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)*/
+        guard let authorityURL = URL(string: appDelegate.kAuthority) else {
+            addErrorView(senderViewController: self, strErrorMessage: "Unable to create authority URL")
+            return
+        }
+
+        let authority = try MSALAADAuthority(url: authorityURL)
+        
+        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: appDelegate.kClientID, redirectUri: nil, authority: authority)
         appDelegate.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
+
     }
     
     /*
@@ -127,9 +139,12 @@ class ViewController: UIViewController
         UserDefaultManager.SharedInstance.setOnboardingCmplete(isComplete: true)
         skipBtn.isHidden = true
         onboardingContainer.removeFromSuperview()
+        do {
+            try self.initMSAL()
+        } catch let error {
+            addErrorView(senderViewController: self, strErrorMessage: "Unable to create Application Context \(error)")
+        }
     }
-    
-   
 }
 
 extension ViewController {

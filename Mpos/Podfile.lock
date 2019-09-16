@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.8.2)
-  - IQKeyboardManagerSwift (6.4.0)
+  - Alamofire (4.9.0)
+  - IQKeyboardManagerSwift (6.4.2)
   - MBProgressHUD (1.1.0)
   - MSAL (0.5.0):
     - MSAL/app-lib (= 0.5.0)
@@ -28,8 +28,8 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MSAL: 2ef13d86e7d1c5096ade5a7e61c5ad0f2643f812
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d

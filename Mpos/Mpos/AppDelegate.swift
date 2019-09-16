@@ -17,13 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var shared:AppDelegate? = nil
     // Update the below to your client ID you received in the portal. The below is for running the demo only
     let kClientID = "e51e8134-96e9-49a9-bde3-af2a360a65a9"
-    let kRedirectURL =  "msauth://com.via.Mpos/Bmce%2B9aHdOoVtE7fS3B07tfj7Bc%3D"
+    let kRedirectURL =  "msauth://com.via.mpos/Bmce%2B9aHdOoVtE7fS3B07tfj7Bc%3D"
     // Additional variables for Auth and Graph API
     let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
     let kScopes: [String] = ["https://graph.microsoft.com/user.read"]    
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
-    
+    let kAuthority = "https://login.microsoftonline.com/e7f9d69c-13f3-457c-a04c-f555c1134fa4"
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
         // Override point for customization after application launch.
