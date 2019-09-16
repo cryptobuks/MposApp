@@ -323,14 +323,17 @@ extension ViewController {
                 return
             }
             
-            UserDefaultManager.SharedInstance.saveLoggedUser(dict: result as! [String : Any])
+            DispatchQueue.main.async {
+                UserDefaultManager.SharedInstance.saveLoggedUser(dict: result as! [String : Any])
+                
+                // api call
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+                let navController = UINavigationController(rootViewController: controller)
+                navController.navigationBar.isHidden = true
+                appDelegate.window?.rootViewController = navController
+            }
             
-            // api call
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
-            let navController = UINavigationController(rootViewController: controller)
-            navController.navigationBar.isHidden = true
-            appDelegate.window?.rootViewController = navController
             }.resume()
     }
     

@@ -45,10 +45,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ur-aS-dzh">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqh-2l-kz1">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
@@ -111,20 +107,6 @@
                                                     <constraint firstAttribute="height" constant="60" id="sOp-RK-Vek"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmq-ze-9Zy">
-                                                <rect key="frame" x="20" y="401" width="280" height="60"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="9vX-qD-7Sk"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
-                                                <state key="normal" title="ENTRAR" backgroundImage="ic_buttonBack">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jnv-tC-hLu"/>
-                                                </connections>
-                                            </button>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEy-ja-ic2">
                                                 <rect key="frame" x="20" y="266" width="280" height="60"/>
                                                 <subviews>
@@ -181,7 +163,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="oAu-JM-HVF"/>
                                                 </constraints>
                                             </view>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bc9-bu-ZxU">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bc9-bu-ZxU">
                                                 <rect key="frame" x="20" y="511" width="280" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="JVW-hp-b4a"/>
@@ -197,7 +179,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hTk-ej-sed">
-                                                <rect key="frame" x="95" y="2.5" width="130" height="130"/>
+                                                <rect key="frame" x="95" y="149" width="130" height="130"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="130" id="Ftu-fy-RQs"/>
                                                     <constraint firstAttribute="height" constant="130" id="sxc-mO-PZO"/>
@@ -240,6 +222,20 @@
                                                     <action selector="btnSEtVisibilityPasswordLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qvl-1y-pmI"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmq-ze-9Zy">
+                                                <rect key="frame" x="20" y="329" width="280" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="9vX-qD-7Sk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                                                <state key="normal" title="ENTRAR" backgroundImage="ic_buttonBack">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jnv-tC-hLu"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -250,18 +246,17 @@
                                             <constraint firstItem="Bc9-bu-ZxU" firstAttribute="leading" secondItem="P7H-Gj-4ha" secondAttribute="leading" constant="20" id="9ma-NR-G2T"/>
                                             <constraint firstItem="Rpd-tM-sHm" firstAttribute="centerX" secondItem="P7H-Gj-4ha" secondAttribute="centerX" id="AsK-oz-uxf"/>
                                             <constraint firstAttribute="trailing" secondItem="Rpd-tM-sHm" secondAttribute="trailing" constant="20" id="BAL-vO-CJt"/>
-                                            <constraint firstItem="rmq-ze-9Zy" firstAttribute="top" secondItem="Omz-TG-6qC" secondAttribute="bottom" constant="30" id="DWq-3Z-2wD"/>
-                                            <constraint firstItem="Rpd-tM-sHm" firstAttribute="top" secondItem="hTk-ej-sed" secondAttribute="bottom" multiplier="1.2" constant="30" id="Dd8-uY-7gc"/>
+                                            <constraint firstItem="rmq-ze-9Zy" firstAttribute="top" secondItem="hTk-ej-sed" secondAttribute="bottom" constant="50" id="FZb-ra-VTn"/>
                                             <constraint firstItem="Rpd-tM-sHm" firstAttribute="centerY" secondItem="P7H-Gj-4ha" secondAttribute="centerY" constant="-65" id="IhM-BG-6ai"/>
                                             <constraint firstItem="rmq-ze-9Zy" firstAttribute="leading" secondItem="P7H-Gj-4ha" secondAttribute="leading" constant="20" id="JHF-xz-xGh"/>
                                             <constraint firstItem="BR2-3X-ukf" firstAttribute="trailing" secondItem="b4a-vB-fWO" secondAttribute="trailing" id="LN7-ZW-nVV"/>
+                                            <constraint firstItem="hTk-ej-sed" firstAttribute="centerY" secondItem="P7H-Gj-4ha" secondAttribute="centerY" constant="-70" id="LRm-Ev-NW4"/>
                                             <constraint firstItem="Omz-TG-6qC" firstAttribute="top" secondItem="nEy-ja-ic2" secondAttribute="bottom" constant="20" id="NSg-P5-z1a"/>
                                             <constraint firstItem="Btp-vC-pyS" firstAttribute="leading" secondItem="P7H-Gj-4ha" secondAttribute="leading" constant="20" id="SfK-6v-rXM"/>
                                             <constraint firstItem="Rpd-tM-sHm" firstAttribute="leading" secondItem="P7H-Gj-4ha" secondAttribute="leading" constant="20" id="Uz3-8p-3pq"/>
                                             <constraint firstItem="Btp-vC-pyS" firstAttribute="top" secondItem="nEy-ja-ic2" secondAttribute="bottom" constant="20" id="W4r-gb-C6W"/>
                                             <constraint firstAttribute="trailing" secondItem="Omz-TG-6qC" secondAttribute="trailing" constant="20" id="bd6-cz-sKS"/>
                                             <constraint firstItem="hTk-ej-sed" firstAttribute="centerX" secondItem="P7H-Gj-4ha" secondAttribute="centerX" id="hxR-27-slx"/>
-                                            <constraint firstItem="Bc9-bu-ZxU" firstAttribute="top" secondItem="rmq-ze-9Zy" secondAttribute="bottom" constant="50" id="rWD-07-gMC"/>
                                             <constraint firstAttribute="trailing" secondItem="Bc9-bu-ZxU" secondAttribute="trailing" constant="20" id="rZ5-wE-xis"/>
                                             <constraint firstAttribute="trailing" secondItem="nEy-ja-ic2" secondAttribute="trailing" constant="20" id="weD-m3-znb"/>
                                             <constraint firstItem="nEy-ja-ic2" firstAttribute="leading" secondItem="P7H-Gj-4ha" secondAttribute="leading" constant="20" id="y4a-zb-v0W"/>
@@ -276,6 +271,10 @@
                                     <constraint firstItem="P7H-Gj-4ha" firstAttribute="top" secondItem="Nqh-2l-kz1" secondAttribute="top" id="xWg-Ac-oKE"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ur-aS-dzh">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVc-XL-wTb">
                                 <rect key="frame" x="270" y="20" width="50" height="50"/>
                                 <constraints>
@@ -401,13 +400,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="DETALHE DOS RECIBOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb2-HS-6TX">
-                                <rect key="frame" x="8" y="404" width="304" height="28"/>
+                                <rect key="frame" x="8" y="407" width="304" height="27"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Pode aceder aos detalhes dos teus recibos, para consultar bônus, comissões, etc..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwR-83-vzX">
-                                <rect key="frame" x="8" y="462" width="304" height="56"/>
+                                <rect key="frame" x="8" y="464" width="304" height="54"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -674,13 +673,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="PAGAMENTOS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSl-V6-BVw">
-                                <rect key="frame" x="8" y="404" width="304" height="28"/>
+                                <rect key="frame" x="8" y="425" width="304" height="27"/>
                                 <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="24"/>
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Pode cobrar os recibos selecionados por MBWAY, referências multibanco ou cartão." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68d-AN-tBV">
-                                <rect key="frame" x="8" y="462" width="304" height="56"/>
+                                <rect key="frame" x="8" y="482" width="304" height="36"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
