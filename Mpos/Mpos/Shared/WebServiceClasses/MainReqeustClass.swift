@@ -202,7 +202,9 @@ class MainReqeustClass: NSObject
             }
             print("----------------------\n\n\n\nURL: \(url)")
             
-            Alamofire.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: header).responseJSON { (response:DataResponse<Any>) in
+            Alamofire.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: header).responseString { response in
+                debugPrint(response)
+            /*responseJSON { (response:DataResponse<Any>) in
                 MainReqeustClass.HideActivityIndicatorInStatusBar()
                 switch(response.result)
                 {
@@ -216,14 +218,25 @@ class MainReqeustClass: NSObject
                             let dictemp = json as! NSDictionary
 //                            debugPrint("dictemp :> \(dictemp)")
                             
-                            if let errorcode = dictemp["errorCode"] as? Int {
-                                if errorcode == 401 || errorcode == 403{
-                                    failed("")
+                            if let errorobject = dictemp["errors"] as? [[String:Any]]
+                            {
+                                if let errorCode = errorobject.first?["errorCode"] as? String,errorCode != "200"
+                                {
+                                    failed("\(errorobject.first?["errorMessage"] ?? "")")
+                                    break
+                                }
+                                
+                                if let errorType = errorobject.first?["errorType"] as? String, errorType != "OK"
+                                {
+                                    failed("\(errorobject.first?["errorMessage"] ?? "")")
+                                    break
                                 }
                             }
+                            
                             if dictemp.count > 0
                             {
                                 success(dictemp as! Dictionary<String, AnyObject>)
+                                break
                             }
                             else
                             {
@@ -239,7 +252,7 @@ class MainReqeustClass: NSObject
                 case .failure(_):
                     failed("\(response.result.error?.localizedDescription ?? "")")
                     break
-                }
+                }*/
             }
         }else{
             CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)

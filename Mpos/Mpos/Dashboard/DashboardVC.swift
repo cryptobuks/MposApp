@@ -31,7 +31,8 @@ class DashboardVC: UIViewController
         self.tblCategoryList.rowHeight = UITableView.automaticDimension
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            self.getKPI()
+//            self.getKPI()
+            self.getListofAgents()
         })
     }
     
@@ -81,10 +82,7 @@ class DashboardVC: UIViewController
     
     func getListofAgents()
     {
-        let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()        
-        let params = ["agentContext":loggedUser]
-
-        MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: asfAgentsUrl), success: { (response) in
+        MainReqeustClass.BaseRequestSharedInstance.getRequestWithHeader(showLoader: true, url: base_Url, parameter: nil, header: CommonMethods().createHeaderDic(strMethod: asfAgentsUrl), success: { (response) in
             print(response)
             if let agentList = response["agentList"] as? NSArray
             {

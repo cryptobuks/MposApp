@@ -332,8 +332,9 @@ extension ViewController {
             }
             
             
-            UserDefaultManager.SharedInstance.saveLoggedUser(dict: result as! [String : Any])
-            
+//            UserDefaultManager.SharedInstance.saveLoggedUser(dict: result as! [String : Any])
+            UserDefaultManager.SharedInstance.saveToken(str: "Bearer \(appDelegate.accessToken)")
+             UserDefaultManager.SharedInstance.saveData(dict: result as! [String : Any], strKeyName: kAzureLoginData)
             // api call
             if Thread.isMainThread {
                 self.gotoDashboardScreen()

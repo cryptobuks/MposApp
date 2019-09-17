@@ -23,13 +23,11 @@ class CommonMethods: NSObject {
                                   "bsPassword" : "eUNfNkE5az8=",
                                   "bsSolution" : "ViaConsulting",
                                   "bsUSer" : #"\BS\ViaConsultingD"#,
-                                  "bsWebMethod":"\(strMethod)",
-                            "bsWebService":"ageas-api-MPOS"]
-        
+                                  "bsWebMethod":"v1/\(strMethod)",
+                                  "bsWebService":"ageas-api-MPOS",
+                            "Authorization":UserDefaultManager.SharedInstance.getToken()!]
         return dicRequestHeaders
     }
-    
-    
 }
 
 extension String{
