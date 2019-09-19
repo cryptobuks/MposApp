@@ -48,14 +48,12 @@ class DashboardVC: UIViewController
             lblAgentCode.attributedText = myMutableString
         }
     }
-    
-    
-    
+
     func getKPI()
     {
         arrRows = NSMutableArray()
         let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
-        let params = ["agentContext":loggedUser!,"timestamp": "2019-04-12 11:06:17"] as [String : Any]
+        let params = ["agentContext":loggedUser!,"timestamp": "2019-03-08 08:10:00"] as [String : Any]
         
         MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: kpiUrl), success: { (response) in
             print(response)
@@ -84,42 +82,21 @@ class DashboardVC: UIViewController
     {
         MainReqeustClass.BaseRequestSharedInstance.getRequestWithHeader(showLoader: true, url: base_Url, parameter: nil, header: CommonMethods().createHeaderDic(strMethod: asfAgentsUrl), success: { (response) in
             print(response)
+            
+            if let dictAgentContext = response["agentContext"] as?  [String : Any]
+            {
+                UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictAgentContext)
+            }
+            
             if let agentList = response["agentList"] as? NSArray
             {
                 self.arrListofAgents = NSMutableArray(array: agentList)
-                
-                var arrtemp = [Any]()
-                for index in 0..<self.arrListofAgents.count
-                {
-                    let dictTemp = self.arrListofAgents[index] as! [String:Any]
-                    arrtemp.append("\(dictTemp["agentId"] ?? "") - \(dictTemp["name"] ?? "")")
-                }
-                
-                ActionSheetStringPicker.show(withTitle: "", rows: arrtemp , initialSelection: 0, doneBlock:
-                    {
-                        picker, value, index in
-                        
-                        let dictTemp = self.arrListofAgents[value] as! [String:Any]
-                        
-                        let myMutableString = NSMutableAttributedString(string: "Agente:\(dictTemp["agentId"] ?? "")", attributes: [NSAttributedString.Key.font : self.lblAgentCode.font])
-                        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictTemp["agentId"] ?? "")".count))
-                        
-                        self.lblAgentCode.attributedText = myMutableString
-                        
-                        if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
-                        {
-                            let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
-                            dictUserObject.setValue(dictTemp["agentId"], forKey: "agentId")
-                            UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictUserObject as! [String : Any])
-                            
-                            //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                                self.getKPI()
-                            })
-                        }
-                        return
-                }, cancel: { ActionStringCancelBlock in return }, origin: self.btnChageAgent)
             }
+            
+            //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.getKPI()
+            })
         })
         { (responseError) in
 //            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
@@ -151,8 +128,37 @@ class DashboardVC: UIViewController
     
     @IBAction func btnChangeAgentDropDownAction(_ sender: UIButton)
     {
-        self.getListofAgents()
-        
+        var arrtemp = [Any]()
+        for index in 0..<self.arrListofAgents.count
+        {
+            let dictTemp = self.arrListofAgents[index] as! [String:Any]
+            arrtemp.append("\(dictTemp["agentId"] ?? "")")
+        }
+
+        ActionSheetStringPicker.show(withTitle: "", rows: arrtemp , initialSelection: 0, doneBlock:
+            {
+                picker, value, index in
+                
+                let dictTemp = self.arrListofAgents[value] as! [String:Any]
+                
+                let myMutableString = NSMutableAttributedString(string: "Agente:\(dictTemp["agentId"] ?? "")", attributes: [NSAttributedString.Key.font : self.lblAgentCode.font])
+                myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictTemp["agentId"] ?? "")".count))
+                
+                self.lblAgentCode.attributedText = myMutableString
+                
+                if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
+                {
+                    let dictUserObject = NSMutableDictionary(dictionary: dictagentContext)
+                    dictUserObject.setValue(dictTemp["agentId"], forKey: "agentId")
+                    UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictUserObject as! [String : Any])
+                    
+                    //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                        self.getKPI()
+                    })
+                }
+                return
+        }, cancel: { ActionStringCancelBlock in return }, origin: self.btnChageAgent)
     }
    
 

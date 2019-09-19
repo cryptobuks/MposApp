@@ -202,9 +202,7 @@ class MainReqeustClass: NSObject
             }
             print("----------------------\n\n\n\nURL: \(url)")
             
-            Alamofire.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: header).responseString { response in
-                debugPrint(response)
-            /*responseJSON { (response:DataResponse<Any>) in
+            Alamofire.request(url, method: .get, parameters: parameter, encoding: JSONEncoding.default, headers: header).responseJSON { (response:DataResponse<Any>) in
                 MainReqeustClass.HideActivityIndicatorInStatusBar()
                 switch(response.result)
                 {
@@ -252,7 +250,7 @@ class MainReqeustClass: NSObject
                 case .failure(_):
                     failed("\(response.result.error?.localizedDescription ?? "")")
                     break
-                }*/
+                }
             }
         }else{
             CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)

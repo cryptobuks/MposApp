@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>msauth.com.via.mpos</string>
+				<string>msauth.com.via.Mpos</string>
 			</array>
 		</dict>
 	</array>
