@@ -146,6 +146,7 @@
 		A54FFBC922EA1E9D00F03281 /* PaymentDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentDataCell.xib; sourceTree = "<group>"; };
 		A56AF46A22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsHeaderCell.swift; sourceTree = "<group>"; };
 		A56AF46B22EBE8EC0038BCF0 /* InvoiceDetailsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsHeaderCell.xib; sourceTree = "<group>"; };
+		A57490002333FD43000134F4 /* Mpos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mpos.entitlements; sourceTree = "<group>"; };
 		A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		A59E4D7922E619B4006FFBB6 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		A5AD625D22F5F29800710DEB /* CommonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
@@ -479,6 +480,7 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+				A57490002333FD43000134F4 /* Mpos.entitlements */,
 				D3390D2622EC7E230013067A /* ForgotPassword */,
 				A54FFBAE22EA11A200F03281 /* ReceiptDetails */,
 				D37F815922E7882C004729D8 /* GIF */,
@@ -718,6 +720,11 @@
 				TargetAttributes = {
 					D378CB2D22DF9B13004B51AC = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1047,6 +1054,7 @@
 			baseConfigurationReference = DCC07FDA68A9F6A08E3CCC8D /* Pods-Mpos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mpos/Mpos.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9W84C5JU7K;
@@ -1070,6 +1078,7 @@
 			baseConfigurationReference = 5025BF4792451C800187164E /* Pods-Mpos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mpos/Mpos.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9W84C5JU7K;
