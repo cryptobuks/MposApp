@@ -196,22 +196,22 @@ class ReceiptDetailsVC: UIViewController {
         PRÉMIOS
         
         PRÉMIO COMERCIAL
-        \(dicReceiptDetails["commercialPremium"] as? Float ?? 0)€
+        \(dicReceiptDetails["commercialPremium"] as? NSNumber ?? 0)€
         
         ENCARGOS DE VIDA
-        \(dicReceiptDetails["lifeCharges"] as? Float ?? 0)€
+        \(dicReceiptDetails["lifeCharges"] as? NSNumber ?? 0)€
         
         BONUS/MALUS
-        \(dicReceiptDetails["bonusMalus"] as! Float)€
+        \(dicReceiptDetails["bonusMalus"] as! NSNumber)€
             
         IMPOSTOS
-        \(dicReceiptDetails["taxes"] as! Float)€
+        \(dicReceiptDetails["taxes"] as! NSNumber)€
         
         TOTAL RECIBO
-        \(dicReceiptDetails["total"] as? Float ?? 0)€
+        \(dicReceiptDetails["total"] as? NSNumber ?? 0)€
         
         CAPITAL E RECIBO
-        \(dicReceiptDetails["commercialPremium"] as? Float ?? 0)€
+        \(dicReceiptDetails["commercialPremium"] as? NSNumber ?? 0)€
         
         LOCAL DE COBRANÇA
         \(dicReceiptDetails["billingLocation"] as? String ?? "")
@@ -222,7 +222,7 @@ class ReceiptDetailsVC: UIViewController {
         \(dicReceiptDetails["fundraising"] as? Float ?? 0)€
         
         COBRANÇA
-        \(dicReceiptDetails["collections"] as? Float ?? 0)€
+        \(dicReceiptDetails["collections"] as? NSNumber ?? 0)€
         
         DADOS DE PAGAMENTO
         
@@ -233,7 +233,7 @@ class ReceiptDetailsVC: UIViewController {
         256389187
         
         VALOR TOTAL
-        \(dicReceiptDetails["total"] as? Float ?? 0)€
+        \(dicReceiptDetails["total"] as? NSNumber ?? 0)€
         """
         
         // set up activity view controller
@@ -406,14 +406,14 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
             cellForAwardsDetailsCell.lblCaptionCapitalAndReceipt.textColor = lblColor
 
             
-            cellForAwardsDetailsCell.lblBonus.text = "\(dicReceiptDetails["bonusMalus"] as! Float)"
-            cellForAwardsDetailsCell.lblTaxes.text = "\(dicReceiptDetails["taxes"] as! Float)"
-            cellForAwardsDetailsCell.lblAdditional.text = "\(dicReceiptDetails["additional"] as? Float ?? 0)"
-            cellForAwardsDetailsCell.lblCommissions.text = "\(dicReceiptDetails["lifeCharges"] as? Float ?? 0)"
-            cellForAwardsDetailsCell.lblTotalReceipt.text = "\(dicReceiptDetails["total"] as? Float ?? 0)"
+            cellForAwardsDetailsCell.lblBonus.text = "\(dicReceiptDetails["bonusMalus"] as! NSNumber)"
+            cellForAwardsDetailsCell.lblTaxes.text = "\(dicReceiptDetails["taxes"] as! NSNumber)"
+            cellForAwardsDetailsCell.lblAdditional.text = "\(dicReceiptDetails["additional"] as? NSNumber ?? 0)"
+            cellForAwardsDetailsCell.lblCommissions.text = "\(dicReceiptDetails["lifeCharges"] as? NSNumber ?? 0)"
+            cellForAwardsDetailsCell.lblTotalReceipt.text = "\(dicReceiptDetails["total"] as? NSNumber ?? 0)"
             cellForAwardsDetailsCell.lblLocalRecovery.text = dicReceiptDetails["billingLocation"] as? String
-            cellForAwardsDetailsCell.lblCommercialAward.text = "\(dicReceiptDetails["commercialPremium"] as? Float ?? 0)"
-            cellForAwardsDetailsCell.lblCapitalAndReceipt.text = "\(dicReceiptDetails["capitalAndReceipt"] as? Float ?? 0)"
+            cellForAwardsDetailsCell.lblCommercialAward.text = "\(dicReceiptDetails["commercialPremium"] as? NSNumber ?? 0)"
+            cellForAwardsDetailsCell.lblCapitalAndReceipt.text = "\(dicReceiptDetails["capitalAndReceipt"] as? NSNumber ?? 0)"
             print(cellForAwardsDetailsCell)
             return cellForAwardsDetailsCell
         case 2:

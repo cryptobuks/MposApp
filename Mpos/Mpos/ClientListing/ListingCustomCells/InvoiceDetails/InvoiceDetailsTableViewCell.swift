@@ -86,8 +86,6 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
     
     func downloadDocuments(iSelectedIndexPath:IndexPath)
     {
-        
-        
         var dicRequest = [String:AnyObject]()
         if let arrReceipts = self.objPolicyDetails["receipts"] as? [Any]
         {
@@ -96,7 +94,9 @@ class InvoiceDetailsTableViewCell: UITableViewCell {
                 dicRequest["policyId"] = objReceiptsDetail["policyId"] as AnyObject?
                 dicRequest["receiptId"] = objReceiptsDetail["receiptId"] as AnyObject?
                 dicRequest["companyId"] = objReceiptsDetail["companyId"] as AnyObject?
-                dicRequest["documentId"] = objReceiptsDetail["pdf"] as AnyObject?
+//                dicRequest["documentId"] = objReceiptsDetail["pdf"] as AnyObject?
+                //Get document - Attribute documentId in the request body of service /getDoc should be changed to always have the static value of “”.
+                dicRequest["documentId"] = "\"\"" as AnyObject?
 
             }
         }
@@ -155,7 +155,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         var lblAlphaColor = UIColor()
 
         cellForInvoiceWithCheckBox.btnCheckBox.isHidden = true
-        cellForInvoiceWithCheckBox.btnDownload.isHidden = true
+        cellForInvoiceWithCheckBox.btnDownload.isHidden = false
         cellForInvoiceWithCheckBox.btnViewMore.isHidden = false
         cellForInvoiceWithCheckBox.imgSelected.isHidden = true
         cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
@@ -206,18 +206,32 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                 cellForInvoiceWithCheckBox.lblIssueDate.text = objReceiptsDetail["issueDate"] as? String
                 cellForInvoiceWithCheckBox.lblValue.text = "\(String(describing: objReceiptsDetail["amount"] as! Double).toCurrencyFormat())"
                 
-                if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
+                /*
+                 Forbidden invoices (a.k.a danger sign)
+                 There is a status key in object Receipt. This key decides if the invoice can be selected or not. If the key is equal to true, the invoice is blocked and cannot be selected. If it is equal to false, it is available to selection. Here is an example of a blocked invoice:
+                 */
+                if(objReceiptsDetail["status"] as! Bool == true)
                 {
-                    cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
+                    cellForInvoiceWithCheckBox.btnCheckBox.setImage(UIImage(named: "ic_InvoiceError"), for: .normal)
                     cellForInvoiceWithCheckBox.imgSelected.isHidden = false
                     cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
-                    cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
+                    cellForInvoiceWithCheckBox.imgSelected.backgroundColor = AppColors.kErrorColor
                 }
                 else
                 {
-                    cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
-                    cellForInvoiceWithCheckBox.imgSelected.isHidden = true
-                    cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
+                    if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
+                    {
+                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
+                        cellForInvoiceWithCheckBox.imgSelected.isHidden = false
+                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 10
+                        cellForInvoiceWithCheckBox.imgSelected.backgroundColor = lblAlphaColor
+                    }
+                    else
+                    {
+                        cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
+                        cellForInvoiceWithCheckBox.imgSelected.isHidden = true
+                        cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
+                    }
                 }
             }
         }
@@ -227,7 +241,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
          1. The text under “CLIENTE” is not pressable and does not direct users to the “Detalhe_cliente” screen;
          2. The “+ VER MAIS” and “DOWNLOAD” text boxes / buttons are not included in individual invoice tickets;
          */
-        if(bTerceirosSelected == true)
+        if(bTerceirosSelected == true || InvoiceType == 3)
         {
             cellForInvoiceWithCheckBox.btnDownload.isHidden = true
             cellForInvoiceWithCheckBox.btnViewMore.isHidden = true
@@ -250,15 +264,27 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
                 {
                     if let objReceiptsDetail = arrReceipts[indexPath.row] as? [String:Any]
                     {
-                        if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
+                        
+                        /*
+                         Forbidden invoices (a.k.a danger sign)
+                         There is a status key in object Receipt. This key decides if the invoice can be selected or not. If the key is equal to true, the invoice is blocked and cannot be selected. If it is equal to false, it is available to selection. Here is an example of a blocked invoice:
+                         */
+                        if(objReceiptsDetail["status"] as! Bool == true)
                         {
-                            cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
-                            self.delegate?.updateReceiptObject(bSelectedValue: false, indexpath: self.selectedIndexPath,iSelectedReceiptIndex:indexPath.row)
+                            self.goToErrorPage()
                         }
                         else
                         {
-                            cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
-                            self.delegate?.updateReceiptObject(bSelectedValue: true, indexpath: self.selectedIndexPath,iSelectedReceiptIndex:indexPath.row)
+                            if let isSelectedReceipt = objReceiptsDetail[kkeyisReceiptSelected] as? Bool, isSelectedReceipt == true
+                            {
+                                cellForInvoiceWithCheckBox.btnCheckBox.isSelected = false
+                                self.delegate?.updateReceiptObject(bSelectedValue: false, indexpath: self.selectedIndexPath,iSelectedReceiptIndex:indexPath.row)
+                            }
+                            else
+                            {
+                                cellForInvoiceWithCheckBox.btnCheckBox.isSelected = true
+                                self.delegate?.updateReceiptObject(bSelectedValue: true, indexpath: self.selectedIndexPath,iSelectedReceiptIndex:indexPath.row)
+                            }
                         }
                     }
                 }

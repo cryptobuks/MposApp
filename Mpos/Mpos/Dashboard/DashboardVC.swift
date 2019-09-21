@@ -41,7 +41,7 @@ class DashboardVC: UIViewController
         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
         {
             lblAgentName.text = "\(dictagentContext["name"] ?? "")"
-            lblAgentID.text = "ASF: \(dictagentContext["agentId"] ?? "")"
+            lblAgentID.text = "ASF: \(dictagentContext["asfNumber"] ?? "")"
             let myMutableString = NSMutableAttributedString(string: "Agente:\(dictagentContext["agentId"] ?? "")", attributes: [NSAttributedString.Key.font : lblAgentCode.font])
             myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictagentContext["agentId"] ?? "")".count))
 
@@ -61,9 +61,19 @@ class DashboardVC: UIViewController
             if let arrKPIList = response["kpiList"] as? NSArray
             {
                 self.dictNotificationobject = arrKPIList.lastObject as! [String : Any]
-                for index in 0..<arrKPIList.count-1
+                if arrKPIList.count > 3
                 {
-                    self.arrRows.add(arrKPIList[index])
+                    for index in 0..<arrKPIList.count-1
+                    {
+                        self.arrRows.add(arrKPIList[index])
+                    }
+                }
+                else
+                {
+                    for index in 0..<arrKPIList.count
+                    {
+                        self.arrRows.add(arrKPIList[index])
+                    }
                 }
                 
                 UserDefaultManager.SharedInstance.saveArrayData(arr: self.arrRows, strKeyName: "SidebarData")
