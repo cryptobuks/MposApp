@@ -678,7 +678,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
                 if let objPolicyDetail = arrPolicies[indexPath.row] as? [String:Any]
                 {
                     cellForClientDetails.lblInvoiceNumber.text = (objPolicyDetail["policyId"] as! String)
-                    cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! String) - \(String(describing: objPolicyDetail["amount"] as! Double).toCurrencyFormat())"
+                    cellForClientDetails.lblPrice.text = "\(objPolicyDetail["noReceipts"] as! NSNumber) - \(String(describing: objPolicyDetail["amount"] as! Double).toCurrencyFormat())"
                     cellForClientDetails.btnExpandCollapse.isSelected = objPolicyDetail[kkeyisPolicySelected] as? Bool ?? false
                     
                     

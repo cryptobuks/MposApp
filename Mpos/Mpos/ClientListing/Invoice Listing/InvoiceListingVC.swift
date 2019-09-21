@@ -274,6 +274,7 @@ extension InvoiceListingVC : UITableViewDelegate,UITableViewDataSource{
         clientWiseInvoiceVC.objClientRef = arrClientRefs.object(at: indexPath.row) as! [String : Any]
         clientWiseInvoiceVC.bTerceirosSelected = false
         clientWiseInvoiceVC.bSearchClicked = false
+        clientWiseInvoiceVC.StrType = self.StrType
         self.navigationController?.pushViewController(clientWiseInvoiceVC, animated: true)
     }
 }
