@@ -276,6 +276,8 @@ func getImageFromDocumentDirectory(imageName: String) -> NSURL
 
 func addErrorView(senderViewController:UIViewController,strErrorMessage:String)
 {
+    MainReqeustClass.HideActivityIndicatorInStatusBar()
+
     let storyBoard = UIStoryboard(name: "MposError", bundle: nil)
     let controller = storyBoard.instantiateViewController(withIdentifier: "MposErrorVC") as! MposErrorVC
     controller.strErrorMessage = strErrorMessage

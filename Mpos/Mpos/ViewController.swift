@@ -104,6 +104,7 @@ class ViewController: UIViewController
         
         let msalConfiguration = MSALPublicClientApplicationConfig(clientId: appDelegate.kClientID, redirectUri: nil, authority: authority)
         appDelegate.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)*/
+        
         guard let authorityURL = URL(string: appDelegate.kAuthority) else {
             addErrorView(senderViewController: self, strErrorMessage: "Unable to create authority URL")
             return
@@ -216,7 +217,7 @@ extension ViewController {
      */
     
     @objc func callGraphAPI(_ sender: UIButton) {
-        
+        MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: true)
         guard let currentAccount = appDelegate.currentAccount() else {
             // We check to see if we have a current logged in account.
             // If we don't, then we need to sign someone in.
@@ -342,9 +343,13 @@ extension ViewController {
              UserDefaultManager.SharedInstance.saveData(dict: result as! [String : Any], strKeyName: kAzureLoginData)
             // api call
             if Thread.isMainThread {
+                MainReqeustClass.HideActivityIndicatorInStatusBar()
+
                 self.gotoDashboardScreen()
             } else {
                 DispatchQueue.main.async {
+                    MainReqeustClass.HideActivityIndicatorInStatusBar()
+
                     self.gotoDashboardScreen()
                 }
             }

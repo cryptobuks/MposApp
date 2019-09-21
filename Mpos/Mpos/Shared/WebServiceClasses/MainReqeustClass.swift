@@ -202,7 +202,8 @@ class MainReqeustClass: NSObject
             }
             print("----------------------\n\n\n\nURL: \(url)")
             
-            Alamofire.request(url, method: .get, parameters: parameter, encoding: JSONEncoding.default, headers: header).responseJSON { (response:DataResponse<Any>) in
+            Alamofire.request(url, method: .get, parameters: parameter, encoding: JSONEncoding.default, headers: header)
+                .responseJSON { (response:DataResponse<Any>) in
                 MainReqeustClass.HideActivityIndicatorInStatusBar()
                 switch(response.result)
                 {
