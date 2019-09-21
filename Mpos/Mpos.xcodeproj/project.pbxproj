@@ -37,6 +37,7 @@
 		A5CA097A22F1FCBF0084D7DE /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA097722F1FCBF0084D7DE /* SwiftyGifManager.swift */; };
 		A5CA733A22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */; };
 		A5CA733B22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */; };
+		A5EEDD1223366F1A00439ECF /* TermsAndConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EEDD1123366F1A00439ECF /* TermsAndConditionVC.swift */; };
 		A5F27FEF22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F27FEE22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift */; };
 		B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */; };
 		D30B192222F5BB9200DC9B8D /* SearchServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B192122F5BB9200DC9B8D /* SearchServices.swift */; };
@@ -155,6 +156,7 @@
 		A5CA097722F1FCBF0084D7DE /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		A5CA733822E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceDetailsWIthCheckBoxTableViewCell.swift; sourceTree = "<group>"; };
 		A5CA733922E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceDetailsWIthCheckBoxTableViewCell.xib; sourceTree = "<group>"; };
+		A5EEDD1123366F1A00439ECF /* TermsAndConditionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionVC.swift; sourceTree = "<group>"; };
 		A5F27FEE22E6AE2E000B82B7 /* ClientWiseInvoiceListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientWiseInvoiceListing.swift; sourceTree = "<group>"; };
 		AF87181C1EAAF660066762F5 /* Pods_Mpos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mpos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D30B192122F5BB9200DC9B8D /* SearchServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServices.swift; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 				D39E336122E0F40E0079B0AA /* SideMenuHeaderTableViewCell.swift */,
 				D39E336322E0F41E0079B0AA /* SideMenuContentTableViewCell.swift */,
 				A59E4D7722E6191A006FFBB6 /* SideMenu.storyboard */,
+				A5EEDD1123366F1A00439ECF /* TermsAndConditionVC.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */,
 				D3D4BF4522E1754600FB39BD /* SkyFloatingLabelTextField.swift in Sources */,
 				D3B3D61F22E6B7B100896564 /* ActionSheetLocalePicker.m in Sources */,
+				A5EEDD1223366F1A00439ECF /* TermsAndConditionVC.swift in Sources */,
 				A5CA733A22E897EF000F547C /* InvoiceDetailsWIthCheckBoxTableViewCell.swift in Sources */,
 				A54FFBCA22EA1E9D00F03281 /* PaymentDataCell.swift in Sources */,
 				D3B3D62022E6B7B100896564 /* ActionSheetDistancePicker.m in Sources */,
@@ -1059,7 +1063,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9W84C5JU7K;
 				INFOPLIST_FILE = Mpos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1083,7 +1087,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9W84C5JU7K;
 				INFOPLIST_FILE = Mpos/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

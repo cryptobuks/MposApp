@@ -197,6 +197,24 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
                 invoiceListingVC.StrType = ((dicData["type"] as? String)!)
             }
             navController.pushViewController(invoiceListingVC, animated: true)
+        }else{
+            let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
+            let termsAndCondition = storyBoard.instantiateViewController(withIdentifier: "TermsAndConditionVC") as! TermsAndConditionVC
+            
+            switch indexPath.row{
+            case 3:
+                self.title = "POLÍTICA DE PRIVACIDADE"
+                termsAndCondition.strUrl = "https://www.ageas.pt/protecao-de-dados"
+                break
+            case 4:
+                self.title = "TERMOS E CONDIÇÕES"
+                termsAndCondition.strUrl = "https://www.ageas.pt/informacao-legal"
+                break
+            default:
+                break;
+            }
+
+            navController.pushViewController(termsAndCondition, animated: true)
         }
     }
 }
