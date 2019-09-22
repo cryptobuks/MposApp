@@ -93,7 +93,7 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
         if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
         {
             headerCell.lblAgentName.text = "\(dictagentContext["name"] ?? "")"
-            headerCell.lblAgentTitle.text = "ASF: \(dictagentContext["id"] ?? "")"
+            headerCell.lblAgentTitle.text = "ASF: \(dictagentContext["asfNumber"] ?? "")"
             headerCell.lblAgentNumber.text = "\(dictagentContext["agentId"] ?? "")"
         }
         return headerCell
@@ -175,29 +175,31 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.navigationController?.popViewController(animated: true)
-
-        /*
-         The navigation keeps stacking the screens when the user changes the invoice type (KPI) from the side menu
-         - The correct behaviour is: whenever the user changes the context (e.g. from POR COBRAR to COBRADOS), the stack resets and starts from the home screen
-         */
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
-        let navController = UINavigationController(rootViewController: controller)
-        navController.navigationBar.isHidden = true
-        appDelegate.window?.rootViewController = navController
-
         if indexPath.row < 3
         {
-            let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
-            let invoiceListingVC = storyBoard.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
+            self.navigationController?.popViewController(animated: true)
+            
+            /*
+             The navigation keeps stacking the screens when the user changes the invoice type (KPI) from the side menu
+             - The correct behaviour is: whenever the user changes the context (e.g. from POR COBRAR to COBRADOS), the stack resets and starts from the home screen
+             */
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+            let navController = UINavigationController(rootViewController: controller)
+            navController.navigationBar.isHidden = true
+            appDelegate.window?.rootViewController = navController
+
+            let storyBoardInvoice = UIStoryboard(name: "InvoiceList", bundle: nil)
+            let invoiceListingVC = storyBoardInvoice.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
             invoiceListingVC.InvoiceType = indexPath.row + 1
             if let dicData = arrRows[indexPath.row] as? [String:Any]
             {
                 invoiceListingVC.StrType = ((dicData["type"] as? String)!)
             }
             navController.pushViewController(invoiceListingVC, animated: true)
-        }else{
+        }
+        else
+        {
             let storyBoard = UIStoryboard(name: "SideMenu", bundle: nil)
             let termsAndCondition = storyBoard.instantiateViewController(withIdentifier: "TermsAndConditionVC") as! TermsAndConditionVC
             
@@ -213,8 +215,7 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
             default:
                 break;
             }
-
-            navController.pushViewController(termsAndCondition, animated: true)
+            self.navigationController?.pushViewController(termsAndCondition, animated: true)
         }
     }
 }
