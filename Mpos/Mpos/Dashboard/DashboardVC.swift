@@ -96,6 +96,13 @@ class DashboardVC: UIViewController
             if let dictAgentContext = response["agentContext"] as?  [String : Any]
             {
                 UserDefaultManager.SharedInstance.saveLoggedUser(dict: dictAgentContext)
+                
+                self.lblAgentName.text = "\(dictAgentContext["name"] ?? "")"
+                self.lblAgentID.text = "ASF: \(dictAgentContext["asfNumber"] ?? "")"
+                let myMutableString = NSMutableAttributedString(string: "Agente:\(dictAgentContext["agentId"] ?? "")", attributes: [NSAttributedString.Key.font : self.lblAgentCode.font])
+                myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictAgentContext["agentId"] ?? "")".count))
+                
+                self.lblAgentCode.attributedText = myMutableString
             }
             
             if let agentList = response["agentList"] as? NSArray
