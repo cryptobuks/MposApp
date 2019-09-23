@@ -108,6 +108,7 @@ enum UserDefaultKey: String {
     case IS_USERLOGGEDIN = "IS_USERLOGIN"
     case IS_ONBOARDINGDONE = "IS_ONBOARDINGDONE"
     case IS_INLINEMSG = "IS_INLINEMSG"
+    case COBRADOSLastVisitTime = "COBRADOSLastVisitTime"
 }
 
 enum kValidationMsg : String {
@@ -122,10 +123,6 @@ enum kValidationMsg : String {
     case confPass_empty = "Please enter confirm password"
     case invalid_PasswordLength = "The #password# must be at least 8 characters."
     case invalid_password_pattern = "The #password# must be atlest one lower case, one upper case, one special character and one numeric digit"
-    case gassafe_empty = "Please enter gas safe registration number."
-    case gassafe_invalid = "Please enter valid gas safe registration number.This number must be between 3 to 7 digits."
-    case oilsafe_empty = "Please enter OFTEC registration number."
-    case oilsafe_inValid = "Please enter valid OFTEC registration number.This number must be between 3 to 7 digits."
     case invalid_credetial = "User credentials did not match !"
     case invalid_Email = "Please enter valid email address."
     case invalid_phone = "Please enter valid phone number."

@@ -19,6 +19,7 @@ class DashboardVC: UIViewController
     var categoryColor = UIColor()
     var dictNotificationobject = [String:Any]()
     var arrListofAgents = NSMutableArray()
+    var iCurrentInvoiceType:Int = 0
 
     override func viewDidLoad()
     {
@@ -47,13 +48,20 @@ class DashboardVC: UIViewController
 
             lblAgentCode.attributedText = myMutableString
         }
+        
+        if iCurrentInvoiceType == 3
+        {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.getKPI(strTimeStamp: UserDefaultManager.SharedInstance.getString(strKeyName: UserDefaultKey.COBRADOSLastVisitTime.rawValue)!)
+            })
+        }
     }
 
-    func getKPI()
+    func getKPI(strTimeStamp:String)
     {
         arrRows = NSMutableArray()
         let loggedUser = UserDefaultManager.SharedInstance.getLoggedUser()
-        let params = ["agentContext":loggedUser!,"timestamp": "2019-03-08 08:10:00"] as [String : Any]
+        let params = ["agentContext":loggedUser!,"timestamp": strTimeStamp] as [String : Any]
         
         MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: base_Url, parameter: params as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: kpiUrl), success: { (response) in
             print(response)
@@ -112,7 +120,7 @@ class DashboardVC: UIViewController
             
             //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.getKPI()
+                self.getKPI(strTimeStamp: "2019-03-08 08:10:00")
             })
         })
         { (responseError) in
@@ -171,7 +179,7 @@ class DashboardVC: UIViewController
                     
                     //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                        self.getKPI()
+                        self.getKPI(strTimeStamp: "2019-03-08 08:10:00")
                     })
                 }
                 return
@@ -256,7 +264,22 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "InvoiceList", bundle: nil)
         let invoiceListingVC = storyBoard.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
+        
+        /*
+            Therefore, every time user enters COBRADOS section, the current timestamp must be stored in the app. Then, when the Home screen is invoked, kpi service is called with the stored timestamp.
+         */
+        if indexPath.row == 2
+        {
+            let dateFormatter : DateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let date = Date()
+            let dateString = dateFormatter.string(from: date)
+
+            UserDefaultManager.SharedInstance.saveString(str: dateString, strKeyName: UserDefaultKey.COBRADOSLastVisitTime.rawValue)
+        }
+        
         invoiceListingVC.InvoiceType = indexPath.row + 1
+        iCurrentInvoiceType = invoiceListingVC.InvoiceType
         if let dicData = arrRows[indexPath.row] as? [String:Any]
         {
             invoiceListingVC.StrType = ((dicData["type"] as? String)!)

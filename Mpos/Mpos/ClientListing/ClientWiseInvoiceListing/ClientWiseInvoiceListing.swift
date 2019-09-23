@@ -195,7 +195,22 @@ class ClientWiseInvoiceListing: UIViewController {
                         if let objPolicyDetail = arrPoliciesMutableObject[iIndexPolicy] as? [String:Any]
                         {
                             let dictPolicyDetailMutableObject = NSMutableDictionary(dictionary: objPolicyDetail)
-                            dictPolicyDetailMutableObject.setValue(false, forKey: kkeyisPolicySelected)
+                            
+                            /*
+                             Configure Search Results highlight
+                             Results highlight are the invoices that should already be selected when the search is done, as stated on 12th Aug:
+                             Q: How to identify RECIBO and APÓLICE search?
+                             A: The result layout is always the same: a list of companies -> policies -> invoices. The only thing that changes is the highlight (selection). The result of the search returns not only the searched invoice, but also the invoices in the same context. The key that defines if the invoice needs to be highlighted is searchMatch. This attribute is present in the object policies and receipts. So, if the searchMatch is true in a policy, all its invoices are highlighted, otherwise, only the invoices (receipts) with searchMatch = true are highlighted.
+                             
+                             */
+                            if (objPolicyDetail["searchMatch"] as! Bool == true)
+                            {
+                                dictPolicyDetailMutableObject.setValue(true, forKey: kkeyisPolicySelected)
+                            }
+                            else
+                            {
+                                dictPolicyDetailMutableObject.setValue(false, forKey: kkeyisPolicySelected)
+                            }
                             
                             //set Receipt selected Key
                             var arrReceiptsMutableObject = NSMutableArray()
@@ -207,7 +222,21 @@ class ClientWiseInvoiceListing: UIViewController {
                                     if let objReceiptsDetail = arrReceiptsMutableObject[iIndexReceipt] as? [String:Any]
                                     {
                                         let dictReceiptsDetailMutableObject = NSMutableDictionary(dictionary: objReceiptsDetail)
-                                        dictReceiptsDetailMutableObject.setValue(false, forKey: kkeyisReceiptSelected)
+                                        if (objPolicyDetail["searchMatch"] as! Bool == true)
+                                        {
+                                            dictReceiptsDetailMutableObject.setValue(true, forKey: kkeyisReceiptSelected)
+                                        }
+                                        else
+                                        {
+                                            if (objReceiptsDetail["searchMatch"] as! Bool == true)
+                                            {
+                                                dictReceiptsDetailMutableObject.setValue(true, forKey: kkeyisReceiptSelected)
+                                            }
+                                            else
+                                            {
+                                                dictReceiptsDetailMutableObject.setValue(false, forKey: kkeyisReceiptSelected)
+                                            }
+                                        }
                                         arrReceiptsMutableObject.replaceObject(at: iIndexReceipt, with: dictReceiptsDetailMutableObject)
                                     }
                                 }

@@ -97,6 +97,17 @@ class UserDefaultManager: NSObject
         return token
     }
 
+    func saveString(str:String,strKeyName:String) {
+        let defaut = UserDefaults.standard
+        defaut.set(str, forKey: strKeyName)
+        defaut.synchronize()
+    }
+    func getString(strKeyName:String) -> String? {
+        let defaut = UserDefaults.standard
+        let token:String? = defaut.object(forKey: strKeyName) as? String
+        return token
+    }
+    
     func setUserLoggedIn(isLogin:Bool) {
         let defaut = UserDefaults.standard
         defaut.set(isLogin, forKey: UserDefaultKey.IS_USERLOGGEDIN.rawValue)
