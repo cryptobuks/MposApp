@@ -21,6 +21,7 @@ class PaymentMethodListVC: UIViewController
 //    var selectedCategoryColor = UIColor()
     var iSelectedPaymentTag = Int()
     var InvoiceType:Int = 0
+    var totalAmt = String()
 
     override func viewDidLoad()
     {
@@ -62,6 +63,7 @@ class PaymentMethodListVC: UIViewController
         arrPaymentData.add(dictTemp)
         self.tblPaymentList.reloadData()
         
+        btnContinue.setTitle("COBRAR \(totalAmt)", for: .normal)
         // Do any additional setup after loading the view.
     }
     
