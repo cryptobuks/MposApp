@@ -217,7 +217,6 @@ extension ViewController {
      */
     
     @objc func callGraphAPI(_ sender: UIButton) {
-        MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: true)
         guard let currentAccount = appDelegate.currentAccount() else {
             // We check to see if we have a current logged in account.
             // If we don't, then we need to sign someone in.
@@ -233,7 +232,8 @@ extension ViewController {
         guard let applicationContext = appDelegate.applicationContext else { return }
         
         let parameters = MSALInteractiveTokenParameters(scopes: appDelegate.kScopes)
-        
+        MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: true)
+
         applicationContext.acquireToken(with: parameters) { (result, error) in
             
             if let error = error {
@@ -273,7 +273,8 @@ extension ViewController {
          */
         
         let parameters = MSALSilentTokenParameters(scopes: appDelegate.kScopes, account: account)
-        
+        MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: true)
+
         applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
             
             if let error = error {

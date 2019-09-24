@@ -125,6 +125,7 @@ class MainReqeustClass: NSObject
     {
         if(isInternetConnection())
         {
+            print(header)
             MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: showLoader,loadingText:showloaderText)
             Alamofire.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default, headers: header).responseJSON { (response:DataResponse<Any>) in
                 if showLoader {
@@ -142,19 +143,24 @@ class MainReqeustClass: NSObject
                         {
                             let dictemp = json as! NSDictionary
                             print("dictemp :> \(dictemp)")
-                            if let errorobject = dictemp["errors"] as? [[String:Any]]
+                            if let errorobject = dictemp["errors"] as? [[String:Any]], errorobject.count > 0
                             {
-                                if let errorCode = errorobject.first?["errorCode"] as? String,errorCode != "200"
-                                {
-                                    failed("\(errorobject.first?["errorMessage"] ?? "")")
-                                    break
+                                let errorMessage = NSMutableString()
+                                for error in errorobject{
+                                    
+                                    guard let errorCode = error["errorCode"] as? String else{return}
+                                    
+                                    guard let errorType = error["errorType"] as? String else{return}
+                                    
+                                    if errorCode != "200" || errorType != "OK" || errorType == ""{
+                                        if let errorMsg = error["errorMessage"] as? String
+                                        {
+                                            errorMessage.append("\(errorMsg)\n")
+                                        }
+                                    }
                                 }
-                                
-                                if let errorType = errorobject.first?["errorType"] as? String, errorType != "OK"
-                                {
-                                    failed("\(errorobject.first?["errorMessage"] ?? "")")
-                                    break
-                                }
+                                failed("\(errorMessage)")
+                                break
                             }
                             
                             if dictemp.count > 0
@@ -217,19 +223,24 @@ class MainReqeustClass: NSObject
                             let dictemp = json as! NSDictionary
 //                            debugPrint("dictemp :> \(dictemp)")
                             
-                            if let errorobject = dictemp["errors"] as? [[String:Any]]
+                            if let errorobject = dictemp["errors"] as? [[String:Any]], errorobject.count > 0
                             {
-                                if let errorCode = errorobject.first?["errorCode"] as? String,errorCode != "200"
-                                {
-                                    failed("\(errorobject.first?["errorMessage"] ?? "")")
-                                    break
+                                let errorMessage = NSMutableString()
+                                for error in errorobject{
+                                    
+                                    guard let errorCode = error["errorCode"] as? String else{return}
+                                    
+                                    guard let errorType = error["errorType"] as? String else{return}
+                                    
+                                    if errorCode != "200" || errorType != "OK" || errorType == ""{
+                                        if let errorMsg = error["errorMessage"] as? String
+                                        {
+                                            errorMessage.append("\(errorMsg)\n")
+                                        }
+                                    }
                                 }
-                                
-                                if let errorType = errorobject.first?["errorType"] as? String, errorType != "OK"
-                                {
-                                    failed("\(errorobject.first?["errorMessage"] ?? "")")
-                                    break
-                                }
+                                failed("\(errorMessage)")
+                                break
                             }
                             
                             if dictemp.count > 0

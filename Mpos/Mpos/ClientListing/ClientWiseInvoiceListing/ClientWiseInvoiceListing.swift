@@ -527,6 +527,7 @@ class ClientWiseInvoiceListing: UIViewController {
         controller.InvoiceType = InvoiceType
         controller.objClientRef = self.objClientRef
         controller.objSelectedCompany = self.arrCompanies[indexSelectedCompany] as! [String : Any]
+        controller.totalAmout = btnTotalInvoicePrice.titleLabel?.text?.components(separatedBy: "|").last ?? ""
         self.navigationController?.pushViewController(controller, animated: true)
     }
     /*
@@ -650,7 +651,7 @@ extension ClientWiseInvoiceListing : UITableViewDelegate,UITableViewDataSource
             
             if let dicCompany = arrCompanies[section-1] as? [String:Any]
             {
-                companyDetailCell.lblCompanyName.text = dicCompany["companyId"] as? String
+                companyDetailCell.lblCompanyName.text = dicCompany["companyDes"] as? String
                 companyDetailCell.lblInvoiceTotal.text = "\(String(describing: dicCompany["amount"] as! Double).toCurrencyFormat())"
                 companyDetailCell.btnCheckBox.isSelected = dicCompany[kSectionCellSelected] as? Bool ?? false
             }

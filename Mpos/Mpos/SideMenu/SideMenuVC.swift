@@ -23,7 +23,12 @@ class SideMenuVC: UIViewController
         
         let arrData = UserDefaultManager.SharedInstance.getArrayData(strKeyName: "SidebarData")
         arrRows = arrData ?? NSMutableArray()
-
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4671765566, green: 0.8079167008, blue: 0.8608521223, alpha: 1)
+        let yourBackImage = UIImage(named: "ic_back")
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
+        
         self.tblSideMenu.reloadData()
         // Do any additional setup after loading the view.
     }
@@ -205,11 +210,11 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
             
             switch indexPath.row{
             case 3:
-                self.title = "POLÍTICA DE PRIVACIDADE"
+                termsAndCondition.strTitle = "POLÍTICA DE PRIVACIDADE"
                 termsAndCondition.strUrl = "https://www.ageas.pt/protecao-de-dados"
                 break
             case 4:
-                self.title = "TERMOS E CONDIÇÕES"
+                termsAndCondition.strTitle = "TERMOS E CONDIÇÕES"
                 termsAndCondition.strUrl = "https://www.ageas.pt/informacao-legal"
                 break
             default:

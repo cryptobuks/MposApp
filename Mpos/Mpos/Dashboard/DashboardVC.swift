@@ -30,7 +30,11 @@ class DashboardVC: UIViewController
         //Call KPI api is called to fill up the three main buttons (KPIs) in the home screen
         self.tblCategoryList.estimatedRowHeight = 80
         self.tblCategoryList.rowHeight = UITableView.automaticDimension
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.4671765566, green: 0.8079167008, blue: 0.8608521223, alpha: 1)
+        let yourBackImage = UIImage(named: "ic_back")
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
 //            self.getKPI()
             self.getListofAgents()

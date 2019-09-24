@@ -21,7 +21,8 @@ class DataConfirmationVC: UIViewController
     var lblColor = UIColor()
     var objClientRef = [String:Any]()
     var objSelectedCompany = [String:Any]()
-    
+    var totalAmout = String()
+    var arrReceipts = [[String:Any]]()
 
     override func viewDidLoad()
     {
@@ -60,6 +61,31 @@ class DataConfirmationVC: UIViewController
         self.tblvwDataConfirmation.register(UINib(nibName: kDataConfirmataionListwithLogoCell, bundle: nil), forCellReuseIdentifier: kDataConfirmataionListwithLogoCell)
 
         self.tblvwDataConfirmation.register(UINib(nibName: kDataConfirmationNormalListCell, bundle: nil), forCellReuseIdentifier: kDataConfirmationNormalListCell)
+        
+        
+        if objSelectedCompany["isSectionCellSelected"] as! Bool == true{
+            if let arrPolicies = objSelectedCompany["policies"] as? [[String:Any]]{
+                for policy in arrPolicies{
+                    if let receipts = policy["receipts"] as? [[String:Any]]{
+                        for receipt in receipts{
+                            arrReceipts.append(receipt)
+                        }
+                    }
+                }
+            }
+        }else{
+            if let arrPolicies = objSelectedCompany["policies"] as? [[String:Any]]{
+                for policy in arrPolicies{
+                    if let receipts = policy["receipts"] as? [[String:Any]]{
+                        for receipt in receipts{
+                            if receipt["isReceiptSelected"] as! Bool == true{
+                                arrReceipts.append(receipt)
+                            }
+                        }
+                    }
+                }
+            }
+        }
         
         tblvwDataConfirmation.reloadData()
     }
@@ -127,7 +153,7 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 4
+        return arrReceipts.count + 2
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
@@ -166,25 +192,20 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
         case 0:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmataionListwithLogoCell, for: indexPath) as! DataConfirmataionListwithLogoCell
             cellListwithLogoCell.lblTitle.textColor = lblColor
-            cellListwithLogoCell.lblCompanyTitle.text = objSelectedCompany["companyId"] as? String
-            if let isSectionSelected = objSelectedCompany[kSectionCellSelected] as? Bool, isSectionSelected == true
-            {
-                cellListwithLogoCell.lblSubPrice.text = "\(objSelectedCompany["amount"])".toCurrencyFormat()
-
-            }
-            else
-            {
-                
-            }
+            cellListwithLogoCell.lblCompanyTitle.text = objSelectedCompany["companyDes"] as? String
+            cellListwithLogoCell.lblSubPrice.text = "\(arrReceipts.count) - \(totalAmout)"
             cell = cellListwithLogoCell
             break
-        case 1...2:
+        case 1...arrReceipts.count:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: kDataConfirmationNormalListCell, for: indexPath) as! DataConfirmationNormalListCell
             cellListwithLogoCell.lblTitleHeader.textColor = lblColor
             cellListwithLogoCell.lblPriceHeader.textColor = lblColor
+            cellListwithLogoCell.lblTitle.text = arrReceipts[indexPath.row-1]["receiptId"] as? String
+            cellListwithLogoCell.lblPrice.text = "\(arrReceipts[indexPath.row-1]["amount"] ?? "")".toCurrencyFormat()
+            
             cell = cellListwithLogoCell
             break
-        case 3:
+        case arrReceipts.count+1:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: "DataConfirmationDropDownCell", for: indexPath) as! DataConfirmationDropDownCell
             cellListwithLogoCell.lblTitle.textColor = lblColor
             cellListwithLogoCell.btnDropDownTapped =

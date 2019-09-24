@@ -11,12 +11,15 @@ import WebKit
 class TermsAndConditionVC: UIViewController,WKNavigationDelegate {
     @IBOutlet weak var webview: WKWebView!
     var strUrl = String()
+    var strTitle = String()
     @IBOutlet weak var Activity: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = strTitle
+        
         let url = URL(string: strUrl)!
         webview.load(URLRequest(url: url))
         webview.navigationDelegate = self
