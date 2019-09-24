@@ -15,6 +15,8 @@ class CategoryListTableViewCell: UITableViewCell
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var imgCategoryColor: UIImageView!
     @IBOutlet weak var imgBack: UIView!
+    @IBOutlet weak var imgBadge: UIImageView!
+    @IBOutlet weak var lblBadgeCount: UILabel!
 
     override func awakeFromNib()
     {

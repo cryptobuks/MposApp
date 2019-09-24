@@ -72,20 +72,17 @@ class DashboardVC: UIViewController
             
             if let arrKPIList = response["kpiList"] as? NSArray
             {
-                self.dictNotificationobject = arrKPIList.lastObject as! [String : Any]
-                if arrKPIList.count > 3
+                for index in 0..<arrKPIList.count
                 {
-                    for index in 0..<arrKPIList.count-1
-                    {
-                        self.arrRows.add(arrKPIList[index])
-                    }
+                    self.arrRows.add(arrKPIList[index])
                 }
-                else
+                
+                let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Novos")
+                let filteredArray = arrKPIList.filtered(using: searchPredicate)
+                if filteredArray.count > 0
                 {
-                    for index in 0..<arrKPIList.count
-                    {
-                        self.arrRows.add(arrKPIList[index])
-                    }
+                    self.dictNotificationobject = filteredArray[0] as! [String : Any]
+                    self.arrRows.remove(self.dictNotificationobject)
                 }
                 
                 UserDefaultManager.SharedInstance.saveArrayData(arr: self.arrRows, strKeyName: "SidebarData")
@@ -229,6 +226,15 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
 //        cell.imgBack.layer.shadowRadius = 8
 
         cell.selectionStyle  = .none
+        cell.imgBadge.isHidden = true
+        cell.lblBadgeCount.isHidden = true
+        
+        if(self.dictNotificationobject.count > 0)
+        {
+            cell.imgBadge.isHidden = false
+            cell.lblBadgeCount.isHidden = false
+            cell.lblBadgeCount.text =  "\(self.dictNotificationobject["quantity"] ?? "")"
+        }
         
         if let dicData = arrRows[indexPath.row] as? [String:Any]
         {
