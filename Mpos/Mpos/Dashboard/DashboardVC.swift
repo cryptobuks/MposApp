@@ -238,16 +238,21 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         cell.imgBadge.isHidden = true
         cell.lblBadgeCount.isHidden = true
         
-        if(self.dictNotificationobject.count > 0)
-        {
-            cell.imgBadge.isHidden = false
-            cell.lblBadgeCount.isHidden = false
-            cell.lblBadgeCount.text =  "\(self.dictNotificationobject["quantity"] ?? "")"
-        }
         
         if let dicData = arrRows[indexPath.row] as? [String:Any]
         {
             cell.lblCategoryName.text = (dicData["type"] as? String)?.uppercased()
+            
+            if dicData["type"] as! String == "Cobrar"
+            {
+                if(self.dictNotificationobject.count > 0)
+                {
+                    cell.imgBadge.isHidden = false
+                    cell.lblBadgeCount.isHidden = false
+                    cell.lblBadgeCount.text =  "\(self.dictNotificationobject["quantity"] ?? "")"
+                }
+            }
+
             
             switch indexPath.row
             {
