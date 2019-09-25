@@ -112,6 +112,11 @@ class DashboardVC: UIViewController
                 myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 103.0/255.0, green: 196.0/255.0, blue: 211.0/255.0, alpha: 1.0), range: NSRange(location:7,length:"\(dictAgentContext["agentId"] ?? "")".count))
                 
                 self.lblAgentCode.attributedText = myMutableString
+                
+                //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                    self.getKPI(strTimeStamp: "2019-03-08 08:10:00")
+                })
             }
             
             if let agentList = response["agentList"] as? NSArray
@@ -119,10 +124,14 @@ class DashboardVC: UIViewController
                 self.arrListofAgents = NSMutableArray(array: agentList)
             }
             
-            //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.getKPI(strTimeStamp: "2019-03-08 08:10:00")
-            })
+            if let arrErrors = response["Errors"] as? NSArray
+            {
+                if let errorobject = arrErrors[0] as? [String:Any]
+                {
+                    addErrorView(senderViewController: self, strErrorMessage: errorobject["errorMessage"] as! String)
+                }
+            }
+                
         })
         { (responseError) in
 //            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
