@@ -232,7 +232,6 @@ extension ViewController {
         guard let applicationContext = appDelegate.applicationContext else { return }
         
         let parameters = MSALInteractiveTokenParameters(scopes: appDelegate.kScopes)
-        MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: true)
 
         applicationContext.acquireToken(with: parameters) { (result, error) in
             
@@ -273,7 +272,6 @@ extension ViewController {
          */
         
         let parameters = MSALSilentTokenParameters(scopes: appDelegate.kScopes, account: account)
-        MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: true)
 
         applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
             
@@ -344,12 +342,10 @@ extension ViewController {
              UserDefaultManager.SharedInstance.saveData(dict: result as! [String : Any], strKeyName: kAzureLoginData)
             // api call
             if Thread.isMainThread {
-                MainReqeustClass.HideActivityIndicatorInStatusBar()
 
                 self.gotoDashboardScreen()
             } else {
                 DispatchQueue.main.async {
-                    MainReqeustClass.HideActivityIndicatorInStatusBar()
 
                     self.gotoDashboardScreen()
                 }
