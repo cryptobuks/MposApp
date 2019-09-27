@@ -20,7 +20,8 @@ class DashboardVC: UIViewController
     var dictNotificationobject = [String:Any]()
     var arrListofAgents = NSMutableArray()
     var iCurrentInvoiceType:Int = 0
-
+    var arrDashboardCategories = ["RISCO DE ANULAÇÃO","POR COBRAR","COBRADOS"]
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -167,7 +168,7 @@ class DashboardVC: UIViewController
         for index in 0..<self.arrListofAgents.count
         {
             let dictTemp = self.arrListofAgents[index] as! [String:Any]
-            arrtemp.append("\(dictTemp["agentId"] ?? "")")
+            arrtemp.append("\(dictTemp["agentId"] ?? "" ) - \(dictTemp["name"] ?? "")")
         }
 
         ActionSheetStringPicker.show(withTitle: "", rows: arrtemp , initialSelection: 0, doneBlock:
@@ -221,7 +222,7 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return arrRows.count
+        return arrDashboardCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -232,51 +233,65 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
         cell.imgBack.layer.shadowOffset = CGSize(width: 3, height: 3)
         cell.imgBack.layer.shadowColor = UIColor.lightGray.cgColor
         cell.imgBack.layer.shadowOpacity = 0.8
-//        cell.imgBack.layer.shadowRadius = 8
-
+        //        cell.imgBack.layer.shadowRadius = 8
+        
         cell.selectionStyle  = .none
         cell.imgBadge.isHidden = true
         cell.lblBadgeCount.isHidden = true
         
+        cell.lblCategoryName.text = (arrDashboardCategories[indexPath.row]).uppercased()
         
-        if let dicData = arrRows[indexPath.row] as? [String:Any]
+        switch indexPath.row
         {
-            cell.lblCategoryName.text = (dicData["type"] as? String)?.uppercased()
-            
-            if dicData["type"] as! String == "Cobrar"
+        case 0:
+            cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColorWithAlpha
+            cell.lblCount.textColor = AppColors.kOrangeColor
+            let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Anulacao")
+            let filteredArray = arrRows.filtered(using: searchPredicate)
+            if filteredArray.count > 0
             {
-                if(self.dictNotificationobject.count > 0)
-                {
-                    cell.imgBadge.isHidden = false
-                    cell.lblBadgeCount.isHidden = false
-                    cell.lblBadgeCount.text =  "\(self.dictNotificationobject["quantity"] ?? "")"
-                }
+                let dicData = filteredArray[0] as! [String : Any]
+                cell.lblCount.text =  "\(dicData["quantity"] ?? "")"
+                print("\(dicData["amount"] ?? "")".toCurrencyFormat())
+                cell.lblPrice.text = "\(dicData["amount"] ?? "")".toCurrencyFormat()
             }
-
-            
-            switch indexPath.row
+            break
+        case 1:
+            cell.imgCategoryColor.backgroundColor = AppColors.kPurpulColorWithAlpha
+            cell.lblCount.textColor = AppColors.kPurpulColor
+            let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Cobrar")
+            let filteredArray = arrRows.filtered(using: searchPredicate)
+            if filteredArray.count > 0
             {
-            case 0:
-                cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColorWithAlpha
-                cell.lblCount.textColor = AppColors.kOrangeColor
-                break
-            case 1:
-                cell.imgCategoryColor.backgroundColor = AppColors.kPurpulColorWithAlpha
-                cell.lblCount.textColor = AppColors.kPurpulColor
-                break
-            case 2:
-                cell.imgCategoryColor.backgroundColor = AppColors.kGreenColorWithAlpha
-                cell.lblCount.textColor = AppColors.kGreenColor
-                break
-            default:
-                cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColorWithAlpha
-                cell.lblCount.textColor = AppColors.kOrangeColor
-                break
+                let dicData = filteredArray[0] as! [String : Any]
+                cell.lblCount.text =  "\(dicData["quantity"] ?? "")"
+                print("\(dicData["amount"] ?? "")".toCurrencyFormat())
+                cell.lblPrice.text = "\(dicData["amount"] ?? "")".toCurrencyFormat()
             }
-            
-            cell.lblCount.text =  "\(dicData["quantity"] ?? "")"
-            print("\(dicData["amount"] ?? "")".toCurrencyFormat())
-            cell.lblPrice.text = "\(dicData["amount"] ?? "")".toCurrencyFormat()
+            break
+        case 2:
+            cell.imgCategoryColor.backgroundColor = AppColors.kGreenColorWithAlpha
+            cell.lblCount.textColor = AppColors.kGreenColor
+            let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Cobrados")
+            let filteredArray = arrRows.filtered(using: searchPredicate)
+            if filteredArray.count > 0
+            {
+                let dicData = filteredArray[0] as! [String : Any]
+                cell.lblCount.text =  "\(dicData["quantity"] ?? "")"
+                print("\(dicData["amount"] ?? "")".toCurrencyFormat())
+                cell.lblPrice.text = "\(dicData["amount"] ?? "")".toCurrencyFormat()
+            }
+            if(self.dictNotificationobject.count > 0)
+            {
+                cell.imgBadge.isHidden = false
+                cell.lblBadgeCount.isHidden = false
+                cell.lblBadgeCount.text =  "\(self.dictNotificationobject["quantity"] ?? "")"
+            }
+            break
+        default:
+            cell.imgCategoryColor.backgroundColor = AppColors.kOrangeColorWithAlpha
+            cell.lblCount.textColor = AppColors.kOrangeColor
+            break
         }
         return cell
     }
@@ -302,12 +317,40 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
             UserDefaultManager.SharedInstance.saveString(str: dateString, strKeyName: UserDefaultKey.COBRADOSLastVisitTime.rawValue)
         }
         
+        switch indexPath.row {
+        case 0:
+            let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Anulacao")
+            let filteredArray = arrRows.filtered(using: searchPredicate)
+            if filteredArray.count > 0
+            {
+                let dicData = filteredArray[0] as! [String : Any]
+                invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+            }
+            break
+        case 1:
+            let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Cobrar")
+            let filteredArray = arrRows.filtered(using: searchPredicate)
+            if filteredArray.count > 0
+            {
+                let dicData = filteredArray[0] as! [String : Any]
+                invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+            }
+            break
+        case 2:
+            let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Cobrados")
+            let filteredArray = arrRows.filtered(using: searchPredicate)
+            if filteredArray.count > 0
+            {
+                let dicData = filteredArray[0] as! [String : Any]
+                invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+            }
+            break
+        default:
+            break
+        }
+        
         invoiceListingVC.InvoiceType = indexPath.row + 1
         iCurrentInvoiceType = invoiceListingVC.InvoiceType
-        if let dicData = arrRows[indexPath.row] as? [String:Any]
-        {
-            invoiceListingVC.StrType = ((dicData["type"] as? String)!)
-        }
         self.navigationController?.pushViewController(invoiceListingVC, animated: true)
     }
   

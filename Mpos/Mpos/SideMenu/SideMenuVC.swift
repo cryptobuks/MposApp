@@ -12,6 +12,8 @@ class SideMenuVC: UIViewController
 {
     @IBOutlet weak var tblSideMenu: UITableView!
     var arrRows = NSMutableArray()
+    var arrDashboardCategories = ["RISCO DE ANULAÇÃO","POR COBRAR","COBRADOS"]
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -88,7 +90,7 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return arrRows.count+2
+        return arrDashboardCategories.count+2
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
@@ -142,14 +144,10 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
             switch(indexPath.row)
             {
             case 0...2:
-                if let dicData = arrRows[indexPath.row] as? [String:AnyObject]
-                {
-                    cell.lblTitle.text = (dicData["type"] as? String)?.uppercased()
-                }
+                cell.lblTitle.text = (arrDashboardCategories[indexPath.row]).uppercased()
             case 3:
                 cell.lblTitle.text = "POLÍTICA DE PRIVACIDADE"
                 break
-                
             case 4:
                 cell.lblTitle.text = "TERMOS E CONDIÇÕES"
                 break
@@ -197,9 +195,36 @@ extension SideMenuVC: UITableViewDataSource,UITableViewDelegate
             let storyBoardInvoice = UIStoryboard(name: "InvoiceList", bundle: nil)
             let invoiceListingVC = storyBoardInvoice.instantiateViewController(withIdentifier: "InvoiceListingVC") as! InvoiceListingVC
             invoiceListingVC.InvoiceType = indexPath.row + 1
-            if let dicData = arrRows[indexPath.row] as? [String:Any]
-            {
-                invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+            switch indexPath.row {
+            case 0:
+                let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Anulacao")
+                let filteredArray = arrRows.filtered(using: searchPredicate)
+                if filteredArray.count > 0
+                {
+                    let dicData = filteredArray[0] as! [String : Any]
+                    invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+                }
+                break
+            case 1:
+                let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Cobrar")
+                let filteredArray = arrRows.filtered(using: searchPredicate)
+                if filteredArray.count > 0
+                {
+                    let dicData = filteredArray[0] as! [String : Any]
+                    invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+                }
+                break
+            case 2:
+                let searchPredicate = NSPredicate(format: "type contains [cd] %@", "Cobrados")
+                let filteredArray = arrRows.filtered(using: searchPredicate)
+                if filteredArray.count > 0
+                {
+                    let dicData = filteredArray[0] as! [String : Any]
+                    invoiceListingVC.StrType = ((dicData["type"] as? String)!)
+                }
+                break
+            default:
+                break
             }
             navController.pushViewController(invoiceListingVC, animated: true)
         }
