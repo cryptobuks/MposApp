@@ -148,10 +148,6 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
         return 100
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 100
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return arrReceipts.count + 2
@@ -230,15 +226,16 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        if indexPath.row == 3
-        {
-            return UITableView.automaticDimension
-        }
-        return 85
+//        if UITableView.automaticDimension < 40
+//        {
+//            return 85
+//        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
-        return 60
+        return UITableView.automaticDimension
+        
     }
 }
