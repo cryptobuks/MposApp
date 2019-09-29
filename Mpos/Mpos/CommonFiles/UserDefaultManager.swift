@@ -81,6 +81,7 @@ class UserDefaultManager: NSObject
         let defaut = UserDefaults.standard
         defaut.removeObject(forKey: UserDefaultKey.LOGIN_USER.rawValue)
         defaut.set(false, forKey: UserDefaultKey.IS_USERLOGGEDIN.rawValue)
+        defaut.removeObject(forKey: "SidebarData")
 //        defaut.set(false, forKey: UserDefaultKey.IS_ONBOARDINGDONE.rawValue)
         defaut.synchronize()
     }

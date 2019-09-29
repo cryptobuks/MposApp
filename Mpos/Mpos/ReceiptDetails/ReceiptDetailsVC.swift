@@ -108,7 +108,9 @@ class ReceiptDetailsVC: UIViewController {
         
         self.tblvwReceiptDetailsListing.estimatedRowHeight = 60.0
         self.tblvwReceiptDetailsListing.rowHeight = UITableView.automaticDimension
-        
+        self.tblvwReceiptDetailsListing.estimatedSectionHeaderHeight = 100.0
+        self.tblvwReceiptDetailsListing.sectionHeaderHeight = UITableView.automaticDimension
+
         self.callReceiptDetails()
     }
     
@@ -295,7 +297,7 @@ extension ReceiptDetailsVC : UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
+        return 85
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

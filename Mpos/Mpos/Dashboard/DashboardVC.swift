@@ -27,6 +27,13 @@ class DashboardVC: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        UserDefaultManager.SharedInstance.saveString(str: dateString, strKeyName: UserDefaultKey.COBRADOSLastVisitTime.rawValue)
+
         
         //Call KPI api is called to fill up the three main buttons (KPIs) in the home screen
         self.tblCategoryList.estimatedRowHeight = 80
@@ -94,6 +101,7 @@ class DashboardVC: UIViewController
         { (responseError) in
 //            CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
             addErrorView(senderViewController: self, strErrorMessage: responseError)
+//            UserDefaultManager.SharedInstance.saveArrayData(arr: self.arrRows, strKeyName: "SidebarData")
         }
         self.tblCategoryList.reloadData()
     }
@@ -116,7 +124,7 @@ class DashboardVC: UIViewController
                 
                 //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                    self.getKPI(strTimeStamp: "2019-03-08 08:10:00")
+                    self.getKPI(strTimeStamp: UserDefaultManager.SharedInstance.getString(strKeyName: UserDefaultKey.COBRADOSLastVisitTime.rawValue)!)
                 })
             }
             
@@ -190,7 +198,7 @@ class DashboardVC: UIViewController
                     
                     //- Android and iOS: When the agent changes (/asfAgents), app should invoke KPI service once again, in order to refresh invoices numbers
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                        self.getKPI(strTimeStamp: "2019-03-08 08:10:00")
+                        self.getKPI(strTimeStamp: UserDefaultManager.SharedInstance.getString(strKeyName: UserDefaultKey.COBRADOSLastVisitTime.rawValue)!)
                     })
                 }
                 return
