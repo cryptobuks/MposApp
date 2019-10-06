@@ -101,6 +101,9 @@ class DataConfirmationVC: UIViewController
         let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentMethodListVC") as! PaymentMethodListVC
         controller.InvoiceType = InvoiceType
         controller.totalAmt = totalAmout
+        controller.objClientRef = self.objClientRef
+        controller.objSelectedCompany = self.objSelectedCompany
+        controller.arrReceipts = self.arrReceipts
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

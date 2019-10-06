@@ -15,6 +15,8 @@ import Foundation
 //let base_Url: String   = "http://www.mocky.io/v2/"
 let base_Url: String   = "https://bsx-ts.ageas.pt/N1/SH3.ashx"
 //let base_Url: String = "https://dvia.viaconsultingway.com/ageasMock/N1/SH3"
+let basemock_Url: String   = "https://dvia.viaconsultingway.com/MPOS/"
+
 let MAX_PAGE = "100000000000000000000"
 
 //MARK: API Service Name
@@ -28,6 +30,12 @@ let searchReceiptsUrl = "searchReceipts"
 let getDocUrl = "getDoc"
 let receiptDetailsUrl = "receiptDetails"
 
+let refMBPaymentUrl = "v1/refMBPayment"
+let mbwayPaymentUrl = "v1/mbwayPayment"
+
 //MARK: Others
 let kAzureLoginData = "AzureLoginData"
+
+
+
 

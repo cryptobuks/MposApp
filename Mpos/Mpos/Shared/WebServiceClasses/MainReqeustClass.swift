@@ -185,6 +185,9 @@ class MainReqeustClass: NSObject
                     break
                 }
             }
+                .responseString { (response) in
+                    print(response)
+            }
         } else {
             CommonMethods().displayAlertView(Application_Name, aStrMessage: Alert_NoInternet, aStrOtherTitle: nil)
             failed(Alert_NoInternet)

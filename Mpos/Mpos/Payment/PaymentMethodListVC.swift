@@ -22,11 +22,15 @@ class PaymentMethodListVC: UIViewController
     var iSelectedPaymentTag = Int()
     var InvoiceType:Int = 0
     var totalAmt = String()
-
+    var objClientRef = [String:Any]()
+    var objSelectedCompany = [String:Any]()
+    var arrReceipts = [[String:Any]]()
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        
+        print(objClientRef,objSelectedCompany,arrReceipts)
         var lblColor = UIColor()
         switch InvoiceType {
         case 1: //RISCO DE ANULAÇÃO
@@ -73,15 +77,94 @@ class PaymentMethodListVC: UIViewController
         switch iSelectedPaymentTag
         {
         case 0:
-            let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
-            let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
-            controller.strSucessMessage = "O envio foi efetuado com sucesso."
-            self.navigationController?.pushViewController(controller, animated: true)
+            var dicRequestData = [String:Any]()
+            dicRequestData["nif"] = objClientRef["nif"]
+            dicRequestData["phoneNumber"] = "2019-09-09T12:28:32.001+01:00"  //Current timestamp
+            
+            let dateFormatter : DateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            let date = Date()
+            let dateString = dateFormatter.string(from: date)
+            
+            dicRequestData["timestamp"] = dateString //Current timestamp
+            dicRequestData["paymentBrand"] = "1" //Static value 2 for MbWay
+            dicRequestData["internalCompany"] = objClientRef["companyDes"]
+            dicRequestData["appOrigemId"] = "100"
+            dicRequestData["totalAmount"] = objSelectedCompany["amount"]
+            if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
+            {
+               dicRequestData["userId"] = dictagentContext["agentId"]
+            }
+            dicRequestData["printType"] =  "E"
+            var arrReceiptsforRequest = [[String:Any]]()
+            for receipt in arrReceipts{
+                arrReceiptsforRequest.append(["policy": "91983915437683432156","idReceipt": "9991318456","prefixDoc": "RC","amount": 45,"idDocument": "idD","thirdParty": false])
+            }
+            dicRequestData["receipts"] = arrReceiptsforRequest
+            dicRequestData["thirdParty"] = objClientRef["thirdParty"]
+            
+            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url, parameter: dicRequestData as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: mbwayPaymentUrl), success: { (response) in
+                print(response)
+                
+                let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+                controller.strSucessMessage = "O envio foi efetuado com sucesso."
+                self.navigationController?.pushViewController(controller, animated: true)
+                
+            })
+            { (responseError) in
+                print(responseError)
+                addErrorView(senderViewController: self, strErrorMessage: responseError)
+                //                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            }
+            
+            
             break
         case 1:
-            let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
-            let controller = storyBoard.instantiateViewController(withIdentifier: "MposReferenciaVC") as! MposReferenciaVC
-            self.navigationController?.pushViewController(controller, animated: true)
+            
+            var dicRequestData = [String:Any]()
+            dicRequestData["nif"] = objClientRef["nif"]
+            let dateFormatter : DateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            let date = Date()
+            let dateString = dateFormatter.string(from: date)
+            dicRequestData["timestamp"] = dateString //Current timestamp
+            dicRequestData["refIntlDtTm"] = dateString //Current timestamp
+            let futuredate = Date().addingTimeInterval(30*24*60*60)
+            let futuredateString = dateFormatter.string(from: futuredate)
+            dicRequestData["refLmtDtTm"] = futuredateString //Current timestamp
+            dicRequestData["paymentBrand"] = "2" //Static value 2 for refMB
+            dicRequestData["internalCompany"] = objClientRef["companyDes"]
+            dicRequestData["appOrigemId"] = "100"
+            dicRequestData["totalAmount"] = objSelectedCompany["amount"]
+            if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
+            {
+                dicRequestData["userId"] = dictagentContext["agentId"]
+            }
+            dicRequestData["printType"] =  "E"
+            
+            var arrReceiptsforRequest = [[String:Any]]()
+            for receipt in arrReceipts{
+                arrReceiptsforRequest.append(["policy": "91983915437683432156","idReceipt": "9991318456","prefixDoc": "RC","amount": 45,"idDocument": "idD","thirdParty": false])
+            }
+            
+            dicRequestData["receipts"] = arrReceiptsforRequest
+            dicRequestData["thirdParty"] = objClientRef["thirdParty"]
+            
+            
+            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + refMBPaymentUrl, parameter: dicRequestData as [String : AnyObject], header: [String : String](), success: { (response) in
+                print(response)
+                
+                let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "MposReferenciaVC") as! MposReferenciaVC
+                self.navigationController?.pushViewController(controller, animated: true)
+            })
+            { (responseError) in
+                print(responseError)
+                addErrorView(senderViewController: self, strErrorMessage: responseError)
+                //                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            }
+            
             break
         case 2:
             let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
