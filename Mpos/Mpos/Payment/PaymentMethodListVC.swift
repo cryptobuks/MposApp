@@ -16,6 +16,7 @@ class PaymentMethodListVC: UIViewController
     @IBOutlet weak var tblPaymentList: UITableView!
     @IBOutlet weak var btnContinue: UIButton!
 
+    var strPhonenumber = String()
     //Declare Variables
     let arrPaymentData = NSMutableArray()
 //    var selectedCategoryColor = UIColor()
@@ -79,7 +80,7 @@ class PaymentMethodListVC: UIViewController
         case 0:
             var dicRequestData = [String:Any]()
             dicRequestData["nif"] = objClientRef["nif"]
-            dicRequestData["phoneNumber"] = "2019-09-09T12:28:32.001+01:00"  //Current timestamp
+            dicRequestData["phoneNumber"] = strPhonenumber
             
             let dateFormatter : DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -88,7 +89,7 @@ class PaymentMethodListVC: UIViewController
             
             dicRequestData["timestamp"] = dateString //Current timestamp
             dicRequestData["paymentBrand"] = "1" //Static value 2 for MbWay
-            dicRequestData["internalCompany"] = objClientRef["companyDes"]
+            dicRequestData["internalCompany"] = objSelectedCompany["companyId"]
             dicRequestData["appOrigemId"] = "100"
             dicRequestData["totalAmount"] = objSelectedCompany["amount"]
             if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
@@ -98,12 +99,18 @@ class PaymentMethodListVC: UIViewController
             dicRequestData["printType"] =  "E"
             var arrReceiptsforRequest = [[String:Any]]()
             for receipt in arrReceipts{
-                arrReceiptsforRequest.append(["policy": "91983915437683432156","idReceipt": "9991318456","prefixDoc": "RC","amount": 45,"idDocument": "idD","thirdParty": false])
+                arrReceiptsforRequest.append(["policy": receipt["policyId"] as! String,"idReceipt": receipt["receiptId"] as! String,"prefixDoc": "RC","amount": receipt["amount"] as! Double,"idDocument": "","thirdParty": false])
             }
             dicRequestData["receipts"] = arrReceiptsforRequest
-            dicRequestData["thirdParty"] = objClientRef["thirdParty"]
+            if (objClientRef["thirdParty"] as! Bool) == true {
+                dicRequestData["thirdParty"] = 1
+
+            }else{
+                dicRequestData["thirdParty"] = 0
+
+            }
             
-            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url, parameter: dicRequestData as [String : AnyObject], header: CommonMethods().createHeaderDic(strMethod: mbwayPaymentUrl), success: { (response) in
+            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + mbwayPaymentUrl, parameter: dicRequestData as [String : AnyObject], header: [String : String](), success: { (response) in
                 print(response)
                 
                 let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
@@ -134,7 +141,7 @@ class PaymentMethodListVC: UIViewController
             let futuredateString = dateFormatter.string(from: futuredate)
             dicRequestData["refLmtDtTm"] = futuredateString //Current timestamp
             dicRequestData["paymentBrand"] = "2" //Static value 2 for refMB
-            dicRequestData["internalCompany"] = objClientRef["companyDes"]
+            dicRequestData["internalCompany"] = objSelectedCompany["companyId"]
             dicRequestData["appOrigemId"] = "100"
             dicRequestData["totalAmount"] = objSelectedCompany["amount"]
             if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
@@ -145,18 +152,26 @@ class PaymentMethodListVC: UIViewController
             
             var arrReceiptsforRequest = [[String:Any]]()
             for receipt in arrReceipts{
-                arrReceiptsforRequest.append(["policy": "91983915437683432156","idReceipt": "9991318456","prefixDoc": "RC","amount": 45,"idDocument": "idD","thirdParty": false])
+                arrReceiptsforRequest.append(["policy": receipt["policyId"] as! String,"idReceipt": receipt["receiptId"] as! String,"prefixDoc": "RC","amount": receipt["amount"] as! Double,"idDocument": "","thirdParty": 0])
             }
             
             dicRequestData["receipts"] = arrReceiptsforRequest
-            dicRequestData["thirdParty"] = objClientRef["thirdParty"]
-            
+            if (objClientRef["thirdParty"] as! Bool) == true {
+                dicRequestData["thirdParty"] = 1
+                
+            }else{
+                dicRequestData["thirdParty"] = 0
+                
+            }
             
             MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + refMBPaymentUrl, parameter: dicRequestData as [String : AnyObject], header: [String : String](), success: { (response) in
                 print(response)
                 
                 let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
                 let controller = storyBoard.instantiateViewController(withIdentifier: "MposReferenciaVC") as! MposReferenciaVC
+                controller.entityCode = response["entity"] as! String
+                controller.referenceCode = response["reference"] as! String
+                controller.value = "\(response["amount"] as! Double)"
                 self.navigationController?.pushViewController(controller, animated: true)
             })
             { (responseError) in
@@ -256,10 +271,12 @@ extension PaymentMethodListVC: UITableViewDataSource,UITableViewDelegate
                 cellPaymentMethodList.lblsubTitle.text = dicData["subtitle"] as? String
                 cellPaymentMethodList.btnEdit.isHidden = !(dicData["bHasICon"] as? Bool)!
                 cellPaymentMethodList.lblPhoneTitle.textColor = lblColor
-
+                cellPaymentMethodList.txtfdPhoneNumber.delegate = self
                 
                 cellPaymentMethodList.btnEditTapped =
                  {
+                    
+                    
                         if cellPaymentMethodList.btnEdit.isSelected
                         {
                             cellPaymentMethodList.btnEdit.isSelected = false
@@ -277,6 +294,7 @@ extension PaymentMethodListVC: UITableViewDataSource,UITableViewDelegate
                             self.tblPaymentList.reloadData()
 
                             DispatchQueue.main.async {
+                                self.strPhonenumber = cellPaymentMethodList.txtfdPhoneNumber.text ?? ""
                                 cellPaymentMethodList.txtfdPhoneNumber.becomeFirstResponder()
                             }
                         }
@@ -361,5 +379,12 @@ extension PaymentMethodListVC: UITableViewDataSource,UITableViewDelegate
         arrPaymentData.replaceObject(at: indexPath.row, with: dicData!)
         btnContinue.backgroundColor = AppColors.kButtonSelectedColor
         tblPaymentList.reloadData()
+    }
+}
+
+extension PaymentMethodListVC: UITextFieldDelegate{
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        strPhonenumber = textField.text ?? ""
+        return true
     }
 }

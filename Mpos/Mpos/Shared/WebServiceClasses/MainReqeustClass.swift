@@ -161,7 +161,12 @@ class MainReqeustClass: NSObject
                                 }
                                 failed("\(errorMessage)")
                                 break
+                            }else if (dictemp["errorCode"] as? Int) != 0 && dictemp["errorMessage"] as? String != nil
+                                {
+                                failed("\(dictemp["errorMessage"] as! String)")
+                                break
                             }
+                            
                             
                             if dictemp.count > 0
                             {

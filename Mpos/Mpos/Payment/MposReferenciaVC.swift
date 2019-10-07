@@ -12,11 +12,10 @@ import UIKit
 
 class MposReferenciaVC: UIViewController
 {
-    @IBOutlet weak var txtCode: SkyFloatingLabelTextField!
-    @IBOutlet weak var txtReference: SkyFloatingLabelTextField!
-    @IBOutlet weak var lblValue: UILabel!
 
-    
+    var entityCode = String()
+    var referenceCode = String()
+    var value = String()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +25,7 @@ class MposReferenciaVC: UIViewController
     @IBAction func shareTextButton(_ sender: UIButton)
     {
         // text to share
-        let text = "ENTIDADE: \(txtCode.text ?? ""), REFERÊNCIA: \(txtReference.text ?? ""), VALOR TOTAL: \(lblValue.text ?? "")"
+        let text = "ENTIDADE: \(entityCode), REFERÊNCIA: \(referenceCode), VALOR TOTAL: \(value)"
         // set up activity view controller
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)

@@ -691,11 +691,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E2k-9X-faC"/>
                     </view>
-                    <connections>
-                        <outlet property="lblValue" destination="mlG-69-1hh" id="p6a-nP-nj7"/>
-                        <outlet property="txtCode" destination="ThU-z2-b6u" id="mt9-6Y-4LM"/>
-                        <outlet property="txtReference" destination="4wh-6x-GoB" id="psX-Kf-Iqu"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTG-RW-p6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
