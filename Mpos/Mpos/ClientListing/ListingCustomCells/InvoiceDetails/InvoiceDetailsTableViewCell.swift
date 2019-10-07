@@ -155,7 +155,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
         var lblAlphaColor = UIColor()
 
         cellForInvoiceWithCheckBox.btnCheckBox.isHidden = true
-        cellForInvoiceWithCheckBox.btnDownload.isHidden = false
+        cellForInvoiceWithCheckBox.btnDownload.isHidden = true
         cellForInvoiceWithCheckBox.btnViewMore.isHidden = false
         cellForInvoiceWithCheckBox.imgSelected.isHidden = true
         cellForInvoiceWithCheckBox.ctWidthImgSelected.constant = 0
@@ -243,7 +243,7 @@ extension InvoiceDetailsTableViewCell : UITableViewDelegate,UITableViewDataSourc
          */
         if(bTerceirosSelected == true || InvoiceType == 3)
         {
-            cellForInvoiceWithCheckBox.btnDownload.isHidden = true
+            cellForInvoiceWithCheckBox.btnDownload.isHidden = false
             cellForInvoiceWithCheckBox.btnViewMore.isHidden = true
         }
         
