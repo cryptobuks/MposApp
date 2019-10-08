@@ -13,6 +13,10 @@ import UIKit
 class MposReferenciaVC: UIViewController
 {
 
+    @IBOutlet weak var txtEntityCode: UITextField!
+    @IBOutlet weak var txtReferenceCode: UITextField!
+    @IBOutlet weak var lblValue: UILabel!
+
     var entityCode = String()
     var referenceCode = String()
     var value = String()
@@ -20,12 +24,15 @@ class MposReferenciaVC: UIViewController
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        txtEntityCode.text = entityCode
+        txtReferenceCode.text = referenceCode
+        lblValue.text = value.toCurrencyFormat()
     }
     
     @IBAction func shareTextButton(_ sender: UIButton)
     {
         // text to share
-        let text = "ENTIDADE: \(entityCode), REFERÊNCIA: \(referenceCode), VALOR TOTAL: \(value)"
+        let text = "ENTIDADE: \(entityCode), REFERÊNCIA: \(referenceCode), VALOR TOTAL: \(value.toCurrencyFormat())"
         // set up activity view controller
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)

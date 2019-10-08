@@ -533,7 +533,7 @@
                                         <color key="textColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="112543" placeholder="ENTIDADE" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-z2-b6u" customClass="SkyFloatingLabelTextField" customModule="Mpos" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="112543" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-z2-b6u" customClass="SkyFloatingLabelTextField" customModule="Mpos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="26" width="280" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.74509803919999995" green="0.79215686269999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -586,7 +586,7 @@
                                         <color key="textColor" red="0.4039215686" green="0.76862745099999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="256389187" placeholder="REFERÊNCIA" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4wh-6x-GoB" customClass="SkyFloatingLabelTextField" customModule="Mpos" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="256389187" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4wh-6x-GoB" customClass="SkyFloatingLabelTextField" customModule="Mpos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="26" width="280" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.74509803919999995" green="0.79215686269999996" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -691,6 +691,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E2k-9X-faC"/>
                     </view>
+                    <connections>
+                        <outlet property="lblValue" destination="mlG-69-1hh" id="2jU-2M-0ai"/>
+                        <outlet property="txtEntityCode" destination="ThU-z2-b6u" id="q0i-OM-fgN"/>
+                        <outlet property="txtReferenceCode" destination="4wh-6x-GoB" id="Tav-hg-yf6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTG-RW-p6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
