@@ -32,6 +32,10 @@ let receiptDetailsUrl = "receiptDetails"
 
 let refMBPaymentUrl = "v1/refMBPayment"
 let mbwayPaymentUrl = "v1/mbwayPayment"
+let chipPinPaymentUrl = "v1/chipPinPayment"
+let registerChipPinUrl = "v1/registerChipPin"
+
+
 
 //MARK: Others
 let kAzureLoginData = "AzureLoginData"

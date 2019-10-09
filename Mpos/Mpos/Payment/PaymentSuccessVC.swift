@@ -31,7 +31,7 @@ class PaymentSuccessVC: UIViewController
         // Do any additional setup after loading the view.
         lblSucessMessage.text = strSucessMessage
         
-        let timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { timer in
+        _ = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { timer in
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

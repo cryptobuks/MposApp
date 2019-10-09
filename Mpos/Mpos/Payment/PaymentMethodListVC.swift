@@ -26,6 +26,7 @@ class PaymentMethodListVC: UIViewController
     var objClientRef = [String:Any]()
     var objSelectedCompany = [String:Any]()
     var arrReceipts = [[String:Any]]()
+    var dicChipPin = [[String:Any]]()
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -182,6 +183,53 @@ class PaymentMethodListVC: UIViewController
             
             break
         case 2:
+            
+            var dicRequestData = [String:Any]()
+            dicRequestData["nif"] = objClientRef["nif"]
+            dicRequestData["paymentBrand"] = "0" //Static value 2 for chio pin
+            dicRequestData["internalCompany"] = objSelectedCompany["companyId"]
+            dicRequestData["appOrigemId"] = "100"
+            dicRequestData["totalAmount"] = objSelectedCompany["amount"]
+            if let dictagentContext = UserDefaultManager.SharedInstance.getLoggedUser()
+            {
+                dicRequestData["userId"] = dictagentContext["agentId"]
+            }
+            dicRequestData["printType"] =  "E"
+            
+            var arrReceiptsforRequest = [[String:Any]]()
+            for receipt in arrReceipts{
+                arrReceiptsforRequest.append(["policy": receipt["policyId"] as! String,"idReceipt": receipt["receiptId"] as! String,"prefixDoc": "RC","amount": receipt["amount"] as! Double,"idDocument": "","thirdParty": 0])
+            }
+            
+            dicRequestData["receipts"] = arrReceiptsforRequest
+            if (objClientRef["thirdParty"] as! Bool) == true {
+                dicRequestData["thirdParty"] = 1
+                
+            }else{
+                dicRequestData["thirdParty"] = 0
+                
+            }
+            
+            MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + chipPinPaymentUrl, parameter: dicRequestData as [String : AnyObject], header: [String : String](), success: { (response) in
+                print(response)
+                
+                var dicChippinRegisterRequest = [String:Any]()
+                dicChippinRegisterRequest["appTx_id"] = response["merchantTransactionId"] as! String
+                dicChippinRegisterRequest["statusControle"] = "2"
+                MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + registerChipPinUrl, parameter: dicRequestData as [String : AnyObject], header: [String : String](), success: { (response) in
+                    print(response)
+                })
+                { (responseError) in
+                    print(responseError)
+                    addErrorView(senderViewController: self, strErrorMessage: responseError)
+                    //                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+                }
+            })
+            { (responseError) in
+                print(responseError)
+                addErrorView(senderViewController: self, strErrorMessage: responseError)
+                //                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
+            }
             let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "MposPinVC") as! MposPinVC
             self.navigationController?.pushViewController(controller, animated: true)
