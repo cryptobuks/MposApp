@@ -216,8 +216,12 @@ class PaymentMethodListVC: UIViewController
                 var dicChippinRegisterRequest = [String:Any]()
                 dicChippinRegisterRequest["appTx_id"] = response["merchantTransactionId"] as! String
                 dicChippinRegisterRequest["statusControle"] = "2"
-                MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + registerChipPinUrl, parameter: dicRequestData as [String : AnyObject], header: [String : String](), success: { (response) in
+                MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + registerChipPinUrl, parameter: dicChippinRegisterRequest as [String : AnyObject], header: [String : String](), success: { (response) in
                     print(response)
+                    
+                    let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+                    let controller = storyBoard.instantiateViewController(withIdentifier: "MposPinVC") as! MposPinVC
+                    self.navigationController?.pushViewController(controller, animated: true)
                 })
                 { (responseError) in
                     print(responseError)
@@ -230,9 +234,7 @@ class PaymentMethodListVC: UIViewController
                 addErrorView(senderViewController: self, strErrorMessage: responseError)
                 //                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
             }
-            let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
-            let controller = storyBoard.instantiateViewController(withIdentifier: "MposPinVC") as! MposPinVC
-            self.navigationController?.pushViewController(controller, animated: true)
+            
             break
         default:
             break

@@ -20,9 +20,9 @@ class CommonMethods: NSObject {
     {
         
         let  dicRequestHeaders = ["Content-Type":"application/json",
-                                  "bsPassword" : "eUNfNkE5az8=",
+                                  "bsPassword" : "RiVzNnhYNS0=",
                                   "bsSolution" : "ViaConsulting",
-                                  "bsUSer" : #"\BS\ViaConsultingD"#,
+                                  "bsUSer" : #"\BS\ViaConsultingQ"#,
                                   "bsWebMethod":"v1/\(strMethod)",
                                   "bsWebService":"ageas-api-MPOS",
                             "Authorization":UserDefaultManager.SharedInstance.getToken()!]

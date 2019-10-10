@@ -13,7 +13,8 @@ import Foundation
 
 //MARK: API URL Endpoint
 //let base_Url: String   = "http://www.mocky.io/v2/"
-let base_Url: String   = "https://bsx-ts.ageas.pt/N1/SH3.ashx"
+let base_Url: String   = "https://bsx-pp.ageas.pt/N1/SH3.ashx"
+
 //let base_Url: String = "https://dvia.viaconsultingway.com/ageasMock/N1/SH3"
 let basemock_Url: String   = "https://dvia.viaconsultingway.com/MPOS/"
 
