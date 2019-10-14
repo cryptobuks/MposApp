@@ -1,0 +1,6 @@
+framework module PedSDKiOSLib_Swift {
+  umbrella header "PedSDKiOSLib_Swift.h"
+
+  export *
+  module * { export * }
+}

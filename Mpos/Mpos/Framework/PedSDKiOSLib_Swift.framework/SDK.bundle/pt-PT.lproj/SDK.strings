@@ -1,0 +1,9 @@
+/* 
+  English.strings
+  PedSDKiOSLib
+
+  Created by Nuno Simoes on 12/07/2017.
+  Copyright © 2017 SIBS. All rights reserved.
+*/
+
+"SDK_JAILBROKEN" = "Foi detetado que o seu equipamento se encontra jailbroken. Para sua segurança, a aplicação não será executada. Para mais informações, consulte as FAQ’s do serviço.";

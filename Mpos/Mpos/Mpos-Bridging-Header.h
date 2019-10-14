@@ -8,3 +8,5 @@
 
 #import "ActionSheetPicker.h"
 #import "MSAL.h"
+#import <PedSDKiOSLib_Swift/MPos.h>
+#import <PedSDKiOSLib_Swift/PaymentListener.h>

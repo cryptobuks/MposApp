@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (4.9.0)
-  - IQKeyboardManagerSwift (6.4.2)
+  - IQKeyboardManagerSwift (6.5.1)
   - MBProgressHUD (1.1.0)
-  - MSAL (0.5.0):
-    - MSAL/app-lib (= 0.5.0)
-  - MSAL/app-lib (0.5.0)
+  - MSAL (1.0.0):
+    - MSAL/app-lib (= 1.0.0)
+  - MSAL/app-lib (1.0.0)
   - SDWebImage (4.4.7):
     - SDWebImage/Core (= 4.4.7)
   - SDWebImage/Core (4.4.7)
@@ -14,12 +14,12 @@ DEPENDENCIES:
   - Alamofire (~> 4.7)
   - IQKeyboardManagerSwift
   - MBProgressHUD (~> 1.0)
-  - MSAL (~> 0.5.0)
+  - MSAL
   - SDWebImage (~> 4.0)
   - SwiftyJSON (~> 3.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - IQKeyboardManagerSwift
     - MBProgressHUD
@@ -29,12 +29,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
-  IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
+  IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MSAL: 2ef13d86e7d1c5096ade5a7e61c5ad0f2643f812
+  MSAL: 924e7bd5bd737f6d4e2fccbe0d9aa000ae6a06a7
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 1f5451b853d4a95e94f8a1ab8470e23520a80077
+PODFILE CHECKSUM: 6eac29eceea355ceb88fd902dc2074b0475bfbfd
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3

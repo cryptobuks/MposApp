@@ -15,6 +15,7 @@ class PaymentMethodListVC: UIViewController
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tblPaymentList: UITableView!
     @IBOutlet weak var btnContinue: UIButton!
+    var txtStatus = String()
 
     var strPhonenumber = String()
     //Declare Variables
@@ -26,7 +27,12 @@ class PaymentMethodListVC: UIViewController
     var objClientRef = [String:Any]()
     var objSelectedCompany = [String:Any]()
     var arrReceipts = [[String:Any]]()
-    var dicChipPin = [[String:Any]]()
+    var dicChipPin = [String:AnyObject]()
+    
+    //ChipPin Variable
+    var pp: PaymentProviderProtocol?
+
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -183,7 +189,6 @@ class PaymentMethodListVC: UIViewController
             
             break
         case 2:
-            
             var dicRequestData = [String:Any]()
             dicRequestData["nif"] = objClientRef["nif"]
             dicRequestData["paymentBrand"] = "0" //Static value 2 for chio pin
@@ -213,26 +218,29 @@ class PaymentMethodListVC: UIViewController
             MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + chipPinPaymentUrl, parameter: dicRequestData as [String : AnyObject], header: [String : String](), success: { (response) in
                 print(response)
                 
+                self.dicChipPin = response
                 var dicChippinRegisterRequest = [String:Any]()
                 dicChippinRegisterRequest["appTx_id"] = response["merchantTransactionId"] as! String
                 dicChippinRegisterRequest["statusControle"] = "2"
                 MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + registerChipPinUrl, parameter: dicChippinRegisterRequest as [String : AnyObject], header: [String : String](), success: { (response) in
                     print(response)
                     
+                    //Call SDK Process
+                    MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: true)
+                    self.processPurchase()
+                    /*
                     let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
                     let controller = storyBoard.instantiateViewController(withIdentifier: "MposPinVC") as! MposPinVC
-                    self.navigationController?.pushViewController(controller, animated: true)
+                    self.navigationController?.pushViewController(controller, animated: true)*/
                 })
                 { (responseError) in
                     print(responseError)
                     addErrorView(senderViewController: self, strErrorMessage: responseError)
-                    //                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
                 }
             })
             { (responseError) in
                 print(responseError)
                 addErrorView(senderViewController: self, strErrorMessage: responseError)
-                //                CommonMethods().displayAlertView("Error", aStrMessage: responseError, aStrOtherTitle: "ok")
             }
             
             break
@@ -242,6 +250,54 @@ class PaymentMethodListVC: UIViewController
         
     }
     
+    //MARK: Process Chip Pin SDK Methods
+    func processPurchase()
+    {
+        pp = MPos.createProviderMock()
+        let paymentInfo = PaymentInfo.buildCardPurchaseInfo("ID GENERATED ON YOUR SYSTEM", amount: objSelectedCompany["amount"] as! Double, description: "Card Purchase")
+        pp!.processAsync(self, info: paymentInfo)
+    }
+    
+    func setCredentials()
+    {
+        let credentials = PaymentCredentials.create(withMerchantId: Int32(self.dicChipPin["merchantId"] as! String)!, terminalId: Int32(self.dicChipPin["terminalId"] as! String)!, merchantAuthId: self.dicChipPin["merchantAuthId"] as! String, merchantAuthKey: self.dicChipPin["merchantAuthKey"] as! String)
+        
+        pp?.setCredentials(credentials)
+        addStatus("Credentials SET")
+        processPurchase()
+    }
+    
+    func chooseDevice(fromList deviceNames: [String], onCompletion completion: @escaping (Int) -> Void)
+    {
+        let defaultDevice = MPos.getDefaultDevice()
+        if(defaultDevice != nil)
+        {
+            for i in 0..<deviceNames.count
+            {
+                let name = deviceNames[i]
+                if(name == defaultDevice!.getName())
+                {
+                    DispatchQueue.global(qos: .background).async {
+                        // Background Thread
+                            completion(i)
+                        DispatchQueue.main.async {
+                            // Run UI Updates
+                        }
+                    }
+                    return
+                }
+            }
+        }
+    }
+    
+    func addStatus(_ text: String?) {
+        let newText = txtStatus + ("\(text ?? "")\n")
+        txtStatus = newText
+        print(txtStatus)
+    }
+
+    
+    //MARK: Go back action
     @IBAction func goBackTapped(_ sender: UIButton)
     {
         self.navigationController?.popViewController(animated: true)
@@ -436,5 +492,236 @@ extension PaymentMethodListVC: UITextFieldDelegate{
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         strPhonenumber = textField.text ?? ""
         return true
+    }
+}
+
+extension PaymentMethodListVC:PaymentListener
+{
+    func onComplete(_ result: PaymentResult)
+    {
+        switch result.status {
+        case PAYMENT_STATUS.SUCCESS:
+             self.addStatus("Payment successful")
+             self.addStatus("SDK ID: \(result.financial.recipientTx.id ?? "")")
+             self.addStatus("External ID: \(result.financial.tx.id ?? "")")
+
+             var dicChippinRegisterRequest = [String:Any]()
+             dicChippinRegisterRequest["appTx_id"] = self.dicChipPin["merchantTransactionId"] as! String
+             dicChippinRegisterRequest["appTx_dateTime"] = result.appTx.dateTime
+             dicChippinRegisterRequest["appTx_details_amount"] = objSelectedCompany["amount"] as! Double
+             dicChippinRegisterRequest["appTx_details_description"] = "Card Purchase"
+             dicChippinRegisterRequest["error"] = result.error
+             dicChippinRegisterRequest["errorCode"] = result.errorCode
+             dicChippinRegisterRequest["financial_entryMode"] = "CARD_CHIP_CONTACT"
+             dicChippinRegisterRequest["financial_handwrittenSignatureRequired"] = false
+             dicChippinRegisterRequest["financial_receiptData_acquirerText"] = ""
+             if let receiptData = result.financial.receiptData
+             {
+                dicChippinRegisterRequest["financial_receiptData_authId"] = receiptData.authId
+                dicChippinRegisterRequest["financial_receiptData_cardData_appId"] = receiptData.cardData!.appId
+                dicChippinRegisterRequest["financial_receiptData_cardData_appLabel"] = receiptData.cardData!.appLabel
+                dicChippinRegisterRequest["financial_receiptData_cardData_cardholderName"] = receiptData.cardData!.cardholderName
+                dicChippinRegisterRequest["financial_receiptData_cardData_maskedPAN"] = receiptData.cardData!.maskedPAN
+                dicChippinRegisterRequest["financial_receiptData_clientFee"] = receiptData.clientFee
+                dicChippinRegisterRequest["financial_receiptData_clientFeeCurrency"] = receiptData.clientFeeCurrency
+                dicChippinRegisterRequest["financial_receiptData_discountFee"] = receiptData.discountFee
+                dicChippinRegisterRequest["financial_receiptData_financialProductDescLong"] = receiptData.financialProductDescLong
+                dicChippinRegisterRequest["financial_receiptData_financialProductDescMedium"] = receiptData.financialProductDescMedium
+                dicChippinRegisterRequest["financial_receiptData_financialProductDescShort"] = receiptData.financialProductDescShort
+                dicChippinRegisterRequest["financial_receiptData_issuerName"] = receiptData.issuerName
+             }
+             else
+             {
+                dicChippinRegisterRequest["financial_receiptData_authId"] = nil
+                dicChippinRegisterRequest["financial_receiptData_cardData_appId"] = nil
+                dicChippinRegisterRequest["financial_receiptData_cardData_appLabel"] = nil
+                dicChippinRegisterRequest["financial_receiptData_cardData_cardholderName"] = nil
+                dicChippinRegisterRequest["financial_receiptData_cardData_maskedPAN"] = nil
+                dicChippinRegisterRequest["financial_receiptData_clientFee"] = nil
+                dicChippinRegisterRequest["financial_receiptData_clientFeeCurrency"] = nil
+                dicChippinRegisterRequest["financial_receiptData_discountFee"] = nil
+                dicChippinRegisterRequest["financial_receiptData_financialProductDescLong"] = nil
+                dicChippinRegisterRequest["financial_receiptData_financialProductDescMedium"] = nil
+                dicChippinRegisterRequest["financial_receiptData_financialProductDescShort"] = nil
+                dicChippinRegisterRequest["financial_receiptData_issuerName"] = nil
+             }
+             dicChippinRegisterRequest["recipientTx_dateTime"] = result.financial.recipientTx.dateTime!
+             dicChippinRegisterRequest["recipientTx_details"] = "Card Purchase"
+             dicChippinRegisterRequest["recipientTx_id"] = result.financial.recipientTx.id!
+             dicChippinRegisterRequest["tx_dateTime"] = result.financial.tx.dateTime!
+             dicChippinRegisterRequest["tx_details"] = "Card Purchase"
+             dicChippinRegisterRequest["tx_id"] = result.financial.tx.id!
+             if let reconciliation = result.reconciliation
+             {
+                dicChippinRegisterRequest["reconciliation"] = reconciliation.recipientId
+                dicChippinRegisterRequest["reconciliationId"] = reconciliation.id
+             }
+             else
+             {
+                dicChippinRegisterRequest["reconciliation"] = nil
+                dicChippinRegisterRequest["reconciliationId"] = 0
+             }
+             dicChippinRegisterRequest["status"] = "Success"
+             dicChippinRegisterRequest["type"] = "PT_AUTHORISATION_WITH_CAPTURE"
+             dicChippinRegisterRequest["statusControle"] = "3"
+             MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + registerChipPinUrl, parameter: dicChippinRegisterRequest as [String : AnyObject], header: [String : String](), success: { (response) in
+                 print(response)
+                 MainReqeustClass.HideActivityIndicatorInStatusBar()
+                 let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+                 let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+                 controller.strSucessMessage = "O envio foi efetuado com sucesso."
+                 self.navigationController?.pushViewController(controller, animated: true)
+             })
+             { (responseError) in
+                 print(responseError)
+                 addErrorView(senderViewController: self, strErrorMessage: responseError)
+                MainReqeustClass.HideActivityIndicatorInStatusBar()
+             }
+            break
+        case PAYMENT_STATUS.MISSINGCREDENTIALS:
+             self.addStatus("Missing credentials")
+             self.setCredentials()
+            break
+        case PAYMENT_STATUS.DECLINED:
+            self.addStatus("Payment declined: \(result.errorCode ?? "")")
+            break
+        case PAYMENT_STATUS.CONFIGURATIONERROR:
+             self.addStatus("Configuration error")
+            break
+        case PAYMENT_STATUS.INTERFACEERROR:
+             self.addStatus("Interface error")
+            break
+        case PAYMENT_STATUS.UNKNOWNDEVICE:
+             self.addStatus("Unknown device")
+            break
+        case PAYMENT_STATUS.DEVICEERROR:
+            self.addStatus("Device error")
+            break
+        case PAYMENT_STATUS.COMMERROR:
+            self.addStatus("Communication error")
+            break
+        case PAYMENT_STATUS.USERCANCELLED:
+            self.addStatus("User canceled")
+            break
+        case PAYMENT_STATUS.USERTIMEOUT:
+            self.addStatus("User timeout")
+            break
+        case PAYMENT_STATUS.PEDUPDATING:
+            self.addStatus("PED UPDATING")
+            break
+        case PAYMENT_STATUS.NO_GPS_LOCATION:
+            self.addStatus("User must enable GPS location")
+            break
+        default:
+            break
+        }
+        // onComplete destroy the Payment Provider
+//        pp = nil
+    }
+    
+    func onStartDeviceConnectionStateChanged(_ event: CONNECTION_STATUS) {
+        switch (event) {
+        case .CONNECTED:
+            self.addStatus("PED connected")
+            break;
+            
+        case .CONNECTING:
+            self.addStatus("PED connecting")
+            break;
+            
+        case .NOTCONNECTED:
+            self.addStatus("PED disconnected")
+            break;
+        }
+    }
+    
+    func onDeviceDetectionError(_ event: DEVICE_DISCOVERY_STATUS) {
+        
+        switch (event) {
+        case .BLUETOOTHNOTAVAILABLE:
+            self.addStatus("Not Available")
+            break
+            
+        case .BLUETOOTHNOTENABLE:
+            self.addStatus("Not enabled")
+            break
+            
+        case .NODEVICEDETECTED:
+            self.addStatus("No device detected")
+            break
+
+        case .INVALIDDEVICEINDEX:
+            self.addStatus("Invalid device index")
+            break
+        }
+    }
+    
+    func onBatteryStatusChange(_ batteryStatus: BatteryEvent) {
+        
+        switch (batteryStatus.state) {
+        case .ON_BATTERY:
+            self.addStatus("BATTERY STATUS: On batttery")
+            break
+            
+        case .CHARGING:
+            self.addStatus("BATTERY STATUS: Charging")
+            break
+            
+        case .CHARGED:
+            self.addStatus("BATTERY STATUS: Charged")
+            break
+            
+        case .BATTERY_LOW:
+            self.addStatus("BATTERY STATUS: Battery low")
+            break
+        }
+        self.addStatus("BATTERY PERCENTAGE: \(batteryStatus.level))")
+    }
+    
+    func onDeviceStatusChange(_ event: DeviceEvent) {
+        self.addStatus("DEVICE STATUS: \(event.status))")
+    }
+    
+    func onCardStatusChange(_ event: CardEvent)
+    {
+        if(event.chip)
+        {
+           self.addStatus("Pagamento com chip")
+        }
+
+        if(event.magStripe)
+        {
+            self.addStatus("Pagamento com pista")
+        }
+    }
+    
+    func onKeyStatusChange(_ event: KeyEvent) {
+        self.addStatus(String(format:"KEY STATUS KEY: %i", event.key))
+    }
+    
+    func onInfo(_ event: InfoEvent)
+    {
+        switch (event.type)
+        {
+        case .WAIT_CARD_INSERTED:
+            self.addStatus("Client should insert card")
+            break
+            
+        case .WAIT_ACTIVATE_CONTACTLESS:
+            self.addStatus("Contactless payment")
+            break
+            
+        case .WAIT_CARD_REMOVED:
+            self.addStatus("Client should remove card")
+            break
+            
+        case .PED_UPDATING:
+            self.addStatus("PED updating")
+            break
+        }
+    }
+    
+    func onAuthorisationProcessing() {
+        self.addStatus("Processing payment")
     }
 }

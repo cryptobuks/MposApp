@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import MSAL
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
     let kAuthority = "https://login.microsoftonline.com/e7f9d69c-13f3-457c-a04c-f555c1134fa4"
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
@@ -41,14 +43,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          two, however the containsPII version might contain Personally Identifiable Information (PII)
          about the user being logged in.
          */
-        
         MSALGlobalConfig.loggerConfig.setLogCallback { (logLevel, message, containsPII) in
             
-            if (!containsPII) {
-                
-                print("%@", message!)
+            // If PiiLoggingEnabled is set YES, this block will potentially contain sensitive information (Personally Identifiable Information), but not all messages will contain it.
+            // containsPII == YES indicates if a particular message contains PII.
+            // You might want to capture PII only in debug builds, or only if you take necessary actions to handle PII properly according to legal requirements of the region
+            if let displayableMessage = message {
+                if (!containsPII) {
+                    #if DEBUG
+                    // NB! This sample uses print just for testing purposes
+                    // You should only ever log to NSLog in debug mode to prevent leaking potentially sensitive information
+                    print(displayableMessage)
+                    #endif
+                }
             }
         }
+
         return true
     }
 
@@ -78,17 +88,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /*! @brief Handles inbound URLs. Checks if the URL matches the redirect URI for a pending
      AppAuth authorization request and if so, will look for the code in the response.
      */
-    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
-            return false
-        }
-        
-        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
     }
-    // MARK: Get account and removing cache
+
     
+    
+    // MARK: Get account and removing cache
     func currentAccount() -> MSALAccount? {
         
         guard let applicationContext = self.applicationContext else { return nil }

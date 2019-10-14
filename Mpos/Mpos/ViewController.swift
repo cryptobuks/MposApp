@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MSAL
+
 class ViewController: UIViewController
 {
     
@@ -29,6 +31,8 @@ class ViewController: UIViewController
     @IBOutlet weak var scrvwLogin: UIScrollView!
     
     var isRememberPassword : Bool = false
+    var webViewParamaters : MSALWebviewParameters?
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -114,9 +118,15 @@ class ViewController: UIViewController
         
         let msalConfiguration = MSALPublicClientApplicationConfig(clientId: appDelegate.kClientID, redirectUri: nil, authority: authority)
         appDelegate.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
+        self.initWebViewParams()
 
     }
     
+    func initWebViewParams() {
+        self.webViewParamaters = MSALWebviewParameters(parentViewController: self)
+    }
+    
+
     /*
      Screen 8 | Onboarding
      The “Mpos_onboarding”, “Mpos_onboarding – 1”, “Mpos_onboarding – 2” screens represent the onboarding panel for this app. They should appear on the first ever login of a user.
@@ -230,8 +240,10 @@ extension ViewController {
     func acquireTokenInteractively() {
         
         guard let applicationContext = appDelegate.applicationContext else { return }
-        
-        let parameters = MSALInteractiveTokenParameters(scopes: appDelegate.kScopes)
+        guard let webViewParameters = self.webViewParamaters else { return }
+
+        let parameters = MSALInteractiveTokenParameters(scopes: appDelegate.kScopes, webviewParameters: webViewParameters)
+        parameters.promptType = .login;
 
         applicationContext.acquireToken(with: parameters) { (result, error) in
             
@@ -339,7 +351,7 @@ extension ViewController {
             
             
             UserDefaultManager.SharedInstance.saveToken(str: "Bearer \(appDelegate.accessToken)")
-             UserDefaultManager.SharedInstance.saveData(dict: result as! [String : Any], strKeyName: kAzureLoginData)
+            UserDefaultManager.SharedInstance.saveData(dict: result as! [String : Any], strKeyName: kAzureLoginData)
             // api call
             if Thread.isMainThread {
 

@@ -46,7 +46,10 @@
 		D31E97F722E44F9A001BE76F /* PaymentSuccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E97F622E44F9A001BE76F /* PaymentSuccessVC.swift */; };
 		D31E97F922E44FAE001BE76F /* PaymentMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31E97F822E44FAE001BE76F /* PaymentMode.storyboard */; };
 		D31E97FB22E47BBC001BE76F /* PaymentMethodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E97FA22E47BBC001BE76F /* PaymentMethodListTableViewCell.swift */; };
+		D336C28A23539A92001A2B83 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D336C28923539A92001A2B83 /* CoreBluetooth.framework */; };
 		D3390D2822EC7E730013067A /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3390D2722EC7E730013067A /* ForgotPasswordVC.swift */; };
+		D34362E42353A8E700441E4E /* PedSDKiOSLib_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34362E22353A87F00441E4E /* PedSDKiOSLib_Swift.framework */; };
+		D34362E52353A8E700441E4E /* PedSDKiOSLib_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D34362E22353A87F00441E4E /* PedSDKiOSLib_Swift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D346ACBB22E3636A001975E6 /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */; };
 		D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35197DA22E021A30051FE0F /* OnboardingViewController.swift */; };
 		D35ADD8822E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35ADD8722E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift */; };
@@ -123,6 +126,20 @@
 		D3ED55B022E62D0200523306 /* DataConfirmationNormalListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3ED55AE22E62D0200523306 /* DataConfirmationNormalListCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D36C2342234E613E00357FF3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D34362E52353A8E700441E4E /* PedSDKiOSLib_Swift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5025BF4792451C800187164E /* Pods-Mpos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mpos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mpos/Pods-Mpos.release.xcconfig"; sourceTree = "<group>"; };
 		A503C27222E56BB100D2EAE7 /* LogoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
@@ -165,7 +182,9 @@
 		D31E97F622E44F9A001BE76F /* PaymentSuccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessVC.swift; sourceTree = "<group>"; };
 		D31E97F822E44FAE001BE76F /* PaymentMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentMode.storyboard; sourceTree = "<group>"; };
 		D31E97FA22E47BBC001BE76F /* PaymentMethodListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodListTableViewCell.swift; sourceTree = "<group>"; };
+		D336C28923539A92001A2B83 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		D3390D2722EC7E730013067A /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		D34362E22353A87F00441E4E /* PedSDKiOSLib_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PedSDKiOSLib_Swift.framework; sourceTree = "<group>"; };
 		D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
 		D35197DA22E021A30051FE0F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D35ADD8722E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodListNormalTableViewCell.swift; sourceTree = "<group>"; };
@@ -262,8 +281,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D336C28A23539A92001A2B83 /* CoreBluetooth.framework in Frameworks */,
 				D3ACC07B22F7E37200602238 /* QuickLook.framework in Frameworks */,
 				D37F816B22E7886F004729D8 /* ImageIO.framework in Frameworks */,
+				D34362E42353A8E700441E4E /* PedSDKiOSLib_Swift.framework in Frameworks */,
 				D38EB80C22DFA17D009FFDFF /* SystemConfiguration.framework in Frameworks */,
 				B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */,
 			);
@@ -411,6 +432,7 @@
 		BBAE67FB76051E6E469355CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D336C28923539A92001A2B83 /* CoreBluetooth.framework */,
 				D3ACC07A22F7E37200602238 /* QuickLook.framework */,
 				D37F816A22E7886F004729D8 /* ImageIO.framework */,
 				D38EB80B22DFA17D009FFDFF /* SystemConfiguration.framework */,
@@ -450,6 +472,14 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		D34362E12353A87F00441E4E /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				D34362E22353A87F00441E4E /* PedSDKiOSLib_Swift.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
 		D35197D922E021320051FE0F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +512,7 @@
 		D378CB3022DF9B13004B51AC /* Mpos */ = {
 			isa = PBXGroup;
 			children = (
+				D34362E12353A87F00441E4E /* Framework */,
 				A57490002333FD43000134F4 /* Mpos.entitlements */,
 				D3390D2622EC7E230013067A /* ForgotPassword */,
 				A54FFBAE22EA11A200F03281 /* ReceiptDetails */,
@@ -701,6 +732,7 @@
 				D378CB2B22DF9B13004B51AC /* Frameworks */,
 				D378CB2C22DF9B13004B51AC /* Resources */,
 				A44C1F5F1DA0451A2C599381 /* [CP] Embed Pods Frameworks */,
+				D36C2342234E613E00357FF3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -991,7 +1023,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1062,11 +1094,42 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9W84C5JU7K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Mpos/Framework",
+				);
 				INFOPLIST_FILE = Mpos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MSAL\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.via.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1086,11 +1149,42 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9W84C5JU7K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Mpos/Framework",
+				);
 				INFOPLIST_FILE = Mpos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MSAL\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.via.Mpos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
