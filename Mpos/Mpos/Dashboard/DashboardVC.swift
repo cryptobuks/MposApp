@@ -291,9 +291,13 @@ extension DashboardVC: UITableViewDataSource,UITableViewDelegate
             }
             if(self.dictNotificationobject.count > 0)
             {
-                cell.imgBadge.isHidden = false
-                cell.lblBadgeCount.isHidden = false
-                cell.lblBadgeCount.text =  "\(self.dictNotificationobject["quantity"] ?? "")"
+                //- Home screen: When the COBRADOS notification icon is equal to 0, app must hide the notification. (err1.png)
+                if Int(truncating: self.dictNotificationobject["quantity"] as! NSNumber) > 0
+                {
+                    cell.imgBadge.isHidden = false
+                    cell.lblBadgeCount.isHidden = false
+                    cell.lblBadgeCount.text =  "\(self.dictNotificationobject["quantity"] ?? "")"
+                }
             }
             break
         default:

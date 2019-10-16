@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class PaymentMethodListVC: UIViewController
 {
@@ -28,9 +29,11 @@ class PaymentMethodListVC: UIViewController
     var objSelectedCompany = [String:Any]()
     var arrReceipts = [[String:Any]]()
     var dicChipPin = [String:AnyObject]()
+    var objChipPinView = MposPinVC()
     
     //ChipPin Variable
     var pp: PaymentProviderProtocol?
+    let locationMgr = CLLocationManager()
 
     
     override func viewDidLoad()
@@ -77,6 +80,24 @@ class PaymentMethodListVC: UIViewController
         
         btnContinue.setTitle("COBRAR \(totalAmt)", for: .normal)
         // Do any additional setup after loading the view.
+        
+        let status = CLLocationManager.authorizationStatus()
+        switch status {
+            // 1
+        case .notDetermined:
+                locationMgr.requestWhenInUseAuthorization()
+                return
+            // 2
+        case .denied, .restricted:
+            let alert = UIAlertController(title: "Location Services disabled", message: "Please enable Location Services in Settings to accept payments mPOS needs to access your location.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+
+            present(alert, animated: true, completion: nil)
+            return
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+        }
     }
     
     //MARK: User Actions
@@ -124,7 +145,6 @@ class PaymentMethodListVC: UIViewController
                 let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
                 controller.strSucessMessage = "O envio foi efetuado com sucesso."
                 self.navigationController?.pushViewController(controller, animated: true)
-                
             })
             { (responseError) in
                 print(responseError)
@@ -226,6 +246,10 @@ class PaymentMethodListVC: UIViewController
                     print(response)
                     
                     //Call SDK Process
+                    let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+                    self.objChipPinView = storyBoard.instantiateViewController(withIdentifier: "MposPinVC") as! MposPinVC
+                    self.objChipPinView.bViewAdded = true
+                    self.view.addSubview(self.objChipPinView.view)
                     MainReqeustClass.ShowActivityIndicatorInStatusBar(shouldShowHUD: true)
                     self.processPurchase()
                     /*
@@ -566,6 +590,7 @@ extension PaymentMethodListVC:PaymentListener
              dicChippinRegisterRequest["statusControle"] = "3"
              MainReqeustClass.BaseRequestSharedInstance.postRequestWithHeader(showLoader: true, url: basemock_Url + registerChipPinUrl, parameter: dicChippinRegisterRequest as [String : AnyObject], header: [String : String](), success: { (response) in
                  print(response)
+                self.objChipPinView.view.removeFromSuperview()
                  MainReqeustClass.HideActivityIndicatorInStatusBar()
                  let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
                  let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
@@ -574,6 +599,7 @@ extension PaymentMethodListVC:PaymentListener
              })
              { (responseError) in
                  print(responseError)
+                self.objChipPinView.view.removeFromSuperview()
                  addErrorView(senderViewController: self, strErrorMessage: responseError)
                 MainReqeustClass.HideActivityIndicatorInStatusBar()
              }

@@ -208,6 +208,7 @@ extension DataConfirmationVC: UITableViewDataSource,UITableViewDelegate
         case arrReceipts.count+1:
             let cellListwithLogoCell = tableView.dequeueReusableCell(withIdentifier: "DataConfirmationDropDownCell", for: indexPath) as! DataConfirmationDropDownCell
             cellListwithLogoCell.lblTitle.textColor = lblColor
+            cellListwithLogoCell.strEmail = "\(objClientRef["email"] as? String ?? "")"
             cellListwithLogoCell.btnDropDownTapped =
                 { text in
                  

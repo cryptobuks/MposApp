@@ -49,9 +49,10 @@
 		D336C28A23539A92001A2B83 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D336C28923539A92001A2B83 /* CoreBluetooth.framework */; };
 		D3390D2822EC7E730013067A /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3390D2722EC7E730013067A /* ForgotPasswordVC.swift */; };
 		D34362E42353A8E700441E4E /* PedSDKiOSLib_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34362E22353A87F00441E4E /* PedSDKiOSLib_Swift.framework */; };
-		D34362E52353A8E700441E4E /* PedSDKiOSLib_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D34362E22353A87F00441E4E /* PedSDKiOSLib_Swift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D34362E52353A8E700441E4E /* PedSDKiOSLib_Swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D34362E22353A87F00441E4E /* PedSDKiOSLib_Swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D346ACBB22E3636A001975E6 /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */; };
 		D35197DB22E021A30051FE0F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35197DA22E021A30051FE0F /* OnboardingViewController.swift */; };
+		D35216822357842C003C496A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35216812357842B003C496A /* CoreLocation.framework */; };
 		D35ADD8822E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35ADD8722E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift */; };
 		D378CB3222DF9B13004B51AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB3122DF9B13004B51AC /* AppDelegate.swift */; };
 		D378CB3422DF9B13004B51AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378CB3322DF9B13004B51AC /* ViewController.swift */; };
@@ -187,6 +188,7 @@
 		D34362E22353A87F00441E4E /* PedSDKiOSLib_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PedSDKiOSLib_Swift.framework; sourceTree = "<group>"; };
 		D346ACBA22E3636A001975E6 /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
 		D35197DA22E021A30051FE0F /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		D35216812357842B003C496A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D35ADD8722E49787007ED31D /* PaymentMethodListNormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodListNormalTableViewCell.swift; sourceTree = "<group>"; };
 		D378CB2E22DF9B13004B51AC /* Mpos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mpos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D378CB3122DF9B13004B51AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				D3ACC07B22F7E37200602238 /* QuickLook.framework in Frameworks */,
 				D37F816B22E7886F004729D8 /* ImageIO.framework in Frameworks */,
 				D34362E42353A8E700441E4E /* PedSDKiOSLib_Swift.framework in Frameworks */,
+				D35216822357842C003C496A /* CoreLocation.framework in Frameworks */,
 				D38EB80C22DFA17D009FFDFF /* SystemConfiguration.framework in Frameworks */,
 				B6CCF5A43F3B7F09AC5817E8 /* Pods_Mpos.framework in Frameworks */,
 			);
@@ -432,6 +435,7 @@
 		BBAE67FB76051E6E469355CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D35216812357842B003C496A /* CoreLocation.framework */,
 				D336C28923539A92001A2B83 /* CoreBluetooth.framework */,
 				D3ACC07A22F7E37200602238 /* QuickLook.framework */,
 				D37F816A22E7886F004729D8 /* ImageIO.framework */,
@@ -1093,11 +1097,13 @@
 				CODE_SIGN_ENTITLEMENTS = Mpos/Mpos.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = 9W84C5JU7K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Mpos/Framework",
+					"$(PROJECT_DIR)/Mpos/Framework_AppStore",
 				);
 				INFOPLIST_FILE = Mpos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1105,6 +1111,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1148,11 +1155,13 @@
 				CODE_SIGN_ENTITLEMENTS = Mpos/Mpos.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = 9W84C5JU7K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Mpos/Framework",
+					"$(PROJECT_DIR)/Mpos/Framework_AppStore",
 				);
 				INFOPLIST_FILE = Mpos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1160,7 +1169,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				MARKETING_VERSION = 2.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",

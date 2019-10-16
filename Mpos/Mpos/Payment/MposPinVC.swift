@@ -10,24 +10,41 @@ import UIKit
 
 class MposPinVC: UIViewController {
 
+    var bViewAdded = Bool()
+    @IBOutlet weak var btnClose: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if bViewAdded == true
+        {
+            btnClose.isHidden = true
+        }
     }
     
     @IBAction func viewTapped(_ sender: UIButton)
     {
-        let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
-        controller.strSucessMessage = "A cobrança foi efetuada com sucesso."
-        self.navigationController?.pushViewController(controller, animated: true)
+        if bViewAdded == false
+        {
+            let storyBoard = UIStoryboard(name: "PaymentMode", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "PaymentSuccessVC") as! PaymentSuccessVC
+            controller.strSucessMessage = "A cobrança foi efetuada com sucesso."
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     //MARK: User Actions
     @IBAction func closeTapped(_ sender: UIButton)
     {
-        self.navigationController?.popViewController(animated: true)
+        if bViewAdded == false
+        {
+            self.navigationController?.popViewController(animated: true)
+        }
+        else
+        {
+            self.view.removeFromSuperview()
+        }
     }
     /*
     // MARK: - Navigation

@@ -16,6 +16,7 @@ class DataConfirmationDropDownCell: UITableViewCell
     @IBOutlet weak var ctHeightbtnDropDown: NSLayoutConstraint!
 
     var btnDropDownTapped: ((String)->())?
+    var strEmail = String()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +31,7 @@ class DataConfirmationDropDownCell: UITableViewCell
     
     @IBAction func btnDropDownAction(_ sender: UIButton)
     {
-        let arrtemp = ["Eu entrego ao cliente","Ageas envia automaticamente","email para luis.gomes@mail.com"]
+        let arrtemp = ["Eu entrego ao cliente","Ageas envia automaticamente","email para \(strEmail)"]
         ActionSheetStringPicker.show(withTitle: "", rows: arrtemp as [Any], initialSelection: 0, doneBlock:
             {
                 picker, value, index in
